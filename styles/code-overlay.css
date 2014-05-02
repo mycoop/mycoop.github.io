@@ -77,7 +77,7 @@
     color: transparent !important;
     text-indent: -99999px;
     opacity: 1 !important;
-    background: transparent url("/experiences/modals_v3/images/video-overlay/close-box-on-white.jpg") no-repeat center center;
+    background: transparent url("../experiences/modals_v3/images/video-overlay/close-box-on-white.jpg") no-repeat center center;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
@@ -266,7 +266,7 @@
 
 #fud-hero .fud-bg{
     position: relative;
-    background: url(/experiences/hero/images/bg-fud-couch.jpg) no-repeat 75% 39%;
+    background: url(../experiences/hero/images/bg-fud-couch.jpg) no-repeat 75% 39%;
     background-size: cover;
     display: block;
     min-height: 150px;
@@ -1030,7 +1030,7 @@ div.circles-ph2{
         display:block;
     }
     div.row.ph2-content{
-        background:url(/experiences/reimagine/images/people-circles.jpg) 50% no-repeat #eaeaea;
+        background:url(../experiences/reimagine/images/people-circles.jpg) 50% no-repeat #eaeaea;
         background-size: contain;
         max-width: 970px;
         margin:0 auto;
@@ -1071,9 +1071,9 @@ div.circles-ph2{
         opacity:1;
     }
 
-    .sticker-chat{background:url(/experiences/reimagine/images/sticker-chat.png) 50% no-repeat transparent;}
-    .sticker-phone{background:url(/experiences/reimagine/images/sticker-phone.png) 50% no-repeat transparent;}
-    .sticker-ttlc{background:url(/experiences/reimagine/images/sticker-ttlc.png) 50% no-repeat transparent;}
+    .sticker-chat{background:url(../experiences/reimagine/images/sticker-chat.png) 50% no-repeat transparent;}
+    .sticker-phone{background:url(../experiences/reimagine/images/sticker-phone.png) 50% no-repeat transparent;}
+    .sticker-ttlc{background:url(../experiences/reimagine/images/sticker-ttlc.png) 50% no-repeat transparent;}
 
     div.stickers:hover{
 
@@ -1213,7 +1213,7 @@ div.circles-ph2{
 }
 
 #product-tour-cake .video-wrap:hover .play-button{
-    background: url(/experiences/reimagine/images/img-play-sm-hover.png) center center no-repeat;
+    background: url(../experiences/reimagine/images/img-play-sm-hover.png) center center no-repeat;
     cursor: pointer;
 }
 
@@ -1235,7 +1235,7 @@ div.circles-ph2{
     z-index: 10;
     height: 100%;
     width: 100%;
-    background: url(/experiences/reimagine/images/img-play-sm.png) center center no-repeat;
+    background: url(../experiences/reimagine/images/img-play-sm.png) center center no-repeat;
 }
 
 @media(min-width: 768px){
@@ -1499,10 +1499,10 @@ div.circles-ph2{
     outline: none;
 }
 
-#guarantees-cake .slider-prev > a{left: 0;background: url(/experiences/reimagine/images/arrow-back.jpg) center center no-repeat;}
-#guarantees-cake .slider-next > a{right: 0; background: url(/experiences/reimagine/images/arrow-forward.jpg) center center no-repeat;}
-#guarantees-cake .slider-prev > a:hover{background: url(/experiences/reimagine/images/arrow-back-out.jpg) center center no-repeat;}
-#guarantees-cake .slider-next > a:hover{background: url(/experiences/reimagine/images/arrow-forward-out.jpg) center center no-repeat;}
+#guarantees-cake .slider-prev > a{left: 0;background: url(../experiences/reimagine/images/arrow-back.jpg) center center no-repeat;}
+#guarantees-cake .slider-next > a{right: 0; background: url(../experiences/reimagine/images/arrow-forward.jpg) center center no-repeat;}
+#guarantees-cake .slider-prev > a:hover{background: url(../experiences/reimagine/images/arrow-back-out.jpg) center center no-repeat;}
+#guarantees-cake .slider-next > a:hover{background: url(../experiences/reimagine/images/arrow-forward-out.jpg) center center no-repeat;}
 
 #guarantees-cake .bx-pager{
     position: absolute;
@@ -1575,13 +1575,13 @@ div.circles-ph2{
 }
 
 .product-comp-chart .bzOuter {
-    background: 	url(/experiences/bazaarvoice/images/large-rating-1_0.png) 0 0 no-repeat;
+    background: 	url(../experiences/bazaarvoice/images/large-rating-1_0.png) 0 0 no-repeat;
     height: 		20px;
     width: 			110px;
 }
 
 .product-comp-chart .bzInner {
-    background: 	url(/experiences/bazaarvoice/images/large-rating-5_0.png) 0 0 no-repeat;
+    background: 	url(../experiences/bazaarvoice/images/large-rating-5_0.png) 0 0 no-repeat;
     height: 		20px;
     width: 			110px;
     text-indent: 	-9999px;
@@ -1651,7 +1651,7 @@ div.circles-ph2{
     padding-left: 12px;
     width: 110px;
 }
-.product-comp-chart .table tbody .checked {background: #fbfbfb url('/experiences/cake/images/checkmark-green-dot.png') no-repeat center center;}
+.product-comp-chart .table tbody .checked {background: #fbfbfb url('../experiences/cake/images/checkmark-green-dot.png') no-repeat center center;}
 .product-comp-chart .table tbody td {
     height:55px;
     vertical-align: middle;
@@ -1946,14 +1946,14 @@ div.circles-ph2{
 
 .bzOuter {
     display:		block;
-    background: 	url(/experiences/bazaarvoice/images/rating-1_0.png) 0 0 no-repeat;
+    background: 	url(../experiences/bazaarvoice/images/rating-1_0.png) 0 0 no-repeat;
     height: 		14px;
     width: 			75px;
 }
 .bzInner {
     position: relative;
     display:		block;
-    background: 	url(/experiences/bazaarvoice/images/rating-5_0.png) 0 0 no-repeat;
+    background: 	url(../experiences/bazaarvoice/images/rating-5_0.png) 0 0 no-repeat;
     height: 		14px;
     width: 			75px;
     text-indent: 	-9999px
