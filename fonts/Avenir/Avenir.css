@@ -1,0 +1,65 @@
+/*
+#Avenir font file
+
+###Avenir Weights
+
++200 (Avenir Light)
++400 (Avenir Roman)
++600 (Avenir Medium)
++800 (Avenir Heavy)
+
+Do not use alternative font weights, they are not licensed and will only function for users with the font installed locally.
+
+[Download Avenir font pack](Avenir.zip)
+
+
+*/
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('AvenirLT-Light.eot');
+    src: url('AvenirLT-Light.eot?#iefix') format('embedded-opentype'),
+    url('AvenirLT-Light.woff') format('woff'),
+    url('AvenirLT-Light.ttf') format('truetype'),
+    url('AvenirLT-Light.svg#Avenir') format('svg');
+    font-weight: 200;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('AvenirLT-Roman.eot');
+    src: url('AvenirLT-Roman.eot?#iefix') format('embedded-opentype'),
+    url('AvenirLT-Roman.woff') format('woff'),
+    url('AvenirLT-Roman.ttf') format('truetype'),
+    url('AvenirLT-Roman.svg#Avenir') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('AvenirLT-Medium.eot');
+    src: url('AvenirLT-Medium.eot?#iefix') format('embedded-opentype'),
+    url('AvenirLT-Medium.woff') format('woff'),
+    url('AvenirLT-Medium.ttf') format('truetype'),
+    url('AvenirLT-Medium.svg#Avenir') format('svg');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('AvenirLT-Heavy.eot');
+    src: url('AvenirLT-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('AvenirLT-Heavy.woff') format('woff'),
+    url('AvenirLT-Heavy.ttf') format('truetype'),
+    url('AvenirLT-Heavy.svg#Avenir') format('svg');
+    font-weight: 800;
+    font-style: normal;
+
+}
