@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.html" afterPath="$PROJECT_DIR$/app.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -27,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38323355" vertical-offset="828" max-vertical-offset="2700">
-              <caret line="181" column="110" selection-start-line="181" selection-start-column="110" selection-end-line="181" selection-end-column="110" />
+            <state vertical-scroll-proportion="-3.0" vertical-offset="903" max-vertical-offset="2700">
+              <caret line="189" column="12" selection-start-line="189" selection-start-column="12" selection-end-line="189" selection-end-column="12" />
               <folding>
                 <element signature="tag#script#0;tag#head#0;tag#html#0" expanded="false" />
                 <element signature="tag#nav#0;tag#body#0;tag#html#0" expanded="false" />
@@ -44,17 +43,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1012658" vertical-offset="978" max-vertical-offset="36690">
-              <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="4048" max-vertical-offset="36690">
+              <caret line="281" column="106" selection-start-line="281" selection-start-column="103" selection-end-line="281" selection-end-column="106" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="tag#script#7;tag#body#0;tag#html#0" expanded="false" />
-                <marker date="1399304819000" expanded="true" signature="110011:110231" placeholder="..." />
-                <marker date="1399304819000" expanded="true" signature="110029:110223" placeholder="{...}" />
+                <marker date="1399305066000" expanded="true" signature="110007:110227" placeholder="..." />
+                <marker date="1399305066000" expanded="true" signature="110025:110219" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -160,8 +159,8 @@
         <option value="$PROJECT_DIR$/views/main.html" />
         <option value="$PROJECT_DIR$/views/login.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/login.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -509,7 +508,11 @@
       <created>1399303535903</created>
       <updated>1399303535903</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed logo.">
+      <created>1399304870957</created>
+      <updated>1399304870957</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -587,7 +590,8 @@
     <MESSAGE value="Fixed images paths." />
     <MESSAGE value="Added sign up and main pages. Integrated angularjs application." />
     <MESSAGE value="Fixed some images and links." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some images and links." />
+    <MESSAGE value="Fixed logo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed logo." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1021,24 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1012658" vertical-offset="978" max-vertical-offset="36690">
-          <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#script#7;tag#body#0;tag#html#0" expanded="false" />
-            <marker date="1399304819000" expanded="true" signature="110011:110231" placeholder="..." />
-            <marker date="1399304819000" expanded="true" signature="110029:110223" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38323355" vertical-offset="828" max-vertical-offset="2700">
-          <caret line="181" column="110" selection-start-line="181" selection-start-column="110" selection-end-line="181" selection-end-column="110" />
+        <state vertical-scroll-proportion="-3.0" vertical-offset="903" max-vertical-offset="2700">
+          <caret line="189" column="12" selection-start-line="189" selection-start-column="12" selection-end-line="189" selection-end-column="12" />
           <folding>
             <element signature="tag#script#0;tag#head#0;tag#html#0" expanded="false" />
             <element signature="tag#nav#0;tag#body#0;tag#html#0" expanded="false" />
@@ -1046,6 +1036,20 @@
             <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="4048" max-vertical-offset="36690">
+          <caret line="281" column="106" selection-start-line="281" selection-start-column="103" selection-end-line="281" selection-end-column="106" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="tag#script#7;tag#body#0;tag#html#0" expanded="false" />
+            <marker date="1399305066000" expanded="true" signature="110007:110227" placeholder="..." />
+            <marker date="1399305066000" expanded="true" signature="110025:110219" placeholder="{...}" />
           </folding>
         </state>
       </provider>
