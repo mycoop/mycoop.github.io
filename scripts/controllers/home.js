@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopApp')
+angular.module('myCoopOnlineApp')
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
