@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="Added the home page.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/vendor/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/income.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mycoop-online.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/online-app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/app/welcome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/app/aggregate-index.css" afterPath="$PROJECT_DIR$/styles/app/aggregate-index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.html" afterPath="$PROJECT_DIR$/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/home.js" afterPath="$PROJECT_DIR$/scripts/controllers/home.js" />
+    <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/main.html" afterPath="$PROJECT_DIR$/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -90,8 +82,8 @@
       <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30374753" vertical-offset="566" max-vertical-offset="4005">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.2615063" vertical-offset="595" max-vertical-offset="4005">
+              <caret line="48" column="71" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -546,7 +538,11 @@
       <created>1399305074996</created>
       <updated>1399305074996</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added the home page.">
+      <created>1399323951330</created>
+      <updated>1399323951330</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -626,7 +622,8 @@
     <MESSAGE value="Fixed some images and links." />
     <MESSAGE value="Fixed logo." />
     <MESSAGE value="Fixed links." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed links." />
+    <MESSAGE value="Added the home page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the home page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1139,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30374753" vertical-offset="566" max-vertical-offset="4005">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.2615063" vertical-offset="595" max-vertical-offset="4005">
+          <caret line="48" column="71" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
           <folding />
         </state>
       </provider>
