@@ -1,0 +1,106 @@
+<div id="viewport" class="container" data-sid="modules/authwidgets/views/screens/SignInScreen">
+
+    <link rel="stylesheet" type="text/css" href="/my-coop/fonts/Avenir/Avenir.css"/>
+    <link rel="stylesheet" type="text/css" href="/my-coop/fonts/TurboDigs/TurboDigs.css"/>
+    <link rel="stylesheet" type="text/css" href="/my-coop/styles/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/aggregate-index.css"/>
+    <div class="row signInFramed">
+        <div class="col-xs-12">
+
+            <!--this div gets filled in by the IUS widget-->
+            <div id="ius-sign-in-widget">
+                <div id="ius-sign-in-wrapper" class="ius-reset ius ius-sign-in-widget">
+                    <section id="ius-sign-in" class="ius-section">
+                        <header class="ius-default-bottom-spacer">
+                            <span id="ius-sign-in-header" class="ius-header">Sign In</span>
+                            <span id="ius-sign-in-sub-header" class="ius-sub-header"></span>
+                        </header>
+                        <div id="ius-sign-in-messages" ng-show="false">
+                            <div id="ius-sign-in-error" aria-live="assertive" role="alert"
+                                 class="ius-default-bottom-margin ius-error-alert">
+                                The user ID or password entered is incorrect.<br>
+                                <a id="ius-account-recovery-link" href="">I forgot my user ID or password</a>
+                            </div>
+
+                        </div>
+                        <form action="" method="post" autocomplete="on" novalidate="">
+                            <fieldset id="ius-fieldset-userid">
+                                <label id="ius-label-userid" class="ius-label" for="ius-userid">User ID</label>
+                                <div class="ius-text-input-container">
+                                    <input id="ius-userid" class="ius-text-input" name="Email" type="email"
+                                           ng-model="credentials.email"
+                                           aria-required="true"
+                                           required="required" data-valid="valid">
+                                    <span id="ius-status-userid" class="ius-status" aria-live="assertive"
+                                          role="alert"></span>
+                                </div>
+            <span id="ius-error-userid" class="ius-error ius-field-block" for="ius-userid" aria-live="assertive"
+                  role="alert"></span>
+                            </fieldset>
+
+                            <fieldset id="ius-fieldset-password">
+                                <label id="ius-label-password" class="ius-label"
+                                       for="ius-sign-in-password">Password</label>
+
+                                <div class="ius-text-input-container">
+                                    <input id="ius-password"
+                                           class="ius-text-input <!--ius-input-error-->"
+                                           name="Password" type="password"
+                                           ng-model="credentials.password"
+                                           aria-required="true"
+                                           required="required" data-valid="valid">
+                                    <span id="ius-status-password" class="ius-status ius-warning" aria-live="assertive"
+                                          role="alert"></span>
+                                </div>
+            <span id="ius-error-password" class="ius-error ius-field-block" ng-show="false" for="ius-password" aria-live="assertive"
+                  role="alert"> Please enter password.</span>
+                            </fieldset>
+
+
+                            <div id="ius-label-remember"
+                                 class="ius-checkbox-container ius-remember-me ius-default-bottom-spacer">
+                                <input id="ius-remember" class="ius-checkbox-input" type="checkbox">
+                                <label class="ius-checkbox-label" for="ius-remember"></label>
+                                <label id="ius-label-remember-me" class="ius-checkbox-text ius-display-inline-block"
+                                       for="ius-remember">
+                                    Remember me</label>
+                            </div>
+
+                            <div id="ius-sign-in-actions"
+                                 class="ius-default-bottom-spacer ius-clearfix ius-btn-container">
+                                <input id="ius-sign-in-submit-btn"
+                                       class="ius-btn ius-btn-submit ius-display-inline-block ius-float-left"
+                                       name="SignIn" type="submit" value="Sign In" ng-click="login()">
+                            </div>
+                        </form>
+
+                        <ul>
+                            <li><a id="ius-link-account-recovery"
+                                   href="https://myturbotax.intuit.com/?vwName=signin&amp;customerSource=3468337910#recovery">I
+                                forgot my
+                                user ID or password</a></li>
+                            <li class="ius-hide" style="display: none;"><a id="ius-link-pwd-recovery" href="#">Forgot
+                                your password?</a>
+                            </li>
+                            <li class="ius-hide" style="display: none;"><a id="ius-link-userid-recovery" href="#">Forgot
+                                your user ID?</a>
+                            </li>
+                            <li class="ius-hide" style="display: none;"><a id="ius-link-sign-up" href="#"
+                                                                           style="display: none;"></a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div id="signInAdditionalLinks" style="">
+                <p class="SignInLiscenseAgreement">
+                    By clicking Sign In, you agree to our <a id="showTtoLicenseAgreement" data-link-id="128"
+                                                             href="https://turbotax.intuit.com/corp/ttolicense.jsp"
+                                                             target="_blank">License
+                    Agreement</a>.
+                </p>
+                <!--<a href="/" id="recoveryLink">I forgot my username or password</a><br>-->
+                New to TurboTax? <a href="#/signup">Create an account.</a>
+            </div>
+        </div>
+    </div>
+</div>

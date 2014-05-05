@@ -1,0 +1,1415 @@
+
+@font-face {
+    font-family: 'TurboDings';
+    src: url('TurboDings.eot');
+    src: url('TurboDings.eot?#iefix') format('embedded-opentype'),
+    url('TurboDings.woff') format('woff'),
+    url('TurboDings.ttf') format('truetype'),
+    url('TurboDings.svg#TurboDings') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.glyph {
+    font-size: 20px;
+    float: left;
+    text-align: center;
+    background: #eee;
+    padding: .75em;
+    margin: .75em 1.5em .75em 0;
+    width: 7.5em;
+    border-radius: .25em;
+    box-shadow: inset 0 0 0 1px #f8f8f8, 0 0 0 1px #CCC;
+}
+.glyph input {
+    font-family: consolas, monospace!important;
+    font-size: 13px!important;
+    width: 100%!important;
+    text-align: center!important;
+    border: 0!important;
+    box-shadow: 0 0 0 1px #ccc!important;
+    padding: .125em!important;
+    padding: 4px 0px!important;
+    margin-top: 10px!important;
+    margin-bottom: 2px!important;
+}
+.w-main {
+    width: 80%;
+}
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.fs1 {
+    font-size: 2em;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after, .clear { clear: both; }
+
+.box1 {
+    font-size: 20px;
+    display: inline-block;
+    width: 15em;
+
+    padding: .25em .5em;
+    background: #eee;
+    margin: .5em 1em .5em 0;
+}
+
+
+/*
+#TurboDings Glyph Icons
+
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe001;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe001;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe002;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe002;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe003;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe003;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe004;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe004;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe005;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe005;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe008;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe008;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe009;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe009;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00b;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00b;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe00f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe00f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe012;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe012;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe013;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe013;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe014;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe014;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe015;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe015;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe016;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe016;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe019;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe019;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe01a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe01a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe01d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe01d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe01e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe01e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe01f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe01f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe020;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe020;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe021;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe021;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe022;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe022;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe023;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe023;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe024;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe024;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe025;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe025;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe026;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe026;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe027;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe027;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe029;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe029;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe02a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe02a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe02b;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe02b;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe02c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe02c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe02d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe02d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe02f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe02f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe031;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe031;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe032;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe032;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe034;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe034;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe035;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe035;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe036;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe036;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe037;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe037;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe038;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe038;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe039;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe039;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe03d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe03d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe03e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe03e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe03f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe03f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe040;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe040;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe043;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe043;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe044;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe044;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe045;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe045;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe046;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe046;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe047;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe047;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe048;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe048;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe049;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe049;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe04a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe04a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe04b;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe04b;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe04c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe04c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe04f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe04f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe053;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe053;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe054;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe054;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe056;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe056;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe057;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe057;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe059;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe059;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05b;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05b;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe05f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe05f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe060;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe060;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe061;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe061;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe063;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe063;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe064;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe064;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe065;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe065;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe066;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe066;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe067;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe067;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe068;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe068;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe069;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe069;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe06a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe06a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe06c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe06c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe06d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe06d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe06e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe06e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe06f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe06f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe070;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe070;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe071;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe071;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe072;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe072;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe073;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe073;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe074;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe074;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe075;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe075;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe076;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe076;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe077;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe077;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe07a;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe07a;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe07c;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe07c;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe07d;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe07d;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe07e;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe07e;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe07f;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe07f;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe082;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe082;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe000;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe000;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe083;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe083;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe017;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe017;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe018;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe018;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe010;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe010;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe01b;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe01b;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe028;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe028;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe062;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe062;" />
+	</div>
+
+
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe600;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe600;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe601;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe601;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe602;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe602;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe603;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe603;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe604;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe604;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe605;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe605;" />
+	</div>
+ 	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe602;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe602;" />
+		<input type="text" readonly="readonly" value="&amp;#xe603;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe606;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe606;" />
+	</div>
+	<div class="glyph">
+		<div class="fs1" aria-hidden="true" data-icon="&#xe607;"></div>
+		<input type="text" readonly="readonly" value="&amp;#xe607;" />
+	</div>
+
+	<div class="clear"></div>
+```
+
+	#Class Names
+
+```
+	<span class="box1">
+		<span aria-hidden="true" class="TD-zoom-out"></span>
+		&nbsp;TD-zoom-out
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-zoom-in"></span>
+		&nbsp;TD-zoom-in
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-x3"></span>
+		&nbsp;TD-x3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-x2"></span>
+		&nbsp;TD-x2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-x1"></span>
+		&nbsp;TD-x1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-warning"></span>
+		&nbsp;TD-warning
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-upload"></span>
+		&nbsp;TD-upload
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-up5"></span>
+		&nbsp;TD-up5
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-up4"></span>
+		&nbsp;TD-up4
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-up3"></span>
+		&nbsp;TD-up3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-up2"></span>
+		&nbsp;TD-up2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-up1"></span>
+		&nbsp;TD-up1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-undo"></span>
+		&nbsp;TD-undo
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-trash"></span>
+		&nbsp;TD-trash
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-train"></span>
+		&nbsp;TD-train
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-track"></span>
+		&nbsp;TD-track
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-tablet"></span>
+		&nbsp;TD-tablet
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-stopwatch"></span>
+		&nbsp;TD-stopwatch
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-star1"></span>
+		&nbsp;TD-star1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-speedometer"></span>
+		&nbsp;TD-speedometer
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-settings"></span>
+		&nbsp;TD-settings
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-search"></span>
+		&nbsp;TD-search
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-safari"></span>
+		&nbsp;TD-safari
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-rss"></span>
+		&nbsp;TD-rss
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-right5"></span>
+		&nbsp;TD-right5
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-right4"></span>
+		&nbsp;TD-right4
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-right3"></span>
+		&nbsp;TD-right3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-right2"></span>
+		&nbsp;TD-right2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-right1"></span>
+		&nbsp;TD-right1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-refresh"></span>
+		&nbsp;TD-refresh
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-redo"></span>
+		&nbsp;TD-redo
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-question"></span>
+		&nbsp;TD-question
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-print"></span>
+		&nbsp;TD-print
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-pricetag"></span>
+		&nbsp;TD-pricetag
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-plus"></span>
+		&nbsp;TD-plus
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-plane"></span>
+		&nbsp;TD-plane
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-pie-chart"></span>
+		&nbsp;TD-pie-chart
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-phone"></span>
+		&nbsp;TD-phone
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-people"></span>
+		&nbsp;TD-people
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-no"></span>
+		&nbsp;TD-no
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-moving-truck"></span>
+		&nbsp;TD-moving-truck
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-monitor"></span>
+		&nbsp;TD-monitor
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-money-sack"></span>
+		&nbsp;TD-money-sack
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-mobile"></span>
+		&nbsp;TD-mobile
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-minus"></span>
+		&nbsp;TD-minus
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-male"></span>
+		&nbsp;TD-male
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-mail"></span>
+		&nbsp;TD-mail
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-lock"></span>
+		&nbsp;TD-lock
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-loading"></span>
+		&nbsp;TD-loading
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-line-graph"></span>
+		&nbsp;TD-line-graph
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-lightbulb"></span>
+		&nbsp;TD-lightbulb
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-left5"></span>
+		&nbsp;TD-left5
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-left4"></span>
+		&nbsp;TD-left4
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-left3"></span>
+		&nbsp;TD-left3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-left2"></span>
+		&nbsp;TD-left2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-left1"></span>
+		&nbsp;TD-left1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-laptop"></span>
+		&nbsp;TD-laptop
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-info"></span>
+		&nbsp;TD-info
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-important"></span>
+		&nbsp;TD-important
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-home"></span>
+		&nbsp;TD-home
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-global"></span>
+		&nbsp;TD-global
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-gift"></span>
+		&nbsp;TD-gift
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-flickr"></span>
+		&nbsp;TD-flickr
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-flag"></span>
+		&nbsp;TD-flag
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-female"></span>
+		&nbsp;TD-female
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-facebook"></span>
+		&nbsp;TD-facebook
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-experts"></span>
+		&nbsp;TD-experts
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-education"></span>
+		&nbsp;TD-education
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-edit"></span>
+		&nbsp;TD-edit
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-download"></span>
+		&nbsp;TD-download
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down5"></span>
+		&nbsp;TD-down5
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down4"></span>
+		&nbsp;TD-down4
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down3"></span>
+		&nbsp;TD-down3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-dollar-sign"></span>
+		&nbsp;TD-dollar-sign
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-dollar-bill"></span>
+		&nbsp;TD-dollar-bill
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-depreciation-chart"></span>
+		&nbsp;TD-depreciation-chart
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-credit-card"></span>
+		&nbsp;TD-credit-card
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-compass"></span>
+		&nbsp;TD-compass
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-clock"></span>
+		&nbsp;TD-clock
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-circle-open"></span>
+		&nbsp;TD-circle-open
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-circle-full"></span>
+		&nbsp;TD-circle-full
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-checkbox"></span>
+		&nbsp;TD-checkbox
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-check3"></span>
+		&nbsp;TD-check3
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-check2"></span>
+		&nbsp;TD-check2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-check1"></span>
+		&nbsp;TD-check1
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-chat"></span>
+		&nbsp;TD-chat
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-change"></span>
+		&nbsp;TD-change
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-CD"></span>
+		&nbsp;TD-CD
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-cart"></span>
+		&nbsp;TD-cart
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-car"></span>
+		&nbsp;TD-car
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-calendar"></span>
+		&nbsp;TD-calendar
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-calculator"></span>
+		&nbsp;TD-calculator
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-briefcase"></span>
+		&nbsp;TD-briefcase
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-bookmark"></span>
+		&nbsp;TD-bookmark
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-bar-chart-vertical"></span>
+		&nbsp;TD-bar-chart-vertical
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-bar-chart-horizontal"></span>
+		&nbsp;TD-bar-chart-horizontal
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-audio"></span>
+		&nbsp;TD-audio
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-appreciation-chart"></span>
+		&nbsp;TD-appreciation-chart
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-alarm"></span>
+		&nbsp;TD-alarm
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-list"></span>
+		&nbsp;TD-list
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-search-2"></span>
+		&nbsp;TD-search-2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-arrow"></span>
+		&nbsp;TD-arrow
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-arrow-2"></span>
+		&nbsp;TD-arrow-2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-phone-2"></span>
+		&nbsp;TD-phone-2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-talk-bubble"></span>
+		&nbsp;TD-talk-bubble
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-laptop-2"></span>
+		&nbsp;TD-laptop-2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-down2"></span>
+		&nbsp;TD-down2
+	</span>
+
+	<span class="box1">
+		<span aria-hidden="true" class="TD-briefcase2"></span>
+		&nbsp;TD-briefcase2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-children"></span>
+		&nbsp;TD-children
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-flag-stars"></span>
+		&nbsp;TD-flag-stars
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-flag-stripes"></span>
+		&nbsp;TD-flag-stripes
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-person"></span>
+		&nbsp;TD-person
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-stock2"></span>
+		&nbsp;TD-stock2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-flag"></span>
+		&nbsp;TD-stock2
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-windows"></span>
+		&nbsp;TD-windows
+	</span>
+	<span class="box1">
+		<span aria-hidden="true" class="TD-apple"></span>
+		&nbsp;TD-apple
+	</span>
+
+*/
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+    font-family: 'TurboDings';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="TD-"] {
+*/
+.TD-zoom-out, .TD-zoom-in, .TD-x3, .TD-x2, .TD-x1, .TD-warning, .TD-upload, .TD-up5, .TD-up4, .TD-up3, .TD-up2, .TD-up1, .TD-undo, .TD-trash, .TD-train, .TD-track, .TD-tablet, .TD-stopwatch, .TD-star1, .TD-speedometer, .TD-settings, .TD-search, .TD-safari, .TD-rss, .TD-right5, .TD-right4, .TD-right3, .TD-right2, .TD-right1, .TD-refresh, .TD-redo, .TD-question, .TD-print, .TD-pricetag, .TD-plus, .TD-plane, .TD-pie-chart, .TD-phone, .TD-people, .TD-no, .TD-moving-truck, .TD-monitor, .TD-money-sack, .TD-mobile, .TD-minus, .TD-male, .TD-mail, .TD-lock, .TD-loading, .TD-line-graph, .TD-lightbulb, .TD-left5, .TD-left4, .TD-left3, .TD-left2, .TD-left1, .TD-laptop, .TD-info, .TD-important, .TD-home, .TD-global, .TD-gift, .TD-flickr, .TD-flag, .TD-female, .TD-facebook, .TD-experts, .TD-education, .TD-edit, .TD-download, .TD-down5, .TD-down4, .TD-down3, .TD-dollar-sign, .TD-dollar-bill, .TD-depreciation-chart, .TD-credit-card, .TD-compass, .TD-clock, .TD-circle-open, .TD-circle-full, .TD-checkbox, .TD-check3, .TD-check2, .TD-check1, .TD-chat, .TD-change, .TD-CD, .TD-cart, .TD-car, .TD-calendar, .TD-calculator, .TD-briefcase, .TD-bookmark, .TD-bar-chart-vertical, .TD-bar-chart-horizontal, .TD-audio, .TD-appreciation-chart, .TD-alarm, .TD-list, .TD-search-2, .TD-arrow, .TD-arrow-2, .TD-phone-2, .TD-talk-bubble, .TD-laptop-2, .TD-down2, .TD-briefcase2, .TD-children, .TD-flag-stars, .TD-flag-stripes, .TD-person, .TD-stock2, .TD-flag, .TD-windows, .TD-apple, .TD-building{
+    font-family: 'TurboDings';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+
+}
+.TD-zoom-out:before {
+    content: "\e001";
+}
+.TD-zoom-in:before {
+    content: "\e002";
+}
+.TD-x3:before {
+    content: "\e003";
+}
+.TD-x2:before {
+    content: "\e004";
+}
+.TD-x1:before {
+    content: "\e005";
+}
+.TD-warning:before {
+    content: "\e008";
+}
+.TD-upload:before {
+    content: "\e009";
+}
+.TD-up5:before {
+    content: "\e00a";
+}
+.TD-up4:before {
+    content: "\e00b";
+}
+.TD-up3:before {
+    content: "\e00c";
+}
+.TD-up2:before {
+    content: "\e00d";
+}
+.TD-up1:before {
+    content: "\e00e";
+}
+.TD-undo:before {
+    content: "\e00f";
+}
+.TD-trash:before {
+    content: "\e012";
+}
+.TD-train:before {
+    content: "\e013";
+}
+.TD-track:before {
+    content: "\e014";
+}
+.TD-tablet:before {
+    content: "\e015";
+}
+.TD-stopwatch:before {
+    content: "\e016";
+}
+.TD-star1:before {
+    content: "\e019";
+}
+.TD-speedometer:before {
+    content: "\e01a";
+}
+.TD-settings:before {
+    content: "\e01d";
+}
+.TD-search:before {
+    content: "\e01e";
+}
+.TD-safari:before {
+    content: "\e01f";
+}
+.TD-rss:before {
+    content: "\e020";
+}
+.TD-right5:before {
+    content: "\e021";
+}
+.TD-right4:before {
+    content: "\e022";
+}
+.TD-right3:before {
+    content: "\e023";
+}
+.TD-right2:before {
+    content: "\e024";
+}
+.TD-right1:before {
+    content: "\e025";
+}
+.TD-refresh:before {
+    content: "\e026";
+}
+.TD-redo:before {
+    content: "\e027";
+}
+.TD-question:before {
+    content: "\e029";
+}
+.TD-print:before {
+    content: "\e02a";
+}
+.TD-pricetag:before {
+    content: "\e02b";
+}
+.TD-plus:before {
+    content: "\e02c";
+}
+.TD-plane:before {
+    content: "\e02d";
+}
+.TD-pie-chart:before {
+    content: "\e02f";
+}
+.TD-phone:before {
+    content: "\e031";
+}
+.TD-people:before {
+    content: "\e032";
+}
+.TD-no:before {
+    content: "\e034";
+}
+.TD-moving-truck:before {
+    content: "\e035";
+}
+.TD-monitor:before {
+    content: "\e036";
+}
+.TD-money-sack:before {
+    content: "\e037";
+}
+.TD-mobile:before {
+    content: "\e038";
+}
+.TD-minus:before {
+    content: "\e039";
+}
+.TD-male:before {
+    content: "\e03d";
+}
+.TD-mail:before {
+    content: "\e03e";
+}
+.TD-lock:before {
+    content: "\e03f";
+}
+.TD-loading:before {
+    content: "\e040";
+}
+.TD-line-graph:before {
+    content: "\e043";
+}
+.TD-lightbulb:before {
+    content: "\e044";
+}
+.TD-left5:before {
+    content: "\e045";
+}
+.TD-left4:before {
+    content: "\e046";
+}
+.TD-left3:before {
+    content: "\e047";
+}
+.TD-left2:before {
+    content: "\e048";
+}
+.TD-left1:before {
+    content: "\e049";
+}
+.TD-laptop:before {
+    content: "\e04a";
+}
+.TD-info:before {
+    content: "\e04b";
+}
+.TD-important:before {
+    content: "\e04c";
+}
+.TD-home:before {
+    content: "\e04f";
+}
+.TD-global:before {
+    content: "\e053";
+}
+.TD-gift:before {
+    content: "\e054";
+}
+.TD-flickr:before {
+    content: "\e056";
+}
+.TD-flag:before {
+    content: "\e057";
+}
+.TD-female:before {
+    content: "\e059";
+}
+.TD-facebook:before {
+    content: "\e05a";
+}
+.TD-experts:before {
+    content: "\e05b";
+}
+.TD-education:before {
+    content: "\e05c";
+}
+.TD-edit:before {
+    content: "\e05d";
+}
+.TD-download:before {
+    content: "\e05e";
+}
+.TD-down5:before {
+    content: "\e05f";
+}
+.TD-down4:before {
+    content: "\e060";
+}
+.TD-down3:before {
+    content: "\e061";
+}
+.TD-dollar-sign:before {
+    content: "\e063";
+}
+.TD-dollar-bill:before {
+    content: "\e064";
+}
+.TD-depreciation-chart:before {
+    content: "\e065";
+}
+.TD-credit-card:before {
+    content: "\e066";
+}
+.TD-compass:before {
+    content: "\e067";
+}
+.TD-clock:before {
+    content: "\e068";
+}
+.TD-circle-open:before {
+    content: "\e069";
+}
+.TD-circle-full:before {
+    content: "\e06a";
+}
+.TD-checkbox:before {
+    content: "\e06c";
+}
+.TD-check3:before {
+    content: "\e06d";
+}
+.TD-check2:before {
+    content: "\e06e";
+}
+.TD-check1:before {
+    content: "\e06f";
+}
+.TD-chat:before {
+    content: "\e070";
+}
+.TD-change:before {
+    content: "\e071";
+}
+.TD-CD:before {
+    content: "\e072";
+}
+.TD-cart:before {
+    content: "\e073";
+}
+.TD-car:before {
+    content: "\e074";
+}
+.TD-calendar:before {
+    content: "\e075";
+}
+.TD-calculator:before {
+    content: "\e076";
+}
+.TD-briefcase:before {
+    content: "\e077";
+}
+.TD-bookmark:before {
+    content: "\e07a";
+}
+.TD-bar-chart-vertical:before {
+    content: "\e07c";
+}
+.TD-bar-chart-horizontal:before {
+    content: "\e07d";
+}
+.TD-audio:before {
+    content: "\e07e";
+}
+.TD-appreciation-chart:before {
+    content: "\e07f";
+}
+.TD-alarm:before {
+    content: "\e082";
+}
+.TD-list:before {
+    content: "\e000";
+}
+.TD-search-2:before {
+    content: "\e083";
+}
+.TD-arrow:before {
+    content: "\e017";
+}
+.TD-arrow-2:before {
+    content: "\e018";
+}
+.TD-phone-2:before {
+    content: "\e010";
+}
+.TD-talk-bubble:before {
+    content: "\e01b";
+}
+.TD-laptop-2:before {
+    content: "\e028";
+}
+.TD-down2:before {
+    content: "\e062";
+}
+
+.TD-briefcase2:before {
+    content: "\e600";
+}
+.TD-children:before {
+    content: "\e601";
+}
+
+.TD-flag-stars:before {
+    content: "\e602";
+}
+.TD-flag-stripes:before {
+    content: "\e603";
+}
+.TD-person:before {
+    content: "\e604";
+}
+.TD-stock2:before {
+    content: "\e605";
+}
+
+.TD-flag:before {
+    content: "\e603";
+}
+.TD-flag:after {
+    content: "\e602";
+}
+.TD-windows:before {
+    content: "\e606";
+}
+.TD-apple:before {
+    content: "\e607";
+}
+.TD-building:before {
+    content: "\e608";
+}
