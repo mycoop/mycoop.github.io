@@ -17,7 +17,7 @@
 
     <meta name="ius-theme" content="none"/>
 
-    <title>My TurboTax</title>
+    <title>My MyCOOP</title>
 
 
     <script type="text/javascript">
@@ -27,7 +27,7 @@
             sessionTimeout:  "20",
             jsLogLevel : "2",
             displayErrorDetails : "false",
-            taxYear : "2013",
+            COOPYear : "2013",
 
             // Default priority code
             priorityCode : "3468337910",
@@ -44,30 +44,30 @@
             searchBoxPlaceholderText : "Ask for help here",
 
             ttoProtocol : "https",
-            ttoDomain : "turbotaxweb.turbotaxonline.intuit.com",
+            ttoDomain : "MyCOOPweb.MyCOOPonline.MyCOOP.com",
             ttoPath : "/services/ttoentry/SSO",
             ttoExtensionPath : "/services/ttoentry/EZESSO",
 
             ttoPreTTODownProtocol : "https",
-            ttoPreTTODownDomain : "myturbotax.intuit.com",
+            ttoPreTTODownDomain : "myMyCOOP.MyCOOP.com",
             ttoPreTTODownPath : "#ttoComingSoon",
 
             ttoOffSeasonProtocol : "https",
-            ttoOffSeasonDomain : "myturbotax.intuit.com",
+            ttoOffSeasonDomain : "myMyCOOP.MyCOOP.com",
             ttoOffSeasonPath : "#ttoComingSoon",
             myttOffSeasonBypass : false,
 
-            turboTaxComDomain : "shop.turbotax.intuit.com",
-            taxPrepDomain : "taxprep.intuit.com",
-            didDomain : "shop.turbotax.intuit.com",
-            instaRefundDomain : "ctg-prdws-qy.discovery.intuit.com",
+            MyCOOPComDomain : "shop.MyCOOP.MyCOOP.com",
+            COOPPrepDomain : "COOPprep.MyCOOP.com",
+            didDomain : "shop.MyCOOP.MyCOOP.com",
+            instaRefundDomain : "ctg-prdws-qy.discovery.MyCOOP.com",
             iamCookiePrefix : "qbn.",
-            iusDomain : "accounts.intuit.com",
-            myTTDomain : "https://myturbotax.intuit.com",
-            cdnDomain : "https://myturbotax.intuitcdn.net",
+            iusDomain : "accounts.MyCOOP.com",
+            myTTDomain : "https://myMyCOOP.MyCOOP.com",
+            cdnDomain : "https://myMyCOOP.MyCOOPcdn.net",
             toAkamai : "true",
-            searchDomain : "https://ttlc.intuit.com/search?q=[SEARCHTERM]&from=tax",
-            taxPrepPath : "/chrome/app.htm",
+            searchDomain : "https://ttlc.MyCOOP.com/search?q=[SEARCHTERM]&from=COOP",
+            COOPPrepPath : "/chrome/app.htm",
 
             seasonPart : "EXTENSION_SEASON",
             ttoLaunchTime : "2013-12-02T09:00:00-08:00",
@@ -81,12 +81,12 @@
 
             ttoAmendDownload: "/lp/yoy/amend.jsp?ty=ty",
             ttoAmendLink: "/support/iq/Amend-a-Return/How-to-Amend--Change-or-Correct--a-Return-You-Already-Filed/GEN12781.html",
-            ttoAmendInstructions2010: "https://ttlc.intuit.com/questions/1899754-how-to-amend-change-or-correct-a-2010-return-you-already-filed",
-            ttoAmendInstructions2011: "https://ttlc.intuit.com/questions/1899652-how-to-amend-change-or-correct-a-2011-return-in-turbotax",
-            ttoAmendInstructions2012: "https://ttlc.intuit.com/questions/1899159-how-to-amend-change-or-correct-a-2012-return-in-turbotax",
-            ttoAmendInstructions: "https://support.turbotax.intuit.com/redirect/amend",
+            ttoAmendInstructions2010: "https://ttlc.MyCOOP.com/questions/1899754-how-to-amend-change-or-correct-a-2010-return-you-already-filed",
+            ttoAmendInstructions2011: "https://ttlc.MyCOOP.com/questions/1899652-how-to-amend-change-or-correct-a-2011-return-in-MyCOOP",
+            ttoAmendInstructions2012: "https://ttlc.MyCOOP.com/questions/1899159-how-to-amend-change-or-correct-a-2012-return-in-MyCOOP",
+            ttoAmendInstructions: "https://support.MyCOOP.MyCOOP.com/redirect/amend",
 
-            idFedPartnerAuthUrl : "https://partnerauth-e2e.platform.intuit.com/webapp/LoginGateway?",
+            idFedPartnerAuthUrl : "https://partnerauth-e2e.platform.MyCOOP.com/webapp/LoginGateway?",
             idFedIdentityProvider : "''",
             idFedClientId : "346888598720417",
 
@@ -103,7 +103,7 @@
             featureWidgetAnalyticsOff:false,
             featureRefundInfo: true,
 
-            FAFSALink: "ctg.discovery.intuit.com/fafsa"
+            FAFSALink: "ctg.discovery.MyCOOP.com/fafsa"
         };
         //]]>
     </script>
@@ -148,10 +148,10 @@
     <ul class="nav" dir="RTL">
         <li class="auth-only hidden dropdown" id="dropdowndiv">
             <a href="#" id="headerAccountName" class="goHome category defaultExpanded navDestination"
-               automationid="headermyTurboTaxHeader">My TurboTax</a>
+               automationid="headermyMyCOOPHeader">My MyCOOP</a>
         </li>
         <li class="auth-only hidden dropdown">
-            <a href="#" automationid="taxReturnsHeader" class="navDestination">My Tax Timeline</a>
+            <a href="#" automationid="COOPReturnsHeader" class="navDestination">My COOP Timeline</a>
         </li>
         <li class="auth-only hidden dropdown ">
             <a href="#orders" automationid="vaultHeader" class="navDestination">My Orders</a>
@@ -163,7 +163,7 @@
             <a href="#moneyTools" class="moneyTools navDestination" automationid="moneyToolsHeader">Money Tools</a>
         </li>
         <li class="auth-only hidden dropdown ">
-            <a href="#vault" automationid="vaultHeader" class="navDestination">TurboTax Vault</a>
+            <a href="#vault" automationid="vaultHeader" class="navDestination">MyCOOP Vault</a>
         </li>
         <li class="auth-only hidden dropdown sign-out-collapsed">
             <a href="javascript:void(0);" automationid="signOut" class="signOut navDestination" id="signOutFlyOut">Sign
@@ -177,7 +177,7 @@
             <div class="container">
                 <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
                 <a class="flyout-toggle hidden auth-only"><span aria-hidden="true" class="TD-list"></span></a>
-                <a id="logo" href="#" class="goHome navDestination" alt="TurboTax">
+                <a id="logo" href="#" class="goHome navDestination" alt="MyCOOP">
 
                     <h1 class="hidden-xs"  style="color: #ffffff; margin-top: 15px; float: left">My COOP</h1>
                     <h2  class="visible-xs" style="color: #ffffff; margin-top: 15px; float: left">My COOP</h2>
@@ -200,17 +200,17 @@
                     <ul class="nav" dir="RTL">
                         <li class="auth-only hidden dropdown" id="dropdowndiv">
                             <a href="#" id="headerAccountName" class="goHome category defaultExpanded navDestination"
-                               automationid="headermyTurboTaxHeader">My TurboTax</a>
+                               automationid="headermyMyCOOPHeader">My MyCOOP</a>
                             <ul class="menu">
-                                <li class="auth-only"><a href="#" automationid="taxReturnsHeader" class="navDestination">My
-                                    Tax Timeline</a></li>
+                                <li class="auth-only"><a href="#" automationid="COOPReturnsHeader" class="navDestination">My
+                                    COOP Timeline</a></li>
                                 <li class="auth-only"><a href="#orders" automationid="vaultHeader" class="navDestination">My
                                     Orders</a></li>
                                 <li class="auth-only"><a href="#accountInfo" automationid="accountInfoHeader"
                                                          class="navDestination">Account Settings</a></li>
                                 <li class="auth-only"><a href="#moneyTools" class="moneyTools navDestination"
                                                          automationid="moneyToolsHeader">Money Tools</a></li>
-                                <li class="auth-only"><a href="#vault" automationid="vaultHeader" class="navDestination">TurboTax
+                                <li class="auth-only"><a href="#vault" automationid="vaultHeader" class="navDestination">MyCOOP
                                     Vault</a></li>
                             </ul>
                         </li>
@@ -241,35 +241,35 @@
 
                 <p class="footer-line">
                     <span id="license"><a target="_blank" id="licenseSmnt"
-                                          data-dest="http://shop.turbotax.intuit.com/corp/softwarelicense.jsp"
-                                          href="http://shop.turbotax.intuit.com/corp/softwarelicense.jsp"
+                                          data-dest="http://shop.MyCOOP.MyCOOP.com/corp/softwarelicense.jsp"
+                                          href="http://shop.MyCOOP.MyCOOP.com/corp/softwarelicense.jsp"
                                           class="footer-link">Software License Agreements</a> |</span> <a
                         target="_blank" id="privacy"
-                        data-ffa-href="http://security.intuit.com/intuit-tax-freedom-project-privacy-statement.html"
-                        data-dest="http://security.intuit.com/privacy/" href="http://security.intuit.com/privacy/"
+                        data-ffa-href="#"
+                        data-dest="http://security.MyCOOP.com/privacy/" href="#"
                         class="footer-link">Privacy Statement</a>
                 </p>
 
                 <p class="footer-line">
-                    Security Certification of the TurboTax Online application has been performed by <a
-                        href="http://c-levelsecurity.com/certified/intuit/Intuit_turbotax.html" class="footer-link"
+                    Security Certification of the MyCOOP Online application has been performed by <a
+                        href="#" class="footer-link"
                         target="_blank">C-Level Security</a>
                 </p>
 
                 <p class="footer-line">
-                    &copy;2014 Intuit Inc. All rights reserved.
+                    &copy;2014 MyCOOP Inc. All rights reserved.
                 </p>
 
                 <div class="certified-logo centered">
 
                     <a class="logo-nResult" data-link-id="610" target="_blank"
-                       href="https://portal.nresult.com/WebCert/redir.aspx?id=EcvStRAoyW1TEQIhYOsQNw%3d%3d">Certified by
+                       href="#">Certified by
                         nResult</a>
                     <a class="logo-cLevel" data-link-id="611" target="_blank"
-                       href="http://c-levelsecurity.com/certified/intuit/Intuit_turbotax.html">Security Certification of
-                        the TurboTax Online application has been performed by C-Level Security</a>
+                       href="#">Security Certification of
+                        the MyCOOP Online application has been performed by C-Level Security</a>
                     <a class="logo-trustE" data-link-id="612" target="_blank"
-                       href="http://www.truste.org/ivalidate.php?url=turbotax.intuit.com&amp;sealid=101">Reviewed by
+                       href="#">Reviewed by
                         TRUSTe, Site Privacy Statement</a>
 
                     <p class="logo-aEfile">Authorized e-file Provider</p>

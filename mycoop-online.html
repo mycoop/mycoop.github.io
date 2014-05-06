@@ -34,7 +34,7 @@
     <div class="container">
         <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation" class="pull-left visible-sm visible-xs"></a>
 
-        <div id="" style="" title="Intuit myCOOP">
+        <div id="" style="" title="MyCOOP">
 
 
             <h1 class="hidden-xs"  style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">My COOP</h1>
@@ -176,7 +176,7 @@
         </li>
         <!-- all but H&B -->
         <li class="sku_not_32 {{isFederalSelected}}">
-            <a href="#/federal" data-submit-val="4" id="auto_id_12">Federal Taxes</a>
+            <a href="#/federal" data-submit-val="4" id="auto_id_12">Federal COOP</a>
 
             <ul ng-show="isFederalSelected">
                 <li class="{{isFederalSelected}}"><a href="javascript:;" data-submit-val="5" id="auto_id_13">Wages &amp; Income</a></li>
@@ -186,7 +186,7 @@
                 <li><a href="javascript:;" data-submit-val="9" id="auto_id_17">Error Check</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">State Taxes</a>
+        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">State COOP</a>
 
             <ul ng-show="false">
                 <li><a href="javascript:;" data-submit-val="14" id="auto_id_19">Prepare State</a></li>
@@ -242,11 +242,11 @@
                        data-style="@{ 'display:' + (${rueDashboardModel.deductionsCreditsStep_Complete} == true ? 'inline-block' : 'none') }"
                        style="display:none"></i></span>
                         Deductions &amp; credits</a></li>
-                    <li><a href="#stateTaxesStep"><span class="navIcon">
+                    <li><a href="#stateCOOPStep"><span class="navIcon">
                     <i class="icon task-completed"
-                       data-style="@{ 'display:' + (${rueDashboardModel.stateTaxesStep_Complete} == true ? 'inline-block' : 'none') }"
+                       data-style="@{ 'display:' + (${rueDashboardModel.stateCOOPStep_Complete} == true ? 'inline-block' : 'none') }"
                        style="display:none"></i></span>
-                        Wrap-up &amp; state taxes</a></li>
+                        Wrap-up &amp; state COOP</a></li>
                 </ul>
             </li>
             <li class="disabled">
