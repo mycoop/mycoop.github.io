@@ -379,12 +379,14 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="60.782436" vertical-offset="5443" max-vertical-offset="37350">
-              <caret line="2393" column="104" selection-start-line="2393" selection-start-column="104" selection-end-line="2393" selection-end-column="104" />
+            <state vertical-scroll-proportion="0.6926148" vertical-offset="36508" max-vertical-offset="37350">
+              <caret line="2457" column="1" selection-start-line="2457" selection-start-column="1" selection-end-line="2457" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1399396119000" expanded="true" signature="106950:107170" placeholder="..." />
+                <marker date="1399396119000" expanded="true" signature="106968:107162" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -826,7 +828,11 @@
       <created>1399394803599</created>
       <updated>1399394803599</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed links.">
+      <created>1399394904265</created>
+      <updated>1399394904265</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -969,6 +975,8 @@
             <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1399396119000" expanded="true" signature="106950:107170" placeholder="..." />
+            <marker date="1399396119000" expanded="true" signature="106968:107162" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1596,12 +1604,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="60.782436" vertical-offset="5443" max-vertical-offset="37350">
-          <caret line="2393" column="104" selection-start-line="2393" selection-start-column="104" selection-end-line="2393" selection-end-column="104" />
+        <state vertical-scroll-proportion="0.6926148" vertical-offset="36508" max-vertical-offset="37350">
+          <caret line="2457" column="1" selection-start-line="2457" selection-start-column="1" selection-end-line="2457" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1399396119000" expanded="true" signature="106950:107170" placeholder="..." />
+            <marker date="1399396119000" expanded="true" signature="106968:107162" placeholder="{...}" />
           </folding>
         </state>
       </provider>
