@@ -10,13 +10,19 @@ angular.module('myCoopApp')
             });
     })
     .controller('LoginCtrl', function ($scope, $rootScope, $route, $location) {
-        $scope.credentials = {
-            email: '',
-            password: ''
-        };
+        $scope.email = '';
+        $scope.password = '';
         $scope.login = function(){
-            if($scope.credentials.email == 'tmiller@google.com' && $scope.credentials.password == 'password123'){
+            if($scope.email == 'tmiller@google.com' && $scope.password == 'password123'){
                 $location.path('/');
+            } else{
+                $scope.isPasswordIncorrect = true;
             }
-        }
+        };
+        $scope.$watch('email', function(){
+            $scope.isPasswordIncorrect = false;
+        });
+        $scope.$watch('password', function(){
+            $scope.isPasswordIncorrect = false;
+        });
     });

@@ -15,7 +15,7 @@
                             <span id="ius-sign-in-header" class="ius-header">Sign In</span>
                             <span id="ius-sign-in-sub-header" class="ius-sub-header"></span>
                         </header>
-                        <div id="ius-sign-in-messages" ng-show="false">
+                        <div id="ius-sign-in-messages" ng-show="isPasswordIncorrect">
                             <div id="ius-sign-in-error" aria-live="assertive" role="alert"
                                  class="ius-default-bottom-margin ius-error-alert">
                                 The user ID or password entered is incorrect.<br>
@@ -23,19 +23,24 @@
                             </div>
 
                         </div>
-                        <form action="" method="post" autocomplete="on" novalidate="">
+                        <form action="" method="post" autocomplete="on" novalidate name="form">
                             <fieldset id="ius-fieldset-userid">
                                 <label id="ius-label-userid" class="ius-label" for="ius-userid">User ID</label>
                                 <div class="ius-text-input-container">
-                                    <input id="ius-userid" class="ius-text-input" name="Email" type="email"
-                                           ng-model="credentials.email"
+                                    <input id="ius-userid"
+                                           class="ius-text-input" name="Email" type="email"
+                                           ng-class="{'ius-input-error': (form.Email.$error.required || form.Email.$error.email) && form.Email.$dirty}"
+                                           ng-model="email"
+                                           ng-model-options="{ updateOn: 'blur' }"
                                            aria-required="true"
                                            required="required" data-valid="valid">
                                     <span id="ius-status-userid" class="ius-status" aria-live="assertive"
                                           role="alert"></span>
                                 </div>
-            <span id="ius-error-userid" class="ius-error ius-field-block" for="ius-userid" aria-live="assertive"
-                  role="alert"></span>
+            <span id="ius-error-userid" ng-show="form.Email.$error.required &&  form.Email.$dirty" class="ius-error ius-field-block" for="ius-userid" aria-live="assertive"
+                  role="alert">Tell us your email.</span>
+            <span id="ius-error-userid" ng-show="form.Email.$error.email &&  form.Email.$dirty" class="ius-error ius-field-block" for="ius-userid" aria-live="assertive"
+                  role="alert">Email is incorrect.</span>
                             </fieldset>
 
                             <fieldset id="ius-fieldset-password">
@@ -44,15 +49,20 @@
 
                                 <div class="ius-text-input-container">
                                     <input id="ius-password"
-                                           class="ius-text-input <!--ius-input-error-->"
+                                           class="ius-text-input "
+                                           ng-class="{'ius-input-error': form.Password.$error.required && form.Password.$dirty}"
                                            name="Password" type="password"
-                                           ng-model="credentials.password"
+                                           ng-model="password"
                                            aria-required="true"
                                            required="required" data-valid="valid">
                                     <span id="ius-status-password" class="ius-status ius-warning" aria-live="assertive"
                                           role="alert"></span>
                                 </div>
-            <span id="ius-error-password" class="ius-error ius-field-block" ng-show="false" for="ius-password" aria-live="assertive"
+
+                                <!--<span >Tell us your email.</span>-->
+                                <!--<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>-->
+
+            <span id="ius-error-password" class="ius-error ius-field-block" ng-show="form.Password.$error.required &&  form.Password.$dirty" for="ius-password" aria-live="assertive"
                   role="alert"> Please enter password.</span>
                             </fieldset>
 
@@ -68,7 +78,7 @@
 
                             <div id="ius-sign-in-actions"
                                  class="ius-default-bottom-spacer ius-clearfix ius-btn-container">
-                                <input id="ius-sign-in-submit-btn"
+                                <input id="ius-sign-in-submit-btn" ng-disabled="form.$invalid"
                                        class="ius-btn ius-btn-submit ius-display-inline-block ius-float-left"
                                        name="SignIn" type="submit" value="Sign In" ng-click="login()">
                             </div>
