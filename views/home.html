@@ -1,328 +1,165 @@
+<div id="sectionTitle">Home</div>
 
-
-<link rel="stylesheet" type="text/css" href="/my-coop/styles/app/app.css"/>
-<div id="main" class="container" style="min-height: 729px;">
-
-
-<div id="main_divider" class="visible-lg visible-md">
-    <div class="bottom_fade"></div>
-</div>
-<div id="main_navigation">
-
-
-    <!-- NOTE: adding elements here? you may need to update TTOApp.utils.resetMainHeight -->
-    <div id="partnerLogoLayer"></div>
-    <div id="refundGroupWrapper">
-        <!-- REFUND MONITORS -->
-        <div id="refundLayer" class="RefundArea" data-repeat="refundMonitor in ${refundModel.monitors}" repeat="refundMonitor in {&quot;US&quot;:{&quot;amt&quot;:0,&quot;state&quot;:&quot;US&quot;,&quot;isRefund&quot;:true,&quot;displayAmt&quot;:0},&quot;VA&quot;:{&quot;amt&quot;:0,&quot;state&quot;:&quot;VA&quot;,&quot;isRefund&quot;:true,&quot;displayAmt&quot;:0}}">
-            <div class="refundBlock" data-event="refundClick" data-event-options="{ 'state' : 'US' }">
-
-                <div class="refundAmount refundAmountPositive">
-                    $<span data-bind="refundModel.monitors['US'].displayAmt" data-format="number">0</span>
-                </div>
-                <div class="refundLabel">
-                    Federal Refund
-                </div>
-
-
-
-            </div>
-
-            <div class="refundBlock" data-event="refundClick" data-event-options="{ 'state' : 'VA' }">
-
-                <div class="refundAmount refundAmountPositive">
-                    $<span data-bind="refundModel.monitors['VA'].displayAmt" data-format="number">0</span>
-                </div>
-                <div class="refundLabel">
-                    VA Refund
-                </div>
-
-
-
-            </div>
+<div id="dialogRegion" class="screenid_welcome.returningUser section_home">
+    <div id="contentRegion" role="main">
+        <div id="dashboardHomeLink">
+            <button id="backButton" class="btn btn-primary btn-sm"
+                    onclick="TTOController.doTopicJump('WebmyCOOP~StartGroup~WelcomeWTT')"
+                    data-event="@{ RUE.constants.event.RUE_NAVIGATION_CHANGE }"
+                    data-event-options="{ navTopic : 'rueNavDashboardHome' }" event="rue.changeNavigation">
+                <span>&lt;</span>Back to 2013 tax info
+            </button>
         </div>
-    </div>
+        <!-- anchor link receives focus from 'Skip to Main Content' accessibility link -->
+        <a name="mainBody" id="mainBody"></a>
 
-    <div id="tabRegion"></div>
-    <!-- visibility controlled through media queries in Navigation.less -->
-    <ul id="navigation" role="navigation">
-        <li class="on"><a href="javascript:;" data-submit-val="0" id="auto_id_0">Home</a>
-
-            <ul style="display: block;">
-                <li class="on"><a href="javascript:;" data-submit-val="1" id="auto_id_1">Program Options</a></li>
-            </ul>
-        </li>
-        <li class=""><a href="javascript:;" data-submit-val="2" id="auto_id_2">Personal Info</a>
-
-            <ul style="display: none;">
-                <li class=""><a href="javascript:;" data-submit-val="3" id="auto_id_3">You &amp; Your Family</a></li>
-            </ul>
-        </li>
-        <!-- H&B only -->
-        <li class="sku_32"><a href="javascript:;" data-submit-val="">Business</a>
-
-            <ul>
-                <li><a href="javascript:;" data-submit-val="">Business Income and Expenses</a></li>
-            </ul>
-        </li>
-        <!-- H&B only -->
-        <li class="sku_32"><a href="javascript:;" data-submit-val="">Personal</a>
-
-            <ul>
-                <li><a href="javascript:;" data-submit-val="">Personal Income</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_8">Deductions &amp; Credits</a></li>
-                <li><a href="javascript:;" data-submit-val="7" id="auto_id_9">Other Tax Situations</a></li>
-                <li><a href="javascript:;" data-submit-val="8" id="auto_id_10">Federal Review</a></li>
-                <li><a href="javascript:;" data-submit-val="9" id="auto_id_11">Error Check</a></li>
-            </ul>
-        </li>
-        <!-- all but H&B -->
-        <li class="sku_not_32"><a href="javascript:;" data-submit-val="4" id="auto_id_12">Federal Taxes</a>
-
-            <ul style="display: none;">
-                <li class=""><a href="javascript:;" data-submit-val="5" id="auto_id_13">Wages &amp; Income</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_14">Deductions &amp; Credits</a></li>
-                <li><a href="javascript:;" data-submit-val="7" id="auto_id_15">Other Tax Situations</a></li>
-                <li><a href="javascript:;" data-submit-val="8" id="auto_id_16">Federal Review</a></li>
-                <li><a href="javascript:;" data-submit-val="9" id="auto_id_17">Error Check</a></li>
-            </ul>
-        </li>
-        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">State Taxes</a>
-
-            <ul>
-                <li><a href="javascript:;" data-submit-val="14" id="auto_id_19">Prepare State</a></li>
-                <li><a href="javascript:;" data-submit-val="22" id="auto_id_20">Your State Returns</a></li>
-                <li><a href="javascript:;" data-submit-val="16" id="auto_id_21">State Review</a></li>
-            </ul>
-        </li>
-        <li class="relative"><a href="javascript:;" data-submit-val="17" id="auto_id_22">Review</a>
-
-            <ul>
-                <li><a href="javascript:;" data-submit-val="18" id="auto_id_23">Analysis</a></li>
-                <li class="sku_not_4"><a href="javascript:;" data-submit-val="19" id="auto_id_24">Audit Defense</a></li>
-                <li><a href="javascript:;" data-submit-val="20" id="auto_id_25">Summary</a></li>
-            </ul>
-            <a href="javascript:;" id="expertReviewButton" alt="ExpertReview" data-submit-val=""></a>
-        </li>
-        <li><a href="javascript:;" data-submit-val="21" id="auto_id_27">File</a>
-
-        </li>
-    </ul>
-    <!-- visibility controlled by the pageType_* body class -->
-    <ul id="tax_summary_nav">
-        <li><a href="javascript:;">Back</a></li>
-        <li><a href="javascript:;">Federal Tax Summary</a></li>
-        <li><a href="javascript:;">Preview my 1040</a></li>
-    </ul>
+        <div id="titleGraphicLayer" style="display: none;"></div>
+        <div id="titleLayer" style="display: none;"><span class="title"></span></div>
+        <div id="subtitleLayer" style="display: none;"><span class="subtitle"></span></div>
+        <div id="scroll_wrapper">
+            <div id="scroll_fade"></div>
+            <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
+                 data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }"
+                 data-sid="welcome.returningUser">
 
 
-
-    <div id="rueNavigation" hidden="">
-        <!-- events handled by RUE.dashboard.interactions _setupNavHandlers -->
-        <ul class="nav">
-            <li class="activeNav">
-                <a id="rueNavDashboardHome">
-                    <span class="navIcon icon user-icon"></span>
-                    2013 Tax Info
-                </a>
-
-                <ul hidden="" id="rueDashboardSectionNavigation">
-                    <li>
-                        <a href="#personalInfo">
-                        <span class="navIcon">
-                            <i data-style="@{ 'display:' + (${rueDashboardModel.personalInfo_Complete} == true ? 'inline-block' : 'none') }" class="icon task-completed" style="display:none"></i>
-                        </span> Personal info</a>
-                    </li>
-                    <li><a href="#incomeInfoStep"><span class="navIcon">
-                    <i class="icon task-completed" data-style="@{ 'display:' + (${rueDashboardModel.incomeInfoStep_Complete} == true ? 'inline-block' : 'none') }" style="display:none"></i></span>
-                        Income</a></li>
-                    <li><a href="#deductionsCreditsStep"><span class="navIcon">
-                    <i class="icon task-completed" data-style="@{ 'display:' + (${rueDashboardModel.deductionsCreditsStep_Complete} == true ? 'inline-block' : 'none') }" style="display:none"></i></span>
-                        Deductions &amp; credits</a></li>
-                    <li><a href="#stateTaxesStep"><span class="navIcon">
-                    <i class="icon task-completed" data-style="@{ 'display:' + (${rueDashboardModel.stateTaxesStep_Complete} == true ? 'inline-block' : 'none') }" style="display:none"></i></span>
-                        Wrap-up &amp; state taxes</a></li>
-                </ul>
-            </li>
-            <li class="disabled">
-                <a data-disabled="@{ ${rueDashboardModel.rueDashboard_Complete} != true }" data-event="rue.leavingDashboard" id="rueNavSumamry" disabled="disabled" class="disabled">
-                    <span class="navIcon icon dollar-icon"></span> Summary</a>
-            </li>
-            <li class="disabled">
-                <a data-disabled="@{ ${rueDashboardModel.rueDashboard_Complete} != true }" data-event="rue.leavingDashboard" id="rueNavFnF" disabled="disabled" class="disabled">
-                    <span class="navIcon icon lightning-icon"></span> File</a>
-            </li>
-        </ul>
-    </div>
+                <title>Welcome back to myCOOP</title>
 
 
-    <!-- click handlers set in TTOApp.Navigation _init -->
-    <div id="navTools">
-        <ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">
-            <li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span class="navLabel">Tools</span></a></li>
-            <li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span class="navLabel">Print Center</span></a></li>
-            <li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span class="navIcon"></span><span class="navLabel">My TurboTax</span></a></li>
-            <li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>
-            <li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span class="navIcon"></span><span class="navLabel">Upgrade</span></a></li>
-            <li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">
-                <a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction" data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">
-                    <span class="navIcon"></span><span class="navLabel">Switch to classic TurboTax</span>
-                </a>
-            </li>
-            <li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }" style="display: none;">
-                <a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm" class="switchToRueTrigger">
-                    <span class="navIcon"></span><span class="navLabel">Switch back to new TurboTax</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+                <div id="mainReturnUserDiv" class="mainWelcomeDiv">
+                    <div id="welcomeSection" class="welcomeSection">
+                        <div class="row">
+                            <h1 class="col-lg-12">Hi Tom, welcome back to myCOOP!</h1>
 
-</div>
-<!-- end #main_navigation -->
-
-<div id="waitRegion" style="margin-left: -103.5px; display: none;"><div class="waitMsgBkg" style="margin-top: 0px; margin-left: 0px;"><img src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/loading_spinner_hd.gif" alt="" border="0" align="top"><div class="waitMsgLayer"></div></div></div>
-
-<div id="main_right" style="display: block;">
-    <div id="sectionTitle">Home</div>
-
-    <div id="dialogRegion" class="screenid_welcome.returningUser section_home">
-        <div id="contentRegion" role="main">
-            <div id="dashboardHomeLink">
-                <button id="backButton" class="btn btn-primary btn-sm" onclick="TTOController.doTopicJump('WebTurboTax~StartGroup~WelcomeWTT')" data-event="@{ RUE.constants.event.RUE_NAVIGATION_CHANGE }" data-event-options="{ navTopic : 'rueNavDashboardHome' }" event="rue.changeNavigation">
-                    <span>&lt;</span>Back to 2013 tax info
-                </button>
-            </div>
-            <!-- anchor link receives focus from 'Skip to Main Content' accessibility link -->
-            <a name="mainBody" id="mainBody"></a>
-
-            <div id="titleGraphicLayer" style="display: none;"></div>
-            <div id="titleLayer" style="display: none;"><span class="title">Tell Us About Any Foreign Bank Accounts</span></div>
-            <div id="subtitleLayer" style="display: none;"><span class="subtitle"></span></div>
-            <div id="scroll_wrapper">
-                <div id="scroll_fade"></div>
-                <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}" data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="welcome.returningUser">
-
-
-                    <title>Welcome back to TurboTax</title>
-
-
-
-                    <div id="mainReturnUserDiv" class="mainWelcomeDiv">
-                        <div id="welcomeSection" class="welcomeSection">
-                            <div class="row">
-                                <h1 class="col-lg-12">Hi Tom, welcome back to TurboTax!</h1>
-                                <div class="col-sm-7">
-                                    <p class="subHeader">Select <strong>Continue</strong> to pick up where you left off.</p>
-                                </div>
-                                <div class="col-sm-5">
-                                    <p>
-                                        <a id="continueButton" href="#" class="btn ansLg" data-nav="continue">Continue</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Display if a user has a Hard Stop -->
-                            <div data-visible="@{ ${welcomeModel.hardStop} }" style="display: none;">
-                                <h3>Items to Revisit</h3>
-
-                                <p class="subHeader">Get started on items in your return that were previously under construction:
-                                    <a id="hardStop" href="#" class="btn ansSm" data-nav="jumpToHardStop">Take Me There</a>
+                            <div class="col-sm-7">
+                                <p class="subHeader">Select <strong>Continue</strong> to pick up where you left off.
                                 </p>
                             </div>
-                            <!-- Display if any forms are unavailable -->
-                            <div data-visible="@{ WelcomeActionClass.hasUnavailableForms() }" style="display: none;">
-                                <p class="subHeader">The government is still working to finalize the following forms. Select "Notify Me" to
-                                    be alerted when the forms are ready.
-                                    <a id="formNotification" href="#" class="link" onclick="WelcomeActionClass.openNotifyMeURL()">Notify Me</a>
+                            <div class="col-sm-5">
+                                <p>
+                                    <a id="continueButton" href="#/federal" class="btn ansLg"
+                                       data-nav="continue">Continue</a>
                                 </p>
-                                <!-- Iterate through  UnavailableForms array and display every form -->
-                                <div data-template="#unavailableFormTemplate" data-template-options="{ forms : ${welcomeModel.UnavailableForms} }">
-
-
-                                </div>
-                                <a class="link" href="#" id="seeAllUnfinishedFormsLink" data-nav="jumpToUnfinishedForms">See all unfinished forms</a>
                             </div>
                         </div>
+                        <!-- Display if a user has a Hard Stop -->
+                        <div data-visible="@{ ${welcomeModel.hardStop} }" style="display: none;">
+                            <h3>Items to Revisit</h3>
 
-                        <div id="userActions" class="row">
-                            <div id="manageReturn" class="col-sm-6">
-                                <h3>Manage Your Return</h3>
-
-                                <ul class="welcomeBullets">
-                                    <!--<li data-visible="@{ ${welcomeModel.productID} != '512' }">-->
-                                    <!--<a class="footerLink" id="lnkViewPriorYear" href="#" onclick="TTOApp.utils.nav.goPriorReturn()">Prior Year Tax Returns</a>-->
-                                    <!--</li>-->
-                                    <li data-visible="@{ ${welcomeModel.productID} != '4' }" style="display: list-item;">
-                                        <a class="footerLink" id="lnkGoToEze" href="#" onclick="TTOApp.utils.feature.ezextension()">File an extension</a>
-                                    </li>
-                                    <li data-visible="@{ ${welcomeModel.productID} != '4' }" style="display: list-item;">
-                                        <a class="footerLink" id="lnkAmendReturn" href="#" data-nav="jumpToTopicAmend">Amend (change) a filed and accepted return</a>
-                                    </li>
-                                    <!-- Options that have been moved to the Tools menu
-                                        <li>
-                                            <a class="footerLink" id="lnkSaveInfo" href="#" onclick="TTOApp.Controller.downloadDataFile()">Save your
-                                                                                                                      ${welcomeModel.taxYear}
-                                                                                                                      return to your computer</a>
-                                        </li>
-                                        <li>
-                                            <a class="footerLink" id="lnkDeleteForm" href="#" data-nav="jumpToDeleteForm">Delete a form</a>
-                                        </li>
-                                        <li>
-                                            <a class="footerLink" id="lnkClearReturn" data-nav="clearReturn">Clear your ${welcomeModel.taxYear} return and start over</a>
-                                        </li>
-                                    -->
-                                    <li data-visible="@{ ${welcomeModel.productID} == '32' }" style="display: none;">
-                                        <a class="footerLink" id="lnkCreateForm" href="#" onclick="TTOApp.utils.nav.goToCreateW21099()">Create W-2s and 1099s</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="manageAccount" class="col-sm-6">
-                                <h3>Manage Your Account</h3>
-
-                                <ul class="welcomeBullets">
-                                    <li data-visible="@{ WelcomeActionClass.isRegisteredUser() }" style="display: list-item;">
-
-                                        <a class="footerLink" id="lnkUpdateInfo" href="#" onclick="TTOApp.utils.nav.goToEditMyAccount()">Change user ID, e-mail, or password</a>
-                                    </li>
-                                    <li data-visible="@{ ${welcomeModel.productID} != '4' &amp;&amp;  ${welcomeModel.productID} != '32' }" style="display: list-item;">
-                                        <a class="footerLink" id="lnkUpgradeProduct" href="#" data-event="upgrade">Upgrade your TurboTax product</a>
-                                    </li>
-                                    <li>
-                                        <a class="footerLink" id="lnkViewOrder" href="#" data-nav="jumpToPaymentSummary">View order summary</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <p class="subHeader">Get started on items in your return that were previously under
+                                construction:
+                                <a id="hardStop" href="#" class="btn ansSm" data-nav="jumpToHardStop">Take Me
+                                    There</a>
+                            </p>
                         </div>
+                        <!-- Display if any forms are unavailable -->
+                        <div data-visible="@{ WelcomeActionClass.hasUnavailableForms() }" style="display: none;">
+                            <p class="subHeader">The government is still working to finalize the following forms.
+                                Select "Notify Me" to
+                                be alerted when the forms are ready.
+                                <a id="formNotification" href="#" class="link"
+                                   onclick="WelcomeActionClass.openNotifyMeURL()">Notify Me</a>
+                            </p>
+                            <!-- Iterate through  UnavailableForms array and display every form -->
+                            <div data-template="#unavailableFormTemplate"
+                                 data-template-options="{ forms : ${welcomeModel.UnavailableForms} }">
 
+
+                            </div>
+                            <a class="link" href="#" id="seeAllUnfinishedFormsLink"
+                               data-nav="jumpToUnfinishedForms">See all unfinished forms</a>
+                        </div>
                     </div>
 
+                    <div id="userActions" class="row">
+                        <div id="manageReturn" class="col-sm-6">
+                            <h3>Manage Your Return</h3>
+
+                            <ul class="welcomeBullets">
+                                <!--<li data-visible="@{ ${welcomeModel.productID} != '512' }">-->
+                                <!--<a class="footerLink" id="lnkViewPriorYear" href="#" onclick="TTOApp.utils.nav.goPriorReturn()">Prior Year Tax Returns</a>-->
+                                <!--</li>-->
+                                <li data-visible="@{ ${welcomeModel.productID} != '4' }"
+                                    style="display: list-item;">
+                                    <a class="footerLink" id="lnkGoToEze" href="#"
+                                       onclick="TTOApp.utils.feature.ezextension()">File an extension</a>
+                                </li>
+                                <li data-visible="@{ ${welcomeModel.productID} != '4' }"
+                                    style="display: list-item;">
+                                    <a class="footerLink" id="lnkAmendReturn" href="#" data-nav="jumpToTopicAmend">Amend
+                                        (change) a filed and accepted return</a>
+                                </li>
+                                <!-- Options that have been moved to the Tools menu
+                                    <li>
+                                        <a class="footerLink" id="lnkSaveInfo" href="#" onclick="TTOApp.Controller.downloadDataFile()">Save your
+                                                                                                                  ${welcomeModel.taxYear}
+                                                                                                                  return to your computer</a>
+                                    </li>
+                                    <li>
+                                        <a class="footerLink" id="lnkDeleteForm" href="#" data-nav="jumpToDeleteForm">Delete a form</a>
+                                    </li>
+                                    <li>
+                                        <a class="footerLink" id="lnkClearReturn" data-nav="clearReturn">Clear your ${welcomeModel.taxYear} return and start over</a>
+                                    </li>
+                                -->
+                                <li data-visible="@{ ${welcomeModel.productID} == '32' }" style="display: none;">
+                                    <a class="footerLink" id="lnkCreateForm" href="#"
+                                       onclick="TTOApp.utils.nav.goToCreateW21099()">Create W-2s and 1099s</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="manageAccount" class="col-sm-6">
+                            <h3>Manage Your Account</h3>
+
+                            <ul class="welcomeBullets">
+                                <li data-visible="@{ WelcomeActionClass.isRegisteredUser() }"
+                                    style="display: list-item;">
+
+                                    <a class="footerLink" id="lnkUpdateInfo" href="#"
+                                       onclick="TTOApp.utils.nav.goToEditMyAccount()">Change user ID, e-mail, or
+                                        password</a>
+                                </li>
+                                <li data-visible="@{ ${welcomeModel.productID} != '4' &amp;&amp;  ${welcomeModel.productID} != '32' }"
+                                    style="display: list-item;">
+                                    <a class="footerLink" id="lnkUpgradeProduct" href="#" data-event="upgrade">Upgrade
+                                        your myCOOP product</a>
+                                </li>
+                                <li>
+                                    <a class="footerLink" id="lnkViewOrder" href="#"
+                                       data-nav="jumpToPaymentSummary">View order summary</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
                 </div>
-                <div id="formLayer"></div>
+
+
             </div>
-            <div id="iconLayer"></div>
-            <div id="answerLayer" style="visibility: hidden;"></div>
+            <div id="formLayer"></div>
         </div>
+        <div id="iconLayer"></div>
+        <div id="answerLayer" style="visibility: hidden;"></div>
     </div>
-
-    <!-- end dialogRegion -->
-
-    <footer id="footerLayer" align="center" role="contentinfo">
-        <div id="LiveCommWrapper" class="hide"><iframe name="CIAFrame" id="CIAFrame" class="CIAFrame" src="blank.htm" scrolling="no" noresize="" frameborder="no"></iframe></div>
-        <!-- actions setup in zStaticRegion._setPrivacy -->
-        <div class="links">
-            <a href="javascript:;" id="license_agreement">License Agreement</a>
-            | <a href="javascript:;" id="privacy">Privacy</a>
-            | <a href="javascript:;" id="security">Security</a>
-            | <a href="javascript:;" id="support">Support</a>
-
-            <br>© 2014 Intuit Inc. All rights reserved.
-        </div>
-        <div id="promoLayer" style="visibility: hidden;"></div><div></div></footer>
-
-
 </div>
-<!-- end #main_right -->
 
-<div id="rex_main_right" data-viewport="rexViewport"></div>
+<!-- end dialogRegion -->
 
-</div>
+<footer id="footerLayer" align="center" role="contentinfo">
+    <div id="LiveCommWrapper" class="hide">
+        <iframe name="CIAFrame" id="CIAFrame" class="CIAFrame" src="blank.htm" scrolling="no" noresize=""
+                frameborder="no"></iframe>
+    </div>
+    <!-- actions setup in zStaticRegion._setPrivacy -->
+    <div class="links">
+        <a href="javascript:;" id="license_agreement">License Agreement</a>
+        | <a href="javascript:;" id="privacy">Privacy</a>
+        | <a href="javascript:;" id="security">Security</a>
+        | <a href="javascript:;" id="support">Support</a>
+
+        <br>© 2014 Intuit Inc. All rights reserved.
+    </div>
+    <div id="promoLayer" style="visibility: hidden;"></div>
+    <div></div>
+</footer>
+

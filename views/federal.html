@@ -1,10 +1,1365 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div style="overflow: hidden;">
+<style>
 
-</body>
-</html>
+    .slide_wrapper {
+        position: relative;
+        overflow: scroll;
+        white-space: nowrap;
+        width: 200%;
+        -webkit-transition: all 0.5s;
+    }
+
+    .slide_wrapper.next {
+        -webkit-transform: translateX(-50%);
+    }
+
+    .slide1, .slide2 {
+        vertical-align: top;
+        width: 50%;
+        display: inline-block;
+    }
+</style>
+<div class="slide_wrapper {{slide}}">
+
+<div class="slide1">
+<div id="sectionTitle">Federal Taxes</div>
+
+<div id="dialogRegion" class="screenid_internalContent.landingpage_federal section_federaltaxes">
+    <div id="contentRegion" role="main">
+        <div id="dashboardHomeLink">
+            <button id="backButton" class="btn btn-primary btn-sm"
+                    onclick="TTOController.doTopicJump('WebTurboTax~StartGroup~WelcomeWTT')"
+                    data-event="@{ RUE.constants.event.RUE_NAVIGATION_CHANGE }"
+                    data-event-options="{ navTopic : 'rueNavDashboardHome' }" event="rue.changeNavigation">
+                <span>&lt;</span>Back to 2013 tax info
+            </button>
+        </div>
+        <!-- anchor link receives focus from 'Skip to Main Content' accessibility link -->
+        <a name="mainBody" id="mainBody"></a>
+
+        <div id="titleGraphicLayer" style="display: none;"></div>
+        <div id="titleLayer" style="display: none;"><span class="title">Your 2013 Income Summary</span></div>
+        <div id="subtitleLayer" style="display: none;"><span class="subtitle"></span></div>
+        <div id="scroll_wrapper">
+            <div id="scroll_fade"></div>
+            <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
+                 data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }"
+                 data-sid="internalContent.landingpage_federal">
+
+
+                <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                    <tbody>
+                    <tr>
+                        <td align="center" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                            style="width: 791px;">
+                            <div id="extcont_00" data-viewport="internalContentContainer">
+
+
+                                <title></title>
+
+                                <style>
+                                    #gps {
+                                        margin-top: 10px;
+                                        color: #888888;
+                                        text-align: left;
+                                    }
+
+                                    #gps p {
+                                        text-align: left;
+                                    }
+
+                                    .intro_hero {
+                                        color: #999999;
+                                        font-style: italic;
+                                        font-size: 0.9em;
+                                        text-align: center;
+                                    }
+
+                                    .intro_hero img {
+                                        width: 80%;
+                                        padding-bottom: 10px;
+                                    }
+                                </style>
+
+
+                                <div id="gps" class="content rwd_content">
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'landingpage_federal' || ${externalContentModel.alias} === 'landingpage_personal_hb' }"
+                                         style="display: block;">
+
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/my-coop/experiences/default/images/icon_section_federal.png"
+                                                 alt="Intuit Federal Tax Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>Let’s get your biggest refund possible</h1>
+
+                                            <p>First, we’ll ask you simple questions about your income from last year.
+                                                Then, we’ll search for money-saving deductions and credits. We
+                                                double-check everything so you can be confident you won’t miss a
+                                                thing.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'landingpage_personalinfo' }"
+                                         style="display: none;">
+
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/tto/img/icon_section_personal.png"
+                                                 alt="Intuit Personal Information Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>We're up to date with all the latest tax laws</h1>
+
+                                            <p>Our tax experts, CPAs, EAs, and Tax Attorneys are here for you to answer
+                                                all your
+                                                questions about the new Affordable Care Act and all the latest tax law
+                                                changes to get
+                                                your biggest refund possible.</p>
+                                            <!-- id previously: careDrawerTip<%=prodId%> -->
+                                            <p id="careDrawerTip">Select <strong>"Continue"</strong> to get started, and
+                                                if you have a question, just enter it in the
+                                                <strong><span
+                                                        data-bind="externalContentModel.helpTipPlaceholder">null</span></strong>
+                                                area up above.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'state_tab_page' }"
+                                         style="display: none;">
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/tto/img/icon_section_state.png" alt="Intuit State Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>Let's maximize your state refund</h1>
+
+                                            <p>Now, we’ll work on your state tax return and look for ways to get you
+                                                your biggest return possible.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'wrapup_tab_page' }"
+                                         style="display: none;">
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/tto/img/icon_section_review.png" alt="Intuit Review Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>Let's make sure your taxes are correct</h1>
+
+                                            <p>We're ready to do a final review to make sure your return is accurate.
+                                                We'll also check
+                                                for other deductions so you get your biggest refund possible.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'filing_tab_page' }"
+                                         style="display: none;">
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/tto/img/icon_section_file.png" alt="Intuit Filing Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>We're ready to file your taxes</h1>
+
+                                            <p>Great job! You're almost done. Now we'll help you wrap up your 2013 taxes
+                                                and file your
+                                                returns.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row"
+                                         data-visible="@{ ${externalContentModel.alias} === 'landingpage_business_hb' }"
+                                         style="display: none;">
+                                        <div class="intro_hero col-sm-4 hidden-xs">
+                                            <img src="/tto/img/icon_section_business.png" alt="Intuit Business Section">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h1>Let's find some business deductions</h1>
+
+                                            <p>We'll ask about your business and income, then we'll check for deductions
+                                                so you get your
+                                                biggest possible refund.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="formLayer"></div>
+        </div>
+        <div id="iconLayer"></div>
+        <div id="answerLayer" style="visibility: inherit;">
+            <div class="ansR">
+                <button id="Continue_00" ng-click="slide = 'next'" aria-label="Continue" role="button" class="btn ansLg" tabindex="1">Continue
+                </button>
+            </div>
+            <div class="ansL">
+                <button id="Back_00" ng-click="redirect('home')" aria-label="Back" role="button" class="btn ansBackLg" tabindex="2">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end dialogRegion -->
+
+<footer id="footerLayer" align="center" role="contentinfo">
+    <div id="LiveCommWrapper" class="hide">
+        <iframe name="CIAFrame" id="CIAFrame" class="CIAFrame" src="blank.htm" scrolling="no" noresize=""
+                frameborder="no"></iframe>
+    </div>
+    <!-- actions setup in zStaticRegion._setPrivacy -->
+    <div class="links">
+        <a href="javascript:;" id="license_agreement">License Agreement</a>
+        | <a href="javascript:;" id="privacy">Privacy</a>
+        | <a href="javascript:;" id="security">Security</a>
+        | <a href="javascript:;" id="support">Support</a>
+
+        <br>© 2014 Intuit Inc. All rights reserved.
+    </div>
+    <div id="promoLayer" style="visibility: hidden;"></div>
+    <div></div>
+</footer>
+
+
+</div><!--
+--><div class="slide2">
+
+<div id="sectionTitle">Federal Taxes</div>
+
+<div id="dialogRegion" class="screenid_S1040PERbfdi10103977 section_federaltaxes">
+<div id="contentRegion" role="main">
+<div id="dashboardHomeLink">
+    <button id="backButton" class="btn btn-primary btn-sm"
+            onclick="TTOController.doTopicJump('WebTurboTax~StartGroup~WelcomeWTT')"
+            data-event="@{ RUE.constants.event.RUE_NAVIGATION_CHANGE }"
+            data-event-options="{ navTopic : 'rueNavDashboardHome' }" event="rue.changeNavigation">
+        <span>&lt;</span>Back to 2013 tax info
+    </button>
+</div>
+<!-- anchor link receives focus from 'Skip to Main Content' accessibility link -->
+<a name="mainBody" id="mainBody"></a>
+
+<div id="titleGraphicLayer" style="display: none;"></div>
+<div id="titleLayer"><span class="title">Your 2013 Income Summary</span></div>
+<div id="subtitleLayer" style="display: none;"><span class="subtitle"></span></div>
+<div id="scroll_wrapper">
+<div id="scroll_fade"></div>
+<div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
+     data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }"
+     data-sid="S1040PERbfdi10103977">
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+<tbody>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+        <table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+            <tbody>
+            <tr>
+                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                            <span id="txtblk_00"><span class="main" id="txtblk_00_0">Select </span><span
+                                                    class="mainbold" id="txtblk_00_1">Start</span><span class="main"
+                                                                                                        id="txtblk_00_2"> next to the topic you want to visit. When you're finished entering all of your income, select </span><span
+                                                    class="mainbold" id="txtblk_00_3">Done with Income.</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top" colspan="1"
+                    class="colFirst colNoVerticalPad"></td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst" style="width: 100%;">
+        <div class="landingtableheader">
+            <table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+                <tbody>
+                <tr>
+                    <td align="left" valign="top" colspan="1"
+                        class="colFirst colNoVerticalPad colNoVerticalPad"
+                        style="width: 10%;"></td>
+                    <td align="left" valign="top" colspan="1"
+                        class="colPad colNoVerticalPad colNoVerticalPad"
+                        style="width: 64%;"></td>
+                    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+                        style="width: 13%;">
+                        <div class="landingtablecycolheader">
+                            <table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+                                <tbody>
+                                <tr>
+                                    <td align="center" valign="top" colspan="1"
+                                        class="colFirst colNoVerticalPad" style="width: 100%;">
+                                                                <span id="txtblk_01"><span class="none"
+                                                                                           id="txtblk_01_0">2013</span></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td align="left" valign="top" colspan="1"
+                        class="colPad colNoVerticalPad colNoVerticalPad"
+                        style="width: 2%;"></td>
+                    <td align="left" valign="top" colspan="1"
+                        class="colLast colNoVerticalPad colNoVerticalPad"
+                        style="width: 11%;"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </td>
+</tr>
+<tr>
+<td align="left" valign="top" colspan="1" class="colFirst">
+<table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+<tbody>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst colNoVerticalPad">
+        <img src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_wages.png"
+             alt="" id="img_00" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 64%;"><span id="txtblk_02"><span class="lndtblheadtitle"
+                                                       id="txtblk_02_0">Wages and Salaries</span><br><span
+            class="lndtblheaddesc" id="txtblk_02_1">Form W-2</span></span></td>
+    <td align="left" valign="top" colspan="1"
+        class="colPad colNoVerticalPad colNoVerticalPad" style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1"
+        class="colPad colNoVerticalPad colNoVerticalPad" style="width: 2%;"></td>
+    <td align="left" valign="top" colspan="1"
+        class="colLast colNoVerticalPad colNoVerticalPad" style="width: 11%;"></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_03"><span class="lndtblsubheaddesc" id="txtblk_03_0">Wages and Salaries</span><span
+                                                    class="none" id="txtblk_03_1"> </span><a class="none"
+                                                                                             id="txtblk_03_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="right" valign="top" colspan="1" class="colPad"><a id="helpSummary_00"
+                                                                 class="lndtblcolstatus"><span>$0.</span></a>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Update_00" aria-label="Update" role="button"
+                class="btn ansRoyal" tabindex="1">Update
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_unemply.png"
+            alt="" id="img_01" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_04"><span class="lndtblheadtitle" id="txtblk_04_0">Unemployment</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_04_1">Government benefits on Form 1099-G</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="left" valign="top" colspan="1" class="colLast colNoVerticalPad"
+        style="width: 11%;"></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_05"><span class="lndtblsubheaddesc" id="txtblk_05_0">Unemployment and Paid Family Leave</span><span
+                                                    class="none" id="txtblk_05_1"> </span><a class="none"
+                                                                                             id="txtblk_05_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_00" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="2">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_other.png"
+            alt="" id="img_02" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_06"><span class="lndtblheadtitle" id="txtblk_06_0">1099-MISC and Other Common Income</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_06_1">Tax refunds, 1099-G, 1099-MISC, 1099-K</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_00" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="3">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_07"><span class="lndtblsubheaddesc" id="txtblk_07_0">State and Local Tax Refunds</span><span
+                                                    class="none" id="txtblk_07_1"> </span><a class="none"
+                                                                                             id="txtblk_07_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_01" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="4">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_08"><span class="lndtblsubheaddesc" id="txtblk_08_0">Other 1099-G Income</span><span
+                                                    class="none" id="txtblk_08_1"> </span><a class="none"
+                                                                                             id="txtblk_08_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_02" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="5">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_09"><span class="lndtblsubheaddesc" id="txtblk_09_0">Income from Form 1099-MISC</span><span
+                                                    class="none" id="txtblk_09_1"> </span><a class="none"
+                                                                                             id="txtblk_09_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_03" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="6">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0a"><span class="lndtblsubheaddesc" id="txtblk_0a_0">Income from Form 1099-K</span><span
+                                                    class="none" id="txtblk_0a_1"> </span><a class="none"
+                                                                                             id="txtblk_0a_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_04" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="7">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_interest.png"
+            alt="" id="img_03" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0b"><span class="lndtblheadtitle" id="txtblk_0b_0">Interest and Dividends</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_0b_1">Forms 1099-INT, 1099-DIV, 1099-OID</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_01" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="8">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0c"><span class="lndtblsubheaddesc" id="txtblk_0c_0">Interest on 1099-INT</span><span
+                                                    class="none" id="txtblk_0c_1"> </span><a class="none"
+                                                                                             id="txtblk_0c_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_05" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="9">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0d"><span class="lndtblsubheaddesc" id="txtblk_0d_0">Dividends on 1099-DIV</span><span
+                                                    class="none" id="txtblk_0d_1"> </span><a class="none"
+                                                                                             id="txtblk_0d_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_06" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="10">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0e"><span class="lndtblsubheaddesc" id="txtblk_0e_0">1099-OID, Foreign Accounts</span><span
+                                                    class="none" id="txtblk_0e_1"> </span><a class="none"
+                                                                                             id="txtblk_0e_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_07" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="11">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0f"><span class="lndtblsubheaddesc" id="txtblk_0f_0">Interest from Seller-Financed Loans</span><span
+                                                    class="none" id="txtblk_0f_1"> </span><a class="none"
+                                                                                             id="txtblk_0f_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_08" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="12">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0g"><span class="lndtblsubheaddesc" id="txtblk_0g_0">Tax-Exempt Dividends</span><span
+                                                    class="none" id="txtblk_0g_1"> </span><a class="none"
+                                                                                             id="txtblk_0g_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_09" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="13">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_stocks.png"
+            alt="" id="img_04" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0h"><span class="lndtblheadtitle" id="txtblk_0h_0">Investment Income</span><br><span
+                                                    class="lndtblheaddesc"
+                                                    id="txtblk_0h_1">1099-B or broker statements</span></span></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_02" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="14">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0i"><span class="lndtblsubheaddesc" id="txtblk_0i_0">Stocks, Mutual Funds, Bonds, Other</span><span
+                                                    class="none" id="txtblk_0i_1"> </span><a class="none"
+                                                                                             id="txtblk_0i_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0a" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="15">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0j"><span class="lndtblsubheaddesc" id="txtblk_0j_0">Capital Loss Carryover</span><span
+                                                    class="none" id="txtblk_0j_1"> </span><a class="none"
+                                                                                             id="txtblk_0j_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0b" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="16">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0k"><span class="lndtblsubheaddesc" id="txtblk_0k_0">Undistributed Capital Gains</span><span
+                                                    class="none" id="txtblk_0k_1"> </span><a class="none"
+                                                                                             id="txtblk_0k_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0c" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="17">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0l"><span class="lndtblsubheaddesc" id="txtblk_0l_0">Contracts and Straddles</span><span
+                                                    class="none" id="txtblk_0l_1"> </span><a class="none"
+                                                                                             id="txtblk_0l_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0d" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="18">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0m"><span class="lndtblsubheaddesc" id="txtblk_0m_0">ISO Exercise and Hold</span><span
+                                                    class="none" id="txtblk_0m_1"> </span><a class="none"
+                                                                                             id="txtblk_0m_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0e" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="19">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_retirement.png"
+            alt="" id="img_05" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0n"><span class="lndtblheadtitle" id="txtblk_0n_0">Retirement Plans and Social Security</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_0n_1">1099-R, IRAs, 401(k), early withdrawals</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_03" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="20">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0o"><span class="lndtblsubheaddesc" id="txtblk_0o_0">IRA, 401(k), Pension Plan Withdrawals (1099-R)</span><span
+                                                    class="none" id="txtblk_0o_1"> </span><a class="none"
+                                                                                             id="txtblk_0o_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0f" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="21">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0p"><span class="lndtblsubheaddesc" id="txtblk_0p_0">Social Security (SSA-1099, RRB-1099)</span><span
+                                                    class="none" id="txtblk_0p_1"> </span><a class="none"
+                                                                                             id="txtblk_0p_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0g" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="22">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0q"><span class="lndtblsubheaddesc" id="txtblk_0q_0">Canadian Registered Pension Income</span><span
+                                                    class="none" id="txtblk_0q_1"> </span><a class="none"
+                                                                                             id="txtblk_0q_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0h" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="23">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_myrentals_lg2.png"
+            alt="" id="img_06" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0r"><span class="lndtblheadtitle" id="txtblk_0r_0">Rental Properties and Royalties</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_0r_1">Income and expenses from rentals, patents, oil/mineral rights</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="left" valign="top" colspan="1" class="colLast colNoVerticalPad"
+        style="width: 11%;"></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0s"><span class="lndtblsubheaddesc" id="txtblk_0s_0">Rental Properties and Royalties (Sch E)</span><span
+                                                    class="none" id="txtblk_0s_1"> </span><a class="none"
+                                                                                             id="txtblk_0s_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0i" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="24">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_business.png"
+            alt="" id="img_07" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0t"><span class="lndtblheadtitle" id="txtblk_0t_0">Business Items</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_0t_1">Business income and expenses, K-1s, farm income</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_04" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="25">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0u"><span class="lndtblsubheaddesc" id="txtblk_0u_0">Business Income and Expenses (Sch C)</span><span
+                                                    class="none" id="txtblk_0u_1"> </span><a class="none"
+                                                                                             id="txtblk_0u_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0j" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="26">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0v"><span class="lndtblsubheaddesc" id="txtblk_0v_0">Schedules K-1, Q</span><span
+                                                    class="none" id="txtblk_0v_1"> </span><a class="none"
+                                                                                             id="txtblk_0v_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0k" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="27">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0w"><span class="lndtblsubheaddesc" id="txtblk_0w_0">Farm Income and Farm Rental</span><span
+                                                    class="none" id="txtblk_0w_1"> </span><a class="none"
+                                                                                             id="txtblk_0w_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0l" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="28">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0x"><span class="lndtblsubheaddesc" id="txtblk_0x_0">Business Taxes</span><span
+                                                    class="none" id="txtblk_0x_1"> </span><a class="none"
+                                                                                             id="txtblk_0x_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0m" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="29">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0y"><span class="lndtblsubheaddesc" id="txtblk_0y_0">Business Deductions and Credits</span><span
+                                                    class="none" id="txtblk_0y_1"> </span><a class="none"
+                                                                                             id="txtblk_0y_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0n" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="30">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_0z"><span class="lndtblsubheaddesc" id="txtblk_0z_0">Sale of Business Property</span><span
+                                                    class="none" id="txtblk_0z_1"> </span><a class="none"
+                                                                                             id="txtblk_0z_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0o" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="31">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1"
+        class="colFirst colNoVerticalPad"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="5" class="colFirst">
+        <div class="rule1solid"></div>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="bottom" colspan="1" class="colFirst"><img
+            src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_landing_income_less_common.png"
+            alt="" id="img_08" border="0"></td>
+    <td align="left" valign="bottom" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_10"><span class="lndtblheadtitle" id="txtblk_10_0">Less Common Income</span><br><span
+                                                    class="lndtblheaddesc" id="txtblk_10_1">Home sale, canceled debt (1099-C, 1099-A), 1099-SA, gambling, etc.</span></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="bottom" colspan="1" class="colLast"
+        style="width: 11%;">
+        <button id="Visit_05" aria-label="Visit All" role="button" class="btn ansLP"
+                tabindex="32">Visit All
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_11"><span class="lndtblsubheaddesc" id="txtblk_11_0">1099-SA, HSA, MSA</span><span
+                                                    class="none" id="txtblk_11_1"> </span><a class="none"
+                                                                                             id="txtblk_11_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0p" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="33">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_12"><span class="lndtblsubheaddesc" id="txtblk_12_0">Gambling Winnings</span><span
+                                                    class="none" id="txtblk_12_1"> </span><a class="none"
+                                                                                             id="txtblk_12_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0q" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="34">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_13"><span class="lndtblsubheaddesc" id="txtblk_13_0">Alimony Received</span><span
+                                                    class="none" id="txtblk_13_1"> </span><a class="none"
+                                                                                             id="txtblk_13_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0r" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="35">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_14"><span class="lndtblsubheaddesc" id="txtblk_14_0">Jury Duty</span><span
+                                                    class="none" id="txtblk_14_1"> </span><a class="none"
+                                                                                             id="txtblk_14_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0s" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="36">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_15"><span class="lndtblsubheaddesc" id="txtblk_15_0">Foreign Earned Income and Exclusion</span><span
+                                                    class="none" id="txtblk_15_1"> </span><a class="none"
+                                                                                             id="txtblk_15_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0t" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="37">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_16"><span class="lndtblsubheaddesc" id="txtblk_16_0">Child's Income (Under Age 24)</span><span
+                                                    class="none" id="txtblk_16_1"> </span><a class="none"
+                                                                                             id="txtblk_16_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0u" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="38">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_17"><span class="lndtblsubheaddesc" id="txtblk_17_0">Sale of Home (gain or loss)</span><span
+                                                    class="none" id="txtblk_17_1"> </span><a class="none"
+                                                                                             id="txtblk_17_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0v" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="39">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_18"><span class="lndtblsubheaddesc" id="txtblk_18_0">Installment Sales</span><span
+                                                    class="none" id="txtblk_18_1"> </span><a class="none"
+                                                                                             id="txtblk_18_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0w" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="40">Start
+        </button>
+    </td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+        style="width: 10%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad" style="width: 64%;">
+                                            <span id="txtblk_19"><span class="lndtblsubheaddesc" id="txtblk_19_0">Miscellaneous Income, 1099-A, 1099-C</span><span
+                                                    class="none" id="txtblk_19_1"> </span><a class="none"
+                                                                                             id="txtblk_19_2"><span>Learn More</span></a></span>
+    </td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 13%;"></td>
+    <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"
+        style="width: 2%;"></td>
+    <td align="right" valign="top" colspan="1" class="colLast" style="width: 11%;">
+        <button id="Start_0x" aria-label="Start" role="button" class="btn ansLP"
+                tabindex="41">Start
+        </button>
+    </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
+</tr>
+<tr>
+    <td align="left" valign="top" colspan="1" class="colFirst">
+        <table cellpadding="0" cellspacing="0" border="0" class="gridV2">
+            <tbody>
+            <tr>
+                <td align="left" valign="top" colspan="1"
+                    class="colFirst colNoVerticalPad colNoVerticalPad" style="width: 5%;"></td>
+                <td align="left" valign="top" colspan="1" class="colPad colNoVerticalPad"><img
+                        src="https://qtwu1-lvprd-secure.images.turbotaxonline.intuit.com/turbotax/img/intgfx_upsell_refund_exp_badge2.png"
+                        alt="" id="img_09" border="0"></td>
+                <td align="left" valign="center" colspan="1" class="colLast colNoVerticalPad">
+                    <span id="txtblk_1a"><span class="mainbold" id="txtblk_1a_0">Great news! We'll transfer all your income info to your state return for you.</span></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="formLayer"></div>
+</div>
+<div id="iconLayer"></div>
+<div id="answerLayer" style="visibility: inherit;">
+    <div class="ansR">
+        <button id="Done_00" aria-label="Done with Income" role="button" class="btn ansLg" tabindex="42">
+            Done with Income
+        </button>
+    </div>
+    <div class="ansL">
+        <button id="Back_00" ng-click="slide = ''" aria-label="Back" role="button" class="btn ansBackLg" tabindex="43">Back
+        </button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- end dialogRegion -->
+
+<footer id="footerLayer" align="center" role="contentinfo">
+    <div id="LiveCommWrapper" class="hide">
+        <iframe name="CIAFrame" id="CIAFrame" class="CIAFrame" src="blank.htm" scrolling="no" noresize=""
+                frameborder="no"></iframe>
+    </div>
+    <!-- actions setup in zStaticRegion._setPrivacy -->
+    <div class="links">
+        <a href="javascript:;" id="license_agreement">License Agreement</a>
+        | <a href="javascript:;" id="privacy">Privacy</a>
+        | <a href="javascript:;" id="security">Security</a>
+        | <a href="javascript:;" id="support">Support</a>
+
+        <br>© 2014 Intuit Inc. All rights reserved.
+    </div>
+    <div id="promoLayer" style="visibility: hidden;"></div>
+    <div></div>
+</footer>
+
+
+</div>
+
+</div>
+
+</div>
