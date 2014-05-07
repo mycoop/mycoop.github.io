@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-cookies.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-route.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-resource.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/angular-ui-router.js"></script>
 
 
     <script type="text/javascript" src="/my-coop/scripts/online-app.js"></script>
@@ -114,64 +115,87 @@
     <div id="tabRegion"></div>
     <!-- visibility controlled through media queries in Navigation.less -->
     <ul id="navigation" role="navigation">
-        <li class="{{isHomeSelected}}">
-            <a href="#/home" data-submit-val="0" id="auto_id_0">Home</a>
-            <ul ng-show="isHomeSelected">
-                <li class="{{isHomeSelected}}"><a href="javascript:;" data-submit-val="1" id="auto_id_1">Organization Profile (Admin View)</a></li>
-                <li class="{{isUserAdminSelected}}"><a href="javascript:;" data-submit-val="1" >User Administration</a></li>
-                <li class="{{isRDSelected}}"><a href="javascript:;" data-submit-val="1" >Resource Directories</a></li>
+        <li  ng-class="{ on: $state.includes('home') }">
+            <a ui-sref="home.profile"  data-submit-val="0" id="auto_id_0">Home</a>
+            <ul ng-show=" $state.includes('home')">
+                <li  ng-class="{ on: $state.includes('home.profile') }">
+                    <a ui-sref="home.profile" >Organization Profile (Admin View)</a></li>
+                <li  ng-class="{ on: $state.includes('home.admin') }">
+                    <a ui-sref="home.admin"  >User Administration</a></li>
+                <li  ng-class="{ on: $state.includes('home.resource') }">
+                    <a ui-sref="home.resource"  >Resource Directories</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;" data-submit-val="2" id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
-            <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="3">Program Area Profile</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Business Processes</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Staffing Requirements</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Resource Requirement</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Critical Application (Software) Requirements</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Quantitative Impacts</a></li>
-                <li><a href="javascript:;" data-submit-val="3">External Dependencies</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Internal Dependencies</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Vital Records</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Interoperable Communications (Telephony
-                    Requirements)
-                </a></li>
-                <li><a href="javascript:;" data-submit-val="3">Other Requirement</a></li>
-                <li><a href="javascript:;" data-submit-val="3">BIA Results</a></li>
-                <li><a href="javascript:;" data-submit-val="3">BIA Review (summary)</a></li>
-                <li><a href="javascript:;" data-submit-val="3">Compliance Check and Comparison</a></li>
+        <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2" id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
+            <ul ng-show="$state.includes('impact')">
+                <li ng-class="{ on: $state.includes('impact.profile') }">
+                    <a ui-sref="impact.profile"  data-submit-val="3">Program Area Profile</a></li>
+                <li ng-class="{ on: $state.includes('impact.processes') }">
+                    <a ui-sref="impact.processes"  data-submit-val="3">Business Processes</a></li>
+                <li ng-class="{ on: $state.includes('impact.staff') }">
+                    <a ui-sref="impact.staff"  data-submit-val="3">Staffing Requirements</a></li>
+                <li ng-class="{ on: $state.includes('impact.resource') }">
+                    <a ui-sref="impact.resource"  data-submit-val="3">Resource Requirement</a></li>
+                <li ng-class="{ on: $state.includes('impact.criticalApp') }">
+                    <a ui-sref="impact.criticalApp"  data-submit-val="3">Critical Application (Software) Requirements</a></li>
+                <li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">
+                    <a ui-sref="impact.quantitativeImpacts"  data-submit-val="3">Quantitative Impacts</a></li>
+                <li ng-class="{ on: $state.includes('impact.internalDependencies') }">
+                    <a ui-sref="impact.internalDependencies"  data-submit-val="3">External Dependencies</a></li>
+                <li ng-class="{ on: $state.includes('impact.externalDependencies') }">
+                    <a ui-sref="impact.externalDependencies"  data-submit-val="3">Internal Dependencies</a></li>
+                <li ng-class="{ on: $state.includes('impact.vitalRecords') }">
+                    <a ui-sref="impact.vitalRecords"  data-submit-val="3">Vital Records</a></li>
+                <li ng-class="{ on: $state.includes('impact.communications') }">
+                    <a ui-sref="impact.communications"  data-submit-val="3">Interoperable Communications (Telephony Requirements) </a></li>
+                <li ng-class="{ on: $state.includes('impact.other') }">
+                    <a ui-sref="impact.other"  data-submit-val="3">Other Requirement</a></li>
+                <li ng-class="{ on: $state.includes('impact.results') }">
+                    <a ui-sref="impact.results"  data-submit-val="3">BIA Results</a></li>
+                <li ng-class="{ on: $state.includes('impact.review') }">
+                    <a ui-sref="impact.review"  data-submit-val="3">BIA Review (summary)</a></li>
+                <li ng-class="{ on: $state.includes('impact.compliance') }">
+                    <a ui-sref="impact.compliance"  data-submit-val="3">Compliance Check and Comparison</a></li>
             </ul>
         </li>
         <!-- H&B only -->
-        <li><a href="javascript:;" data-submit-val="">BUSINESS CONTINUITY PLAN</a>
-            <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="">Program Area Profile</a></li>
-                <li><a href="javascript:;" data-submit-val="">Plan Objective - Executive Summary</a></li>
+        <li ng-class="{ on: $state.includes('continuity') }">
+            <a ui-sref="continuity.profile"  data-submit-val="">BUSINESS CONTINUITY PLAN</a>
+            <ul ng-show="$state.includes('continuity')">
+                <li ng-class="{ on: $state.includes('continuity.profile') }">
+                    <a ui-sref="continuity.profile"  data-submit-val="">Program Area Profile</a></li>
+                <li ng-class="{ on: $state.includes('continuity.objective') }">
+                    <a ui-sref="continuity.objective"  data-submit-val="">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
         <!-- H&B only -->
-        <li><a href="javascript:;" data-submit-val="">RISK ASSESSMENT</a>
-            <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="">Program Area Profile</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_8">Plan Objective - Executive Summary</a></li>
+        <li ng-class="{ on: $state.includes('risk') }">
+            <a ui-sref="risk.profile"  data-submit-val="">RISK ASSESSMENT</a>
+            <ul ng-show="$state.includes('risk')">
+                <li ng-class="{ on: $state.includes('risk.profile') }">
+                    <a ui-sref="risk.profile"  data-submit-val="">Program Area Profile</a></li>
+                <li ng-class="{ on: $state.includes('risk.objective') }">
+                    <a ui-sref="risk.objective"  data-submit-val="6" id="auto_id_8">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
         <!-- all but H&B -->
-        <li class="{{isFederalSelected}}">
-            <a href="#/federal" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
+        <li ng-class="{ on: $state.includes('disaster') }">
+            <a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
 
-            <ul ng-show="isFederalSelected">
-                <li class="{{isFederalSelected}}"><a href="javascript:;" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_14">Plan Objective - Executive Summary</a></li>
+            <ul ng-show="$state.includes('disaster')">
+                <li ng-class="{ on: $state.includes('disaster.profile') }" >
+                    <a ui-sref="disaster.profile"  data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
+                <li ng-class="{ on: $state.includes('disaster.objective') }" >
+                    <a ui-sref="disaster.objective"  data-submit-val="6" id="auto_id_14">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">TOOLS</a>
-            <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="14" id="auto_id_19">Reporting</a></li>
-                <li><a href="javascript:;" data-submit-val="22">Application Controls (Content Approval etc)</a></li>
-                <li><a href="javascript:;" data-submit-val="22">Print Center</a></li>
-                <li><a href="javascript:;" data-submit-val="22">Audit Center</a></li>
-                <li><a href="javascript:;" data-submit-val="16">Notification Interface </a></li>
+        <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting"  data-submit-val="13" id="auto_id_18">TOOLS</a>
+            <ul ng-show="$state.includes('tools')">
+                <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"  data-submit-val="14" id="auto_id_19">Reporting</a></li>
+                <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"  data-submit-val="22">Application Controls (Content Approval etc)</a></li>
+                <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print"  data-submit-val="22">Print Center</a></li>
+                <li ng-class="{ on: $state.includes('tools.audit') }"><a ui-sref="tools.audit"  data-submit-val="22">Audit Center</a></li>
+                <li ng-class="{ on: $state.includes('tools.notification') }"><a ui-sref="tools.notification"  data-submit-val="16">Notification Interface </a></li>
             </ul>
         </li>
 
@@ -209,8 +233,9 @@
 </div>
 <!-- end #main_navigation -->
 
-<div id="main_right" style="display: block;" ng-view="">
+<div id="main_right" style="display: block;" ui-view="">
 
+    <div ui-view=""></div>
 </div>
 <!-- end #main_right -->
 
