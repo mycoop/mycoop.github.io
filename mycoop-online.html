@@ -110,37 +110,6 @@
 <div id="main_navigation" class="{{showNav}}">
 
 
-    <!-- NOTE: adding elements here? you may need to update TTOApp.utils.resetMainHeight -->
-    <div id="partnerLogoLayer"></div>
-    <div id="refundGroupWrapper">
-        <!-- REFUND MONITORS -->
-        <div id="refundLayer" class="RefundArea" data-repeat="refundMonitor in ${refundModel.monitors}"
-             repeat="refundMonitor in {&quot;US&quot;:{&quot;amt&quot;:0,&quot;state&quot;:&quot;US&quot;,&quot;isRefund&quot;:true,&quot;displayAmt&quot;:0},&quot;VA&quot;:{&quot;amt&quot;:0,&quot;state&quot;:&quot;VA&quot;,&quot;isRefund&quot;:true,&quot;displayAmt&quot;:0}}">
-            <div class="refundBlock" data-event="refundClick" data-event-options="{ 'state' : 'US' }">
-
-                <div class="refundAmount refundAmountPositive">
-                    $<span data-bind="refundModel.monitors['US'].displayAmt" data-format="number">0</span>
-                </div>
-                <div class="refundLabel">
-                    Federal Refund
-                </div>
-
-
-            </div>
-
-            <div class="refundBlock" data-event="refundClick" data-event-options="{ 'state' : 'VA' }">
-
-                <div class="refundAmount refundAmountPositive">
-                    $<span data-bind="refundModel.monitors['VA'].displayAmt" data-format="number">0</span>
-                </div>
-                <div class="refundLabel">
-                    VA Refund
-                </div>
-
-
-            </div>
-        </div>
-    </div>
 
     <div id="tabRegion"></div>
     <!-- visibility controlled through media queries in Navigation.less -->
@@ -148,160 +117,97 @@
         <li class="{{isHomeSelected}}">
             <a href="#/home" data-submit-val="0" id="auto_id_0">Home</a>
             <ul ng-show="isHomeSelected">
-                <li class="{{isHomeSelected}}"><a href="javascript:;" data-submit-val="1" id="auto_id_1">Program Options</a></li>
+                <li class="{{isHomeSelected}}"><a href="javascript:;" data-submit-val="1" id="auto_id_1">Organization Profile (Admin View)</a></li>
+                <li class="{{isUserAdminSelected}}"><a href="javascript:;" data-submit-val="1" >User Administration</a></li>
+                <li class="{{isRDSelected}}"><a href="javascript:;" data-submit-val="1" >Resource Directories</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;" data-submit-val="2" id="auto_id_2">Personal Info</a>
+        <li><a href="javascript:;" data-submit-val="2" id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
             <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="3" id="auto_id_3">You &amp; Your Family</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Program Area Profile</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Business Processes</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Staffing Requirements</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Resource Requirement</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Critical Application (Software) Requirements</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Quantitative Impacts</a></li>
+                <li><a href="javascript:;" data-submit-val="3">External Dependencies</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Internal Dependencies</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Vital Records</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Interoperable Communications (Telephony
+                    Requirements)
+                </a></li>
+                <li><a href="javascript:;" data-submit-val="3">Other Requirement</a></li>
+                <li><a href="javascript:;" data-submit-val="3">BIA Results</a></li>
+                <li><a href="javascript:;" data-submit-val="3">BIA Review (summary)</a></li>
+                <li><a href="javascript:;" data-submit-val="3">Compliance Check and Comparison</a></li>
             </ul>
         </li>
         <!-- H&B only -->
-        <li class="sku_32"><a href="javascript:;" data-submit-val="">Business</a>
-
+        <li><a href="javascript:;" data-submit-val="">BUSINESS CONTINUITY PLAN</a>
             <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="">Business Income and Expenses</a></li>
+                <li><a href="javascript:;" data-submit-val="">Program Area Profile</a></li>
+                <li><a href="javascript:;" data-submit-val="">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
         <!-- H&B only -->
-        <li class="sku_32"><a href="javascript:;" data-submit-val="">Personal</a>
-
+        <li><a href="javascript:;" data-submit-val="">RISK ASSESSMENT</a>
             <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="">Personal Income</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_8">Deductions &amp; Credits</a></li>
-                <li><a href="javascript:;" data-submit-val="7" id="auto_id_9">Other Tax Situations</a></li>
-                <li><a href="javascript:;" data-submit-val="8" id="auto_id_10">Federal Review</a></li>
-                <li><a href="javascript:;" data-submit-val="9" id="auto_id_11">Error Check</a></li>
+                <li><a href="javascript:;" data-submit-val="">Program Area Profile</a></li>
+                <li><a href="javascript:;" data-submit-val="6" id="auto_id_8">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
         <!-- all but H&B -->
-        <li class="sku_not_32 {{isFederalSelected}}">
-            <a href="#/federal" data-submit-val="4" id="auto_id_12">Federal COOP</a>
+        <li class="{{isFederalSelected}}">
+            <a href="#/federal" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
 
             <ul ng-show="isFederalSelected">
-                <li class="{{isFederalSelected}}"><a href="javascript:;" data-submit-val="5" id="auto_id_13">Wages &amp; Income</a></li>
-                <li><a href="javascript:;" data-submit-val="6" id="auto_id_14">Deductions &amp; Credits</a></li>
-                <li><a href="javascript:;" data-submit-val="7" id="auto_id_15">Other Tax Situations</a></li>
-                <li><a href="javascript:;" data-submit-val="8" id="auto_id_16">Federal Review</a></li>
-                <li><a href="javascript:;" data-submit-val="9" id="auto_id_17">Error Check</a></li>
+                <li class="{{isFederalSelected}}"><a href="javascript:;" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
+                <li><a href="javascript:;" data-submit-val="6" id="auto_id_14">Plan Objective - Executive Summary</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">State COOP</a>
-
+        <li><a href="javascript:;" data-submit-val="13" id="auto_id_18">TOOLS</a>
             <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="14" id="auto_id_19">Prepare State</a></li>
-                <li><a href="javascript:;" data-submit-val="22" id="auto_id_20">Your State Returns</a></li>
-                <li><a href="javascript:;" data-submit-val="16" id="auto_id_21">State Review</a></li>
+                <li><a href="javascript:;" data-submit-val="14" id="auto_id_19">Reporting</a></li>
+                <li><a href="javascript:;" data-submit-val="22">Application Controls (Content Approval etc)</a></li>
+                <li><a href="javascript:;" data-submit-val="22">Print Center</a></li>
+                <li><a href="javascript:;" data-submit-val="22">Audit Center</a></li>
+                <li><a href="javascript:;" data-submit-val="16">Notification Interface </a></li>
             </ul>
         </li>
-        <li class="relative"><a href="javascript:;" data-submit-val="17" id="auto_id_22">Review</a>
 
-            <ul ng-show="false">
-                <li><a href="javascript:;" data-submit-val="18" id="auto_id_23">Analysis</a></li>
-                <li class="sku_not_4"><a href="javascript:;" data-submit-val="19" id="auto_id_24">Audit Defense</a></li>
-                <li><a href="javascript:;" data-submit-val="20" id="auto_id_25">Summary</a></li>
-            </ul>
-            <a href="javascript:;" id="expertReviewButton" alt="ExpertReview" data-submit-val=""></a>
-        </li>
-        <li><a href="javascript:;" data-submit-val="21" id="auto_id_27">File</a>
-
-        </li>
     </ul>
-    <!-- visibility controlled by the pageType_* body class -->
-    <ul id="tax_summary_nav">
-        <li><a href="javascript:;">Back</a></li>
-        <li><a href="javascript:;">Federal Tax Summary</a></li>
-        <li><a href="javascript:;">Preview my 1040</a></li>
-    </ul>
-
-
-    <div id="rueNavigation" hidden="">
-        <!-- events handled by RUE.dashboard.interactions _setupNavHandlers -->
-        <ul class="nav">
-            <li class="activeNav">
-                <a id="rueNavDashboardHome">
-                    <span class="navIcon icon user-icon"></span>
-                    2013 Tax Info
-                </a>
-
-                <ul hidden="" id="rueDashboardSectionNavigation">
-                    <li>
-                        <a href="#personalInfo">
-                        <span class="navIcon">
-                            <i data-style="@{ 'display:' + (${rueDashboardModel.personalInfo_Complete} == true ? 'inline-block' : 'none') }"
-                               class="icon task-completed" style="display:none"></i>
-                        </span> Personal info</a>
-                    </li>
-                    <li><a href="#incomeInfoStep"><span class="navIcon">
-                    <i class="icon task-completed"
-                       data-style="@{ 'display:' + (${rueDashboardModel.incomeInfoStep_Complete} == true ? 'inline-block' : 'none') }"
-                       style="display:none"></i></span>
-                        Income</a></li>
-                    <li><a href="#deductionsCreditsStep"><span class="navIcon">
-                    <i class="icon task-completed"
-                       data-style="@{ 'display:' + (${rueDashboardModel.deductionsCreditsStep_Complete} == true ? 'inline-block' : 'none') }"
-                       style="display:none"></i></span>
-                        Deductions &amp; credits</a></li>
-                    <li><a href="#stateCOOPStep"><span class="navIcon">
-                    <i class="icon task-completed"
-                       data-style="@{ 'display:' + (${rueDashboardModel.stateCOOPStep_Complete} == true ? 'inline-block' : 'none') }"
-                       style="display:none"></i></span>
-                        Wrap-up &amp; state COOP</a></li>
-                </ul>
-            </li>
-            <li class="disabled">
-                <a data-disabled="@{ ${rueDashboardModel.rueDashboard_Complete} != true }"
-                   data-event="rue.leavingDashboard" id="rueNavSumamry" disabled="disabled" class="disabled">
-                    <span class="navIcon icon dollar-icon"></span> Summary</a>
-            </li>
-            <li class="disabled">
-                <a data-disabled="@{ ${rueDashboardModel.rueDashboard_Complete} != true }"
-                   data-event="rue.leavingDashboard" id="rueNavFnF" disabled="disabled" class="disabled">
-                    <span class="navIcon icon lightning-icon"></span> File</a>
-            </li>
-        </ul>
-    </div>
 
 
     <!-- click handlers set in TTOApp.Navigation _init -->
-    <div id="navTools">
-        <ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">
-            <li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span class="navLabel">Tools</span></a>
-            </li>
-            <li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span
-                    class="navLabel">Print Center</span></a></li>
-            <li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span
-                    class="navIcon"></span><span class="navLabel">My myCOOP</span></a></li>
-            <li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span
-                    class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>
-            <li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span class="navIcon"></span><span
-                    class="navLabel">Upgrade</span></a></li>
-            <li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">
-                <a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction"
-                   data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">
-                    <span class="navIcon"></span><span class="navLabel">Switch to classic myCOOP</span>
-                </a>
-            </li>
-            <li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }"
-                style="display: none;">
-                <a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm" class="switchToRueTrigger">
-                    <span class="navIcon"></span><span class="navLabel">Switch back to new myCOOP</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <!--<div id="navTools">-->
+        <!--<ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">-->
+            <!--<li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span class="navLabel">Tools</span></a>-->
+            <!--</li>-->
+            <!--<li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span-->
+                    <!--class="navLabel">Print Center</span></a></li>-->
+            <!--<li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span-->
+                    <!--class="navIcon"></span><span class="navLabel">My myCOOP</span></a></li>-->
+            <!--<li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span-->
+                    <!--class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>-->
+            <!--<li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span class="navIcon"></span><span-->
+                    <!--class="navLabel">Upgrade</span></a></li>-->
+            <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">-->
+                <!--<a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction"-->
+                   <!--data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">-->
+                    <!--<span class="navIcon"></span><span class="navLabel">Switch to classic myCOOP</span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }"-->
+                <!--style="display: none;">-->
+                <!--<a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm" class="switchToRueTrigger">-->
+                    <!--<span class="navIcon"></span><span class="navLabel">Switch back to new myCOOP</span>-->
+                <!--</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
 
 </div>
 <!-- end #main_navigation -->
-
-<div id="waitRegion" style="margin-left: -103.5px; display: none;">
-    <div class="waitMsgBkg" style="margin-top: 0px; margin-left: 0px;"><img
-            src="https://qtwu2-lvprd-secure.images.myCOOPonline.intuit.com/myCOOP/img/loading_spinner_hd.gif" alt=""
-            border="0" align="top">
-
-        <div class="waitMsgLayer"></div>
-    </div>
-</div>
 
 <div id="main_right" style="display: block;" ng-view="">
 

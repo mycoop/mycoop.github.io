@@ -9,7 +9,7 @@ angular
     .config(function ($routeProvider, $httpProvider) {
         $routeProvider
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/login'
             });
     }).run(function ($rootScope) {
         var isInitChecking = true;

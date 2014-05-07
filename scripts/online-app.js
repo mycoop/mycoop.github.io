@@ -15,13 +15,60 @@ angular
         var isInitChecking = true;
         $rootScope.showNav = '';
 
-        $rootScope.toggleNav = function(){
+        $rootScope.toggleNav = function () {
             $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
         };
-        $rootScope.setCurrentPage = function(page){
+//        HOME
+//            Organization Profile (Admin View)
+//            User Administration
+//            Resource Directories
+//        BUSINESS IMPACT ANALYSIS
+//            Program Area Profile
+//            Business Processes
+//            Staffing Requirements
+//            Resource Requirement
+//            Critical Application (Software) Requirements
+//            Quantitative Impacts
+//            Qualitative Impacts
+//            External Dependencies
+//            Internal Dependencies
+//            Vital Records
+//            Interoperable Communications (Telephony
+//            Requirements)
+//            Other Requirement
+//            BIA Results
+//            BIA Review (summary)
+//            Compliance Check and Comparison
+//        BUSINESS CONTINUITY PLAN
+//            Program Area Profile
+//            Plan Objective - Executive Summary
+//        RISK ASSESSMENT AND PLANNING
+//            Program Area Profile
+//            Plan Objective - Executive Summary
+//        DISASTER RECOVERY PLAN
+//            Program Area Profile
+//            Plan Objective - Executive Summary
+//        TOOLS
+//            Reporting
+//            Application Controls (Content Approval etc)
+//            Print Center
+//            Audit Center
+//            Notification Interface
+
+
+        var pages = [
+            { name: 'Organization Profile (Admin View)', selected: false, parent: 'HOME'},
+            { name: 'User Administration', selected: false, parent: 'HOME'},
+            { name: 'Resource Directories', selected: false, parent: 'HOME'},
+            { name: 'Organization Profile (Admin View)', selected: false, parent: 'HOME'},
+            { name: 'Organization Profile (Admin View)', selected: false, parent: 'HOME'},
+
+        ];
+
+        $rootScope.setCurrentPage = function (page) {
             $rootScope.isFederalSelected = '';
             $rootScope.isHomeSelected = '';
-            switch (page){
+            switch (page) {
                 case 'federal':
                     $rootScope.isFederalSelected = 'on';
                     break;
@@ -29,9 +76,6 @@ angular
                     $rootScope.isHomeSelected = 'on';
             }
         };
-        $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-
-        });
 
         $rootScope.redirect = function (path) {
             $location.path(path);

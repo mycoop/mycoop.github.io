@@ -11,10 +11,12 @@ angular.module('myCoopApp')
     })
     .controller('LoginCtrl', function ($scope, $rootScope, $route, $location) {
         $scope.email = '';
+        $rootScope.isLoggedIn = true;
         $scope.password = '';
         $scope.login = function(){
-            if($scope.email == 'tmiller@google.com' && $scope.password == 'password123'){
-                $location.path('/');
+            if(($scope.email == 'tmiller@google.com' && $scope.password == 'password123') ||
+                ($scope.email == 'mr.gusev.k@gmail.com' && $scope.password == '123') ){
+                $location.path('/main');
             } else{
                 $scope.isPasswordIncorrect = true;
             }
