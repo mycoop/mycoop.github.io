@@ -21,6 +21,10 @@ angular.module('resources.process',[])
             addProcess: function(process, callback){
                 processes.push(process);
                 callback();
+            },
+            deleteProcess: function(process, callback){
+                processes.splice(processes.indexOf(process),1);
+                callback();
             }
         };
         return service;

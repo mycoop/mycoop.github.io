@@ -82,10 +82,14 @@
                                                     </button>
                                                     <img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                          alt="" width="5" height="10" border="0">
-                                                    <button id="mc_00_del0" aria-label="Delete" role="button"
+                                                    <button id="mc_00_del0" aria-label="Delete" role="button" ng-click="delete(process)"
                                                             class="btn ansLP" tabindex="2">Delete
                                                     </button>
-
+                                                    <div ng-show="process.isDeleting">Are you sure?<br/>
+                                                        <button aria-label="Delete" role="button" ng-click="delete(process)"
+                                                                class="btn ansRoyal" tabindex="2">Yes</button>
+                                                        <a href="" ng-click="process.isDeleting=false">No</a>
+                                                    </div>
                                                     <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
                                                     <!--alt="" width="5" height="10" border="0">-->
                                                     <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->

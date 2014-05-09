@@ -33,9 +33,18 @@ angular.module('myCoopOnlineApp')
                 updateProcesses();
             })
         };
+        $scope.delete = function(process){
+            if(process.isDeleting){
+                Process.deleteProcess(process, function(){
+                    updateProcesses();
+                })
+            } else{
+                process.isDeleting = true;
+            }
+        };
         $scope.bulkUpdate = function(){
             $scope.isBulkUpdating = true;
-        }
+        };
 
         $scope.saveBulkUpdate = function(){
             $scope.isBulkUpdating = false;

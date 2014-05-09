@@ -137,7 +137,7 @@
             <ul ng-show="$state.includes('impact')">
                 <li ng-class="{ on: $state.includes('impact.profile') }">
                     <a ui-sref="impact.profile"  data-submit-val="3">Program Area Profile</a></li>
-                <li ng-class="{ on: $state.includes('impact.processes') }">
+                <li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">
                     <a ui-sref="impact.processes"  data-submit-val="3">Business Processes</a></li>
                 <li ng-class="{ on: $state.includes('impact.staff') }">
                     <a ui-sref="impact.staff"  data-submit-val="3">Staffing Requirements</a></li>
