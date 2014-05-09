@@ -1,7 +1,7 @@
 <html lang="en"
       class="k-webkit k-webkit34 js flexbox flexboxlegacy canvas canvastext webgl no-touch postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg">
 <head>
-    <title>MyCOOP&#8482;</title>
+    <title>myCOOP&#8482;</title>
     <meta charset="utf-8">
     <!-- make IE render in its highest available mode -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/app.css"/>
     <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/welcome.css"/>
+    <link rel="stylesheet" type="text/css" href="/my-coop/styles/restyling.css"/>
 
 
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular.js"></script>
@@ -35,12 +36,12 @@
     <div class="container">
         <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation" class="pull-left visible-sm visible-xs"></a>
 
-        <div id="" style="" title="MyCOOP">
+        <div id="" style="" title="myCOOP">
 
             <img src="/my-coop/experiences/default/images/globe.png" alt="" style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
 
-            <h1 class="hidden-xs"  style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">MyCOOP&#8482;</h1>
-            <h2  class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">MyCOOP&#8482;</h2>
+            <h1 class="hidden-xs"  style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">myCOOP&#8482;</h1>
+            <h2  class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">myCOOP&#8482;</h2>
         </div>
 
         <!-- see components/HelpPanel/ -->
@@ -95,7 +96,7 @@
         <!-- click handlers set in TTOApp.Navigation _init -->
         <div id="account" class="pull-right visible-lg visible-md">
             <ul class="nav navbar-nav">
-                <li><a href="/my-coop/app" id="myAccount" class="myAccountTrigger">MyCOOP</a></li>
+                <li><a href="/my-coop/app" id="myAccount" class="myAccountTrigger">myCOOP</a></li>
                 <li><a href="/my-coop/" id="DA_EXIT" class="signOutTrigger">Sign Out</a></li>
             </ul>
         </div>
@@ -237,6 +238,23 @@
 <div id="main_right" style="display: block;" ui-view="">
 
     <div ui-view=""></div>
+
+    <footer id="footerLayer" align="center" role="contentinfo">
+        <!-- actions setup in zStaticRegion._setPrivacy -->
+        <div class="links">
+            <div class="footer-logo"></div>
+            <a href="javascript:;" id="license_agreement">License Agreement</a>
+            | <a href="javascript:;" id="privacy">Privacy</a>
+            | <a href="javascript:;" id="security">Security</a>
+            | <a href="javascript:;" id="support">Support</a>
+
+            <br>© 2014 MyCOOP Inc. All rights reserved.
+        </div>
+        <div id="promoLayer" style="visibility: hidden;"></div>
+        <div></div>
+    </footer>
+
+
 </div>
 <!-- end #main_right -->
 

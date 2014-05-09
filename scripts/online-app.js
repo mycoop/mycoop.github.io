@@ -11,7 +11,7 @@ angular
     .config(function ($stateProvider) {
         $stateProvider
             .state('home', { url: '/home'})
-            .state('home.profile', {  template:'<h1>Organization Profile (Admin View)</h1>',url: '/profile'})
+            .state('home.profile', {  templateUrl:'/my-coop/views/home.html', url: '/profile'})
             .state('home.admin', {   template:'<h1>User Administration</h1>',  url: '/admin'})
             .state('home.resource', {   template:'<h1>Resource Directories</h1>',  url: '/resource'});
 
@@ -19,7 +19,7 @@ angular
         $stateProvider
             .state('impact', {  url: '/impact'})
             .state('impact.profile', {  template:'<h1>Program Area Profile</h1>', url: '/profile'})
-            .state('impact.processes', {  template:'<h1>Business Processes</h1>', url: '/processes'})
+            .state('impact.processes', { templateUrl:'/my-coop/views/business-processes.html', url: '/processes'})
             .state('impact.staff', {  template:'<h1>Staffing Requirements</h1>', url: '/staff'})
             .state('impact.resource', {  template:'<h1>Resource Requirement</h1>', url: '/resource'})
             .state('impact.criticalApp', {  template:'<h1>Critical Application (Software) Requirements</h1>', url: '/critical-app'})
@@ -63,7 +63,7 @@ angular
     }).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-        $state.transitionTo('home.profile');
+//        $state.transitionTo('home.profile');
         var isInitChecking = true;
         $rootScope.showNav = '';
 

@@ -1,0 +1,8 @@
+.footer-logo{
+    width: 200px;
+    height: 69px !important;
+    background: url('/my-coop/experiences/default/images/coop-logo.png') no-repeat;
+    background-size: 100%;
+    margin: 0 auto 10px;
+
+}

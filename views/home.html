@@ -29,7 +29,6 @@
                 <div id="mainReturnUserDiv" class="mainWelcomeDiv">
                     <div id="welcomeSection" class="welcomeSection">
                         <div class="row">
-                            <h1 class="col-lg-12">Hi Tom, welcome back to myCOOP!</h1>
 
                             <div class="col-sm-7">
                                 <p class="subHeader">Select <strong>Continue</strong> to pick up where you left off.
@@ -70,63 +69,43 @@
                                data-nav="jumpToUnfinishedForms">See all unfinished forms</a>
                         </div>
                     </div>
-
+                    <p>
+                        <h3>Some things you can do:</h3>
+                    </p>
                     <div id="userActions" class="row">
-                        <div id="manageReturn" class="col-sm-6">
-                            <h3>Manage Your Return</h3>
-
+                        <div  class="col-sm-4">
+                            <h3>PLANNING ACTIVITIES</h3>
                             <ul class="welcomeBullets">
-                                <!--<li data-visible="@{ ${welcomeModel.productID} != '512' }">-->
-                                <!--<a class="footerLink" id="lnkViewPriorYear" href="#" onclick="TTOApp.utils.nav.goPriorReturn()">Prior Year Tax Returns</a>-->
-                                <!--</li>-->
-                                <li data-visible="@{ ${welcomeModel.productID} != '4' }"
-                                    style="display: list-item;">
-                                    <a class="footerLink" id="lnkGoToEze" href="#"
-                                       onclick="TTOApp.utils.feature.ezextension()">File an extension</a>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#">Generate Reports</a>
                                 </li>
-                                <li data-visible="@{ ${welcomeModel.productID} != '4' }"
-                                    style="display: list-item;">
-                                    <a class="footerLink" id="lnkAmendReturn" href="#" data-nav="jumpToTopicAmend">Amend
-                                        (change) a filed and accepted return</a>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#">Request Approval</a>
                                 </li>
-                                <!-- Options that have been moved to the Tools menu
-                                    <li>
-                                        <a class="footerLink" id="lnkSaveInfo" href="#" onclick="TTOApp.Controller.downloadDataFile()">Save your
-                                                                                                                  ${welcomeModel.taxYear}
-                                                                                                                  return to your computer</a>
-                                    </li>
-                                    <li>
-                                        <a class="footerLink" id="lnkDeleteForm" href="#" data-nav="jumpToDeleteForm">Delete a form</a>
-                                    </li>
-                                    <li>
-                                        <a class="footerLink" id="lnkClearReturn" data-nav="clearReturn">Clear your ${welcomeModel.taxYear} return and start over</a>
-                                    </li>
-                                -->
-                                <li data-visible="@{ ${welcomeModel.productID} == '32' }" style="display: none;">
-                                    <a class="footerLink" id="lnkCreateForm" href="#"
-                                       onclick="TTOApp.utils.nav.goToCreateW21099()">Create W-2s and 1099s</a>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#">Print your Plan</a>
                                 </li>
                             </ul>
                         </div>
-                        <div id="manageAccount" class="col-sm-6">
-                            <h3>Manage Your Account</h3>
-
+                        <div  class="col-sm-3">
+                            <h3>TASK TRACKING</h3>
                             <ul class="welcomeBullets">
-                                <li data-visible="@{ WelcomeActionClass.isRegisteredUser() }"
-                                    style="display: list-item;">
-
-                                    <a class="footerLink" id="lnkUpdateInfo" href="#"
-                                       onclick="TTOApp.utils.nav.goToEditMyAccount()">Change user ID, e-mail, or
-                                        password</a>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#">Tasks Assignments</a>
                                 </li>
-                                <li data-visible="@{ ${welcomeModel.productID} != '4' &amp;&amp;  ${welcomeModel.productID} != '32' }"
-                                    style="display: list-item;">
-                                    <a class="footerLink" id="lnkUpgradeProduct" href="#" data-event="upgrade">Upgrade
-                                        your myCOOP product</a>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#">Request Support</a>
                                 </li>
-                                <li>
-                                    <a class="footerLink" id="lnkViewOrder" href="#"
-                                       data-nav="jumpToPaymentSummary">View order summary</a>
+                            </ul>
+                        </div>
+                        <div  class="col-sm-3">
+                            <h3>TASK TRACKING</h3>
+                            <ul class="welcomeBullets">
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#"> Personal Settings</a>
+                                </li>
+                                <li style="display: list-item;">
+                                    <a class="footerLink" href="#"> Notifications & Alerts</a>
                                 </li>
                             </ul>
                         </div>
@@ -144,22 +123,3 @@
 </div>
 
 <!-- end dialogRegion -->
-
-<footer id="footerLayer" align="center" role="contentinfo">
-    <div id="LiveCommWrapper" class="hide">
-        <iframe name="CIAFrame" id="CIAFrame" class="CIAFrame" src="blank.htm" scrolling="no" noresize=""
-                frameborder="no"></iframe>
-    </div>
-    <!-- actions setup in zStaticRegion._setPrivacy -->
-    <div class="links">
-        <a href="javascript:;" id="license_agreement">License Agreement</a>
-        | <a href="javascript:;" id="privacy">Privacy</a>
-        | <a href="javascript:;" id="security">Security</a>
-        | <a href="javascript:;" id="support">Support</a>
-
-        <br>© 2014 MyCOOP Inc. All rights reserved.
-    </div>
-    <div id="promoLayer" style="visibility: hidden;"></div>
-    <div></div>
-</footer>
-
