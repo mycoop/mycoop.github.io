@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/business-process.js" afterPath="$PROJECT_DIR$/scripts/controllers/business-process.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index-old.html" afterPath="$PROJECT_DIR$/index-old.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/resources/process.js" afterPath="$PROJECT_DIR$/scripts/resources/process.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-coop.iws" />
@@ -76,12 +78,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="business-process.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="business-process.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3747573" vertical-offset="272" max-vertical-offset="1125">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state vertical-scroll-proportion="-5.818182" vertical-offset="610" max-vertical-offset="1155">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-old.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index-old.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="73.09624" vertical-offset="955" max-vertical-offset="37350">
+              <caret line="2393" column="103" selection-start-line="2393" selection-start-column="103" selection-end-line="2393" selection-end-column="103" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,8 +115,8 @@
       <file leaf-file-name="process.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.7272725" vertical-offset="0" max-vertical-offset="570">
-              <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+            <state vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="555">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -145,7 +161,6 @@
         <option value="$PROJECT_DIR$/scripts/controllers/federal.js" />
         <option value="$PROJECT_DIR$/styles/app/app.css" />
         <option value="$PROJECT_DIR$/views/federal.html" />
-        <option value="$PROJECT_DIR$/index-old.html" />
         <option value="$PROJECT_DIR$/app.html" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
         <option value="$PROJECT_DIR$/views/login.html" />
@@ -157,12 +172,13 @@
         <option value="$PROJECT_DIR$/scripts/online-app.js" />
         <option value="$PROJECT_DIR$/styles/restyling.css" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
-        <option value="$PROJECT_DIR$/scripts/resources/process.js" />
         <option value="$PROJECT_DIR$/views/business-process.add.html" />
         <option value="$PROJECT_DIR$/views/business-processes.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/main.html" />
+        <option value="$PROJECT_DIR$/scripts/resources/process.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/business-process.js" />
+        <option value="$PROJECT_DIR$/index-old.html" />
       </list>
     </option>
   </component>
@@ -375,7 +391,7 @@
       <recent name="$PROJECT_DIR$/experiences/rtb-pods/images" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.mycoop-online.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" uri="http://localhost/index.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -445,8 +461,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.mycoop-online.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.mycoop-online.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.app.html" />
       </list>
@@ -570,7 +586,11 @@
       <created>1399640733428</created>
       <updated>1399640733428</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Small fixes">
+      <created>1399641083283</created>
+      <updated>1399641083283</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -841,18 +861,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index-old.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9681051" vertical-offset="36744" max-vertical-offset="37350">
-          <caret line="2484" column="7" selection-start-line="2484" selection-start-column="7" selection-end-line="2484" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
@@ -919,6 +927,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15789473" vertical-offset="0" max-vertical-offset="570">
           <caret line="6" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,14 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7272725" vertical-offset="0" max-vertical-offset="570">
-          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/business-process.add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="885">
@@ -1067,11 +1068,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="555">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3747573" vertical-offset="272" max-vertical-offset="1125">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state vertical-scroll-proportion="-5.818182" vertical-offset="610" max-vertical-offset="1155">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-old.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="73.09624" vertical-offset="955" max-vertical-offset="37350">
+          <caret line="2393" column="103" selection-start-line="2393" selection-start-column="103" selection-end-line="2393" selection-end-column="103" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

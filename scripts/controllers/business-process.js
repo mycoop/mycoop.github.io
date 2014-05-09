@@ -59,6 +59,8 @@ angular.module('myCoopOnlineApp')
         };
 
         $scope.save = function(){
+
+            $scope.process.locationType = 'Program Area Location';
             Process.addProcess($scope.process, function(){
                 $state.transitionTo('impact.processes');
             })
