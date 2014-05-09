@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/business-processes.html" afterPath="$PROJECT_DIR$/views/business-processes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/main.html" afterPath="$PROJECT_DIR$/views/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/business-process.js" afterPath="$PROJECT_DIR$/scripts/controllers/business-process.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-coop.iws" />
@@ -55,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9437148" vertical-offset="892" max-vertical-offset="4425">
-              <caret line="93" column="73" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
+            <state vertical-scroll-proportion="-8.458333" vertical-offset="892" max-vertical-offset="4425">
+              <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -78,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="business-process.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="business-process.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.2363634" vertical-offset="272" max-vertical-offset="1110">
-              <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.3747573" vertical-offset="272" max-vertical-offset="1125">
+              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -159,12 +157,12 @@
         <option value="$PROJECT_DIR$/scripts/online-app.js" />
         <option value="$PROJECT_DIR$/styles/restyling.css" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/business-process.js" />
         <option value="$PROJECT_DIR$/scripts/resources/process.js" />
         <option value="$PROJECT_DIR$/views/business-process.add.html" />
         <option value="$PROJECT_DIR$/views/business-processes.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/main.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/business-process.js" />
       </list>
     </option>
   </component>
@@ -568,7 +566,11 @@
       <created>1399640021473</created>
       <updated>1399640021473</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Small fixes">
+      <created>1399640733428</created>
+      <updated>1399640733428</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1015,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.2363634" vertical-offset="272" max-vertical-offset="1110">
-          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.7272725" vertical-offset="0" max-vertical-offset="570">
@@ -1067,8 +1061,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9437148" vertical-offset="892" max-vertical-offset="4425">
-          <caret line="93" column="73" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
+        <state vertical-scroll-proportion="-8.458333" vertical-offset="892" max-vertical-offset="4425">
+          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3747573" vertical-offset="272" max-vertical-offset="1125">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
           <folding />
         </state>
       </provider>

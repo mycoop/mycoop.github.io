@@ -29,6 +29,7 @@ angular.module('myCoopOnlineApp')
         $scope.clone = function(process){
             var newProcess = angular.copy(process);
             delete newProcess.location;
+            delete newProcess.locationType;
             Process.addProcess(newProcess, function(){
                 updateProcesses();
             })
