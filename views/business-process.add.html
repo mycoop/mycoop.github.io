@@ -1,0 +1,54 @@
+<div class="account-info row">
+    <article class="subscreen-content col-xs-12">
+        <h1>Add business process</h1>
+        <form action="#" id="editNameFormView">
+            <p class="error" role="alert" style="color:red"></p>
+            <p class="success" role="alert" style="color:green;"></p>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">Process Name</label><br/>
+                    <input type="text" id="firstName" ng-model="process.name" name="firstName" class="account-info-input editable" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="lastName">Description</label><br/>
+                    <textarea type="text" id="lastName" ng-model="process.description"
+                           name="lastName" class="account-info-input editable" original-title="" ></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <h3 class="col-xs-12">Location</h3>
+                <div class="form-group col-xs-12">
+                    <input type="radio" id="pmLocation" name="location" class="account-info-input editable">
+                    <label class="label-control" for="pmLocation">Use Program Location</label>
+                    <br/>
+                    <input type="radio" id="dLocation" name="location" class="account-info-input editable">
+                    <label class="label-control" for="dLocation">Select from Location Directory</label>
+                    <br/>
+                    <input type="radio" id="dcLocation" name="location" class="account-info-input editable">
+                    <label class="label-control" for="dcLocation">Add Delivery Channel</label>
+                </div>
+            </div>
+            <div class="row">
+                <h3 class="col-xs-12">Additional attributes</h3>
+                <div class="form-group col-xs-12">
+                    <ul>
+                        <li><a href="">Staffing</a></li>
+                        <li><a href="">Application</a></li>
+                        <li><a href="">Vendors</a></li>
+                        <li><a href="">Vital Records</a></li>
+                        <li><a href="">Hardware</a></li>
+                    </ul>
+
+                    <div class="btn btn-smaller btn-blue">Add another</div>
+                </div>
+            </div>
+            <br>
+            <div class="editDetailsButtonRow">
+                <a href="#" class="editDetailsSubmit btn btn-medium  btn-blue submit" ng-click="save()" automationid="editNameSave" title="Save">Save &amp; Continue</a>
+                <a href="#accountInfo" class="editDetailsCancel btn btn-medium btn-gray-light cancel" automationid="editNameCancel" title="Cancel">Cancel</a>
+            </div>
+        </form>
+    </article>
+</div>
