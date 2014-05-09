@@ -6,6 +6,7 @@ angular
         'ngResource',
         'ngRoute',
         'ui.router',
+        'ngGrid',
         'resources.process'
 //        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {

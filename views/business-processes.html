@@ -17,7 +17,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
+                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                    <a  ng-hide="isBulkUpdating" class="btn ansRoyal" ng-click="bulkUpdate()">Update Bulk</a></td>
                             </tr>
                             </tbody>
                         </table>
@@ -28,7 +29,7 @@
                 </tr>
                 <tr>
                     <td align="left" valign="top" colspan="1" class="colFirst">
-                        <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                        <table cellpadding="0"  ng-hide="isBulkUpdating" cellspacing="0" border="0" class="grid">
                             <tbody>
                             <tr>
                                 <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
@@ -77,24 +78,24 @@
                                             <td align="center" valign="top" class="mcDeleteCol">
                                                 <nobr>
                                                     <button id="mc_00_edt0" aria-label="Edit" role="button"
-                                                            class="btn ansLP" tabindex="1">Select
+                                                            class="btn ansLP" tabindex="1" ng-click="clone(process)">Clone
                                                     </button>
                                                     <img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                          alt="" width="5" height="10" border="0">
                                                     <button id="mc_00_del0" aria-label="Delete" role="button"
-                                                            class="btn ansLP" tabindex="2">Edit
+                                                            class="btn ansLP" tabindex="2">Delete
                                                     </button>
 
                                                     <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
-                                                         <!--alt="" width="5" height="10" border="0">-->
+                                                    <!--alt="" width="5" height="10" border="0">-->
                                                     <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
-                                                            <!--class="btn ansLP" tabindex="2">Bulk-->
+                                                    <!--class="btn ansLP" tabindex="2">Bulk-->
                                                     <!--</button>-->
 
                                                     <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
-                                                         <!--alt="" width="5" height="10" border="0">-->
+                                                    <!--alt="" width="5" height="10" border="0">-->
                                                     <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
-                                                            <!--class="btn ansLP" tabindex="2">Clone-->
+                                                    <!--class="btn ansLP" tabindex="2">Clone-->
                                                     <!--</button>-->
                                                 </nobr>
                                             </td>
@@ -105,7 +106,7 @@
                                                     alt="" width="1" height="10" border="0"></td>
                                             <td align="left" colspan="7" class="mcAnsCol1">
                                                 <a role="button" ui-sref="impact.processes-add"
-                                                        class="btn ansRoyal" tabindex="3">Add Another
+                                                   class="btn ansRoyal" tabindex="3">Add Another
                                                 </a>
                                             </td>
                                         </tr>
@@ -114,6 +115,8 @@
                                     <p></p></td>
                             </tr>
                             </tbody>
+
+
                         </table>
                     </td>
                 </tr>
@@ -125,4 +128,23 @@
         </div>
         <div id="formLayer" style="max-height: 250px; width: 698px;"></div>
     </div>
+
+    <div ng-if="isBulkUpdating" class="gridStyle" ng-grid="gridOptions">
+    </div>
+    <button ng-show="isBulkUpdating" class="btn btn-blue" style="margin-top: 15px"  ng-click="saveBulkUpdate()">Save</button>
+
+    <script type="text/ng-template" id="headerRow">
+        <div>
+            <div style="height: 30px; width: 100%; border-bottom: 1px solid #ccc" class="ngHeaderCell">
+                <div class="address">Attribute Staffing over time</div>
+            </div>
+
+            <div style="height: 30px; top: 30px; position: absolute">
+                <div ng-style="{ height: col.headerRowHeight }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngHeaderCell">
+                    <div class="ngVerticalBar" ng-style="{height: col.headerRowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div>
+                    <div ng-header-cell></div>
+                </div>
+            </div>
+        </div>
+    </script>
 </div>

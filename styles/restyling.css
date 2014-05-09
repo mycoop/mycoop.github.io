@@ -6,3 +6,33 @@
     margin: 0 auto 10px;
 
 }
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 99%;
+    height: 300px;
+}
+
+.ngCanvas{
+    margin-top: 30px !important;
+}
+
+.ngHeaderContainer, .ngHeaderScroller {
+    height: 60px !important;
+}
+
+.address {
+    padding: 4px;
+    position: absolute;
+    left: 60%;
+    width: 40%;
+    border-left: 1px solid #ccc;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+}
+
+TR.mcRow:hover{
+    cursor: pointer;
+    background: #d3d3d3;
+}
