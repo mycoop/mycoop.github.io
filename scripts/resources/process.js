@@ -19,6 +19,7 @@ angular.module('resources.process',[])
                 callback(processes);
             },
             addProcess: function(process, callback){
+                process.locationType = 'Program Area Location';
                 processes.push(process);
                 callback();
             },

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/business-process.js" afterPath="$PROJECT_DIR$/scripts/controllers/business-process.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index-old.html" afterPath="$PROJECT_DIR$/index-old.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/resources/process.js" afterPath="$PROJECT_DIR$/scripts/resources/process.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -88,15 +86,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index-old.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index-old.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index-old.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="73.09624" vertical-offset="955" max-vertical-offset="37350">
-              <caret line="2393" column="103" selection-start-line="2393" selection-start-column="103" selection-end-line="2393" selection-end-column="103" />
+            <state vertical-scroll-proportion="-1.392405" vertical-offset="955" max-vertical-offset="37350">
+              <caret line="71" column="83" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1399642922000" expanded="true" signature="106607:106827" placeholder="..." />
+                <marker date="1399642922000" expanded="true" signature="106625:106819" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -112,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="process.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="555">
-              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.5825243" vertical-offset="0" max-vertical-offset="570">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="21" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -176,9 +175,9 @@
         <option value="$PROJECT_DIR$/views/business-processes.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/main.html" />
-        <option value="$PROJECT_DIR$/scripts/resources/process.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/business-process.js" />
         <option value="$PROJECT_DIR$/index-old.html" />
+        <option value="$PROJECT_DIR$/scripts/resources/process.js" />
       </list>
     </option>
   </component>
@@ -590,7 +589,11 @@
       <created>1399641083283</created>
       <updated>1399641083283</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Small fixes">
+      <created>1399642927206</created>
+      <updated>1399642927206</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1068,14 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="555">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/business-process.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.818182" vertical-offset="610" max-vertical-offset="1155">
@@ -1086,13 +1081,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index-old.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="73.09624" vertical-offset="955" max-vertical-offset="37350">
-          <caret line="2393" column="103" selection-start-line="2393" selection-start-column="103" selection-end-line="2393" selection-end-column="103" />
+        <state vertical-scroll-proportion="-1.392405" vertical-offset="955" max-vertical-offset="37350">
+          <caret line="71" column="83" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#a#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1399642922000" expanded="true" signature="106607:106827" placeholder="..." />
+            <marker date="1399642922000" expanded="true" signature="106625:106819" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5825243" vertical-offset="0" max-vertical-offset="570">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="21" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
