@@ -8,23 +8,78 @@ controller('orgChartCtrl', function ($scope) {
         new primitives.orgdiagram.ItemConfig({
             id: 0,
             parent: null,
-            title: "Scott Aasrud",
-            description: "VP, Public Sector",
-            image: "demo/images/photos/a.png"
+            title: "Your organization",
+//            description: "VP, Public Sector",
         }),
         new primitives.orgdiagram.ItemConfig({
             id: 1,
             parent: 0,
-            title: "Ted Lucas",
-            description: "VP, Human Resources",
+            title: "Business unit 1",
+//            description: "VP, Human Resources",
             image: "demo/images/photos/b.png"
         }),
         new primitives.orgdiagram.ItemConfig({
             id: 2,
             parent: 0,
-            title: "Joao Stuger",
-            description: "Business Solutions, US",
-            image: "demo/images/photos/c.png"
+            title: "Business unit 2",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 3,
+            parent: 0,
+            title: "Location 1",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 4,
+            parent: 0,
+            title: "Location 2",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 5,
+            parent: 1,
+            title: "Department 1",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 6,
+            parent: 2,
+            title: "Department 2",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 7,
+            parent: 3,
+            title: "Department 3",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 8,
+            parent: 3,
+            title: "Accounting",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
+        }),
+
+        new primitives.orgdiagram.ItemConfig({
+            id: 8,
+            parent: 4,
+            title: "Accounting",
+//            description: "VP, Human Resources",
+            image: "demo/images/photos/b.png"
         })
     ];
 
