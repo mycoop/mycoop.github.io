@@ -1,0 +1,112 @@
+<div class="account-info row">
+    <article class="subscreen-content col-xs-12">
+        <h1>Organization Profile</h1>
+        <p class="subheader">Manage your organizational entities and relationships</p>
+        <br/>
+        <h3>ORGANIZATION DETAILS</h3>
+        <form action="#" id="editNameFormView" novalidate="" name="form">
+            <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+            <p class="success" role="alert" style="color:green;"></p>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">Organization Name</label><br/>
+                    <input readonly type="text" id="firstName" value="Company 123" name="firstName" class="account-info-input editable" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">Industry</label><br/>
+                    <select name="" id="" ng-model="org.industry" ng-options="industry.name for industry in industries">
+                        <option value="">-- choose industry --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">* Organization HQ Address</label><br/>
+                    <input type="text" id="username" required="" ng-model="user.username" name="username" class="account-info-input editable" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">*Main Point of Contact</label><br/>
+                    <input type="email" id="email" required="" ng-model="user.email" name="email" class="account-info-input editable" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">*Alternate Point of Contact</label><br/>
+                    <input type="tel" id="phone" ng-model="user.phone" name="phone" class="account-info-input editable" maxlength="35" original-title="">
+                </div>
+            </div>
+
+        </form>
+
+        <h3>USER LICENSES</h3>
+        <table cellpadding="0" cellspacing="0" border="0" class="grid full-width">
+            <tbody>
+            <tr>
+                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                    <table cellpadding="0" cellspacing="0" border="0" class="mcTable full-width" id="mc_00">
+                        <tbody>
+                        <tr>
+                            <td class="mcHeading" style="width: 15px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>License Type</span></nobr>
+                            </td>
+                            <td class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>Total License</span></nobr>
+                            </td>
+                            <td class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>Licenses In Use</span></nobr>
+                            </td>
+                            <td align="right" class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="15" height="10" border="0"></td>
+                            <td align="center" class="mcHeading" width="110px">Remaining</td>
+                        </tr>
+                        <tr valign="top" class="mcRow" ng-repeat="license in licenses">
+                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.type}}</span></td>
+                            <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.total}}</span></td>
+                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.used}}</span></td>
+                            <td align="right" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="10" height="10" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.remaining}}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p></p></td>
+            </tr>
+            </tbody>
+
+
+        </table>
+
+
+        <h3>DEFINING ORGANIZATIONAL ENTITIES AND RELATIONSHIPS</h3>
+        <p>
+            Let’s get started with defining your organizational relationships and entities.
+            Set up your Organization Hierarchy to control how your report
+            data are structured and how the information is accessed…
+            <br/><a ui-sref="home.info">More information</a>
+        </p>
+    </article>
+</div>

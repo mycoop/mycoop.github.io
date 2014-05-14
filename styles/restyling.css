@@ -36,3 +36,11 @@ TR.mcRow:hover{
     cursor: pointer;
     background: #d3d3d3;
 }
+
+input.ng-invalid.ng-dirty{
+    border-color: red !important;
+}
+
+input:read-only{
+    color: lightslategray !important;
+}
