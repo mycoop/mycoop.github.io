@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/my-coop/styles/restyling.css"/>
 
     <script type="text/javascript" src="/my-coop/scripts/libraries/jquery.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/underscore.js"></script>
 
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular.js"></script>
@@ -47,28 +48,17 @@
     <div class="container">
         <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation" class="pull-left visible-sm visible-xs"></a>
 
-        <div id="" style="" title="myCOOP">
+        <a id="" style="display: block" href="/my-coop/#/main" title="myCOOP">
 
-            <img src="/my-coop/experiences/default/images/globe.png" alt="" style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
+            <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png" alt="" style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
+        </a>
 
+        <a class="pull-right visible-lg visible-md" style="display: block" href="/my-coop/#/main" title="myCOOP">
             <h1 class="hidden-xs"  style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">myCOOP&#8482;</h1>
             <h2  class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">myCOOP&#8482;</h2>
-        </div>
-
+        </a>
         <!-- see components/HelpPanel/ -->
         <div id="help_search_wrapper">
-            <div id="helpNotification">
-                <a href="javascript:;" class="bubble">
-                    <span class="badge pull-right"></span>
-                </a>
-
-                <div class="dialog">
-                    <div class="arrow"></div>
-                    <div class="content"></div>
-                </div>
-            </div>
-            <!-- hidden unless small screen -->
-            <a href="javascript:;" id="helpSearchMobile">?</a>
             <!-- see components/HelpSearch/HelpSearch.js -->
             <form id="helpSearch" target="_blank">
                 <!-- TODO: edit these ids? -->
@@ -83,25 +73,7 @@
                         style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
                 <a id="chatAskButton">?</a>
             </form>
-            <!-- see components/HelpPanel/HelpPanel.js -->
-            <div id="helpPanel">
-                <iframe name="helpPanelFrame"
-                        src="https://support.myCOOP.intuit.com/products/tto/help-panel/index.html?authid=1205458480&amp;sku=512&amp;exp=Classic"
-                        scrolling="no"></iframe>
-            </div>
-            <div id="helpSuggest">
-                <p>COMMON QUESTIONS</p>
-            </div>
-            <div id="helpTip">
-                <div class="arrow"></div>
-                <div class="content">
-                    <div class="title">We're right here</div>
-                    <div class="body">Our experts are available whenever you need us.<br><strong>Type a question above
-                        to get started.</strong></div>
-                    <div class="image"><img src="img/help_tip_image.jpg"></div>
-                </div>
-                <a href="javascript:;" class="btn ansSm closeTip">Close</a>
-            </div>
+
         </div>
 
         <!-- click handlers set in TTOApp.Navigation _init -->
@@ -132,12 +104,12 @@
             <ul ng-show=" $state.includes('home')">
                 <li  ng-class="{ on: $state.includes('home.profile') }">
                     <a ui-sref="home.profile" >Organization Profile</a></li>
+                <li  ng-class="{ on: $state.includes('home.org') }">
+                    <a ui-sref="home.org">Org entities</a></li>
                 <li  ng-class="{ on: $state.includes('home.admin') }">
                     <a ui-sref="home.admin"  >User Administration</a></li>
                 <li  ng-class="{ on: $state.includes('home.resource') }">
                     <a ui-sref="home.resource"  >Resource Directories</a></li>
-                <li  ng-class="{ on: $state.includes('home.org') }">
-                    <a ui-sref="home.org">Organization chart</a></li>
             </ul>
         </li>
         <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2" id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>

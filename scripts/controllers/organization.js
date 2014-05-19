@@ -20,7 +20,10 @@ angular.module('myCoopOnlineApp')
             {name: 'Transportation Systems'},
             {name: 'Water and Wastewater Systems'}
         ];
-
+        $scope.$watch('selectedIndustry', function(){
+            if($scope.selectedIndustry)
+           $scope.showStandarts = true;
+        });
         $scope.licenses = [
             {type: 'Administrators', total: '3', used: '2', remaining: '1'},
             {type: 'Contributors (Planners / Content Managers)', total: '5', used: '2', remaining: '3'},
