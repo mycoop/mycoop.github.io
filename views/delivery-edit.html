@@ -1,0 +1,51 @@
+<div>
+    <article class="subscreen-content col-xs-12">
+        <h1>Delivery channel assignment</h1>
+        <div class="row">
+            <ul class="list-unstyled">
+                <li ng-repeat="method in methods"><input id="{{method.name}}" type="checkbox"/> <label for="{{method.name}}">{{method.name}}</label></li>
+            </ul>
+
+            <div class="editDetailsButtonRow">
+                <a ui-sref="impact.processes-add" class="editDetailsSubmit btn btn-medium  btn-blue submit" automationid="editNameSave" title="Save">Save &amp; Continue</a>
+                <a ui-sref="impact.processes-add" href="#accountInfo" class="editDetailsCancel btn btn-medium btn-gray-light cancel" automationid="editNameCancel" title="Cancel">Cancel</a>
+            </div>
+        </div>
+        <div class="row">
+            <a href="" ng-click="isCollapsed =! isCollapsed">Submit a new delivery channel</a>
+            <div collapse="isCollapsed">
+                <div class="well well-lg">
+                    <h3>Ad Hoc Additions</h3>
+                    <form action="#" id="editNameFormView">
+                        <p class="error" role="alert" style="color:red"></p>
+                        <p class="success" role="alert" style="color:green;"></p>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label class="label-control" for="firstName">Delivery Channel Name</label><br/>
+                                <input type="text" id="firstName" ng-model="process.name" name="firstName" class="account-info-input editable" maxlength="35" original-title="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label class="label-control" for="lastName">Delivery Channel Description</label><br/>
+                                <textarea type="text" id="lastName" ng-model="process.description"
+                                          name="lastName" class="account-info-input editable" original-title="" ></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label class="label-control" for="reason">Reason</label><br/>
+                                <textarea type="text" id="reason" ng-model="process.description"
+                                          name="lastName" class="account-info-input editable" original-title="" ></textarea>
+                            </div>
+                        </div>
+                        <div class="editDetailsButtonRow">
+                            <a href="#" class="editDetailsSubmit btn btn-medium  btn-blue submit" ng-click="isCollapsed = true" automationid="editNameSave" title="Save">Submit</a>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</div>
