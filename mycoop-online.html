@@ -16,6 +16,7 @@
     <script type="text/javascript" src="/my-coop/scripts/libraries/jquery.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/underscore.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-cookies.js"></script>
@@ -23,6 +24,8 @@
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-resource.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/angular-ui-router.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/libraries/ng-grid.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/ui-bootstrap-tpls.js"></script>
 
     <script type="text/javascript" src="/my-coop/scripts/resources/process.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/resources/user.js"></script>
@@ -33,9 +36,13 @@
     <script type="text/javascript" src="/my-coop/scripts/controllers/organization.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/controllers/business-process.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/controllers/user.js"></script>
+
+    <script type="text/javascript" src="/my-coop/scripts/directives/popover.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/directives/org-chart.js"></script>
+
     <script type="text/javascript" src="/my-coop/scripts/config.js"></script>
     <style>
-        ul#navigation li>ul, ul#tax_summary_nav li>ul{
+        ul#navigation li > ul, ul#tax_summary_nav li > ul {
             display: block;
         }
     </style>
@@ -46,16 +53,21 @@
 <div id="contentOverlay"></div>
 <nav id="topbar" class="navbar {{showNav}}">
     <div class="container">
-        <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation" class="pull-left visible-sm visible-xs"></a>
+        <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation"
+           class="pull-left visible-sm visible-xs"></a>
 
         <a id="" style="display: block" href="/my-coop/#/main" title="myCOOP">
 
-            <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png" alt="" style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
+            <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png" alt=""
+                 style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
         </a>
 
         <a class="pull-right visible-lg visible-md" style="display: block" href="/my-coop/#/main" title="myCOOP">
-            <h1 class="hidden-xs"  style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">myCOOP&#8482;</h1>
-            <h2  class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">myCOOP&#8482;</h2>
+            <h1 class="hidden-xs" style="color: #ffffff; margin-top:10px; margin-bottom: 0; float: left">
+                myCOOP&#8482;</h1>
+
+            <h2 class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">
+                myCOOP&#8482;</h2>
         </a>
         <!-- see components/HelpPanel/ -->
         <div id="help_search_wrapper">
@@ -88,162 +100,174 @@
 </nav>
 <!-- end topbar -->
 
-<div id="main" class="container {{showNav}}"  style="min-height: 729px; height: auto;">
-<div id="main_divider" class="visible-lg visible-md">
-    <div class="bottom_fade"></div>
-</div>
-<div id="main_navigation" class="{{showNav}}">
-
-
-
-    <div id="tabRegion"></div>
-    <!-- visibility controlled through media queries in Navigation.less -->
-    <ul id="navigation" role="navigation">
-        <li  ng-class="{ on: $state.includes('home') }">
-            <a ui-sref="home.profile"  data-submit-val="0" id="auto_id_0">Home</a>
-            <ul ng-show=" $state.includes('home')">
-                <li  ng-class="{ on: $state.includes('home.profile') }">
-                    <a ui-sref="home.profile" >Organization Profile</a></li>
-                <li  ng-class="{ on: $state.includes('home.org') }">
-                    <a ui-sref="home.org">Org entities</a></li>
-                <li  ng-class="{ on: $state.includes('home.admin') }">
-                    <a ui-sref="home.admin"  >User Administration</a></li>
-                <li  ng-class="{ on: $state.includes('home.resource') }">
-                    <a ui-sref="home.resource"  >Resource Directories</a></li>
-            </ul>
-        </li>
-        <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2" id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
-            <ul ng-show="$state.includes('impact')">
-                <li ng-class="{ on: $state.includes('impact.profile') }">
-                    <a ui-sref="impact.profile"  data-submit-val="3">Program Area Profile</a></li>
-                <li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">
-                    <a ui-sref="impact.processes"  data-submit-val="3">Business Processes</a></li>
-                <li ng-class="{ on: $state.includes('impact.staff') }">
-                    <a ui-sref="impact.staff"  data-submit-val="3">Staffing Requirements</a></li>
-                <li ng-class="{ on: $state.includes('impact.resource') }">
-                    <a ui-sref="impact.resource"  data-submit-val="3">Resource Requirement</a></li>
-                <li ng-class="{ on: $state.includes('impact.criticalApp') }">
-                    <a ui-sref="impact.criticalApp"  data-submit-val="3">Critical Application (Software) Requirements</a></li>
-                <li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">
-                    <a ui-sref="impact.quantitativeImpacts"  data-submit-val="3">Quantitative Impacts</a></li>
-                <li ng-class="{ on: $state.includes('impact.internalDependencies') }">
-                    <a ui-sref="impact.internalDependencies"  data-submit-val="3">External Dependencies</a></li>
-                <li ng-class="{ on: $state.includes('impact.externalDependencies') }">
-                    <a ui-sref="impact.externalDependencies"  data-submit-val="3">Internal Dependencies</a></li>
-                <li ng-class="{ on: $state.includes('impact.vitalRecords') }">
-                    <a ui-sref="impact.vitalRecords"  data-submit-val="3">Vital Records</a></li>
-                <li ng-class="{ on: $state.includes('impact.communications') }">
-                    <a ui-sref="impact.communications"  data-submit-val="3">Interoperable Communications (Telephony Requirements) </a></li>
-                <li ng-class="{ on: $state.includes('impact.other') }">
-                    <a ui-sref="impact.other"  data-submit-val="3">Other Requirement</a></li>
-                <li ng-class="{ on: $state.includes('impact.results') }">
-                    <a ui-sref="impact.results"  data-submit-val="3">BIA Results</a></li>
-                <li ng-class="{ on: $state.includes('impact.review') }">
-                    <a ui-sref="impact.review"  data-submit-val="3">BIA Review (summary)</a></li>
-                <li ng-class="{ on: $state.includes('impact.compliance') }">
-                    <a ui-sref="impact.compliance"  data-submit-val="3">Compliance Check and Comparison</a></li>
-            </ul>
-        </li>
-        <!-- H&B only -->
-        <li ng-class="{ on: $state.includes('continuity') }">
-            <a ui-sref="continuity.profile"  data-submit-val="">BUSINESS CONTINUITY PLAN</a>
-            <ul ng-show="$state.includes('continuity')">
-                <li ng-class="{ on: $state.includes('continuity.profile') }">
-                    <a ui-sref="continuity.profile"  data-submit-val="">Program Area Profile</a></li>
-                <li ng-class="{ on: $state.includes('continuity.objective') }">
-                    <a ui-sref="continuity.objective"  data-submit-val="">Plan Objective - Executive Summary</a></li>
-            </ul>
-        </li>
-        <!-- H&B only -->
-        <li ng-class="{ on: $state.includes('risk') }">
-            <a ui-sref="risk.profile"  data-submit-val="">RISK ASSESSMENT</a>
-            <ul ng-show="$state.includes('risk')">
-                <li ng-class="{ on: $state.includes('risk.profile') }">
-                    <a ui-sref="risk.profile"  data-submit-val="">Program Area Profile</a></li>
-                <li ng-class="{ on: $state.includes('risk.objective') }">
-                    <a ui-sref="risk.objective"  data-submit-val="6" id="auto_id_8">Plan Objective - Executive Summary</a></li>
-            </ul>
-        </li>
-        <!-- all but H&B -->
-        <li ng-class="{ on: $state.includes('disaster') }">
-            <a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
-
-            <ul ng-show="$state.includes('disaster')">
-                <li ng-class="{ on: $state.includes('disaster.profile') }" >
-                    <a ui-sref="disaster.profile"  data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
-                <li ng-class="{ on: $state.includes('disaster.objective') }" >
-                    <a ui-sref="disaster.objective"  data-submit-val="6" id="auto_id_14">Plan Objective - Executive Summary</a></li>
-            </ul>
-        </li>
-        <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting"  data-submit-val="13" id="auto_id_18">TOOLS</a>
-            <ul ng-show="$state.includes('tools')">
-                <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"  data-submit-val="14" id="auto_id_19">Reporting</a></li>
-                <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"  data-submit-val="22">Application Controls (Content Approval etc)</a></li>
-                <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print"  data-submit-val="22">Print Center</a></li>
-                <li ng-class="{ on: $state.includes('tools.audit') }"><a ui-sref="tools.audit"  data-submit-val="22">Audit Center</a></li>
-                <li ng-class="{ on: $state.includes('tools.notification') }"><a ui-sref="tools.notification"  data-submit-val="16">Notification Interface </a></li>
-            </ul>
-        </li>
-
-    </ul>
-
-
-    <!-- click handlers set in TTOApp.Navigation _init -->
-    <!--<div id="navTools">-->
-        <!--<ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">-->
-            <!--<li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span class="navLabel">Tools</span></a>-->
-            <!--</li>-->
-            <!--<li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span-->
-                    <!--class="navLabel">Print Center</span></a></li>-->
-            <!--<li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span-->
-                    <!--class="navIcon"></span><span class="navLabel">My myCOOP</span></a></li>-->
-            <!--<li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span-->
-                    <!--class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>-->
-            <!--<li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span class="navIcon"></span><span-->
-                    <!--class="navLabel">Upgrade</span></a></li>-->
-            <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">-->
-                <!--<a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction"-->
-                   <!--data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">-->
-                    <!--<span class="navIcon"></span><span class="navLabel">Switch to classic myCOOP</span>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }"-->
-                <!--style="display: none;">-->
-                <!--<a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm" class="switchToRueTrigger">-->
-                    <!--<span class="navIcon"></span><span class="navLabel">Switch back to new myCOOP</span>-->
-                <!--</a>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-
-</div>
-<!-- end #main_navigation -->
-
-<div id="main_right" style="display: block;" ui-view="">
-
-    <div ui-view="">
+<div id="main" class="container {{showNav}}" style="min-height: 729px; height: auto;">
+    <div id="main_divider" class="visible-lg visible-md">
+        <div class="bottom_fade"></div>
     </div>
+    <div id="main_navigation" class="{{showNav}}">
 
-    <footer id="footerLayer" align="center" role="contentinfo">
-        <!-- actions setup in zStaticRegion._setPrivacy -->
-        <div class="links">
-            <div class="footer-logo"></div>
-            <a href="javascript:;" id="license_agreement">License Agreement</a>
-            | <a href="javascript:;" id="privacy">Privacy</a>
-            | <a href="javascript:;" id="security">Security</a>
-            | <a href="javascript:;" id="support">Support</a>
+        <div id="tabRegion"></div>
+        <!-- visibility controlled through media queries in Navigation.less -->
+        <ul id="navigation" role="navigation">
+            <li ng-class="{ on: $state.includes('home') }">
+                <a ui-sref="home.profile" data-submit-val="0" id="auto_id_0">Home</a>
+                <ul ng-show=" $state.includes('home')">
+                    <li ng-class="{ on: $state.includes('home.profile') }">
+                        <a ui-sref="home.profile">Organization Profile</a></li>
+                    <li ng-class="{ on: $state.includes('home.org') }">
+                        <a ui-sref="home.org">Org entities</a></li>
+                    <li ng-class="{ on: $state.includes('home.admin') }">
+                        <a ui-sref="home.admin">User Administration</a></li>
+                    <li ng-class="{ on: $state.includes('home.resource') }">
+                        <a ui-sref="home.resource">Resource Directories</a></li>
+                </ul>
+            </li>
+            <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"
+                                                                id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
+                <ul ng-show="$state.includes('impact')">
+                    <li ng-class="{ on: $state.includes('impact.profile') }">
+                        <a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>
+                    <li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">
+                        <a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>
+                    <li ng-class="{ on: $state.includes('impact.staff') }">
+                        <a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>
+                    <li ng-class="{ on: $state.includes('impact.resource') }">
+                        <a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>
+                    <li ng-class="{ on: $state.includes('impact.criticalApp') }">
+                        <a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)
+                            Requirements</a></li>
+                    <li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">
+                        <a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>
+                    <li ng-class="{ on: $state.includes('impact.internalDependencies') }">
+                        <a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>
+                    <li ng-class="{ on: $state.includes('impact.externalDependencies') }">
+                        <a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>
+                    <li ng-class="{ on: $state.includes('impact.vitalRecords') }">
+                        <a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>
+                    <li ng-class="{ on: $state.includes('impact.communications') }">
+                        <a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony
+                            Requirements) </a></li>
+                    <li ng-class="{ on: $state.includes('impact.other') }">
+                        <a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>
+                    <li ng-class="{ on: $state.includes('impact.results') }">
+                        <a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>
+                    <li ng-class="{ on: $state.includes('impact.review') }">
+                        <a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>
+                    <li ng-class="{ on: $state.includes('impact.compliance') }">
+                        <a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>
+                </ul>
+            </li>
+            <!-- H&B only -->
+            <li ng-class="{ on: $state.includes('continuity') }">
+                <a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>
+                <ul ng-show="$state.includes('continuity')">
+                    <li ng-class="{ on: $state.includes('continuity.profile') }">
+                        <a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>
+                    <li ng-class="{ on: $state.includes('continuity.objective') }">
+                        <a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>
+                </ul>
+            </li>
+            <!-- H&B only -->
+            <li ng-class="{ on: $state.includes('risk') }">
+                <a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>
+                <ul ng-show="$state.includes('risk')">
+                    <li ng-class="{ on: $state.includes('risk.profile') }">
+                        <a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>
+                    <li ng-class="{ on: $state.includes('risk.objective') }">
+                        <a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive
+                            Summary</a></li>
+                </ul>
+            </li>
+            <!-- all but H&B -->
+            <li ng-class="{ on: $state.includes('disaster') }">
+                <a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
 
-            <br>© 2014 myCOOP&#8482; Inc. All rights reserved.
+                <ul ng-show="$state.includes('disaster')">
+                    <li ng-class="{ on: $state.includes('disaster.profile') }">
+                        <a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
+                    <li ng-class="{ on: $state.includes('disaster.objective') }">
+                        <a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive
+                            Summary</a></li>
+                </ul>
+            </li>
+            <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting" data-submit-val="13"
+                                                               id="auto_id_18">TOOLS</a>
+                <ul ng-show="$state.includes('tools')">
+                    <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"
+                                                                                 data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-file"></span> Reporting</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"
+                                                                                data-submit-val="22"> <span class="glyphicon glyphicon-wrench"></span> Application
+                        Controls</a></li>
+                    <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print" data-submit-val="22"><span class="glyphicon glyphicon-print"></span> Print
+                        Center</a></li>
+                    <li ng-class="{ on: $state.includes('tools.audit') }"><a ui-sref="tools.audit" data-submit-val="22"><span class="glyphicon glyphicon-eye-open"></span> Audit
+                        Center</a></li>
+                    <li ng-class="{ on: $state.includes('tools.notification') }"><a ui-sref="tools.notification"
+                                                                                    data-submit-val="16"><span class="glyphicon glyphicon-bell"></span> Notification
+                        Interface </a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!--<div id="navTools">-->
+            <!--<ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">-->
+                <!--<li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span-->
+                        <!--class="navLabel">Tools</span></a>-->
+                <!--</li>-->
+                <!--<li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span-->
+                        <!--class="navLabel">Print Center</span></a></li>-->
+                <!--<li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span-->
+                        <!--class="navIcon"></span><span class="navLabel">My myCOOP</span></a></li>-->
+                <!--<li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span-->
+                        <!--class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>-->
+                <!--<li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span-->
+                        <!--class="navIcon"></span><span-->
+                        <!--class="navLabel">Upgrade</span></a></li>-->
+                <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">-->
+                    <!--<a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction"-->
+                       <!--data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">-->
+                        <!--<span class="navIcon"></span><span class="navLabel">Switch to classic myCOOP</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }"-->
+                    <!--style="display: none;">-->
+                    <!--<a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm"-->
+                       <!--class="switchToRueTrigger">-->
+                        <!--<span class="navIcon"></span><span class="navLabel">Switch back to new myCOOP</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+    </div>
+    <!-- end #main_navigation -->
+
+    <div id="main_right" style="display: block;" ui-view="">
+
+        <div ui-view="">
         </div>
-        <div id="promoLayer" style="visibility: hidden;"></div>
-        <div></div>
-    </footer>
+
+        <footer id="footerLayer" align="center" role="contentinfo">
+            <!-- actions setup in zStaticRegion._setPrivacy -->
+            <div class="links">
+                <div class="footer-logo"></div>
+                <a href="javascript:;" id="license_agreement">License Agreement</a>
+                | <a href="javascript:;" id="privacy">Privacy</a>
+                | <a href="javascript:;" id="security">Security</a>
+                | <a href="javascript:;" id="support">Support</a>
+
+                <br>© 2014 myCOOP&#8482; Inc. All rights reserved.
+            </div>
+            <div id="promoLayer" style="visibility: hidden;"></div>
+            <div></div>
+        </footer>
 
 
-</div>
-<!-- end #main_right -->
+    </div>
+    <!-- end #main_right -->
 
-<div id="rex_main_right" data-viewport="rexViewport"></div>
+    <div id="rex_main_right" data-viewport="rexViewport"></div>
 
 </div>
 <!-- end #main -->

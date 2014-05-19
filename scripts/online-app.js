@@ -8,7 +8,8 @@ angular
         'ui.router',
         'ngGrid',
         'resources.process',
-        'resources.user'
+        'resources.user',
+        'ui.bootstrap'
 //        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -37,4 +38,14 @@ angular
 //            $rootScope.setCurrentPage($location.path().replace('/', ''));
 ////            alert($rootScope.isFederalSelected);
 //        });
+    }).controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
+        $scope.message = message;
+        $scope.isMoveUsers = true;
+        $scope.ok = function () {
+            $modalInstance.close($scope.isMoveUsers);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
     });

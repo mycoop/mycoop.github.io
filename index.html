@@ -23,38 +23,38 @@
     <script type="text/javascript">
         //<![CDATA[
         var appVars = {
-            version : "2.14.49",
-            sessionTimeout:  "20",
-            jsLogLevel : "2",
-            displayErrorDetails : "false",
-            COOPYear : "2013",
+            version: "2.14.49",
+            sessionTimeout: "20",
+            jsLogLevel: "2",
+            displayErrorDetails: "false",
+            COOPYear: "2013",
 
             // Default priority code
-            priorityCode : "3468337910",
+            priorityCode: "3468337910",
 
-            useMockData : false,
-            myAccountAllocation : "",
-            createAccountAllocation : "",
-            framing : "none",
-            maxFileUploadSize : "5242880",
-            supportedImageTypes : ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
-            ciEnvionmentConfig : "prod",
+            useMockData: false,
+            myAccountAllocation: "",
+            createAccountAllocation: "",
+            framing: "none",
+            maxFileUploadSize: "5242880",
+            supportedImageTypes: ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
+            ciEnvionmentConfig: "prod",
             percentFundedThreshold: "80",
-            percentSurveyChance : 0,
-            searchBoxPlaceholderText : "Ask for help here",
+            percentSurveyChance: 0,
+            searchBoxPlaceholderText: "Ask for help here",
 
 
-            featureSecurityIncrease : false,
-            featureRedirectOnSignIn : false,
-            featureRedirectServerQA : false,
-            featureHealthcare : true,
-            featureIusSignin : true,
-            featureMoneyFinder:true,
-            featureDispatcher:true,
-            featureFatalJS:false,
-            featureVaultOpenForNewUsers:false,
-            featureInstaRefund:true,
-            featureWidgetAnalyticsOff:false,
+            featureSecurityIncrease: false,
+            featureRedirectOnSignIn: false,
+            featureRedirectServerQA: false,
+            featureHealthcare: true,
+            featureIusSignin: true,
+            featureMoneyFinder: true,
+            featureDispatcher: true,
+            featureFatalJS: false,
+            featureVaultOpenForNewUsers: false,
+            featureInstaRefund: true,
+            featureWidgetAnalyticsOff: false,
             featureRefundInfo: true,
 
             FAFSALink: "ctg.discovery.myCOOP.com/fafsa"
@@ -132,19 +132,27 @@
             <div class="container">
                 <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
                 <a class="flyout-toggle hidden auth-only"><span aria-hidden="true" class="TD-list"></span></a>
-                <a id="logo" href="#" class="goHome navDestination" alt="myCOOP">
-                    <!--<img class="logo" src="/my-coop/experiences/default/images/Logo2011.jpg" alt=""/>-->
-                    <img src="/my-coop/experiences/default/images/globe.png" alt="" style="float:left; height: 60px; margin-right: 10px; margin-top: 10px;"/>
-                    <h1 class="hidden-xs"  style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h1>
-                    <h2  class="visible-xs" style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h2>
-                  </a>
+                <a id="" style="display: block" href="/my-coop/#/main" title="myCOOP">
+
+                    <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png"
+                         alt=""
+                         style="float:left; height: 60px; margin-right: 10px; margin-top: 7px;"/>
+                </a>
                 <a href="javascript:void(0);" id="HeaderSignInButton" automationid="signIn"
                    class="signIn topSpace btn btn-orange navDestination" style="display:none;">Sign In</a>
 
+                <a id="logo" href="#" class="goHome pull-right navDestination" style="margin-left: 10px" alt="myCOOP">
+
+
+                    <h1 class="hidden-xs" style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h1>
+
+                    <h2 class="visible-xs" style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h2>
+                </a>
                 <form ng-hide="isLoggedIn" id="navSearchForm" class="navSearchForm staticLink">
                     <span id="highlightFocus"><input type="text" id="navSearchBox" data-isplaceholder="0"/><!--
                     --><div class="searchBoxClose"><span class="TD-x3"></span></div><!--
-                    --><input id="SearchFormSubmit" type="image"  src="/my-coop/experiences/default/images/nav_mag_glass.png"/>
+                    --><input id="SearchFormSubmit" type="image"
+                              src="/my-coop/experiences/default/images/nav_mag_glass.png"/>
                     </span>
                 </form>
                 <!--<a href="#" class="navSearchForm staticLink">Admin Guide</a>-->
@@ -155,12 +163,12 @@
                      class="flyout-navigation navigation visible-md visible-lg navigationHover">
                     <ul class="nav" dir="RTL">
                         <!--<li ng-hide="isLoggedIn" class="dropdown" id="dropdowndiv">-->
-                            <!--<a href="#" id="headerAccountName" class="goHome category defaultExpanded navDestination"-->
-                               <!--automationid="headermymyCOOPHeader">BCM Resource Links</a>-->
-                            <!--<ul class="menu">-->
-                                <!--<li class="auth-only"><a href="http://fema.gov/" target="_blank" automationid="COOPReturnsHeader" class="navDestination">FEMA.gov</a></li>-->
+                        <!--<a href="#" id="headerAccountName" class="goHome category defaultExpanded navDestination"-->
+                        <!--automationid="headermymyCOOPHeader">BCM Resource Links</a>-->
+                        <!--<ul class="menu">-->
+                        <!--<li class="auth-only"><a href="http://fema.gov/" target="_blank" automationid="COOPReturnsHeader" class="navDestination">FEMA.gov</a></li>-->
 
-                            <!--</ul>-->
+                        <!--</ul>-->
                         <!--</li>-->
                         <li class="auth-only hidden dropdown sign-out-collapsed"><a href="javascript:void(0);"
                                                                                     automationid="signOut"
@@ -175,7 +183,7 @@
         </div>
     </header>
 
-    <div id="wrapper" ng-view="" >
+    <div id="wrapper" ng-view="">
     </div>
 
     <div class="push"></div>
@@ -188,16 +196,17 @@
             <div class="col-xs-12">
                 <p class="footer-line">
                     <!--<img style="margin-bottom: 10px; display: block; margin: 0" src="/my-coop/experiences/default/images/coop-logo.png" alt=""/>-->
-                    <div class="footer-logo"></div>
+
+                <div class="footer-logo"></div>
                 </p>
                 <p class="footer-line">
                     <span id="license">
                         <a target="_blank" id="licenseSmnt"
-                                          href="#"
-                                          class="footer-link">Software License Agreements</a> |</span>
+                           href="#"
+                           class="footer-link">Software License Agreements</a> |</span>
                     <a
-                        target="_blank" id="privacy" href="#"
-                        class="footer-link">Privacy Statement</a>
+                            target="_blank" id="privacy" href="#"
+                            class="footer-link">Privacy Statement</a>
                 </p>
 
                 <p class="footer-line">

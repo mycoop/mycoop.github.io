@@ -2,14 +2,28 @@
 <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
 <script type="text/javascript" src="/my-coop/scripts/libraries/primitives.latest.js"></script>
 <link href="/my-coop/styles/vendor/primitives.latest.css" media="screen" rel="stylesheet" type="text/css"/>
-
+<script type="text/ng-template" id="askUsersModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Are you sure?</h3>
+    </div>
+    <div class="modal-body">
+        <input type="checkbox" ng-model="isMoveUsers" id="userscheck"/> <label for="userscheck">{{message}}</label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Save</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
 <div>
+
+    <!--<h1>Org entities</h1>-->
+    <h1>Defining organizational entities and relationships</h1><br/>
         <!--<p>-->
             <!--<button data-ng-click='setCursorItem(0)'>Scott Aasrud</button>-->
             <!--<button data-ng-click='setCursorItem(1)'>Ted Lucas</button>-->
             <!--<button data-ng-click='setCursorItem(2)'>Joao Stuger</button>-->
         <!--</p>-->
-        <div data-ng-chart="" data-ng-model="items" id="orgdiagram"
-             style="width: 640px; height: 480px; border-style: dotted; border-width: 1px;"></div>
+        <div data-ng-chart="" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
+             style="width: 100%; height: 480px; border-style: dotted; border-width: 1px;"></div>
 
 </div>

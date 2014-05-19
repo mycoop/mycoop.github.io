@@ -7,20 +7,20 @@
 
         <h3>ORGANIZATION DETAILS</h3>
 
-        <form action="#" id="editNameFormView" novalidate="" name="form">
+        <form action="#" id="editNameFormView" novalidate="" name="form" class="">
             <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
 
             <p class="success" role="alert" style="color:green;"></p>
 
             <div class="row">
-                <div class="form-group col-xs-12">
+                <div class="form-group col-lg-5 col-md-6 col-sm-6">
                     <label class="label-control" for="firstName">Organization Name</label><br/>
                     <input readonly type="text" id="firstName" value="Company 123" name="firstName"
-                           class="account-info-input editable" maxlength="35" original-title="">
+                           class="account-info-input form-control editable" maxlength="35" original-title="">
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-12">
+                <div class="form-group col-lg-5 col-md-6 col-sm-6">
                     <label class="label-control" for="firstName">Industry</label><br/>
                     <select name="" id="" ng-model="selectedIndustry" ng-options="industry.name for industry in industries">
                         <option value="">-- choose industry --</option>
@@ -35,23 +35,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-12">
+                <div class="form-group col-lg-5 col-md-6 col-sm-6">
                     <label class="label-control" for="firstName">* Organization HQ Address</label><br/>
                     <input type="text" id="username" required="" ng-model="user.username" name="username"
-                           class="account-info-input editable" maxlength="35" original-title="">
+                           class="account-info-input  form-control editable" maxlength="35" original-title="">
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-12">
+                <div class="form-group col-lg-5 col-md-6 col-sm-6">
                     <label class="label-control" for="firstName">*Main Point of Contact</label><br/>
                     <input type="email" id="email" required="" ng-model="user.email" name="email"
-                           class="account-info-input editable" maxlength="35" original-title="">
+                           class="account-info-input form-control editable" maxlength="35" original-title="">
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-12">
+                <div class="form-group col-lg-5 col-md-6 col-sm-6">
                     <label class="label-control" for="firstName">*Alternate Point of Contact</label><br/>
-                    <input type="tel" id="phone" ng-model="user.phone" name="phone" class="account-info-input editable"
+                    <input type="tel" id="phone" ng-model="user.phone" name="phone" class="account-info-input form-control editable"
                            maxlength="35" original-title="">
                 </div>
             </div>
@@ -116,7 +116,7 @@
 
 
         </table>
-        <a class="editDetailsSubmit btn btn-medium  btn-blue submit" ng-click="sav e()" automationid="editNameSave"
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit" ng-click="save()" automationid="editNameSave"
            title="Save">Save &amp; Continue</a>
 
     </article>

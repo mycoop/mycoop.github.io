@@ -2324,8 +2324,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url('../fonts/Glyphicons/glyphicons-halflings-regular.eot');
-    src: url('../fonts/Glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/Glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/Glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
+    src: url('/my-coop/fonts/Glyphicons/glyphicons-halflings-regular.eot');
+    src: url('/my-coop/fonts/Glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/Glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/Glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
 }
 
 .glyphicon {

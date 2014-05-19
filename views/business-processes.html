@@ -1,6 +1,6 @@
 <div class="">
     <h1>Business Processes</h1>
-
+    <!--<button popover content="'<span>fkghasf</span>'" title="" class="btn btn-default">Dynamic Popover</button>-->
     <div id="scroll_wrapper">
         <div id="scroll_fade"></div>
         <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
@@ -59,7 +59,7 @@
                                                     alt="" width="15" height="10" border="0"></td>
                                             <td align="center" class="mcHeading" width="110px">Action</td>
                                         </tr>
-                                        <tr valign="top" class="mcRow" ng-repeat="process in processes">
+                                        <tr valign="top" class="mcRow" popover-process process="process" ng-repeat="process in processes">
                                             <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
                                                     src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                     alt="" width="1" height="1" border="0"></td>
