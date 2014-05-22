@@ -46,17 +46,17 @@
                        class="account-info-input  form-control editable" original-title="">
 
                 <label class="label-control" for="firstName">* Apt. No.</label><br/>
-                <input type="text" id="username" size="6" required="" ng-model="user.username" name="username"
+                <input type="text" id="username" size="6" required="" name="username"
                        class="account-info-input form-control small editable" original-title="">
 
                 <label class="label-control" for="firstName">* Country</label><br/>
-                <select name="" id="" class="lst form-control" ng-model="selectedIndustry" ng-options="industry.name for industry in industries">
-                    <option value="">-- choose industry --</option>
+                <select name="" id="" class="lst form-control" ng-model="selectedCountry" ng-options="industry.name for industry in countries">
+                    <option value="">-- choose country --</option>
                 </select>
 
                 <label class="label-control" for="firstName">* State/Province</label><br/>
-                <select name="" id="" class="lst form-control" ng-model="selectedIndustry" ng-options="industry.name for industry in industries">
-                    <option value="">-- choose industry --</option>
+                <select name="" id="" class="lst form-control" ng-model="selectedState" ng-options="industry.name for industry in states">
+                    <option value="">-- choose state --</option>
                 </select>
 
 
@@ -65,7 +65,7 @@
                        class="account-info-input  form-control editable" original-title="">
 
                 <label class="label-control" for="firstName">* ZIP/Region</label><br/>
-                <input type="text" id="username" required="" ng-model="user.username" name="username"
+                <input type="text" id="username" required="" ng-model="zipcode" name="username"
                        class="account-info-input  form-control editable" original-title="">
             </div>
         </div>
