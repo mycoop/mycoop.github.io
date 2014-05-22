@@ -148,7 +148,14 @@
 
                     <h2 class="visible-xs" style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h2>
                 </a>
-                <a href="#" class="pull-right"><span style="font-size: 25px; margin-top: 22px; margin-right: 10px" class="glyphicon glyphicon-search"></span></a>
+                <form ng-show="isSearchVisible" id="navSearchForm" class="navSearchForm staticLink">
+                    <span id="highlightFocus"><input type="text" id="navSearchBox" data-isplaceholder="0"/><!--
+                    --><div class="searchBoxClose"><span class="TD-x3"></span></div><!--
+                    --><input id="SearchFormSubmit" type="image"
+                              src="/my-coop/experiences/default/images/nav_mag_glass.png"/>
+                    </span>
+                </form>
+                <span href="#" ng-click="isSearchVisible = true" ng-hide="isSearchVisible" class="pull-right"><span style="cursor:pointer; color:#ffffff; font-size: 25px; margin-top: 22px; margin-right: 10px" class="glyphicon glyphicon-search"></span></span>
             </div>
         </div>
     </header>

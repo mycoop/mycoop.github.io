@@ -99,12 +99,29 @@
         <a class="pull-right visible-lg visible-md" style="display: block" href="/my-coop/#/main" title="myCOOP">
 
             <h1 class="hidden-xs" style="color: #ffffff; font-size: 30px; margin-top: 7px; float: left">myCOOP&#8482;</h1>
-
-
             <h2 class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">
                 myCOOP&#8482;</h2>
         </a>
-        <a href="#" class="pull-right"><span style="font-size: 25px; margin-top: 10px; color: #ffffff; margin-right: 15px" class="glyphicon glyphicon-search"></span></a>
+        <a href="#" ng-click="isSearchVisible = true" ng-hide="isSearchVisible" class="pull-right"><span style="font-size: 25px; margin-top: 10px; color: #ffffff; margin-right: 15px" class="glyphicon glyphicon-search"></span></a>
+        <div id="help_search_wrapper" ng-show="isSearchVisible" style="margin-left: 0px">
+            <!-- see components/HelpSearch/HelpSearch.js -->
+            <form id="helpSearch" target="_blank">
+                <!-- TODO: edit these ids? -->
+                <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+                    <input
+                        class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled=""
+                        style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-size: auto; background-position: 0% 0%; background-repeat: repeat repeat;"><input
+                        type="text" id="chatQuestion" class="typeahead tt-query" autocomplete="off" spellcheck="false"
+                        dir="auto" placeholder="Ask a question..."
+                        style="position: relative; vertical-align: top; background-color: transparent;">
+                    <span
+                        style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: 'Avenir light', Helvetica, Arial, san-serif; font-size: 17px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span
+                        class="tt-dropdown-menu"
+                        style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+                <a id="chatAskButton">?</a>
+            </form>
+
+        </div>
         <!-- click handlers set in TTOApp.Navigation _init -->
         <div id="account" class="pull-right visible-lg visible-md">
             <ul class="nav navbar-nav">
