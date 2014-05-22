@@ -103,6 +103,23 @@ angular.module('myCoopOnlineApp').
             }
         };
 
+        $scope.showModal = function(name){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/' + name + '-entity.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return 'Move all users';
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (isMoveUsers) {
+                console.log('success');
+            }, function () {
+                console.log('success');
+            });
+        };
         function askUsers(item, toParentId) {
             var modalInstance = $modal.open({
                 templateUrl: 'askUsersModal.html',
@@ -155,6 +172,7 @@ angular.module('myCoopOnlineApp').
                 options.lineItemsInterval = 5;
                 options.buttonsPanelSize = 48;
                 options.editMode = true;
+                options.onMouseClick = onMouseClick;
 
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
                 options.graphicsType = primitives.common.GraphicsType.Auto;
@@ -260,10 +278,10 @@ angular.module('myCoopOnlineApp').
                         "background: #ffffff; z-index: 100000; border: 1px solid #808080; border-radius: 3px'>"+
                         "<h3 class='text-primary'>Actions menu</h3>" +
                         "<ul class='list-unstyled'>" +
-                            '<li><a >- Merge</a></li>' +
-                            '<li><a>- Reassign</a></li>' +
-                            '<li><a>- Delete</a></li>' +
-                            '<li><a>- Clone</a></li>' +
+                            '<li><a data-menu-action="merge" class="item-action-button">- Merge</a></li>' +
+                            '<li><a  data-menu-action="reassign"  class="item-action-button">- Reassign</a></li>' +
+                            '<li><a  data-menu-action="delete" class="item-action-button">- Delete</a></li>' +
+                            '<li><a  data-menu-action="clone"  class="item-action-button">- Clone</a></li>' +
                         '</ul>' +
                         '</div></i> ');
                         var fields = ["title", "description", "phone", "email"];
@@ -347,3 +365,15 @@ angular.module('myCoopOnlineApp').
 var toggleMenu = function(id){
   $('#menu'+id).show();
 };
+
+function onMouseClick(event, data) {
+    var target = jQuery(event.originalEvent.target);
+    if (target.hasClass("item-action-button")) {
+        var menu = target.closest("div");
+
+        angular.element($("#org-container")).scope().showModal(target.attr('data-menu-action'));
+        menu.hide();
+
+        data.cancel = true;
+    }
+}

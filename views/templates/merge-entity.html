@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title">You are merging an entity.</h3>
+</div>
+<div class="modal-body">
+    <input type="checkbox" checked id="userscheck"/> <label for="userscheck">Users</label><br/>
+    <input type="checkbox" checked id="contentcheck"/> <label for="contentcheck">Content</label><br/><br/>
+    <div class="row">
+        <div class="form-group col-lg-8 col-md-6 col-sm-6">
+            <label class="label-control" for="firstName">New name for Organization</label><br/>
+            <input  type="text" id="firstName" value="" name="firstName"
+                   class="account-info-input form-control  edit" maxlength="35" original-title="">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
