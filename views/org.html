@@ -2,6 +2,17 @@
 <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
 <script type="text/javascript" src="/my-coop/scripts/libraries/primitives.latest.js"></script>
 <link href="/my-coop/styles/vendor/primitives.latest.css" media="screen" rel="stylesheet" type="text/css"/>
+<style>
+    .link_in_node {
+        cursor: pointer;
+        color: orange;
+    }
+    .little_input.input.form-control{
+        height: 17px;
+        font-size: 12px;
+    }
+</style>
+
 <script type="text/ng-template" id="askUsersModal.html">
     <div class="modal-header">
         <h3 class="modal-title">Are you sure?</h3>
@@ -14,16 +25,41 @@
         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
 </script>
+<script>
+    $(document).ready(function () {
+        $('div[name="title"] i').click(function () {
+            $div = $(this).parent().parent();
+            $('span', $div).hide();
+            $('input', $div).show();
+            $('input', $div).val($('span', $div).text());
+        })
+        $('div[name="title"] input').keyup(function (e) {
+            if (e.which == 13) {
+                $div = $(this).parent();
+                $('input', $div).hide();
+                $('span', $div).show();
+
+                id = $($div).data('node-id');
+                text = $('input', $div).val();
+
+                $sc = $('div[items="items"]');
+                angular.element($sc).scope().$$childHead.funct(id, text);
+
+            }
+        })
+    });
+</script>
+
 <div>
 
     <!--<h1>Org entities</h1>-->
     <h1>Defining organizational entities and relationships</h1><br/>
-        <!--<p>-->
-            <!--<button data-ng-click='setCursorItem(0)'>Scott Aasrud</button>-->
-            <!--<button data-ng-click='setCursorItem(1)'>Ted Lucas</button>-->
-            <!--<button data-ng-click='setCursorItem(2)'>Joao Stuger</button>-->
-        <!--</p>-->
-        <div data-ng-chart="" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
-             style="width: 100%; height: 480px; border-style: dotted; border-width: 1px;"></div>
+    <!--<p>-->
+    <!--<button data-ng-click='setCursorItem(0)'>Scott Aasrud</button>-->
+    <!--<button data-ng-click='setCursorItem(1)'>Ted Lucas</button>-->
+    <!--<button data-ng-click='setCursorItem(2)'>Joao Stuger</button>-->
+    <!--</p>-->
+    <div data-ng-chart="" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
+         style="width: 100%; height: 480px; border-style: dotted; border-width: 1px;"></div>
 
 </div>

@@ -1,3 +1,11 @@
+function updateChart(chart, element, options) {
+    if (!chart) {
+        chart = jQuery(element).orgDiagram(options);
+    } else {
+        chart.orgDiagram(options);
+    }
+    chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
+}
 angular.module('myCoopOnlineApp').
     controller('orgChartCtrl', function ($scope, $modal) {
 
@@ -115,7 +123,7 @@ angular.module('myCoopOnlineApp').
         $scope.open = function (size) {
 
         };
-    }).directive('ngChart', function () {
+    }).directive('ngChart', function ($compile) {
         return {
             scope: {
                 items: '=',
@@ -173,6 +181,7 @@ angular.module('myCoopOnlineApp').
                         return item;
                     });
                 };
+                scope.updateItems = updateItems;
 
                 function onTemplateRender(event, data) {
                     switch (data.renderingMode) {
@@ -241,24 +250,28 @@ angular.module('myCoopOnlineApp').
 
 
 //                    var itemConfig = data.context;
-                     if (data.templateName == "basicTemplate") {
+                    if (data.templateName == "basicTemplate") {
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
-                        data.element.find("[name=link] a").attr({ "href": itemConfig.url}).text(itemConfig.linkText);
+                        data.element.find("[name=link]").html('<i class="glyphicon glyphicon-user link_in_node"></i> ');
+                        data.element.find("[name=actions]").html('<i class="glyphicon glyphicon-cog link_in_node"></i> ');
+                        var fields = ["title", "description", "phone", "email"];
 
-                         var fields = ["title", "description", "phone", "email"];
                         for (var index = 0; index < fields.length; index++) {
                             var field = fields[index];
-
                             var element = data.element.find("[name=" + field + "]");
+
                             if (element.text() != itemConfig[field]) {
-                                element.text(itemConfig[field]);
+                                $('span', element).text(itemConfig[field]);
                             }
                         }
+                        data.element.find("[name=title]").attr({'data-node-id': itemConfig.id});
+//                         data.element.find("[name=title] span").html('{{makeSomeMadness('+itemConfig.id+')}}');
                     }
                     /* Set item id as custom data attribute here */
                     data.element.attr("data-value", itemConfig.id);
 
+//                    $compile(data.element.contents())(scope);
                 }
 
                 function getBasicTemplate() {
@@ -269,17 +282,17 @@ angular.module('myCoopOnlineApp').
                     result.minimizedItemSize = new primitives.common.Size(3, 3);
                     result.highlightPadding = new primitives.common.Thickness(2, 2, 2, 2);
 
-
                     var itemTemplate = jQuery(
-                            '<div class="bp-item bp-corner-all bt-item-frame">'
+                        '<div class="bp-item bp-corner-all bt-item-frame">'
                             + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
-                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;">'
+                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i class="glyphicon glyphicon-pencil link_in_node"></i>'
                             + '</div>'
                             + '</div>'
-                            + '<div name="link" class="bp-item" style="top: 26px; left: 8px; width: 162px; height: 18px; font-size: 12px;"><a href=""></a></div>'
-                            + '<div name="phone" class="bp-item" style="top: 26px; left: 56px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="email" class="bp-item" style="top: 44px; left: 56px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"></div>'
+                            + '<div name="link" class="bp-item" style="top: 26px; left: 8px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                            + '<div name="actions" class="bp-item" style="top: 26px; left: 24px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                            + '<div name="phone" class="bp-item" style="top: 26px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
+                            + '<div name="email" class="bp-item" style="top: 44px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
+                            + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"><span></span></div>'
                             + '</div>'
                     ).css({
                             width: result.itemSize.width + "px",
@@ -290,16 +303,32 @@ angular.module('myCoopOnlineApp').
                     return result;
                 }
 
+                scope.chart_ = chart;
+                scope.element_ = element;
+                scope.options_ = options;
                 scope.$watch('items', function () {
                     updateItems();
-                    if (!chart) {
-                        chart = jQuery(element).orgDiagram(options);
-                    } else {
-                        chart.orgDiagram(options);
-                        chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
-                    }
+                    updateChart(chart, element, options);
                 }, true);
 
+            },
+            controller: function($scope){
+                $scope.makeSomeMadness = function(id){
+//
+//                    console.log(item);
+                    var item =  _.find($scope.items, function(cur){
+                        return cur.id == id;
+                    })
+                    return item.title;
+                };
+                $scope.funct = function(id, text){
+                    var item =  _.find($scope.items, function(cur){
+                        return cur.id == id;
+                    })
+                    item.title = text;
+                    $scope.updateItems();
+                    updateChart($scope.chart_, $scope.element_, $scope.options_);
+                };
             }
         };
     });
