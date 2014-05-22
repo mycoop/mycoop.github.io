@@ -56,3 +56,7 @@ td.colFirst{
 input.small{
     width: auto;
 }
+
+.bp-item{
+    overflow: visible !important;
+}

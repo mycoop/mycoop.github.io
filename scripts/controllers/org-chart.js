@@ -154,6 +154,7 @@ angular.module('myCoopOnlineApp').
                 options.dotItemsInterval = 10;
                 options.lineItemsInterval = 5;
                 options.buttonsPanelSize = 48;
+                options.editMode = true;
 
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
                 options.graphicsType = primitives.common.GraphicsType.Auto;
@@ -253,8 +254,18 @@ angular.module('myCoopOnlineApp').
                     if (data.templateName == "basicTemplate") {
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
-                        data.element.find("[name=link]").html('<i class="glyphicon glyphicon-user link_in_node"></i> ');
-                        data.element.find("[name=actions]").html('<i class="glyphicon glyphicon-cog link_in_node"></i> ');
+                        data.element.find("[name=link]").html('<i  class="glyphicon glyphicon-user link_in_node"></i> ');
+                        data.element.find("[name=actions]").html('<i onclick="toggleMenu('+itemConfig.id+')"  class="glyphicon glyphicon-cog link_in_node">' +
+                            "<div id='menu"+ itemConfig.id+"' style='display:none; position:absolute; width: 200px; padding: 6px 10px;" +
+                        "background: #ffffff; z-index: 100000; border: 1px solid #808080; border-radius: 3px'>"+
+                        "<h3 class='text-primary'>Actions menu</h3>" +
+                        "<ul class='list-unstyled'>" +
+                            '<li><a >- Merge</a></li>' +
+                            '<li><a>- Reassign</a></li>' +
+                            '<li><a>- Delete</a></li>' +
+                            '<li><a>- Clone</a></li>' +
+                        '</ul>' +
+                        '</div></i> ');
                         var fields = ["title", "description", "phone", "email"];
 
                         for (var index = 0; index < fields.length; index++) {
@@ -283,13 +294,13 @@ angular.module('myCoopOnlineApp').
                     result.highlightPadding = new primitives.common.Thickness(2, 2, 2, 2);
 
                     var itemTemplate = jQuery(
-                        '<div class="bp-item bp-corner-all bt-item-frame">'
+                        '<div class="bp-item bp-corner-all bt-item-frame" style="overflow: visible">'
                             + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
                             + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i class="glyphicon glyphicon-pencil link_in_node"></i>'
                             + '</div>'
                             + '</div>'
                             + '<div name="link" class="bp-item" style="top: 26px; left: 8px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="actions" class="bp-item" style="top: 26px; left: 24px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                            + '<div name="actions" class="bp-item" style="overflow: visible;top: 26px; left: 24px; width: 162px; height: 18px; font-size: 12px;"></div>'
                             + '<div name="phone" class="bp-item" style="top: 26px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
                             + '<div name="email" class="bp-item" style="top: 44px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
                             + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"><span></span></div>'
@@ -318,13 +329,13 @@ angular.module('myCoopOnlineApp').
 //                    console.log(item);
                     var item =  _.find($scope.items, function(cur){
                         return cur.id == id;
-                    })
+                    });
                     return item.title;
                 };
                 $scope.funct = function(id, text){
                     var item =  _.find($scope.items, function(cur){
                         return cur.id == id;
-                    })
+                    });
                     item.title = text;
                     $scope.updateItems();
                     updateChart($scope.chart_, $scope.element_, $scope.options_);
@@ -332,3 +343,7 @@ angular.module('myCoopOnlineApp').
             }
         };
     });
+
+var toggleMenu = function(id){
+  $('#menu'+id).show();
+};
