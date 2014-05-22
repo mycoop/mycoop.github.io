@@ -44,3 +44,15 @@ input.ng-invalid.ng-dirty{
 input:read-only{
     color: lightslategray !important;
 }
+
+td.colFirst{
+ min-width: 174px;
+}
+
+.form-control{
+    margin-bottom: 10px;
+}
+
+input.small{
+    width: auto;
+}
