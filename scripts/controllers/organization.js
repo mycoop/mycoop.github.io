@@ -2,7 +2,7 @@
 
 angular.module('myCoopOnlineApp')
     .controller('OrganizationCtrl', function ($scope, $http, $rootScope, Process) {
-        $scope.isEditMode = false;
+        $scope.isEditMode = true;
         $scope.goToEditMode = function(){
             $scope.isEditMode = true;
         }
