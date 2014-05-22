@@ -1,178 +1,393 @@
 <div class="account-info row">
-<article class="subscreen-content col-xs-12">
-    <h1>Organization Profile</h1>
+    <article class="subscreen-content col-xs-12">
+        <h1>Organization Profile</h1>
 
-    <p class="subheader">Manage your organizational entities and relationships</p>
-    <br/>
+        <p class="subheader">Manage your organizational entities and relationships</p>
+        <br/>
 
-    <h3>ORGANIZATION DETAILS</h3>
+        <div ng-show="isEditMode">
+            <h3>ORGANIZATION DETAILS</h3>
 
-    <form action="#" id="editNameFormView" novalidate="" name="form" class="">
-        <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+            <form action="#" id="editNameFormView" novalidate="" name="form" class="">
+                <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
 
-        <p class="success" role="alert" style="color:green;"></p>
+                <p class="success" role="alert" style="color:green;"></p>
 
-        <div class="row">
-            <div class="form-group col-lg-5 col-md-6 col-sm-6">
-                <label class="label-control" for="firstName">Organization Name</label><br/>
-                <input readonly type="text" id="firstName" value="Company 123" name="firstName"
-                       class="account-info-input form-control  edit" maxlength="35" original-title="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-lg-5 col-md-6 col-sm-6">
-                <label class="label-control" for="firstName">Industry</label><br/>
-                <select name="" id="" ng-model="selectedIndustry"
-                        ng-options="industry.name for industry in industries">
-                    <option value="">-- choose industry --</option>
-                </select>
-
-                <div style="margin-top: 8px" ng-show="showStandarts">
-                    <span class="grey">Based on your Organization type, please confirm these standards:</span><br/>
-                    <input type="checkbox" checked/> <label class="label-control" for="firstName">FEMA</label><br/>
-                    <input type="checkbox" checked/> <label class="label-control" for="firstName">ISO
-                    22301</label><br/>
+                <div class="row">
+                    <div class="form-group col-lg-5 col-md-6 col-sm-6">
+                        <label class="label-control" for="firstName">Organization Name</label><br/>
+                        <input readonly type="text" id="firstName" value="Company 123" name="firstName"
+                               class="account-info-input form-control  edit" maxlength="35" original-title="">
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="form-group col-lg-5 col-md-6 col-sm-6">
+                        <label class="label-control" for="firstName">Industry</label><br/>
+                        <select name="" id="" ng-model="selectedIndustry"
+                                ng-options="industry.name for industry in industries">
+                            <option value="">-- choose industry --</option>
+                        </select>
+
+                        <div style="margin-top: 8px" ng-show="showStandarts">
+                            <span class="grey">Based on your Organization type, please confirm these standards:</span><br/>
+                            <input type="checkbox" checked/> <label class="label-control"
+                                                                    for="firstName">FEMA</label><br/>
+                            <input type="checkbox" checked/> <label class="label-control" for="firstName">ISO
+                            22301</label><br/>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <h3>ORGANIZATION HQ ADDRESS</h3>
+                <br/>
+
+                <div class="row">
+                    <div class="form-group col-lg-5 col-md-6 col-sm-6">
+
+                        <label class="label-control" for="firstName">* Address</label><br/>
+                        <input type="text" id="username" required="" ng-model="user.username" name="username"
+                               class="account-info-input  form-control editable" original-title="">
+
+                        <label class="label-control" for="firstName">* Apt. No.</label><br/>
+                        <input type="text" id="username" size="6" required="" name="username"
+                               class="account-info-input form-control small editable" original-title="">
+
+                        <label class="label-control" for="firstName">* Country</label><br/>
+                        <select name="" id="" class="lst form-control" ng-model="selectedCountry"
+                                ng-options="industry.name for industry in countries">
+                            <option value="">-- choose country --</option>
+                        </select>
+
+                        <label class="label-control" for="firstName">* State/Province</label><br/>
+                        <select name="" id="" class="lst form-control" ng-model="selectedState"
+                                ng-options="industry.name for industry in states">
+                            <option value="">-- choose state --</option>
+                        </select>
+
+
+                        <label class="label-control" for="firstName">* City</label><br/>
+                        <input type="text" id="username" required="" ng-model="user.username" name="username"
+                               class="account-info-input  form-control editable" original-title="">
+
+                        <label class="label-control" for="firstName">* ZIP/Region</label><br/>
+                        <input type="text" id="username" required="" ng-model="zipcode" name="username"
+                               class="account-info-input  form-control editable" original-title="">
+                    </div>
+                </div>
+                <h4>MAIN POINT OF CONTACT</h4>
+                <br/>
+
+                <div class="row">
+                    <div class="form-group col-lg-5 col-md-6 col-sm-6">
+                        <label class="label-control" for="firstName">* First Name, Last Name</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Primary phone number</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">Alternate phone number</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Business Title</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Email</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                    </div>
+                </div>
+                <h4>ALTERNATE POINT OF CONTACT</h4>
+                <br/>
+
+                <div class="row">
+                    <div class="form-group col-lg-5 col-md-6 col-sm-6">
+                        <label class="label-control" for="firstName">* First Name, Last Name</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Primary phone number</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">Alternate phone number</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Business Title</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                        <label class="label-control" for="firstName">* Email</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable" maxlength="35" original-title="">
+                    </div>
+                </div>
+            </form>
         </div>
-        <br/>
-        <h3>ORGANIZATION HQ ADDRESS</h3>
-        <br/>
-        <div class="row">
-            <div class="form-group col-lg-5 col-md-6 col-sm-6">
 
-                <label class="label-control" for="firstName">* Address</label><br/>
-                <input type="text" id="username" required="" ng-model="user.username" name="username"
-                       class="account-info-input  form-control editable" original-title="">
+        <div ng-hide="isEditMode">
 
-                <label class="label-control" for="firstName">* Apt. No.</label><br/>
-                <input type="text" id="username" size="6" required="" name="username"
-                       class="account-info-input form-control small editable" original-title="">
+            <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                <tbody>
+                <tr>
+                    <td align="left" valign="top" colspan="3" class="colFirst colNoVerticalPad">
+                        <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                            <tbody>
+                            <tr>
+                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                                    style="width: 672px;"><span id="txtblk_00"><span class="main" id="txtblk_00_0"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top" colspan="1" class="colLast">
+                        <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                            <tbody>
+                            <tr>
+                                <td align="left" valign="top" colspan="2" class="colFirst colNoVerticalPad">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="2" class="colFirst colNoVerticalPad">
+                                                <div class="rule3solid"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                                                style="width: 577px;"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst"><span
+                                                    id="txtblk_01"><span class="mainbold" id="txtblk_01_0">ORGANIZATION DETAILS</span></span>
+                                            </td>
+                                            <td align="right" valign="top" colspan="1" class="colLast">
+                                                <button id="Edit_00" aria-label="Edit" ng-click="goToEditMode()" role="button" class="btn ansSm"
+                                                        tabindex="1">Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="1" class="colFirst">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1"
+                                                class="colFirst colNoVerticalPad colNoVerticalPad"
+                                                style="width: 39px;"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td align="left" valign="top" colspan="1" class="colLast">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                <span id="txtblk_02"><span class="main" id="txtblk_02_0">Company 123</span></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst"><span
+                                                    id="txtblk_03"><span class="main" id="txtblk_03_0">Financial services</span></span>
+                                            </td>
+                                        </tr>
 
-                <label class="label-control" for="firstName">* Country</label><br/>
-                <select name="" id="" class="lst form-control" ng-model="selectedCountry" ng-options="industry.name for industry in countries">
-                    <option value="">-- choose country --</option>
-                </select>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="2" class="colFirst">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="2" class="colFirst colNoVerticalPad">
+                                                <div class="rule3solid"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                                                style="width: 577px;"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst"><span
+                                                    id="txtblk_07"><span class="mainbold"
+                                                                         id="txtblk_07_0">ORGANIZATION HQ ADDRESS:</span></span></td>
+                                            <td align="right" valign="top" colspan="1" class="colLast">
+                                                <button id="Edit_01" aria-label="Edit" ng-click="goToEditMode()" role="button" class="btn ansSm"
+                                                        tabindex="2">Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="1" class="colFirst">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1"
+                                                class="colFirst colNoVerticalPad colNoVerticalPad"
+                                                style="width: 39px;"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td align="left" valign="top" colspan="1" class="colLast">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                421 E DRACHMAN <br/>
+                                                TUCSON AZ 85705-7598 <br/>
+                                                USA
+                                            </td>
+                                        </tr>
 
-                <label class="label-control" for="firstName">* State/Province</label><br/>
-                <select name="" id="" class="lst form-control" ng-model="selectedState" ng-options="industry.name for industry in states">
-                    <option value="">-- choose state --</option>
-                </select>
-
-
-                <label class="label-control" for="firstName">* City</label><br/>
-                <input type="text" id="username" required="" ng-model="user.username" name="username"
-                       class="account-info-input  form-control editable" original-title="">
-
-                <label class="label-control" for="firstName">* ZIP/Region</label><br/>
-                <input type="text" id="username" required="" ng-model="zipcode" name="username"
-                       class="account-info-input  form-control editable" original-title="">
-            </div>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="2" class="colFirst">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="2" class="colFirst colNoVerticalPad">
+                                                <div class="rule3solid"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                                                style="width: 577px;"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst"><span
+                                                    id="txtblk_0b"><span class="mainbold" id="txtblk_0b_0">MAIN POINT OF CONTACT:</span><span
+                                                    class="main" id="txtblk_0b_1"> </span></span></td>
+                                            <td align="right" valign="top" colspan="1" class="colLast">
+                                                <button id="Edit_02" aria-label="Edit" ng-click="goToEditMode()" role="button" class="btn ansSm"
+                                                        tabindex="3">Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="1" class="colFirst">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1"
+                                                class="colFirst colNoVerticalPad colNoVerticalPad"
+                                                style="width: 39px;"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td align="left" valign="top" colspan="1" class="colLast">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                <span id="txtblk_0c"><span class="main"
+                                                                           id="txtblk_0c_0">James Smith</span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                <span id="txtblk_0c"><span class="main"
+                                                                           id="txtblk_0c_0">jsmith@gmail.com</span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" colspan="1"
+                                                class="colFirst colNoVerticalPad"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <h4>MAIN POINT OF CONTACT</h4>
+
+        <h3>USER LICENSES</h3>
         <br/>
-        <div class="row">
-            <div class="form-group col-lg-5 col-md-6 col-sm-6">
-                <label class="label-control" for="firstName">* First Name, Last Name</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Primary phone number</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">Alternate phone number</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Business Title</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Email</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-            </div>
-        </div>
-        <h4>ALTERNATE POINT OF CONTACT</h4>
-        <br/>
-        <div class="row">
-            <div class="form-group col-lg-5 col-md-6 col-sm-6">
-                <label class="label-control" for="firstName">* First Name, Last Name</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Primary phone number</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">Alternate phone number</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Business Title</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-                <label class="label-control" for="firstName">* Email</label><br/>
-                <input type="email" id="email" required="" ng-model="user.email" name="email"
-                       class="account-info-input form-control editable" maxlength="35" original-title="">
-            </div>
-        </div>
-    </form>
-
-    <h3>USER LICENSES</h3>
-    <br/>
-    <table cellpadding="0" cellspacing="0" border="0" class="grid full-width">
-        <tbody>
-        <tr>
-            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
-                <table cellpadding="0" cellspacing="0" border="0" class="mcTable full-width" id="mc_00">
-                    <tbody>
-                    <tr>
-                        <td class="mcHeading" style="width: 15px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcHeading">
-                            <nobr><span>License Type</span></nobr>
-                        </td>
-                        <td class="mcHeading" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcHeading">
-                            <nobr><span>Total License</span></nobr>
-                        </td>
-                        <td class="mcHeading" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcHeading">
-                            <nobr><span>Licenses In Use</span></nobr>
-                        </td>
-                        <td align="right" class="mcHeading" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="15" height="10" border="0"></td>
-                        <td align="center" class="mcHeading" width="110px">Remaining</td>
-                    </tr>
-                    <tr valign="top" class="mcRow" ng-repeat="license in licenses">
-                        <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcCol"><span>{{license.type}}</span></td>
-                        <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcCol"><span>{{license.total}}</span></td>
-                        <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="1" height="1" border="0"></td>
-                        <td align="left" class="mcCol"><span>{{license.used}}</span></td>
-                        <td align="right" class="mcCol" style="width: 25px;"><img
-                                src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                alt="" width="10" height="10" border="0"></td>
-                        <td align="left" class="mcCol"><span>{{license.remaining}}</span></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <p></p></td>
-        </tr>
-        </tbody>
+        <table cellpadding="0" cellspacing="0" border="0" class="grid full-width">
+            <tbody>
+            <tr>
+                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                    <table cellpadding="0" cellspacing="0" border="0" class="mcTable full-width" id="mc_00">
+                        <tbody>
+                        <tr>
+                            <td class="mcHeading" style="width: 15px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>License Type</span></nobr>
+                            </td>
+                            <td class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>Total License</span></nobr>
+                            </td>
+                            <td class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcHeading">
+                                <nobr><span>Licenses In Use</span></nobr>
+                            </td>
+                            <td align="right" class="mcHeading" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="15" height="10" border="0"></td>
+                            <td align="center" class="mcHeading" width="110px">Remaining</td>
+                        </tr>
+                        <tr valign="top" class="mcRow" ng-repeat="license in licenses">
+                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.type}}</span></td>
+                            <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.total}}</span></td>
+                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="1" height="1" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.used}}</span></td>
+                            <td align="right" class="mcCol" style="width: 25px;"><img
+                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                    alt="" width="10" height="10" border="0"></td>
+                            <td align="left" class="mcCol"><span>{{license.remaining}}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p></p></td>
+            </tr>
+            </tbody>
 
 
-    </table>
-    <a class="editDetailsSubmit btn btn-medium  btn-blue submit" ui-sref="home.org" automationid="editNameSave"
-       title="Save">Save &amp; Continue</a>
+        </table>
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit" ui-sref="home.org" automationid="editNameSave"
+           title="Save">Save &amp; Continue</a>
 
-</article>
+    </article>
 </div>

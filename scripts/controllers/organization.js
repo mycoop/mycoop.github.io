@@ -2,6 +2,10 @@
 
 angular.module('myCoopOnlineApp')
     .controller('OrganizationCtrl', function ($scope, $http, $rootScope, Process) {
+        $scope.isEditMode = false;
+        $scope.goToEditMode = function(){
+            $scope.isEditMode = true;
+        }
         $scope.industries = [
             {name: 'Healthcare and Public Health'},
             {name: 'Financial Services'},
