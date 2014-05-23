@@ -57,6 +57,7 @@ angular.module('myCoopOnlineApp')
             .state('tools.controls', {  template:'<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
             .state('tools.print', {  template:'<h1>Print Center</h1>', url: '/print'})
             .state('tools.audit', {  template:'<h1>Audit Center</h1>', url: '/audit'})
-            .state('tools.notification', {  template:'<h1>Notification Interface</h1>', url: '/notification'});
+            .state('tools.notification', {  template:'<h1>Notification Interface</h1>', url: '/notification'})
+        .state('tools.templatesuite', {  template:'<h1>Template suite</h1>', url: '/template-suite'});
 
     });
