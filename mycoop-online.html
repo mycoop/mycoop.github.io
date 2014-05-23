@@ -54,30 +54,37 @@
         google.setOnLoadCallback(drawChart);
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     10],
-                ['Eat',      10],
-                ['Commute',  10],
-                ['Watch TV', 10],
-                ['Watch TV2', 10],
-                ['Sleep',    10]
+                ['Task', 'Hours per Day', 'Link'],
+                ['Business Continuity Plan',     10, '#/impact/processes'],
+                ['Eat',      10, ''],
+                ['Commute',  10, ''],
+                ['Watch TV', 10, ''],
+                ['Watch TV2', 10, ''],
+                ['Business Impact Analysis',    10, '#/continuity/profile']
             ]);
-
             var options = {
                 'width': 100,
                 'height': 100,
                 'pieHole': 0.66,
-                'tooltip': { trigger: 'none' },
                 'legend': { position: 'none' },
                 'pieSliceText': 'none',
-                'enableInteractivity': false,
-                'colors': ['#f1ad26', '#dd5d29', '#c01505','#5a9c00', '#add100', '#ecdc46'],
+                'colors': ['#add100', '#d3d3d3', '#d3d3d3','#d3d3d3', '#d3d3d3', '#5a9c00'],
                 chartArea: { left: 0, top: 0, width: "100%", height: "100%" }
             };
 
 
             var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
             chart.draw(data, options);
+
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            function selectHandler() {
+                var selectedItem = chart.getSelection()[0];
+                if (selectedItem) {
+                    var topping = data.getValue(selectedItem.row, 2);
+                    if (topping.length) window.location.href = topping;
+                }
+            }
         }
     </script>
 </head>
