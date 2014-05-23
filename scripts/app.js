@@ -11,7 +11,8 @@ angular
             .otherwise({
                 redirectTo: '/login'
             });
-    }).run(function ($rootScope) {
+    }).run(function ($rootScope, $location) {
+//        $rootScope.isLoggedIn = false;
         var isInitChecking = true;
 
         $rootScope.redirect = function (path) {
@@ -19,7 +20,8 @@ angular
         };
 
         $rootScope.logout = function () {
-            SecurityService.logout();
+            $rootScope.isLoggedIn = false;
+            $location.path('/login')
         };
         $rootScope.goToLogin = function () {
             SecurityService.redirectToLogin($location.path());

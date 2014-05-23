@@ -1,11 +1,15 @@
 'use strict';
 
 angular.module('myCoopOnlineApp')
-    .controller('OrganizationCtrl', function ($scope, $http, $rootScope, Process) {
+    .controller('OrganizationCtrl', function ($scope, $http, $rootScope, Process, $location, $anchorScroll) {
         $scope.isEditMode = false;
-        $scope.goToEditMode = function(){
+        $scope.goToEditMode = function(section){
             $scope.isEditMode = true;
-        }
+            $location.hash(section);
+
+            // call $anchorScroll()
+            $anchorScroll();
+        };
         $scope.industries = [
             {name: 'Healthcare and Public Health'},
             {name: 'Financial Services'},
@@ -1474,6 +1478,8 @@ angular.module('myCoopOnlineApp')
                 abbreviation: "WY"
             }
         ];
+
+
         function detectCountry() {
             if (myip) {
                 $http.get('http://freegeoip.net/json/' + myip).success(function (data) {
@@ -1485,7 +1491,7 @@ angular.module('myCoopOnlineApp')
                 $timeout(detectCountry, 50);
             }
         }
-        detectCountry();
+//        detectCountry();
         $scope.selectedCountry = _.findWhere($scope.countries, {code: 'US'});
         $scope.$watch('selectedIndustry', function(){
             if($scope.selectedIndustry)

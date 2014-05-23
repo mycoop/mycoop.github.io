@@ -6,7 +6,7 @@
 <br/>
 
 <div ng-show="isEditMode">
-    <h3>ORGANIZATION DETAILS</h3>
+    <h3 id="details">ORGANIZATION DETAILS</h3>
 
     <form action="#" id="editNameFormView" novalidate="" name="form" class="">
         <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
@@ -39,7 +39,7 @@
         </div>
         <br/>
 
-        <h3>ORGANIZATION HQ ADDRESS</h3>
+        <h3 id="address">ORGANIZATION HQ ADDRESS</h3>
         <br/>
 
         <div class="row">
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <h4>MAIN POINT OF CONTACT</h4>
+        <h4 id="main-contact">MAIN POINT OF CONTACT</h4>
         <br/>
 
         <div class="row">
@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-        <h4>ALTERNATE POINT OF CONTACT</h4>
+        <h4 id="alternate-contact">ALTERNATE POINT OF CONTACT</h4>
         <br/>
 
         <div class="row"> <div class="form-group col-lg-7 col-md-6 col-sm-6">
@@ -182,7 +182,7 @@
                                                          id="txtblk_01_0">ORGANIZATION DETAILS</span></span>
                             </td>
                             <td align="right" valign="top" colspan="1" class="colLast">
-                                <button id="Edit_00" aria-label="Edit" ng-click="goToEditMode()" role="button"
+                                <button id="Edit_00" aria-label="Edit" ng-click="goToEditMode('details')" role="button"
                                         class="btn ansSm"
                                         tabindex="1">Edit
                                 </button>
@@ -241,7 +241,7 @@
                                     id="txtblk_07"><span class="mainbold"
                                                          id="txtblk_07_0">ORGANIZATION HQ ADDRESS</span></span></td>
                             <td align="right" valign="top" colspan="1" class="colLast">
-                                <button id="Edit_01" aria-label="Edit" ng-click="goToEditMode()" role="button"
+                                <button id="Edit_01" aria-label="Edit" ng-click="goToEditMode('address')" role="button"
                                         class="btn ansSm"
                                         tabindex="2">Edit
                                 </button>
@@ -297,7 +297,7 @@
                                     id="txtblk_0b"><span class="mainbold" id="txtblk_0b_0">MAIN POINT OF CONTACT</span><span
                                     class="main" id="txtblk_0b_1"> </span></span></td>
                             <td align="right" valign="top" colspan="1" class="colLast">
-                                <button id="Edit_02" aria-label="Edit" ng-click="goToEditMode()" role="button"
+                                <button id="Edit_02" aria-label="Edit" ng-click="goToEditMode('main-contact')" role="button"
                                         class="btn ansSm"
                                         tabindex="3">Edit
                                 </button>
@@ -332,6 +332,71 @@
                             <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
                                                 <span id="txtblk_0c"><span class="main"
                                                                            id="txtblk_0c_0">jsmith@gmail.com</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" colspan="1"
+                                class="colFirst colNoVerticalPad"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="left" valign="top" colspan="2" class="colFirst">
+                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                        <tbody>
+                        <tr>
+                            <td align="left" valign="top" colspan="2" class="colFirst colNoVerticalPad">
+                                <div class="rule3solid"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"
+                                style="width: 577px;"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" colspan="1" class="colFirst"><span
+                                    id="txtblk_0b"><span class="mainbold" id="txtblk_0b_0">ALTERNATE POINT OF CONTACT</span><span
+                                    class="main" id="txtblk_0b_1"> </span></span></td>
+                            <td align="right" valign="top" colspan="1" class="colLast">
+                                <button id="Edit_02" aria-label="Edit" ng-click="goToEditMode('alternate-contact')" role="button"
+                                        class="btn ansSm"
+                                        tabindex="3">Edit
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top" colspan="1" class="colFirst">
+                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                        <tbody>
+                        <tr>
+                            <td align="left" valign="top" colspan="1"
+                                class="colFirst colNoVerticalPad colNoVerticalPad"
+                                style="width: 39px;"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td align="left" valign="top" colspan="1" class="colLast">
+                    <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                        <tbody>
+                        <tr>
+                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                <span id="txtblk_0c"><span class="important"
+                                                                           id="txtblk_0c_0">Name Missing</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                                <span id="txtblk_0c"><span class="main"
+                                                                           id="txtblk_0c_0">kevintr@gmail.com</span></span>
                             </td>
                         </tr>
                         <tr>

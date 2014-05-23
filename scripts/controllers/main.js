@@ -9,5 +9,5 @@ angular.module('myCoopApp')
             });
     })
     .controller('MainCtrl', function ($scope, $rootScope, $route, $location) {
-        $rootScope.isLoggedIn = false;
+        $rootScope.isLoggedIn = true;
     });

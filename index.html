@@ -148,7 +148,7 @@
 
                     <h2 class="visible-xs" style="color: #ffffff; margin-top: 15px; float: left">myCOOP&#8482;</h2>
                 </a>
-                <form ng-show="isSearchVisible" id="navSearchForm" class="navSearchForm staticLink">
+                <form ng-show="isSearchVisible" id="navSearchForm" class="navSearchForm staticLink" style="margin-left: 0">
                     <span id="highlightFocus"><input type="text" id="navSearchBox" data-isplaceholder="0"/><!--
                     --><div class="searchBoxClose"><span class="TD-x3"></span></div><!--
                     --><input id="SearchFormSubmit" type="image"
@@ -156,6 +156,29 @@
                     </span>
                 </form>
                 <span href="#" ng-click="isSearchVisible = true" ng-hide="isSearchVisible" class="pull-right"><span style="cursor:pointer; color:#ffffff; font-size: 25px; margin-top: 22px; margin-right: 10px" class="glyphicon glyphicon-search"></span></span>
+                <a ng-show="isLoggedIn" ng-click="logout()" href="" automationid="signOut" style="margin-right: 30px"
+                   class="signOut staticLink auth-only navDestination sign-out-header" id="signOutHeaderLink">Sign
+                    Out</a>
+                <nav role="navigation" id="navigation"
+                     class="flyout-navigation navigation visible-md visible-lg navigationHover">
+                    <ul class="nav" dir="RTL">
+                        <!--<li ng-hide="isLoggedIn" class="dropdown" id="dropdowndiv">-->
+                        <!--<a href="#" id="headerAccountName" class="goHome category defaultExpanded navDestination"-->
+                        <!--automationid="headermymyCOOPHeader">BCM Resource Links</a>-->
+                        <!--<ul class="menu">-->
+                        <!--<li class="auth-only"><a href="http://fema.gov/" target="_blank" automationid="COOPReturnsHeader" class="navDestination">FEMA.gov</a></li>-->
+
+                        <!--</ul>-->
+                        <!--</li>-->
+                        <li class="auth-only hidden dropdown sign-out-collapsed"><a href="javascript:void(0);"
+                                                                                    automationid="signOut"
+                                                                                    class="signOut navDestination">Sign
+                            Out</a></li>
+
+                        <li class="noDropDown">
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
