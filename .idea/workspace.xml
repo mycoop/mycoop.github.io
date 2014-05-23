@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/templates/new-entity.html" afterPath="$PROJECT_DIR$/views/templates/new-entity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/online-app.js" afterPath="$PROJECT_DIR$/scripts/online-app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/org-chart.js" afterPath="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/org.html" afterPath="$PROJECT_DIR$/views/org.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/restyling.css" afterPath="$PROJECT_DIR$/styles/restyling.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-coop.iws" />
@@ -118,20 +114,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restyling.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="restyling.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/styles/restyling.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.709091" vertical-offset="401" max-vertical-offset="1095">
-              <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.92788464" vertical-offset="471" max-vertical-offset="1155">
+              <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="online-app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="online-app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64653903" vertical-offset="191" max-vertical-offset="870">
+            <state vertical-scroll-proportion="0.0" vertical-offset="191" max-vertical-offset="870">
               <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
               <folding />
             </state>
@@ -203,7 +199,6 @@
         <option value="$PROJECT_DIR$/scripts/libraries/primitives.latest.js" />
         <option value="$PROJECT_DIR$/styles/vendor/primitives.latest.css" />
         <option value="$PROJECT_DIR$/styles/app/app.css" />
-        <option value="$PROJECT_DIR$/styles/restyling.css" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
         <option value="$PROJECT_DIR$/views/templates/choose-action.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -212,6 +207,7 @@
         <option value="$PROJECT_DIR$/views/templates/new-entity.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
         <option value="$PROJECT_DIR$/scripts/online-app.js" />
+        <option value="$PROJECT_DIR$/styles/restyling.css" />
       </list>
     </option>
   </component>
@@ -292,7 +288,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="new&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/new-entity.html&#10;org&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/org.html&#10;resty&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;a&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;app.css&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="resty&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;new&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/new-entity.html&#10;org&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/org.html&#10;a&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;app.css&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="97" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -583,7 +579,11 @@
       <created>1400840929635</created>
       <updated>1400840929635</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Implemented adding of a new org entity.">
+      <created>1400848870393</created>
+      <updated>1400848870393</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -657,7 +657,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added the home page." />
     <MESSAGE value="Fixed link to the home page." />
     <MESSAGE value="Added images" />
     <MESSAGE value="Implemented screens 4,5,6. Added images, improved responsive version." />
@@ -682,7 +681,8 @@
     <MESSAGE value="Small changes" />
     <MESSAGE value="Fixed bootstrap and jquery ui compatibility. Implemented Orphaned Organizations  with drag&amp;drop functionality. Implemented new actions bar with modals." />
     <MESSAGE value="Removed .idea files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed .idea files" />
+    <MESSAGE value="Implemented adding of a new org entity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented adding of a new org entity." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1001,14 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/restyling.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.709091" vertical-offset="401" max-vertical-offset="1095">
-          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/merge-entity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="345">
@@ -1119,8 +1111,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64653903" vertical-offset="191" max-vertical-offset="870">
+        <state vertical-scroll-proportion="0.0" vertical-offset="191" max-vertical-offset="870">
           <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/restyling.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92788464" vertical-offset="471" max-vertical-offset="1155">
+          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
           <folding />
         </state>
       </provider>
