@@ -1,3 +1,15 @@
+function initPopups(){
+    $('tr.orphan-item').draggable({
+        revert: "invalid",
+        containment: "document",
+        appendTo: "body",
+        helper: "clone",
+        cursor: "move",
+        "zIndex": 10000,
+        delay: 300,
+        distance: 10
+    });
+}
 function updateChart(chart, element, options, scope) {
     if (!chart) {
         chart = jQuery(element).orgDiagram(options);
@@ -6,14 +18,13 @@ function updateChart(chart, element, options, scope) {
     }
 
     $.get('/my-coop/views/templates/manage-entity.html', function(data){
-        $('[name ="actions"]').popover({title:'Actions', content:data, html:true, trigger: 'click'});
+        $('[name ="actions"]').popover({title:'Actions', placement: 'bottom', content:data, html:true, trigger: 'click'});
     });
     $('[name="link"]').tooltip({title:'Manage users'});
     $('#orgdiagram').click(function(event){
         if(!$(event.target).hasClass('item-popup'))
         $('[name ="actions"]').popover('hide')
     });
-//    $('[name="actions"]').tooltip({title:'Actions'});
     chart.droppable({
                     greedy: true,
         drop: function (event, ui) {
@@ -38,20 +49,9 @@ function updateChart(chart, element, options, scope) {
             }
         }
     });
-    $('tr.orphan-item').draggable({
-        revert: "invalid",
-        containment: "document",
-        appendTo: "body",
-        helper: "clone",
-        cursor: "move",
-        "zIndex": 10000,
-        delay: 300,
-        distance: 10,
-        start: function (event, ui) {
-//                fromValue = parseInt(jQuery(this).attr("data-item-id"), 10);
-        }
-    });
+
     chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
+    initPopups();
 }
 angular.module('myCoopOnlineApp').
     controller('orgChartCtrl', function ($scope, $modal, $log) {
@@ -304,7 +304,9 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 options.buttonsPanelSize = 48;
                 options.editMode = true;
 //                options.onMouseClick = onOrgChartClick;
+                options.onSelectionChanged= function(){
 
+                };
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
                 options.graphicsType = primitives.common.GraphicsType.Auto;
                 options.hasSelectorCheckbox = primitives.common.Enabled.False;
