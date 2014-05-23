@@ -1,0 +1,17 @@
+<div style="white-space: nowrap" class="actions-bar">
+    <div><a onclick="onMouseClick('merge')"><span class="glyphicon glyphicon-road"></span> Merge</a></div>
+    <div><a onclick="onMouseClick('reassign')"><span class="glyphicon glyphicon-share-alt"></span> Reassign</a></div>
+    <div><a onclick="onMouseClick('delete')"><span class="glyphicon glyphicon-trash"></span> Delete</a></div>
+    <div><a onclick="onMouseClick('clone')"><span class="glyphicon glyphicon-retweet"></span> Clone</a></div>
+    <div><a onclick="onMouseClick('')"><span class="glyphicon glyphicon-file"></span> Manage Content</a></div>
+    <div><a onclick="onMouseClick('')"><span class="glyphicon glyphicon-user"></span> Manage User Access</a></div>
+</div>
+<script>
+    function onMouseClick(action) {
+//        if (target.hasClass("item-action-button")) {
+//            var menu = target.closest("div.popover").prev();
+
+            angular.element($("#org-container")).scope().showModal(action);
+
+    }
+</script>

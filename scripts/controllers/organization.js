@@ -1491,7 +1491,7 @@ angular.module('myCoopOnlineApp')
                 $timeout(detectCountry, 50);
             }
         }
-//        detectCountry();
+        detectCountry();
         $scope.selectedCountry = _.findWhere($scope.countries, {code: 'US'});
         $scope.$watch('selectedIndustry', function(){
             if($scope.selectedIndustry)

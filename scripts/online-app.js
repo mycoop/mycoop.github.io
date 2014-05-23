@@ -38,7 +38,8 @@ angular
 //            $rootScope.setCurrentPage($location.path().replace('/', ''));
 ////            alert($rootScope.isFederalSelected);
 //        });
-    }).controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
+    })
+    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
         $scope.message = message;
         $scope.isMoveUsers = true;
         $scope.ok = function () {

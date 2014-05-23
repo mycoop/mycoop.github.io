@@ -1,6 +1,8 @@
 <script type="text/javascript" src="/my-coop/scripts/libraries/jquery.js"></script>
 <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
 <script type="text/javascript" src="/my-coop/scripts/libraries/primitives.latest.js"></script>
+
+<script type="text/javascript" src="/my-coop/scripts/libraries/bootstrap.min.js"></script>
 <link href="/my-coop/styles/vendor/primitives.latest.css" media="screen" rel="stylesheet" type="text/css"/>
 <style>
     .link_in_node {
@@ -32,7 +34,7 @@
             $('span', $div).hide();
             $('input', $div).show();
             $('input', $div).val($('span', $div).text());
-        })
+        });
         $('div[name="title"] input').keyup(function (e) {
             if (e.which == 13) {
                 $div = $(this).parent();
@@ -46,7 +48,20 @@
                 angular.element($sc).scope().$$childHead.funct(id, text);
 
             }
-        })
+        });
+        $('tr.orphan-item').draggable({
+            revert: "invalid",
+            containment: "document",
+            appendTo: "body",
+            helper: "clone",
+            cursor: "move",
+            "zIndex": 10000,
+            delay: 300,
+            distance: 10,
+            start: function (event, ui) {
+//                fromValue = parseInt(jQuery(this).attr("data-item-id"), 10);
+            }
+        });
     });
 </script>
 
@@ -63,6 +78,88 @@
     <!--</p>-->
     <button class="btn btn-medium  btn-blue" ng-click="showModal('new')">Add New Entity</button>
     <div data-ng-chart="" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
-         style="width: 100%; height: 480px; border-style: dotted; border-width: 1px;"></div>
+         style="width: 100%; height: 380px; border-style: dotted; border-width: 1px;"></div>
+    <br/>
+
+<h3>Orphan Orgs</h3>
+<br/>
+<table cellpadding="0" cellspacing="0" border="0" class="grid full-width">
+    <tbody>
+    <tr>
+        <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+            <table cellpadding="0" cellspacing="0" border="0" class="mcTable full-width" id="mc_00">
+                <tbody>
+                <tr>
+                    <td class="mcHeading" style="width: 15px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcHeading">
+                        <nobr><span>Organization name</span></nobr>
+                    </td>
+                    <td class="mcHeading" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcHeading">
+                        <nobr><span>Date created</span></nobr>
+                    </td>
+                    <td class="mcHeading" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcHeading">
+                        <nobr><span>Date modified</span></nobr>
+                    </td>
+                    <td align="right" class="mcHeading" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="15" height="10" border="0"></td>
+                    <td align="center" class="mcHeading" width="110px">Action</td>
+                </tr>
+                <tr data-value="{{organization.id}}" valign="top" class="mcRow orphan-item" ng-repeat="organization in orphans">
+                    <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcCol"><span>{{organization.title}}</span></td>
+                    <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcCol"><span>{{organization.createdDate | date}}</span></td>
+                    <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="1" height="1" border="0"></td>
+                    <td align="left" class="mcCol"><span>{{organization.modifiedDate | date}}</span></td>
+                    <td align="right" class="mcCol" style="width: 25px;"><img
+                            src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                            alt="" width="10" height="10" border="0"></td>
+                    <td align="center" valign="top" class="mcDeleteCol">
+                        <nobr>
+                            <button id="mc_00_del0" aria-label="Delete" role="button" ng-click="delete(user)"
+                                    class="btn ansLP" tabindex="2">Delete
+                            </button>
+                            <div ng-show="user.isDeleting">Are you sure?<br/>
+                                <button aria-label="Delete" role="button" ng-click="delete(user)"
+                                        class="btn ansRoyal" tabindex="2">Yes</button>
+                                <a href="" ng-click="user.isDeleting=false">No</a>
+                            </div>
+                            <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
+                            <!--alt="" width="5" height="10" border="0">-->
+                            <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
+                            <!--class="btn ansLP" tabindex="2">Bulk-->
+                            <!--</button>-->
+
+                            <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
+                            <!--alt="" width="5" height="10" border="0">-->
+                            <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
+                            <!--class="btn ansLP" tabindex="2">Clone-->
+                            <!--</button>-->
+                        </nobr>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p></td>
+    </tr>
+    </tbody>
+
+
+</table>
 
 </div>

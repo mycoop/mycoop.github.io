@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+    <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="Fixed bootstrap and jquery ui compatibility. Implemented Orphaned Organizations  with drag&amp;drop functionality. Implemented new actions bar with modals.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/templates/choose-action.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/libraries/jquery-ui-1.10.4.custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/templates/manage-entity.html" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/app/app.css" afterPath="$PROJECT_DIR$/styles/app/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mycoop-online.html" afterPath="$PROJECT_DIR$/mycoop-online.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/online-app.js" afterPath="$PROJECT_DIR$/scripts/online-app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/org-chart.js" afterPath="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/org.html" afterPath="$PROJECT_DIR$/views/org.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/organization.js" afterPath="$PROJECT_DIR$/scripts/controllers/organization.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/vendor/primitives.latest.css" afterPath="$PROJECT_DIR$/styles/vendor/primitives.latest.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/restyling.css" afterPath="$PROJECT_DIR$/styles/restyling.css" />
     </list>
     <ignored path="my-coop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,9 +40,18 @@
       <file leaf-file-name="org.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/org.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-32.5" vertical-offset="0" max-vertical-offset="1095">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="9.367088" vertical-offset="1940" max-vertical-offset="2550">
+              <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,21 +59,33 @@
       <file leaf-file-name="org-chart.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/org-chart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="20.076923" vertical-offset="4062" max-vertical-offset="4725">
-              <caret line="325" column="91" selection-start-line="325" selection-start-column="91" selection-end-line="325" selection-end-column="91" />
+            <state vertical-scroll-proportion="-6.327273" vertical-offset="732" max-vertical-offset="5385">
+              <caret line="181" column="16" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
               <folding>
-                <element signature="e#368#2329#0" expanded="false" />
-                <element signature="e#2388#2824#0" expanded="false" />
-                <marker date="1400786303000" expanded="false" signature="13886:13903" placeholder="..." />
-                <marker date="1400786303000" expanded="false" signature="14003:14077" placeholder="..." />
-                <marker date="1400786303000" expanded="false" signature="14162:14226" placeholder="..." />
-                <marker date="1400786303000" expanded="false" signature="14301:14346" placeholder="..." />
-                <marker date="1400786303000" expanded="true" signature="14554:14620" placeholder="..." />
-                <marker date="1400786303000" expanded="true" signature="14704:14789" placeholder="..." />
-                <marker date="1400786303000" expanded="true" signature="14871:14938" placeholder="..." />
-                <marker date="1400786303000" expanded="true" signature="15033:15100" placeholder="..." />
-                <marker date="1400786303000" expanded="false" signature="15201:15268" placeholder="..." />
+                <element signature="e#2507#5662#0" expanded="false" />
+                <element signature="e#8053#8132#0" expanded="false" />
+                <element signature="e#10201#10922#0" expanded="false" />
+                <marker date="1400840340000" expanded="true" signature="15181:15193" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="15205:15221" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="15359:15375" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="16984:17001" placeholder="..." />
+                <marker date="1400840340000" expanded="false" signature="17101:17175" placeholder="..." />
+                <marker date="1400840340000" expanded="false" signature="17260:17324" placeholder="..." />
+                <marker date="1400840340000" expanded="false" signature="17399:17444" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="17456:17488" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="17693:17716" placeholder="..." />
+                <marker date="1400840340000" expanded="true" signature="17801:17823" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="primitives.latest.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/vendor/primitives.latest.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="42.115383" vertical-offset="1305" max-vertical-offset="2040">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="17" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,8 +93,60 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.021367522" vertical-offset="0" max-vertical-offset="702">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="679">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage-entity.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/templates/manage-entity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0379746" vertical-offset="0" max-vertical-offset="330">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="choose-action.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/templates/choose-action.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="255">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="merge-entity.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/templates/merge-entity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="345">
+              <caret line="5" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restyling.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/restyling.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.709091" vertical-offset="401" max-vertical-offset="1095">
+              <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="online-app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="870">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -82,10 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/views/options.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/timeline.js" />
-        <option value="$PROJECT_DIR$/views/timeline.html" />
-        <option value="$PROJECT_DIR$/temp.html" />
         <option value="$PROJECT_DIR$/styles/theme.css" />
         <option value="$PROJECT_DIR$/styles/app/aggregate-index.css" />
         <option value="$PROJECT_DIR$/scripts/vendor/app.js" />
@@ -94,18 +173,13 @@
         <option value="$PROJECT_DIR$/scripts/controllers/federal.js" />
         <option value="$PROJECT_DIR$/views/federal.html" />
         <option value="$PROJECT_DIR$/app.html" />
-        <option value="$PROJECT_DIR$/scripts/app.js" />
         <option value="$PROJECT_DIR$/views/login.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/login.js" />
-        <option value="$PROJECT_DIR$/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/home.html" />
         <option value="$PROJECT_DIR$/views/business-process.add.html" />
         <option value="$PROJECT_DIR$/views/business-processes.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/business-process.js" />
         <option value="$PROJECT_DIR$/index-old.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/users.js" />
-        <option value="$PROJECT_DIR$/scripts/online-app.js" />
         <option value="$PROJECT_DIR$/styles/app/hlpers.css" />
         <option value="$PROJECT_DIR$/views/user.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/user.js" />
@@ -116,12 +190,6 @@
         <option value="$PROJECT_DIR$/scripts/config.js" />
         <option value="$PROJECT_DIR$/scripts/resources/process.js" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/views/main.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/organization.js" />
-        <option value="$PROJECT_DIR$/views/organization.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/styles/app/app.css" />
-        <option value="$PROJECT_DIR$/styles/restyling.css" />
         <option value="$PROJECT_DIR$/views/templates/colne-entity.html" />
         <option value="$PROJECT_DIR$/views/templates/delete-entitiy.html" />
         <option value="$PROJECT_DIR$/views/templates/reassign-entitiy.html" />
@@ -130,9 +198,24 @@
         <option value="$PROJECT_DIR$/views/templates/delete-entity.html" />
         <option value="$PROJECT_DIR$/views/templates/clone-entity.html" />
         <option value="$PROJECT_DIR$/views/templates/new-entity.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/main.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/app.js" />
+        <option value="$PROJECT_DIR$/scripts/controllers/login.js" />
+        <option value="$PROJECT_DIR$/views/main.html" />
+        <option value="$PROJECT_DIR$/views/organization.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/organization.js" />
+        <option value="$PROJECT_DIR$/scripts/libraries/primitives.latest.js" />
+        <option value="$PROJECT_DIR$/scripts/online-app.js" />
+        <option value="$PROJECT_DIR$/styles/vendor/primitives.latest.css" />
+        <option value="$PROJECT_DIR$/styles/app/app.css" />
         <option value="$PROJECT_DIR$/views/org.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
+        <option value="$PROJECT_DIR$/styles/restyling.css" />
+        <option value="$PROJECT_DIR$/views/templates/manage-entity.html" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
+        <option value="$PROJECT_DIR$/views/templates/choose-action.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -185,38 +268,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my-coop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my-coop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my-coop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my-coop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -231,8 +282,24 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="resty&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;a&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;app.css&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="97" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="99" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="102" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="97" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="99" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="102" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="897" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -274,14 +341,6 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -292,14 +351,12 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
       <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -307,6 +364,16 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -490,11 +557,19 @@
       <created>1400784024825</created>
       <updated>1400784024825</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Small changes">
+      <created>1400821903154</created>
+      <updated>1400821903154</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Small changes">
+      <created>1400823843071</created>
+      <updated>1400823843071</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -505,7 +580,7 @@
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -518,8 +593,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -541,10 +616,10 @@
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -564,7 +639,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added sign up and main pages. Integrated angularjs application." />
     <MESSAGE value="Fixed some images and links." />
     <MESSAGE value="Fixed logo." />
     <MESSAGE value="Added the home page." />
@@ -589,60 +663,15 @@
     <MESSAGE value="Hotfix" />
     <MESSAGE value="Added org chart action bar." />
     <MESSAGE value="Added org chart modal actions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added org chart modal actions." />
+    <MESSAGE value="Small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/scripts/controllers/org-chart.js</url>
-          <line>12</line>
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05059022" vertical-offset="135" max-vertical-offset="930">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/libraries/angular-ui-router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="48345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiences/default/images/coop-logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15789473" vertical-offset="0" max-vertical-offset="570">
-          <caret line="6" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3480769" vertical-offset="284" max-vertical-offset="1965">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/libraries/ng-grid-2.0.11.debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="59760">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/libraries/ng-grid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="53940">
@@ -721,39 +750,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="735">
-          <caret line="20" column="67" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/vendor/primitives.latest.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2040">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/org.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39367312" vertical-offset="901" max-vertical-offset="1470">
           <caret line="75" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/libraries/primitives.latest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7207207" vertical-offset="495" max-vertical-offset="215205">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60280377" vertical-offset="1398" max-vertical-offset="2040">
-          <caret line="119" column="32" selection-start-line="31" selection-start-column="79" selection-end-line="119" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -768,13 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="990">
           <caret line="11" column="111" selection-start-line="11" selection-start-column="99" selection-end-line="11" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36324787" vertical-offset="0" max-vertical-offset="702">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -801,52 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/demo 2/DemoDragNDrop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0" vertical-offset="0" max-vertical-offset="6705">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="416" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.367089" vertical-offset="3251" max-vertical-offset="4350">
-          <caret line="245" column="63" selection-start-line="245" selection-start-column="63" selection-end-line="245" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/app/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2390625" vertical-offset="6027" max-vertical-offset="8415">
-          <caret line="412" column="12" selection-start-line="412" selection-start-column="11" selection-end-line="412" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33007812" vertical-offset="2171" max-vertical-offset="3615">
-          <caret line="156" column="24" selection-start-line="156" selection-start-column="28" selection-end-line="163" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/business-process.add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.92805755" vertical-offset="219" max-vertical-offset="885">
           <caret line="49" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/restyling.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="1005">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,50 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/business-processes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.884735" vertical-offset="323" max-vertical-offset="2385">
-          <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/libraries/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1538461" vertical-offset="0" max-vertical-offset="120">
-          <caret line="6" column="11080" selection-start-line="6" selection-start-column="11075" selection-end-line="6" selection-end-column="11080" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/organization.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22590">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/organization.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4906542" vertical-offset="0" max-vertical-offset="6300">
-          <caret line="21" column="14" selection-start-line="15" selection-start-column="6" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/askUsersTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20610687" vertical-offset="0" max-vertical-offset="655">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/merge-entity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="345">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -922,22 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/org.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.5" vertical-offset="0" max-vertical-offset="1095">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mycoop-online.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33280757" vertical-offset="1424" max-vertical-offset="4755">
-          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/new-entity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22123894" vertical-offset="0" max-vertical-offset="678">
@@ -954,38 +849,256 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32457495" vertical-offset="0" max-vertical-offset="647">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3114754" vertical-offset="2180" max-vertical-offset="3750">
+          <caret line="158" column="66" selection-start-line="158" selection-start-column="66" selection-end-line="158" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#3;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#4;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.150376" vertical-offset="0" max-vertical-offset="4305">
+          <caret line="51" column="85" selection-start-line="51" selection-start-column="85" selection-end-line="51" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/organization.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19911504" vertical-offset="0" max-vertical-offset="678">
+          <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="474" selection-end-column="8" />
+          <folding>
+            <element signature="tag#div#0;tag#article#0;tag#div#0" expanded="false" />
+            <element signature="tag#div#1;tag#article#0;tag#div#0" expanded="false" />
+            <element signature="tag#tbody#0;tag#table#0;tag#article#0;tag#div#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72030073" vertical-offset="46" max-vertical-offset="735">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/business-processes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-76.25" vertical-offset="345" max-vertical-offset="2385">
+          <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.083333" vertical-offset="856" max-vertical-offset="2040">
+          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="100" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/resources/process.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42792794" vertical-offset="0" max-vertical-offset="666">
+          <caret line="19" column="10" selection-start-line="2" selection-start-column="8" selection-end-line="19" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/demo 2/DemoDragNDrop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.067669176" vertical-offset="1800" max-vertical-offset="6705">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/libraries/jquery-ui-1.10.4.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="216.56108" vertical-offset="0" max-vertical-offset="225165">
+          <caret line="9575" column="32" selection-start-line="9575" selection-start-column="27" selection-end-line="9575" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/organization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6196581" vertical-offset="0" max-vertical-offset="702">
+          <caret line="1494" column="23" selection-start-line="1494" selection-start-column="23" selection-end-line="1494" selection-end-column="23" />
+          <folding>
+            <element signature="e#423#1121#0" expanded="false" />
+            <element signature="e#1150#32109#0" expanded="false" />
+            <element signature="e#32135#38015#0" expanded="false" />
+            <element signature="e#38799#39136#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/libraries/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04524887" vertical-offset="0" max-vertical-offset="663">
+          <caret line="6" column="9737" selection-start-line="6" selection-start-column="9732" selection-end-line="6" selection-end-column="9737" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/libraries/primitives.latest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4412193" vertical-offset="3075" max-vertical-offset="215205">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/vendor/primitives.latest.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="42.115383" vertical-offset="1305" max-vertical-offset="2040">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/libraries/bootstrap.modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4954955" vertical-offset="15" max-vertical-offset="3645">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/app/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328125" vertical-offset="5952" max-vertical-offset="20490">
+          <caret line="411" column="14875" selection-start-line="411" selection-start-column="14875" selection-end-line="411" selection-end-column="14875" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/org.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.367088" vertical-offset="1940" max-vertical-offset="2550">
+          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/restyling.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.709091" vertical-offset="401" max-vertical-offset="1095">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/manage-entity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0379746" vertical-offset="0" max-vertical-offset="330">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/merge-entity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="345">
+          <caret line="5" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mycoop-online.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4088586" vertical-offset="0" max-vertical-offset="4785">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6367521" vertical-offset="153" max-vertical-offset="855">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="870">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/org-chart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.076923" vertical-offset="4062" max-vertical-offset="4725">
-          <caret line="325" column="91" selection-start-line="325" selection-start-column="91" selection-end-line="325" selection-end-column="91" />
+        <state vertical-scroll-proportion="-6.327273" vertical-offset="732" max-vertical-offset="5385">
+          <caret line="181" column="16" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
           <folding>
-            <element signature="e#368#2329#0" expanded="false" />
-            <element signature="e#2388#2824#0" expanded="false" />
-            <marker date="1400786303000" expanded="false" signature="13886:13903" placeholder="..." />
-            <marker date="1400786303000" expanded="false" signature="14003:14077" placeholder="..." />
-            <marker date="1400786303000" expanded="false" signature="14162:14226" placeholder="..." />
-            <marker date="1400786303000" expanded="false" signature="14301:14346" placeholder="..." />
-            <marker date="1400786303000" expanded="true" signature="14554:14620" placeholder="..." />
-            <marker date="1400786303000" expanded="true" signature="14704:14789" placeholder="..." />
-            <marker date="1400786303000" expanded="true" signature="14871:14938" placeholder="..." />
-            <marker date="1400786303000" expanded="true" signature="15033:15100" placeholder="..." />
-            <marker date="1400786303000" expanded="false" signature="15201:15268" placeholder="..." />
+            <element signature="e#2507#5662#0" expanded="false" />
+            <element signature="e#8053#8132#0" expanded="false" />
+            <element signature="e#10201#10922#0" expanded="false" />
+            <marker date="1400840340000" expanded="true" signature="15181:15193" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="15205:15221" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="15359:15375" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="16984:17001" placeholder="..." />
+            <marker date="1400840340000" expanded="false" signature="17101:17175" placeholder="..." />
+            <marker date="1400840340000" expanded="false" signature="17260:17324" placeholder="..." />
+            <marker date="1400840340000" expanded="false" signature="17399:17444" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="17456:17488" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="17693:17716" placeholder="..." />
+            <marker date="1400840340000" expanded="true" signature="17801:17823" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/choose-action.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="255">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021367522" vertical-offset="0" max-vertical-offset="702">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="679">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
