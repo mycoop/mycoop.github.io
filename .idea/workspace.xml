@@ -46,7 +46,7 @@
       <file leaf-file-name="mycoop-online.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mycoop-online.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="339" column="3" selection-start="20525" selection-end="20525" vertical-scroll-proportion="0.89171976" vertical-offset="5203" max-vertical-offset="6188">
+            <state line="359" column="76" selection-start="21458" selection-end="21458" vertical-scroll-proportion="0.89171976" vertical-offset="5543" max-vertical-offset="6324">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -812,7 +812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mycoop-online.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="339" column="3" selection-start="20525" selection-end="20525" vertical-scroll-proportion="0.89171976" vertical-offset="5203" max-vertical-offset="6188">
+        <state line="359" column="76" selection-start="21458" selection-end="21458" vertical-scroll-proportion="0.89171976" vertical-offset="5543" max-vertical-offset="6324">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
