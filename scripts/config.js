@@ -7,7 +7,7 @@ angular.module('myCoopOnlineApp')
             .state('home.profile', {  templateUrl:'/my-coop/views/organization.html', url: '/profile', controller:'OrganizationCtrl'})
             .state('home.admin', {   templateUrl:'/my-coop/views/admin.html',  url: '/admin', controller:'UsersCtrl'})
             .state('home.user', {   templateUrl:'/my-coop/views/user.html',  url: '/user/:id', controller:'UserCtrl'})
-            .state('home.resource', {   template:'<h1>Resource Directories</h1>',  url: '/resource'})
+            .state('home.resource', {   template:'<h1>Resource Directories</h1><p><a href="http://www.fema.gov">FEMA</a><p><a href="http://www.iso.org">ISO</a>',  url: '/resource'})
             .state('home.info', {  templateUrl:'/my-coop/views/information.html', url: '/info'})
             .state('home.org', {  templateUrl:'/my-coop/views/org.html', url: '/org', controller: 'orgChartCtrl'})
         .state('home.delivery', {  templateUrl:'/my-coop/views/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});
