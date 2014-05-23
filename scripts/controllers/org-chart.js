@@ -1,22 +1,106 @@
-function updateChart(chart, element, options) {
+function updateChart(chart, element, options, scope) {
     if (!chart) {
         chart = jQuery(element).orgDiagram(options);
     } else {
         chart.orgDiagram(options);
     }
+
+    $.get('/my-coop/views/templates/manage-entity.html', function(data){
+        $('[name ="actions"]').popover({title:'Actions', content:data, html:true, trigger: 'click'});
+    });
+    $('[name="link"]').tooltip({title:'Manage users'});
+    $('#orgdiagram').click(function(event){
+        if(!$(event.target).hasClass('item-popup'))
+        $('[name ="actions"]').popover('hide')
+    });
+//    $('[name="actions"]').tooltip({title:'Actions'});
+    chart.droppable({
+                    greedy: true,
+        drop: function (event, ui) {
+            /* Check drop event cancelation flag
+             * This fixes following issues:
+             * 1. The same event can be received again by updated chart
+             * so you changed hierarchy, updated chart and at the same drop position absolutly
+             * irrelevant item receives again drop event, so in order to avoid this use primitives.common.stopPropagation
+             * 2. This particlular example has nested drop zones, in order to
+             * suppress drop event processing by nested droppable and its parent we have to set "greedy" to false,
+             * but it does not work.
+             * In this example items can be droped to other items (except immidiate children in order to avoid looping)
+             * and to any free space in order to make them rooted.
+             * So we need to cancel drop  event in order to avoid double reparenting operation.
+             */
+            if (!event.cancelBubble) {
+                scope.$apply(function(){
+                    scope.callback({itemId: parseInt(jQuery(ui.draggable).attr("data-value"), 10), toParentId: null});
+                });
+
+                primitives.common.stopPropagation(event);
+            }
+        }
+    });
+    $('tr.orphan-item').draggable({
+        revert: "invalid",
+        containment: "document",
+        appendTo: "body",
+        helper: "clone",
+        cursor: "move",
+        "zIndex": 10000,
+        delay: 300,
+        distance: 10,
+        start: function (event, ui) {
+//                fromValue = parseInt(jQuery(this).attr("data-item-id"), 10);
+        }
+    });
     chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
 }
 angular.module('myCoopOnlineApp').
-    controller('orgChartCtrl', function ($scope, $modal) {
+    controller('orgChartCtrl', function ($scope, $modal, $log) {
+$scope.selectedNode ={node:{name: 'asdda'}};
+        $scope.licenses = [
+            {type: 'Administrators', total: '3', used: '2', remaining: '1'},
+            {type: 'Contributors (Planners / Content Managers)', total: '5', used: '2', remaining: '3'},
+            {type: 'Readers', total: '15', used: '12', remaining: '3'},
+            {type: 'Approvers', total: '6', used: '4', remaining: '2'},
+        ];
+        $scope.selectedNodeId = 0;
+        $scope.showNewEntityModal = function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/new-entity.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return '';
+                    }
+                }
+            });
 
+            modalInstance.result.then(function (params) {
 
+                var parent = params.confirm ? $scope.selectedNodeId : null;
+                $scope.items.push({id: $scope.items.length*100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()})
+            }, function () {
+                console.log('success');
+            });
+        };
         $scope.items = [
+            {
+            id: 15,
+            parent: null,
+            title: "Basic organization",
+            url: '#/home/admin',
+            linkText: 'Staff',
+            createdDate: 1400414718000,
+            modifiedDate: 1400501118000
+//            description: "VP, Public Sector",
+        },
             {
                 id: 0,
                 parent: null,
                 title: "Your organization",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
 //            description: "VP, Public Sector",
             },
             {
@@ -24,14 +108,18 @@ angular.module('myCoopOnlineApp').
                 parent: 0,
                 title: "Business unit 1",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
             {
                 id: 2,
                 parent: 0,
                 title: "Business unit 2",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -39,7 +127,9 @@ angular.module('myCoopOnlineApp').
                 parent: 0,
                 title: "Location 1",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -47,7 +137,9 @@ angular.module('myCoopOnlineApp').
                 parent: 0,
                 title: "Location 2",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -55,7 +147,9 @@ angular.module('myCoopOnlineApp').
                 parent: 1,
                 title: "Department 1",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -63,7 +157,9 @@ angular.module('myCoopOnlineApp').
                 parent: 2,
                 title: "Department 2",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -71,7 +167,9 @@ angular.module('myCoopOnlineApp').
                 parent: 3,
                 title: "Department 3",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -79,7 +177,9 @@ angular.module('myCoopOnlineApp').
                 parent: 3,
                 title: "Accounting",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             },
 
             {
@@ -87,21 +187,43 @@ angular.module('myCoopOnlineApp').
                 parent: 4,
                 title: "Accounting",
                 url: '#/home/admin',
-                linkText: 'Staff'
+                linkText: 'Staff',
+                createdDate: 1400414718000,
+                modifiedDate: 1400501118000
             }
         ];
 
         $scope.reparent = function( itemId, toParentId) {
+            var item = _.findWhere($scope.items, {id: itemId});
             if (itemId != null && toParentId != null) {
                 console.log("Reparent  value:" + itemId + ", toParent:" + toParentId);
-                var item = _.findWhere($scope.items, {id: itemId});
                 var newParentItem = _.findWhere($scope.items, {id: toParentId});
-
                 if(newParentItem.parent != itemId){
-                    askUsers(item, toParentId);
+                    askAction(item, toParentId);
                 }
+            } else if(!toParentId){
+                item.parent = null;
+
             }
         };
+
+        function askAction(item, toParentId){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/choose-action.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return 'Move all users';
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (isMoveUsers) {
+                askUsers(item, toParentId);
+            }, function () {
+//                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
 
         $scope.showModal = function(name){
             var modalInstance = $modal.open({
@@ -137,14 +259,22 @@ angular.module('myCoopOnlineApp').
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
-        $scope.open = function (size) {
 
-        };
+        function updateOrphans(){
+            $scope.orphans = _.where($scope.items, {parent: null});
+        }
+        updateOrphans();
+
+        $scope.$watch('items',function(){
+//            alert(123)
+            updateOrphans();
+        },true);
     }).directive('ngChart', function ($compile) {
         return {
             scope: {
                 items: '=',
-                callback: '&onReparent'
+                callback: '&onReparent',
+                selectedNodeId: '='
             },
             link: function (scope, element, attrs) {
                 var chart = null;
@@ -160,6 +290,7 @@ angular.module('myCoopOnlineApp').
                 var toValue = null;
                 var toChart = null;
 
+
                 options.cursorItem = 0;
                 options.hasSelectorCheckbox = primitives.common.Enabled.False;
                 options.templates = [getBasicTemplate()];
@@ -172,7 +303,7 @@ angular.module('myCoopOnlineApp').
                 options.lineItemsInterval = 5;
                 options.buttonsPanelSize = 48;
                 options.editMode = true;
-                options.onMouseClick = onMouseClick;
+//                options.onMouseClick = onOrgChartClick;
 
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
                 options.graphicsType = primitives.common.GraphicsType.Auto;
@@ -180,6 +311,11 @@ angular.module('myCoopOnlineApp').
                 options.hasButtons = primitives.common.Enabled.True;
                 options.defaultTemplateName = "basicTemplate";
                 options.visibility = primitives.common.Visibility.Normal;
+                options.onCursorChanged = function (e, data) {
+                    scope.$apply(function(){
+                        scope.selectedNodeId = data.context.id;
+                    });
+                };
 
                 /* chart uses mouse drag to pan items, disable it in order to avoid conflict with drag & drop */
                 options.enablePanning = false;
@@ -201,6 +337,7 @@ angular.module('myCoopOnlineApp').
                     });
                 };
                 scope.updateItems = updateItems;
+
 
                 function onTemplateRender(event, data) {
                     switch (data.renderingMode) {
@@ -229,11 +366,9 @@ angular.module('myCoopOnlineApp').
                                         console.log("Drop accepted!");
                                         toValue = parseInt(jQuery(this).attr("data-value"), 10);
                                         toChart = "orgdiagram";
-
-
-
+                                        fromValue = parseInt(jQuery(ui.draggable).attr("data-value"), 10)
                                         scope.$apply(function(){
-                                            scope.callback({itemId: options.items[fromValue].id, toParentId: options.items[toValue].id});
+                                            scope.callback({itemId: fromValue, toParentId: toValue});
                                         });
 
 //                                        primitives.common.stopPropagation(event);
@@ -272,21 +407,9 @@ angular.module('myCoopOnlineApp').
                     if (data.templateName == "basicTemplate") {
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
-                        data.element.find("[name=link]").html('<i  class="glyphicon glyphicon-user link_in_node"></i> ');
-                        data.element.find("[name=actions]").html('<i  class="glyphicon glyphicon-road link_in_node"></i> ');
-                        data.element.find("[name=phone]").html('<i  class="glyphicon glyphicon-share-alt link_in_node"></i> ');
-                        data.element.find("[name=email]").html('<i  class="glyphicon glyphicon-trash link_in_node"></i> ');
-//                        data.element.find("[name=actions]").html('<i onclick="toggleMenu('+itemConfig.id+')"  class="glyphicon glyphicon-cog link_in_node">' +
-//                            "<div id='menu"+ itemConfig.id+"' style='display:none; position:absolute; width: 200px; padding: 6px 10px;" +
-//                        "background: #ffffff; z-index: 100000; border: 1px solid #808080; border-radius: 3px'>"+
-//                        "<h3 class='text-primary'>Actions menu</h3>" +
-//                        "<ul class='list-unstyled'>" +
-//                            '<li><a data-menu-action="merge" class="item-action-button">- Merge</a></li>' +
-//                            '<li><a  data-menu-action="reassign"  class="item-action-button">- Reassign</a></li>' +
-//                            '<li><a  data-menu-action="delete" class="item-action-button">- Delete</a></li>' +
-//                            '<li><a  data-menu-action="clone"  class="item-action-button">- Clone</a></li>' +
-//                        '</ul>' +
-//                        '</div></i> ');
+                        data.element.find("[name=link]").html('<a href="#/home/admin" style="height: 24px"><i style="font-size: 1.5em" class="glyphicon glyphicon-user link_in_node"></i> </a>');
+                        data.element.find("[name=actions]").html('<i  style="font-size: 1.5em"  class="glyphicon glyphicon-cog item-popup link_in_node" data-trigger="tooltip" data-title="hjlasdf"></i> ');
+//
                         var fields = ["title", "description", "phone", "email"];
 
                         for (var index = 0; index < fields.length; index++) {
@@ -302,6 +425,7 @@ angular.module('myCoopOnlineApp').
                     }
                     /* Set item id as custom data attribute here */
                     data.element.attr("data-value", itemConfig.id);
+                    data.element.attr("data-entity", true);
 
 //                    $compile(data.element.contents())(scope);
                 }
@@ -312,24 +436,21 @@ angular.module('myCoopOnlineApp').
 
                     result.itemSize = new primitives.common.Size(150, 60);
                     result.minimizedItemSize = new primitives.common.Size(3, 3);
-                    result.highlightPadding = new primitives.common.Thickness(2, 2, 2, 2);
+                    result.highlightPadding = new primitives.common.Thickness(0, 0, 0, 0);
 
                     var itemTemplate = jQuery(
-                        '<div class="bp-item bp-corner-all bt-item-frame" style="overflow: visible">'
+                        '<div class="bp-item bt-item-frame" style="overflow: visible">'
                             + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
-                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i class="glyphicon glyphicon-pencil link_in_node"></i>'
+                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
                             + '</div>'
                             + '</div>'
-                            + '<div name="link" class="bp-item" style="top: 26px; left: 8px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="actions" class="bp-item" style="overflow: visible;top: 26px; left: 28px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="phone" class="bp-item" style="top: 26px; left: 48px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
-                            + '<div name="email" class="bp-item" style="top: 26px; left: 66px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
-                            + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"><span></span></div>'
+                            + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
+                            + '<div name="actions" class="bp-item " style="top: 26px; left: 85px;"></div>'
                             + '</div>'
                     ).css({
                             width: result.itemSize.width + "px",
                             height: result.itemSize.height + "px"
-                        }).addClass("bp-item bp-corner-all bt-item-frame");
+                        }).addClass("bp-item bt-item-frame item-popup");
 
                     var bootStrapVerticalButtonsGroup = jQuery("<div></div>")
                         .css({
@@ -357,17 +478,16 @@ angular.module('myCoopOnlineApp').
                 scope.options_ = options;
                 scope.$watch('items', function () {
                     updateItems();
-                    updateChart(chart, element, options);
+                    updateChart(chart, element, options, scope);
                 }, true);
 
             },
             controller: function($scope){
                 $scope.makeSomeMadness = function(id){
-//
-//                    console.log(item);
                     var item =  _.find($scope.items, function(cur){
                         return cur.id == id;
                     });
+
                     return item.title;
                 };
                 $scope.funct = function(id, text){
@@ -385,15 +505,16 @@ angular.module('myCoopOnlineApp').
 var toggleMenu = function(id){
   $('#menu'+id).show();
 };
-
-function onMouseClick(event, data) {
-    var target = jQuery(event.originalEvent.target);
-    if (target.hasClass("item-action-button")) {
-        var menu = target.closest("div");
-
-        angular.element($("#org-container")).scope().showModal(target.attr('data-menu-action'));
-        menu.hide();
-
-        data.cancel = true;
-    }
-}
+//
+//function onOrgChartClick(event, data) {
+//    var target = jQuery(event.originalEvent.target);
+//    if (target.attr('data-entity')) {
+//        alert(123);
+////        var menu = target.closest("div.popover").prev("div");
+//
+//        angular.element($("#org-container")).scope().selectNode(target.attr('data-value'));
+////        menu.hide();
+//
+//        data.cancel = true;
+//    }
+//}

@@ -60,3 +60,13 @@ input.small{
 .bp-item{
     overflow: visible !important;
 }
+
+.actions-bar a {
+    color: orange;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bt-item-frame:hover{
+    background: #dbdbdb;
+}
