@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/app/app.css" afterPath="$PROJECT_DIR$/styles/app/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mycoop-online.html" afterPath="$PROJECT_DIR$/mycoop-online.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-coop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mycoop-online.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mycoop-online.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mycoop-online.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="304" column="37" selection-start="19505" selection-end="19505" vertical-scroll-proportion="0.3622159" vertical-offset="4913" max-vertical-offset="5763">
+            <state line="304" column="37" selection-start="19505" selection-end="19505" vertical-scroll-proportion="-9.807693" vertical-offset="4913" max-vertical-offset="5763">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -92,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/styles/app/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1364" column="1" selection-start="244333" selection-end="244333" vertical-scroll-proportion="0.0" vertical-offset="22560" max-vertical-offset="23290">
+            <state line="1363" column="20" selection-start="244292" selection-end="244292" vertical-scroll-proportion="0.8369863" vertical-offset="22560" max-vertical-offset="23290">
               <folding />
             </state>
           </provider>
@@ -163,8 +161,8 @@
         <option value="$PROJECT_DIR$/views/org.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
         <option value="$PROJECT_DIR$/styles/theme.css" />
-        <option value="$PROJECT_DIR$/styles/app/app.css" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
+        <option value="$PROJECT_DIR$/styles/app/app.css" />
       </list>
     </option>
   </component>
@@ -938,19 +936,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/app/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1364" column="1" selection-start="244333" selection-end="244333" vertical-scroll-proportion="0.0" vertical-offset="22560" max-vertical-offset="23290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mycoop-online.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="37" selection-start="19505" selection-end="19505" vertical-scroll-proportion="0.3622159" vertical-offset="4913" max-vertical-offset="5763">
+        <state line="304" column="37" selection-start="19505" selection-end="19505" vertical-scroll-proportion="-9.807693" vertical-offset="4913" max-vertical-offset="5763">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/app/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1363" column="20" selection-start="244292" selection-end="244292" vertical-scroll-proportion="0.8369863" vertical-offset="22560" max-vertical-offset="23290">
+          <folding />
         </state>
       </provider>
     </entry>
