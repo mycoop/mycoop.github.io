@@ -38,12 +38,12 @@ angular
 //            $rootScope.setCurrentPage($location.path().replace('/', ''));
 ////            alert($rootScope.isFederalSelected);
 //        });
-    })
-    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
+    }).controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
         $scope.message = message;
+        $scope.input = {confirm: false};
         $scope.isMoveUsers = true;
         $scope.ok = function () {
-            $modalInstance.close($scope.isMoveUsers);
+            $modalInstance.close($scope.input);
         };
 
         $scope.cancel = function () {

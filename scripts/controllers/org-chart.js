@@ -38,18 +38,50 @@ function updateChart(chart, element, options, scope) {
             }
         }
     });
+    $('tr.orphan-item').draggable({
+        revert: "invalid",
+        containment: "document",
+        appendTo: "body",
+        helper: "clone",
+        cursor: "move",
+        "zIndex": 10000,
+        delay: 300,
+        distance: 10,
+        start: function (event, ui) {
+//                fromValue = parseInt(jQuery(this).attr("data-item-id"), 10);
+        }
+    });
     chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
 }
 angular.module('myCoopOnlineApp').
     controller('orgChartCtrl', function ($scope, $modal, $log) {
-
+$scope.selectedNode ={node:{name: 'asdda'}};
         $scope.licenses = [
             {type: 'Administrators', total: '3', used: '2', remaining: '1'},
             {type: 'Contributors (Planners / Content Managers)', total: '5', used: '2', remaining: '3'},
             {type: 'Readers', total: '15', used: '12', remaining: '3'},
             {type: 'Approvers', total: '6', used: '4', remaining: '2'},
         ];
+        $scope.selectedNodeId = 0;
+        $scope.showNewEntityModal = function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/new-entity.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return '';
+                    }
+                }
+            });
 
+            modalInstance.result.then(function (params) {
+
+                var parent = params.confirm ? $scope.selectedNodeId : null;
+                $scope.items.push({id: $scope.items.length*100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()})
+            }, function () {
+                console.log('success');
+            });
+        };
         $scope.items = [
             {
             id: 15,
@@ -241,7 +273,8 @@ angular.module('myCoopOnlineApp').
         return {
             scope: {
                 items: '=',
-                callback: '&onReparent'
+                callback: '&onReparent',
+                selectedNodeId: '='
             },
             link: function (scope, element, attrs) {
                 var chart = null;
@@ -270,7 +303,7 @@ angular.module('myCoopOnlineApp').
                 options.lineItemsInterval = 5;
                 options.buttonsPanelSize = 48;
                 options.editMode = true;
-//                options.onMouseClick = onMouseClick;
+//                options.onMouseClick = onOrgChartClick;
 
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
                 options.graphicsType = primitives.common.GraphicsType.Auto;
@@ -278,6 +311,11 @@ angular.module('myCoopOnlineApp').
                 options.hasButtons = primitives.common.Enabled.True;
                 options.defaultTemplateName = "basicTemplate";
                 options.visibility = primitives.common.Visibility.Normal;
+                options.onCursorChanged = function (e, data) {
+                    scope.$apply(function(){
+                        scope.selectedNodeId = data.context.id;
+                    });
+                };
 
                 /* chart uses mouse drag to pan items, disable it in order to avoid conflict with drag & drop */
                 options.enablePanning = false;
@@ -387,6 +425,7 @@ angular.module('myCoopOnlineApp').
                     }
                     /* Set item id as custom data attribute here */
                     data.element.attr("data-value", itemConfig.id);
+                    data.element.attr("data-entity", true);
 
 //                    $compile(data.element.contents())(scope);
                 }
@@ -402,7 +441,7 @@ angular.module('myCoopOnlineApp').
                     var itemTemplate = jQuery(
                         '<div class="bp-item bt-item-frame" style="overflow: visible">'
                             + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
-                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="float: right; margin-right: 5px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
+                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
                             + '</div>'
                             + '</div>'
                             + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
@@ -445,11 +484,10 @@ angular.module('myCoopOnlineApp').
             },
             controller: function($scope){
                 $scope.makeSomeMadness = function(id){
-//
-//                    console.log(item);
                     var item =  _.find($scope.items, function(cur){
                         return cur.id == id;
                     });
+
                     return item.title;
                 };
                 $scope.funct = function(id, text){
@@ -468,13 +506,14 @@ var toggleMenu = function(id){
   $('#menu'+id).show();
 };
 //
-//function onMouseClick(event, data) {
+//function onOrgChartClick(event, data) {
 //    var target = jQuery(event.originalEvent.target);
-//    if (target.hasClass("item-action-button")) {
-//        var menu = target.closest("div.popover").prev("div");
+//    if (target.attr('data-entity')) {
+//        alert(123);
+////        var menu = target.closest("div.popover").prev("div");
 //
-//        angular.element($("#org-container")).scope().showModal(target.attr('data-menu-action'));
-//        menu.hide();
+//        angular.element($("#org-container")).scope().selectNode(target.attr('data-value'));
+////        menu.hide();
 //
 //        data.cancel = true;
 //    }

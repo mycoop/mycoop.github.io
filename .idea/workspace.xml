@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3b813f-8664-440b-9ca1-5475a421ef61" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/my-coop.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/templates/new-entity.html" afterPath="$PROJECT_DIR$/views/templates/new-entity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/online-app.js" afterPath="$PROJECT_DIR$/scripts/online-app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/org-chart.js" afterPath="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/org.html" afterPath="$PROJECT_DIR$/views/org.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-coop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,25 +30,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="org-chart.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="org.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/org.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.025316456" vertical-offset="868" max-vertical-offset="2385">
+              <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="org-chart.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/org-chart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9354839" vertical-offset="732" max-vertical-offset="5385">
-              <caret line="181" column="16" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
+            <state vertical-scroll-proportion="-6.818182" vertical-offset="0" max-vertical-offset="5400">
+              <caret line="79" column="98" selection-start-line="79" selection-start-column="98" selection-end-line="79" selection-end-column="98" />
               <folding>
-                <element signature="e#2507#5662#0" expanded="false" />
-                <element signature="e#8053#8132#0" expanded="false" />
-                <element signature="e#10201#10922#0" expanded="false" />
-                <marker date="1400840340000" expanded="true" signature="15181:15193" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="15205:15221" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="15359:15375" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="16984:17001" placeholder="..." />
-                <marker date="1400840340000" expanded="false" signature="17101:17175" placeholder="..." />
-                <marker date="1400840340000" expanded="false" signature="17260:17324" placeholder="..." />
-                <marker date="1400840340000" expanded="false" signature="17399:17444" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="17456:17488" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="17693:17716" placeholder="..." />
-                <marker date="1400840340000" expanded="true" signature="17801:17823" placeholder="..." />
+                <element signature="n#!!block;n#updateChart#0" expanded="false" />
+                <element signature="e#647#1938#0" expanded="false" />
+                <element signature="e#1975#2311#0" expanded="false" />
+                <element signature="e#3710#6865#0" expanded="false" />
+                <element signature="e#9256#9335#0" expanded="false" />
+                <marker date="1400848525000" expanded="true" signature="16639:16651" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="16663:16679" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="16817:16833" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="18502:18519" placeholder="..." />
+                <marker date="1400848525000" expanded="false" signature="18619:18693" placeholder="..." />
+                <marker date="1400848525000" expanded="false" signature="18778:18842" placeholder="..." />
+                <marker date="1400848525000" expanded="false" signature="18917:18962" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="18974:19015" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="19220:19243" placeholder="..." />
+                <marker date="1400848525000" expanded="true" signature="19328:19350" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -110,11 +128,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="online-app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="online-app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="870">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.64653903" vertical-offset="191" max-vertical-offset="870">
+              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new-entity.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/templates/new-entity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="360">
+              <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -165,7 +193,6 @@
         <option value="$PROJECT_DIR$/views/templates/merge-entity.html" />
         <option value="$PROJECT_DIR$/views/templates/delete-entity.html" />
         <option value="$PROJECT_DIR$/views/templates/clone-entity.html" />
-        <option value="$PROJECT_DIR$/views/templates/new-entity.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
@@ -174,16 +201,17 @@
         <option value="$PROJECT_DIR$/views/organization.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/organization.js" />
         <option value="$PROJECT_DIR$/scripts/libraries/primitives.latest.js" />
-        <option value="$PROJECT_DIR$/scripts/online-app.js" />
         <option value="$PROJECT_DIR$/styles/vendor/primitives.latest.css" />
         <option value="$PROJECT_DIR$/styles/app/app.css" />
-        <option value="$PROJECT_DIR$/views/org.html" />
         <option value="$PROJECT_DIR$/styles/restyling.css" />
-        <option value="$PROJECT_DIR$/views/templates/manage-entity.html" />
         <option value="$PROJECT_DIR$/mycoop-online.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
         <option value="$PROJECT_DIR$/views/templates/choose-action.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/views/templates/manage-entity.html" />
+        <option value="$PROJECT_DIR$/views/org.html" />
+        <option value="$PROJECT_DIR$/views/templates/new-entity.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/org-chart.js" />
+        <option value="$PROJECT_DIR$/scripts/online-app.js" />
       </list>
     </option>
   </component>
@@ -236,6 +264,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my-coop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my-coop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -250,7 +292,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="resty&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;a&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;app.css&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="new&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/new-entity.html&#10;org&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/org.html&#10;resty&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;a&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;app.css&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/app/app.css&#10;res&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;mer&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/templates/merge-entity.html&#10;my&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;help_search_wrapper&#9;null&#9;null&#10;onlin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;admin&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/admin.html&#10;re&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/styles/restyling.css&#10;onli&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/mycoop-online.html&#10;user&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/user.html&#10;use&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/user.js&#10;confi&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/config.js&#10;MAIN&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;pro&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/resources/process.js&#10;main&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/main.html&#10;time&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/timeline.html&#10;index&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;inde&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/index.html&#10;login&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/views/login.html&#10;lo&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/controllers/login.js&#10;app.html&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js&#10;app.ht&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/app.html&#10;app.js&#9;FILE&#9;file:///Users/mrgusev/WebstormProjects/my-coop/scripts/app.js" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="97" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -537,7 +579,11 @@
       <created>1400840801604</created>
       <updated>1400840801604</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Removed .idea files">
+      <created>1400840929635</created>
+      <updated>1400840929635</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -545,7 +591,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39726028" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -611,7 +657,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed logo." />
     <MESSAGE value="Added the home page." />
     <MESSAGE value="Fixed link to the home page." />
     <MESSAGE value="Added images" />
@@ -636,7 +681,8 @@
     <MESSAGE value="Added org chart modal actions." />
     <MESSAGE value="Small changes" />
     <MESSAGE value="Fixed bootstrap and jquery ui compatibility. Implemented Orphaned Organizations  with drag&amp;drop functionality. Implemented new actions bar with modals." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bootstrap and jquery ui compatibility. Implemented Orphaned Organizations  with drag&amp;drop functionality. Implemented new actions bar with modals." />
+    <MESSAGE value="Removed .idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed .idea files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -722,13 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/org.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39367312" vertical-offset="901" max-vertical-offset="1470">
-          <caret line="75" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/information.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
@@ -801,14 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09022556" vertical-offset="0" max-vertical-offset="665">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/new-entity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22123894" vertical-offset="0" max-vertical-offset="678">
-          <caret line="10" column="109" selection-start-line="10" selection-start-column="109" selection-end-line="10" selection-end-column="109" />
           <folding />
         </state>
       </provider>
@@ -970,38 +1001,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/org.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.367088" vertical-offset="1940" max-vertical-offset="2550">
-          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/restyling.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.709091" vertical-offset="401" max-vertical-offset="1095">
           <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/manage-entity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0379746" vertical-offset="0" max-vertical-offset="330">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,26 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="870">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/choose-action.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="255">
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="679">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1053,25 +1041,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03409091" vertical-offset="0" max-vertical-offset="440">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/manage-entity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0379746" vertical-offset="0" max-vertical-offset="330">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/org.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77099234" vertical-offset="590" max-vertical-offset="1470">
+          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/org.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.025316456" vertical-offset="868" max-vertical-offset="2385">
+          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#1;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/new-entity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="360">
+          <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/org-chart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9354839" vertical-offset="732" max-vertical-offset="5385">
-          <caret line="181" column="16" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
+        <state vertical-scroll-proportion="-6.818182" vertical-offset="0" max-vertical-offset="5400">
+          <caret line="79" column="98" selection-start-line="79" selection-start-column="98" selection-end-line="79" selection-end-column="98" />
           <folding>
-            <element signature="e#2507#5662#0" expanded="false" />
-            <element signature="e#8053#8132#0" expanded="false" />
-            <element signature="e#10201#10922#0" expanded="false" />
-            <marker date="1400840340000" expanded="true" signature="15181:15193" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="15205:15221" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="15359:15375" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="16984:17001" placeholder="..." />
-            <marker date="1400840340000" expanded="false" signature="17101:17175" placeholder="..." />
-            <marker date="1400840340000" expanded="false" signature="17260:17324" placeholder="..." />
-            <marker date="1400840340000" expanded="false" signature="17399:17444" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="17456:17488" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="17693:17716" placeholder="..." />
-            <marker date="1400840340000" expanded="true" signature="17801:17823" placeholder="..." />
+            <element signature="n#!!block;n#updateChart#0" expanded="false" />
+            <element signature="e#647#1938#0" expanded="false" />
+            <element signature="e#1975#2311#0" expanded="false" />
+            <element signature="e#3710#6865#0" expanded="false" />
+            <element signature="e#9256#9335#0" expanded="false" />
+            <marker date="1400848525000" expanded="true" signature="16639:16651" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="16663:16679" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="16817:16833" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="18502:18519" placeholder="..." />
+            <marker date="1400848525000" expanded="false" signature="18619:18693" placeholder="..." />
+            <marker date="1400848525000" expanded="false" signature="18778:18842" placeholder="..." />
+            <marker date="1400848525000" expanded="false" signature="18917:18962" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="18974:19015" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="19220:19243" placeholder="..." />
+            <marker date="1400848525000" expanded="true" signature="19328:19350" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/online-app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64653903" vertical-offset="191" max-vertical-offset="870">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
