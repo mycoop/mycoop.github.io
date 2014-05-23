@@ -273,17 +273,20 @@ angular.module('myCoopOnlineApp').
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
                         data.element.find("[name=link]").html('<i  class="glyphicon glyphicon-user link_in_node"></i> ');
-                        data.element.find("[name=actions]").html('<i onclick="toggleMenu('+itemConfig.id+')"  class="glyphicon glyphicon-cog link_in_node">' +
-                            "<div id='menu"+ itemConfig.id+"' style='display:none; position:absolute; width: 200px; padding: 6px 10px;" +
-                        "background: #ffffff; z-index: 100000; border: 1px solid #808080; border-radius: 3px'>"+
-                        "<h3 class='text-primary'>Actions menu</h3>" +
-                        "<ul class='list-unstyled'>" +
-                            '<li><a data-menu-action="merge" class="item-action-button">- Merge</a></li>' +
-                            '<li><a  data-menu-action="reassign"  class="item-action-button">- Reassign</a></li>' +
-                            '<li><a  data-menu-action="delete" class="item-action-button">- Delete</a></li>' +
-                            '<li><a  data-menu-action="clone"  class="item-action-button">- Clone</a></li>' +
-                        '</ul>' +
-                        '</div></i> ');
+                        data.element.find("[name=actions]").html('<i  class="glyphicon glyphicon-road link_in_node"></i> ');
+                        data.element.find("[name=phone]").html('<i  class="glyphicon glyphicon-share-alt link_in_node"></i> ');
+                        data.element.find("[name=email]").html('<i  class="glyphicon glyphicon-trash link_in_node"></i> ');
+//                        data.element.find("[name=actions]").html('<i onclick="toggleMenu('+itemConfig.id+')"  class="glyphicon glyphicon-cog link_in_node">' +
+//                            "<div id='menu"+ itemConfig.id+"' style='display:none; position:absolute; width: 200px; padding: 6px 10px;" +
+//                        "background: #ffffff; z-index: 100000; border: 1px solid #808080; border-radius: 3px'>"+
+//                        "<h3 class='text-primary'>Actions menu</h3>" +
+//                        "<ul class='list-unstyled'>" +
+//                            '<li><a data-menu-action="merge" class="item-action-button">- Merge</a></li>' +
+//                            '<li><a  data-menu-action="reassign"  class="item-action-button">- Reassign</a></li>' +
+//                            '<li><a  data-menu-action="delete" class="item-action-button">- Delete</a></li>' +
+//                            '<li><a  data-menu-action="clone"  class="item-action-button">- Clone</a></li>' +
+//                        '</ul>' +
+//                        '</div></i> ');
                         var fields = ["title", "description", "phone", "email"];
 
                         for (var index = 0; index < fields.length; index++) {
@@ -318,15 +321,32 @@ angular.module('myCoopOnlineApp').
                             + '</div>'
                             + '</div>'
                             + '<div name="link" class="bp-item" style="top: 26px; left: 8px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="actions" class="bp-item" style="overflow: visible;top: 26px; left: 24px; width: 162px; height: 18px; font-size: 12px;"></div>'
-                            + '<div name="phone" class="bp-item" style="top: 26px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
-                            + '<div name="email" class="bp-item" style="top: 44px; left: 56px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
+                            + '<div name="actions" class="bp-item" style="overflow: visible;top: 26px; left: 28px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                            + '<div name="phone" class="bp-item" style="top: 26px; left: 48px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
+                            + '<div name="email" class="bp-item" style="top: 26px; left: 66px; width: 162px; height: 18px; font-size: 12px;"><span></span></div>'
                             + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"><span></span></div>'
                             + '</div>'
                     ).css({
                             width: result.itemSize.width + "px",
                             height: result.itemSize.height + "px"
                         }).addClass("bp-item bp-corner-all bt-item-frame");
+
+                    var bootStrapVerticalButtonsGroup = jQuery("<div></div>")
+                        .css({
+                            position: "absolute",
+                            overflow: "hidden",
+                            top: result.cursorPadding.top + "px",
+                            left: (result.itemSize.width + result.cursorPadding.left + 10) + "px",
+                            width: "35px",
+                            height: (result.itemSize.height + 1) + "px"
+                        }).addClass("btn-group btn-group-vertical");
+
+//                    bootStrapVerticalButtonsGroup.append('<button class="btn btn-small" data-buttonname="info" type="button"><i class="icon-info-sign"></i></button>');
+//                    bootStrapVerticalButtonsGroup.append('<button class="btn btn-small" data-buttonname="edit" type="button"><i class="icon-edit"></i></button>');
+//                    bootStrapVerticalButtonsGroup.append('<button class="btn btn-small" data-buttonname="remove" type="button"><i class="icon-remove"></i></button>');
+//
+//                    itemTemplate.append(bootStrapVerticalButtonsGroup);
+
                     result.itemTemplate = itemTemplate.wrap('<div>').parent().html();
 
                     return result;
