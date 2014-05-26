@@ -63,6 +63,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             {type: 'Approvers', total: '6', used: '4', remaining: '2'},
         ];
         $scope.selectedNodeId = 0;
+
         $scope.showNewEntityModal = function(){
             var modalInstance = $modal.open({
                 templateUrl: 'views/templates/new-entity.html',
@@ -82,6 +83,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 console.log('success');
             });
         };
+
         $scope.items = [
             {
             id: 15,
@@ -94,7 +96,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 //            description: "VP, Public Sector",
         },
             {
-                id: 0,
+                id: 103,
                 parent: null,
                 title: "Your organization",
                 url: '#/home/admin',
@@ -105,7 +107,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             },
             {
                 id: 1,
-                parent: 0,
+                parent: 103,
                 title: "Business unit 1",
                 url: '#/home/admin',
                 linkText: 'Staff',
@@ -114,7 +116,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             },
             {
                 id: 2,
-                parent: 0,
+                parent: 103,
                 title: "Business unit 2",
                 url: '#/home/admin',
                 linkText: 'Staff',
@@ -124,7 +126,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 
             {
                 id: 3,
-                parent: 0,
+                parent: 103,
                 title: "Location 1",
                 url: '#/home/admin',
                 linkText: 'Staff',
@@ -134,7 +136,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 
             {
                 id: 4,
-                parent: 0,
+                parent: 103,
                 title: "Location 2",
                 url: '#/home/admin',
                 linkText: 'Staff',
@@ -194,18 +196,36 @@ $scope.selectedNode ={node:{name: 'asdda'}};
         ];
 
         $scope.reparent = function( itemId, toParentId) {
-            var item = _.findWhere($scope.items, {id: itemId});
-            if (itemId != null && toParentId != null) {
-                console.log("Reparent  value:" + itemId + ", toParent:" + toParentId);
-                var newParentItem = _.findWhere($scope.items, {id: toParentId});
-                if(newParentItem.parent != itemId){
-                    askAction(item, toParentId);
+            if(itemId != toParentId){
+                var item = _.findWhere($scope.items, {id: itemId});
+                if (itemId != null && toParentId != null) {
+                    console.log("Reparent  value:" + itemId + ", toParent:" + toParentId);
+                    if(checkAncestors(itemId, toParentId)){
+                        askAction(item, toParentId);
+                    } else{
+                        showError('You are attempting to set up a child node as a parent!')
+                    }
+                } else if(!toParentId){
+                    item.parent = null;
                 }
-            } else if(!toParentId){
-                item.parent = null;
-
             }
         };
+
+        function checkAncestors(itemId, toParentId){
+            var ancestors = [];
+            var newParentItem = _.findWhere($scope.items, {id: toParentId});
+            getParents(newParentItem, ancestors);
+            console.log(JSON.stringify(ancestors));
+            return !_.contains(ancestors, itemId);
+
+        }
+
+        function getParents(item, collection){
+            if(item.parent || item.parent){
+                collection.push(item.parent);
+                getParents(_.findWhere($scope.items, {id: item.parent}), collection);
+            }
+        }
 
         function askAction(item, toParentId){
             var modalInstance = $modal.open({
@@ -242,6 +262,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 console.log('success');
             });
         };
+
         function askUsers(item, toParentId) {
             var modalInstance = $modal.open({
                 templateUrl: 'askUsersModal.html',
@@ -260,9 +281,28 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             });
         }
 
+        function showError(message){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/error.html',
+                controller: 'ErrorModalCtrl',
+                resolve: {
+                    message: function () {
+                        return message;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                console.log('Error ok');
+            }, function () {
+                console.log('success');
+            });
+        }
+
         function updateOrphans(){
             $scope.orphans = _.where($scope.items, {parent: null});
         }
+
         updateOrphans();
 
         $scope.$watch('items',function(){
@@ -438,7 +478,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 
                     result.itemSize = new primitives.common.Size(150, 60);
                     result.minimizedItemSize = new primitives.common.Size(3, 3);
-                    result.highlightPadding = new primitives.common.Thickness(0, 0, 0, 0);
+                    result.highlightPadding = new primitives.common.Thickness(1, 1, 1, 1);
 
                     var itemTemplate = jQuery(
                         '<div class="bp-item bt-item-frame" style="overflow: visible">'

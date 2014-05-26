@@ -49,4 +49,9 @@ angular
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+    }).controller('ErrorModalCtrl', function($scope, $modalInstance, message){
+        $scope.message = message;
+        $scope.ok = function () {
+            $modalInstance.close();
+        };
     });
