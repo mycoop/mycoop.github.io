@@ -301,9 +301,10 @@
            .endAngle(function(d){return cScale(d[1]);});
 
    d3.select('svg').append('text')
-           .attr('x', 35)
+           .attr('x', 33)
            .attr('y', 60)
            .attr('font-size', '2.1rem')
+           .attr('font-weight','bold')
            .text('20%')
            .attr('fill', '#007ac9')
 
@@ -312,6 +313,7 @@
            .style("position", "absolute")
            .style("z-index", "30")
            .style('background', '#33b8f3')
+           .style('color', 'white')
            .style("visibility", "hidden")
            .text("tooltip");
 
@@ -321,10 +323,10 @@
            .append("path")
            .attr("d", arc)
            .style("fill", function(d){return d[2];})
+           .style('cursor', function(d){if (d[2] === '#add100' || d[2] === '#5a9c00') return 'pointer' })
            .attr("transform", "translate(50,50)")
            .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-           .on("mousemove", function(d){
-               return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px").text(d[3]);})
+           .on("mousemove", function(d){ return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px").text(d[3]);})
            .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
            .on('click', function(d){
                if (d[2] === '#add100') window.location.href = '#/continuity/profile'
