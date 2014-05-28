@@ -58,6 +58,8 @@ angular.module('myCoopOnlineApp')
             .state('tools.print', {  template:'<h1>Print Center</h1>', url: '/print'})
             .state('tools.audit', {  template:'<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template:'<h1>Notification Interface</h1>', url: '/notification'})
-        .state('tools.templatesuite', {  templateUrl:'/my-coop/views/templatesuite.html', url: '/template-suite'});
+            .state('tools.templatesuite', {  templateUrl:'/my-coop/views/templatesuite.html', url: '/template-suite'})
+            .state('tools.templatecollection', {  templateUrl:'/my-coop/views/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('tools.sectioneditor', {  templateUrl:'/my-coop/views/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
 
     });

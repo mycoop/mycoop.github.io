@@ -56,12 +56,14 @@ function updateChart(chart, element, options, scope) {
 angular.module('myCoopOnlineApp').
     controller('orgChartCtrl', function ($scope, $modal, $log) {
 $scope.selectedNode ={node:{name: 'asdda'}};
+
         $scope.licenses = [
             {type: 'Administrators', total: '3', used: '2', remaining: '1'},
             {type: 'Contributors (Planners / Content Managers)', total: '5', used: '2', remaining: '3'},
             {type: 'Readers', total: '15', used: '12', remaining: '3'},
             {type: 'Approvers', total: '6', used: '4', remaining: '2'},
         ];
+
         $scope.selectedNodeId = 0;
 
         $scope.showNewEntityModal = function(){
@@ -306,9 +308,9 @@ $scope.selectedNode ={node:{name: 'asdda'}};
         updateOrphans();
 
         $scope.$watch('items',function(){
-//            alert(123)
             updateOrphans();
         },true);
+
     }).directive('ngChart', function ($compile) {
         return {
             scope: {
@@ -547,6 +549,8 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 var toggleMenu = function(id){
   $('#menu'+id).show();
 };
+
+
 //
 //function onOrgChartClick(event, data) {
 //    var target = jQuery(event.originalEvent.target);
