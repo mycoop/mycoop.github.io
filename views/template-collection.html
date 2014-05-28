@@ -3,13 +3,17 @@
     <p class="text-muted">
         Please use the Carousel below to select the Document Reference you wish to work on.
     </p>
-    <div id="carousel" class="ContentFlow">
-        <div class="flow">
-            <img class="item" src="/../my-coop/images/fileicon.png"/>
-            <img class="item" src="/../my-coop/images/fileicon.png"/>
-            <img class="item" src="/../my-coop/images/fileicon.png"/>
-            <img class="item" src="/../my-coop/images/fileicon.png"/>
-            <img class="item" src="/../my-coop/images/fileicon.png"/>
+    <div ng-controller="CarouselDemoCtrl">
+        <div style="height: 305px">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}" style="margin:auto; width: 250px;">
+                    <div class="carousel-caption" style="margin-bottom: -15px;">
+                        <h4 style="color: #000;">{{slide.name}}</h4>
+                        <p  style="color: #000;">{{slide.text}}</p>
+                    </div>
+                </slide>
+            </carousel>
         </div>
     </div>
 </div>
