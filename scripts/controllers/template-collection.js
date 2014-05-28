@@ -39,5 +39,16 @@ angular.module('myCoopOnlineApp')
                 Sections:"5.2 Management commitment 5.4 Organisational roles, responsibilities and authorities"
             }];
 
-        var myNewFlow = new ContentFlow('carousel', { reflectionHeight: 0, circularFlow: true } ) ;
+        $scope.myInterval = -1;
+        var slides = $scope.slides = [];
+        $scope.addSlide = function(i) {
+            slides.push({
+                image: '/../../my-coop/images/fileicon.png',
+                name: $scope.datasource[i].documentReference,
+                text: $scope.datasource[i].Title
+            });
+        };
+        for (var i=0; i<$scope.datasource.length; i++) {
+            $scope.addSlide(i);
+        }
     });
