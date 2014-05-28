@@ -41,11 +41,14 @@
     <script type="text/javascript" src="/my-coop/scripts/controllers/business-process.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/controllers/user.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/controllers/delivery.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/controllers/template-collection.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/controllers/section-editor.js"></script>
 
     <script type="text/javascript" src="/my-coop/scripts/directives/popover.js"></script>
     <script type="text/javascript" src="/my-coop/scripts/directives/org-chart.js"></script>
 
     <script type="text/javascript" src="/my-coop/scripts/config.js"></script>
+    <script type="text/javascript" src="/my-coop/scripts/libraries/contentflow.js"></script>
     <style>
         ul#navigation li > ul, ul#tax_summary_nav li > ul {
             display: block;
@@ -216,7 +219,7 @@
                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-cog"></span> Template Suite
                          </a></li>
                     <li ng-class="{ on: $state.includes('tools.templatecollection') }"><a ui-sref="tools.templatecollection"
-                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Colletion
+                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Collection
                     </a></li>
                 </ul>
             </li>
