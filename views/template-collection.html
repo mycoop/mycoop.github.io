@@ -4,16 +4,19 @@
         Please use the Carousel below to select the Document Reference you wish to work on.
     </p>
     <div>
-        <div style="height: 305px">
+        <div>
             <carousel interval="myInterval">
                 <slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.image}}" style="margin:auto; width: 250px;">
-                    <div class="carousel-caption" style="margin-bottom: -15px;">
+                    <div class="carousel-caption" style="position: initial;">
                         <h4 style="color: #000;">{{slide.name}}</h4>
                         <p  style="color: #000;">{{slide.text}}</p>
                     </div>
                 </slide>
             </carousel>
+        </div>
+        <div>
+            <button class="btn btn-medium  btn-blue" ng-click="moreDetails()" style="float: right;">MORE DETAILS</button>
         </div>
     </div>
 </div>

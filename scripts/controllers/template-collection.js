@@ -1,7 +1,18 @@
 'use strict';
 
 angular.module('myCoopOnlineApp')
-    .controller('TemplateCollectionCtrl', function ($scope, $rootScope) {
+    .controller('TemplateCollectionCtrl', function ($scope, $modal, $rootScope) {
+        $scope.moreDetails = function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/more-details.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return '';
+                    }
+                }
+            });
+        };
         $scope.datasource = [
             {
                 documentReference: "MC00001",
