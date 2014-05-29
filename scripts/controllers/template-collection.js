@@ -25,6 +25,12 @@ angular.module('myCoopOnlineApp')
             var item = _.findWhere(slides, {active: true}).data;
             if(!_.contains($scope.templates, item)){
                 $scope.templates.push(item);
+                $scope.yourTemplatesSlides.push({
+                    image: '/../../my-coop/images/fileicon.png',
+                    name: item.documentReference,
+                    text: item.Title,
+                    data: item
+                });
 
             } else  {
                 showError('This item is already in your template collection.')
@@ -88,6 +94,7 @@ angular.module('myCoopOnlineApp')
 
         $scope.myInterval = -1;
         var slides = $scope.slides = [];
+        $scope.yourTemplatesSlides = [];
         $scope.addSlide = function(i) {
             slides.push({
                 image: '/../../my-coop/images/fileicon.png',
