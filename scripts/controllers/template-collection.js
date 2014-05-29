@@ -8,11 +8,28 @@ angular.module('myCoopOnlineApp')
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
-                        return '';
+                        var item =  _.findWhere(slides, {active: true}).data;
+                        return {text: item.Purpose, title: item.Title};
                     }
                 }
             });
+
+            modalInstance.result.then(function () {
+                addToTemplates();
+            }, function () {
+                console.log('success');
+            });
         };
+
+        function addToTemplates(){
+            var item = _.findWhere(slides, {active: true}).data;
+            if(!_.contains($scope.templates, item)){
+                $scope.templates.push(item);
+
+            }
+        }
+
+        $scope.templates = [];
         $scope.datasource = [
             {
                 documentReference: "MC00001",
@@ -56,7 +73,8 @@ angular.module('myCoopOnlineApp')
             slides.push({
                 image: '/../../my-coop/images/fileicon.png',
                 name: $scope.datasource[i].documentReference,
-                text: $scope.datasource[i].Title
+                text: $scope.datasource[i].Title,
+                data: $scope.datasource[i]
             });
         };
         for (var i=0; i<$scope.datasource.length; i++) {

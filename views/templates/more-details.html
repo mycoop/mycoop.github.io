@@ -1,11 +1,11 @@
 <div class="modal-header">
-    <h3 class="modal-title">More Details</h3>
+    <h3 class="modal-title">{{message.title}}</h3>
 </div>
 <div class="modal-body">
-    <div class="row">
-        <p>To set out the organisational context of the BCMS. It describes what the organisation does, how it does it, what factors influence the way it operates and the reasons for the definition of the scope of the BCMS.</p>
-    </div>
+
+    <p>{{message.text}}</p>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-primary" ng-click="ok()">Add to template</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>
