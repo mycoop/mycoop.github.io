@@ -26,9 +26,28 @@ angular.module('myCoopOnlineApp')
             if(!_.contains($scope.templates, item)){
                 $scope.templates.push(item);
 
+            } else  {
+                showError('This item is already in your template collection.')
             }
         }
 
+        function showError(message){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/templates/error.html',
+                controller: 'ErrorModalCtrl',
+                resolve: {
+                    message: function () {
+                        return message;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                console.log('Error ok');
+            }, function () {
+                console.log('success');
+            });
+        }
         $scope.templates = [];
         $scope.datasource = [
             {
