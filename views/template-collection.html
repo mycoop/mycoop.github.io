@@ -20,11 +20,15 @@
         </carousel>
     </div>
     <div class="row">
-        <button class="btn btn-medium  btn-blue" ng-click="moreDetails()" style="float: right;">MORE DETAILS</button>
+        <br/>
+        <button class="btn btn-medium pull-right btn-blue" ng-click="moreDetails()">MORE DETAILS</button>
+
+        <button class="btn btn-medium pull-left btn-blue" ng-click="isDocViewerVisible = true" >View plan</button>
     </div>
-    <div class="row">
+    <div class="row" ng-show="isDocViewerVisible">
+        <br/>
         <div class="iframe-container">
-            <iframe src="http://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true" frameborder="0"></iframe>  </div>
+            <iframe src="http://docs.google.com/gview?url=http://mycoop.github.io/my-coop/docs/BankOfAmericaCOOP.docx&embedded=true" frameborder="0"></iframe>  </div>
     </div>
     <div class="row">
         <br/>
