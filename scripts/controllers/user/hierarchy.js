@@ -302,6 +302,7 @@ angular.module('userApp').
                 }
 
                 function dbclick(d) {
+                    $('.my-circle').popover('hide');
                     scope.callback({id: d.id});
                 }
             }

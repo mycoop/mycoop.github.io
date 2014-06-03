@@ -4,7 +4,7 @@ angular.module('adminApp')
     .controller('TemplateCollectionCtrl', function ($scope, $modal, $rootScope) {
         $scope.moreDetails = function(){
             var modalInstance = $modal.open({
-                templateUrl: 'views/templates/more-details.html',
+                templateUrl: '/views/templates/more-details.html',
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
