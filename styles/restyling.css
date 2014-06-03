@@ -1,4 +1,4 @@
-.footer-logo{
+.footer-logo {
     width: 200px;
     height: 69px !important;
     background: url('/my-coop/experiences/default/images/coop-logo.png') no-repeat;
@@ -8,12 +8,12 @@
 }
 
 .gridStyle {
-    border: 1px solid rgb(212,212,212);
+    border: 1px solid rgb(212, 212, 212);
     width: 99%;
     height: 300px;
 }
 
-.ngCanvas{
+.ngCanvas {
     margin-top: 30px !important;
 }
 
@@ -32,32 +32,32 @@
     text-align: center;
 }
 
-TR.mcRow:hover{
+TR.mcRow:hover {
     cursor: pointer;
     background: #d3d3d3;
 }
 
-input.ng-invalid.ng-dirty{
+input.ng-invalid.ng-dirty {
     border-color: red !important;
 }
 
-input:read-only{
+input:read-only {
     color: lightslategray !important;
 }
 
-td.colFirst{
- min-width: 174px;
+td.colFirst {
+    min-width: 174px;
 }
 
-.form-control{
+.form-control {
     margin-bottom: 10px;
 }
 
-input.small{
+input.small {
     width: auto;
 }
 
-.bp-item{
+.bp-item {
     overflow: visible !important;
 }
 
@@ -67,9 +67,35 @@ input.small{
     cursor: pointer;
 }
 
-.bt-item-frame:hover{
+.bt-item-frame:hover {
     background: #dbdbdb;
 }
 
-.iframe-container { overflow:hidden; }
-.iframe-container iframe { width:100%; padding:0; border:0; height:500px; }
+.medal-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    background-size: 100% 100%;
+}
+
+.medal-icon.gold{
+    background-image: url("/images/icons/medal-gold.png");
+}
+.medal-icon.silver{
+    background-image: url("/images/icons/medal-silver.png");
+}
+.medal-icon.bronze{
+    background-image: url("/images/icons/medal-bronze.png");
+}
+
+.iframe-container {
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    height: 500px;
+}

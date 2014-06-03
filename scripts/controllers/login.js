@@ -19,8 +19,8 @@ angular.module('myCoopApp')
                 $rootScope.isLoggedIn = true;
                 $location.path('/admin-welcome');
             } else if($scope.email == 'jcoop@google.com' && $scope.password == 'password123'){
-                $rootScope.isLoggedIn = true;
-                $location.path('/user-welcome');
+//                $rootScope.isLoggedIn = true;
+                window.location = '/user/';
             } else{
                 $scope.isPasswordIncorrect = true;
             }

@@ -12,7 +12,8 @@ angular
         'resources.user',
         'resources.org-entity',
         'ui.bootstrap',
-        'controls'
+        'controls',
+        'filters'
     ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity) {
         $rootScope.showNav = '';
         $rootScope.$state = $state;
@@ -28,7 +29,7 @@ angular
                     }
                 } else {
                     $state.transitionTo($state.current, {orgEntityId: $rootScope.orgEntityId || 103}, {
-                        reload: true, inherit: false, notify: false
+                        reload: true
                     });
                 }
             });
@@ -66,7 +67,8 @@ angular
         $scope.ok = function () {
             $modalInstance.close();
         };
-    }).config(function ($stateProvider) {
+    }).config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/home/main");
         $stateProvider
             .state('home', { url: '/home?orgEntityId'})
             .state('home.main', {  templateUrl: '/views/user/home.html', url: '/main'})

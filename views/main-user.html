@@ -43,8 +43,40 @@
                                 <div class="row dashboard-row">
                                     <div class="col-xs-8 small-block">
                                         <h3>Task Assignment Table</h3>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Assigned area</th>
+                                                <th>Task</th>
+                                                <th>Details</th>
+                                                <th>Deadline</th>
+                                                <th>Scheduled Date</th>
+                                                <th>Progress Status</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="task in tasks">
+                                                <td class="col-md-2">{{task.area}}</td>
+                                                <td class="col-md-2">{{task.title}}</td>
+                                                <td class="col-md-3">
+                                                    <span ng-hide="task.isFullText">{{task.details | dotText}}<br/>
+                                                        <a ng-click="task.isFullText=true" href="">Show more</a></span>
+                                                    <span ng-show="task.isFullText">{{task.details}}<br/>
+                                                        <a ng-click="task.isFullText=false" href="">Show less</a></span>
+                                                </td>
+                                                <td class="col-md-2">{{task.deadline | date}}</td>
+                                                <td class="col-md-2">{{task.scheduledDate | date}}</td>
+                                                <td class="col-md-1"><span class="medal-icon {{task.status}}"></span></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
 
 
+
+                                        <p><a href="/user/"
+                                              class="btn btn-large btn-orange small-block topSpace sendToProductOffering ">
+                                            Continue Activity
+                                        </a>
                                     </div>
                                     <div class="col-xs-3 in-progress-p small-block">
                                         <img src="/experiences/default/images/globe.png"

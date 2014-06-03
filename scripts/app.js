@@ -5,6 +5,7 @@ angular
         'ngCookies',
         'ngResource',
         'ngRoute',
+        'filters'
     ])
     .config(function ($routeProvider, $httpProvider) {
         $routeProvider
