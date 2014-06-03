@@ -1,0 +1,95 @@
+<div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}" data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="welcome.returningUser">
+
+
+    <title>Welcome back to TurboTax</title>
+
+
+
+    <div id="mainReturnUserDiv" class="mainWelcomeDiv">
+        <div id="welcomeSection" class="welcomeSection">
+            <div class="row">
+                <h1 class="col-lg-12">Hi Cooper, welcome back to MyCOOP!</h1>
+                <div class="col-sm-7">
+                    <p class="subHeader">Select <strong>Continue</strong> to pick up where you left off.</p>
+                </div>
+                <div class="col-sm-5">
+                    <p>
+                        <a id="continueButton" ui-sref="home.hierarchy" class="btn ansLg" data-nav="continue">Continue</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Display if a user has a Hard Stop -->
+            <div data-visible="@{ ${welcomeModel.hardStop} }" style="display: none;">
+                <h3>Items to Revisit</h3>
+
+                <p class="subHeader">Get started on items in your return that were previously under construction:
+                    <a id="hardStop" href="#" class="btn ansSm" data-nav="jumpToHardStop">Take Me There</a>
+                </p>
+            </div>
+            <!-- Display if any forms are unavailable -->
+            <div data-visible="@{ WelcomeActionClass.hasUnavailableForms() }" style="display: none;">
+                <p class="subHeader">The government is still working to finalize the following forms. Select "Notify Me" to
+                    be alerted when the forms are ready.
+                    <a id="formNotification" href="#" class="link" onclick="WelcomeActionClass.openNotifyMeURL()">Notify Me</a>
+                </p>
+                <!-- Iterate through  UnavailableForms array and display every form -->
+                <div data-template="#unavailableFormTemplate" data-template-options="{ forms : ${welcomeModel.UnavailableForms} }">
+
+
+                </div>
+                <a class="link" href="#" id="seeAllUnfinishedFormsLink" data-nav="jumpToUnfinishedForms">See all unfinished forms</a>
+            </div>
+        </div>
+
+        <div id="userActions" class="row">
+            <h3 class="col-md-12">Some things you can do:</h3>
+            <br/>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span>PLANNING ACTIVITIES</span>
+                        <ul class="list-unstyled">
+                            <li><a href=""><span
+                                    class="glyphicon glyphicon-file"></span> Generate
+                                Reports</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-ok"></span>
+                                Request Approval</a></li>
+                            <li><a href=/mycoop-online#/tools/print><span
+                                    class="glyphicon glyphicon-print"></span> Print your
+                                Plan </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span>TASK TRACKING</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="/mycoop-online#/tools/template-collection"><span
+                                        class="glyphicon glyphicon-list-alt"></span>
+                                    Template Collection</a></li>
+                            <li><a href=""><span
+                                    class="glyphicon glyphicon-tasks"></span> View Tasks
+                                Assignments</a></li>
+                            <li><a href=""><span
+                                    class="glyphicon glyphicon-question-sign"></span>
+                                Request Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span>USER SETTINGS</span>
+                        <ul class="list-unstyled">
+                            <li><a href=""><span class="glyphicon glyphicon-cog"></span>
+                                Modify Personal Settings</a></li>
+                            <li><a href=""><span
+                                    class="glyphicon glyphicon-bell"></span> Modify
+                                Notifications & Alerts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

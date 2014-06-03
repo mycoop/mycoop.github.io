@@ -7,56 +7,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/app.css"/>
-    <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/welcome.css"/>
-    <link rel="stylesheet" type="text/css" href="/my-coop/styles/ng-grid.css"/>
-    <link rel="stylesheet" type="text/css" href="/my-coop/styles/app/helpers.css"/>
-    <link rel="stylesheet" type="text/css" href="/my-coop/styles/restyling.css"/>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+    <link rel="stylesheet" type="text/css" href="/styles/app/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/app/welcome.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/ng-grid.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/app/helpers.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/restyling.css"/>
 
     <script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/jquery.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/underscore.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/underscore.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="/my-coop/scripts/libraries/angular.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/angular-cookies.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/angular-route.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/angular-resource.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/angular-ui-router.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/ng-grid.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-google-maps.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-cookies.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-route.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-resource.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/ng-grid.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/jquery-ui-1.10.4.custom.js"></script>
 
 
-    <script type="text/javascript" src="/my-coop/scripts/libraries/ui-bootstrap.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/ui-bootstrap-tpls.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/scripts/libraries/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/ui-bootstrap-tpls.js"></script>
+    <script src="/scripts/libraries/d3.js" charset="utf-8"></script>
 
-    <script type="text/javascript" src="/my-coop/scripts/resources/process.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/resources/user.js"></script>
+    <script type="text/javascript" src="/scripts/resources/process.js"></script>
+    <script type="text/javascript" src="/scripts/resources/org-entity.js"></script>
+    <script type="text/javascript" src="/scripts/resources/user.js"></script>
 
-    <script type="text/javascript" src="/my-coop/scripts/online-app.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/home.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/org-chart.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/organization.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/business-process.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/user.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/delivery.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/template-collection.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/controllers/section-editor.js"></script>
+    <script type="text/javascript" src="/scripts/user-app.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/hierarchy.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/map.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/components.js"></script>
 
-    <script type="text/javascript" src="/my-coop/scripts/directives/popover.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/directives/org-chart.js"></script>
+    <script type="text/javascript" src="/scripts/directives/popover.js"></script>
+    <script type="text/javascript" src="/scripts/directives/org-chart.js"></script>
 
-    <script type="text/javascript" src="/my-coop/scripts/config.js"></script>
-    <script type="text/javascript" src="/my-coop/scripts/libraries/contentflow.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/contentflow.js"></script>
+
+
     <style>
         ul#navigation li > ul, ul#tax_summary_nav li > ul {
             display: block;
         }
     </style>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <style>
+
+
+        .node {
+            cursor: pointer;
+        }
+
+        .overlay{
+            background-color:#EEE;
+        }
+
+        .node circle {
+            fill: rgb(238, 165, 160);
+            stroke: palevioletred;
+            stroke-width: 1.5px;
+        }
+        .node circle.my-circle{
+            fill: #fff;
+            stroke: steelblue;
+        }
+        .node text {
+            /*font-size: 12px;*/
+            /*font-family:sans-serif;*/
+        }
+
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 1.5px;
+        }
+
+        .templink {
+            fill: none;
+            stroke: red;
+            stroke-width: 3px;
+        }
+
+        .ghostCircle.show{
+            display:block;
+        }
+
+        .ghostCircle, .activeDrag .ghostCircle{
+            display: none;
+        }
+    </style>
 </head>
-<body class="pgtype_ezpg sku_512" ng-app="myCoopOnlineApp">
+<body class="pgtype_ezpg sku_512" ng-app="userApp">
 
 <div id="ttoContainer" class="" style="visibility: visible;">
 <div id="contentOverlay"></div>
@@ -65,13 +109,13 @@
         <a href="javascript:;" ng-click="toggleNav()" id="slide_main_navigation"
            class="pull-left visible-sm visible-xs"></a>
 
-        <a id="" style="display: block" href="/my-coop/#/main" title="myCOOP">
+        <a id="" style="display: block" href="/#/main" title="myCOOP">
 
             <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png" alt=""
                  style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
         </a>
 
-        <a class="pull-right visible-lg visible-md" style="display: block" href="/my-coop/#/main" title="myCOOP">
+        <a class="pull-right visible-lg visible-md" style="display: block" href="/#/main" title="myCOOP">
 
             <h1 class="hidden-xs" style="color: #ffffff; font-size: 30px; margin-top: 7px; float: left">myCOOP&#8482;</h1>
             <h2 class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">
@@ -84,13 +128,13 @@
                 <!-- TODO: edit these ids? -->
                 <span class="twitter-typeahead" style="position: relative; display: inline-block;">
                     <input
-                        class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled=""
-                        style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-size: auto; background-position: 0% 0%; background-repeat: repeat repeat;"><input
+                            class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled=""
+                            style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-size: auto; background-position: 0% 0%; background-repeat: repeat repeat;"><input
                         type="text" id="chatQuestion" class="typeahead tt-query" autocomplete="off" spellcheck="false"
                         dir="auto" placeholder="Ask a question..."
                         style="position: relative; vertical-align: top; background-color: transparent;">
                     <span
-                        style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: 'Avenir light', Helvetica, Arial, san-serif; font-size: 17px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span
+                            style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: 'Avenir light', Helvetica, Arial, san-serif; font-size: 17px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span
                         class="tt-dropdown-menu"
                         style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
                 <a id="chatAskButton">?</a>
@@ -100,7 +144,7 @@
         <!-- click handlers set in TTOApp.Navigation _init -->
         <div id="account" class="pull-right visible-lg visible-md">
             <ul class="nav navbar-nav">
-                <li><a href="/my-coop/" id="DA_EXIT" class="signOutTrigger">Sign Out</a></li>
+                <li><a href="/" id="DA_EXIT" class="signOutTrigger">Sign Out</a></li>
             </ul>
         </div>
 
@@ -119,16 +163,14 @@
         <!-- visibility controlled through media queries in Navigation.less -->
         <ul id="navigation" role="navigation">
             <li ng-class="{ on: $state.includes('home') }">
-                <a ui-sref="home.profile" data-submit-val="0" id="auto_id_0">Home</a>
+                <a ui-sref="home.main" data-submit-val="0" id="auto_id_0">Home</a>
                 <ul ng-show=" $state.includes('home')">
-                    <li ng-class="{ on: $state.includes('home.profile') }">
-                        <a ui-sref="home.profile">Organization Profile</a></li>
-                    <li ng-class="{ on: $state.includes('home.org') }">
-                        <a ui-sref="home.org">Hierarchy Management</a></li>
-                    <li ng-class="{ on: $state.includes('home.admin') }">
-                        <a ui-sref="home.admin">User Administration</a></li>
-                    <li ng-class="{ on: $state.includes('home.resource') }">
-                        <a ui-sref="home.resource">Resource Directories</a></li>
+                    <li ng-class="{ on: $state.includes('home.timeline') }">
+                        <a href="/#/user-welcome" target="_top">My Activity Timeline</a></li>
+                    <li ng-class="{ on: $state.includes('home.hierarchy') }">
+                        <a ui-sref="home.hierarchy">Organization Hierarchy</a></li>
+                    <li ng-class="{ on: $state.includes('home.components') }">
+                        <a ui-sref="home.components">Planning Components</a></li>
                 </ul>
             </li>
             <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"
@@ -216,50 +258,21 @@
                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-bell"></span> Notification
                         Interface </a></li>
                     <li ng-class="{ on: $state.includes('tools.templatesuite') }"><a ui-sref="tools.templatesuite"
-                                                                                    data-submit-val="16"><span class="glyphicon glyphicon-cog"></span> Template Suite
-                         </a></li>
+                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-cog"></span> Template Suite
+                    </a></li>
                     <li ng-class="{ on: $state.includes('tools.templatecollection') }"><a ui-sref="tools.templatecollection"
-                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Collection
+                                                                                          data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Collection
                     </a></li>
                 </ul>
             </li>
 
         </ul>
-        <!--<div id="navTools">-->
-            <!--<ul data-visible="@{ ${refundExplanationViewModel.rexIsOpen} !== true }">-->
-                <!--<li><a href="#" id="tool_00_TOOLS" class="toolsTrigger"><span class="navIcon"></span><span-->
-                        <!--class="navLabel">Tools</span></a>-->
-                <!--</li>-->
-                <!--<li><a href="#" id="printCenter" class="printCenterTrigger"><span class="navIcon"></span><span-->
-                        <!--class="navLabel">Print Center</span></a></li>-->
-                <!--<li><a href="#" id="myAccountNav" class="myAccountTrigger visible-sm visible-xs"><span-->
-                        <!--class="navIcon"></span><span class="navLabel">My myCOOP</span></a></li>-->
-                <!--<li><a href="#" id="DA_EXITNav" class="signOutTrigger visible-sm visible-xs"><span-->
-                        <!--class="navIcon"></span><span class="navLabel">Sign Out</span></a></li>-->
-                <!--<li><a href="#" id="upgradeButton" data-event="upgrade" class="upgradeTrigger"><span-->
-                        <!--class="navIcon"></span><span-->
-                        <!--class="navLabel">Upgrade</span></a></li>-->
-                <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} === true }" style="display: none;">-->
-                    <!--<a href="#" id="switchToClassicNav" data-event="rue.dashboard.dashboardUserAction"-->
-                       <!--data-event-options="{ action : 'switchToClassic' }" class="switchToClassicTrigger">-->
-                        <!--<span class="navIcon"></span><span class="navLabel">Switch to classic myCOOP</span>-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li data-visible="@{ ${rueDashboardModel.rueEnabledFlag} !== true &amp;&amp; ${uiRegionModel.canSwitchToRue} === true }"-->
-                    <!--style="display: none;">-->
-                    <!--<a href="#" id="switchToRueNav" data-event="switchToRueFromClassicConfirm"-->
-                       <!--class="switchToRueTrigger">-->
-                        <!--<span class="navIcon"></span><span class="navLabel">Switch back to new myCOOP</span>-->
-                    <!--</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
 
     </div>
     <!-- end #main_navigation -->
 
     <div id="main_right" style="display: block;" ui-view="">
-
+        <div class="text-center"><span class="lead">{{orgEntity.title}}</span></div>
         <div ui-view="">
         </div>
 
@@ -291,53 +304,53 @@
 
 </body>
 <script type="text/javascript">
-   var cScale = d3.scale.linear().domain([0, 100]).range([0, 2 * Math.PI]);
-   var width = 120,
-           height = 120,
-   data = [[0,20,"#add100", 'Business Continuity Plan'], [20,40,"#5a9c00", 'Business Impact Analysis'], [40,60,"#d3d3d3"],[60,80,"#d3d3d3"],[80,100,"#d3d3d3"]]
+    var cScale = d3.scale.linear().domain([0, 100]).range([0, 2 * Math.PI]);
+    var width = 120,
+            height = 120,
+            data = [[0,20,"#add100", 'Business Continuity Plan'], [20,40,"#5a9c00", 'Business Impact Analysis'], [40,60,"#d3d3d3"],[60,80,"#d3d3d3"],[80,100,"#d3d3d3"]]
 
-   var vis = d3.select("#donutchart").append("svg")
-           .attr("width", width)
-           .attr("height", height);
+    var vis = d3.select("#donutchart").append("svg")
+            .attr("width", width)
+            .attr("height", height);
 
-   var arc = d3.svg.arc()
-           .innerRadius(27)
-           .outerRadius(50)
-           .startAngle(function(d){return cScale(d[0]);})
-           .endAngle(function(d){return cScale(d[1]);});
+    var arc = d3.svg.arc()
+            .innerRadius(27)
+            .outerRadius(50)
+            .startAngle(function(d){return cScale(d[0]);})
+            .endAngle(function(d){return cScale(d[1]);});
 
-   d3.select('svg').append('text')
-           .attr('x', 33)
-           .attr('y', 60)
-           .attr('font-size', '2.1rem')
-           .attr('font-weight','bold')
-           .text('20%')
-           .attr('fill', '#007ac9')
+    d3.select('svg').append('text')
+            .attr('x', 33)
+            .attr('y', 60)
+            .attr('font-size', '2.1rem')
+            .attr('font-weight','bold')
+            .text('20%')
+            .attr('fill', '#007ac9')
 
-   var tooltip = d3.select("body")
-           .append("div")
-           .style("position", "absolute")
-           .style("z-index", "30")
-           .style('background', '#33b8f3')
-           .style('color', 'white')
-           .style("visibility", "hidden")
-           .text("tooltip");
+    var tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "30")
+            .style('background', '#33b8f3')
+            .style('color', 'white')
+            .style("visibility", "hidden")
+            .text("tooltip");
 
-   vis.selectAll("path")
-           .data(data)
-           .enter()
-           .append("path")
-           .attr("d", arc)
-           .style("fill", function(d){return d[2];})
-           .style('cursor', function(d){if (d[2] === '#add100' || d[2] === '#5a9c00') return 'pointer' })
-           .attr("transform", "translate(50,50)")
-           .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-           .on("mousemove", function(d){ return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px").text(d[3]);})
-           .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
-           .on('click', function(d){
-               if (d[2] === '#add100') window.location.href = '#/continuity/profile'
-               else if (d[2] === '#5a9c00') window.location.href = '#/impact/processes'
-           })
+    vis.selectAll("path")
+            .data(data)
+            .enter()
+            .append("path")
+            .attr("d", arc)
+            .style("fill", function(d){return d[2];})
+            .style('cursor', function(d){if (d[2] === '#add100' || d[2] === '#5a9c00') return 'pointer' })
+            .attr("transform", "translate(50,50)")
+            .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+            .on("mousemove", function(d){ return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px").text(d[3]);})
+            .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+            .on('click', function(d){
+                if (d[2] === '#add100') window.location.href = '#/continuity/profile'
+                else if (d[2] === '#5a9c00') window.location.href = '#/impact/processes'
+            })
 
 
 

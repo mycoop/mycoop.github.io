@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{node.title}} Summary</h3>
+</div>
+<div class="modal-body">
+    <p><span class="text-primary">Location: </span>{{node.location}}</p>
+    <p><span class="text-primary">Created: </span>{{node.createdDate | date}}</p>
+    <p><span class="text-primary">Modified: </span>{{node.modifiedDate | date}}</p>
+    <p><span class="text-primary">Owner: </span>{{node.owner}}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

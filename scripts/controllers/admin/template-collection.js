@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
+angular.module('adminApp')
     .controller('TemplateCollectionCtrl', function ($scope, $modal, $rootScope) {
         $scope.moreDetails = function(){
             var modalInstance = $modal.open({
@@ -26,7 +26,7 @@ angular.module('myCoopOnlineApp')
             if(!_.contains($scope.templates, item)){
                 $scope.templates.push(item);
                 $scope.yourTemplatesSlides.push({
-                    image: '/../../my-coop/images/fileicon.png',
+                    image: '/../../images/fileicon.png',
                     name: item.documentReference,
                     text: item.Title,
                     data: item
@@ -97,7 +97,7 @@ angular.module('myCoopOnlineApp')
         $scope.yourTemplatesSlides = [];
         $scope.addSlide = function(i) {
             slides.push({
-                image: '/../../my-coop/images/fileicon.png',
+                image: '/../../images/fileicon.png',
                 name: $scope.datasource[i].documentReference,
                 text: $scope.datasource[i].Title,
                 data: $scope.datasource[i]

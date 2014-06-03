@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
+angular.module('adminApp')
     .controller('OrganizationCtrl', function ($scope, $http, $rootScope, Process, $location, $anchorScroll) {
         $scope.isEditMode = false;
         $scope.goToEditMode = function(section){

@@ -1,4 +1,4 @@
-function initPopups(){
+function initPopups() {
     $('tr.orphan-item').draggable({
         revert: "invalid",
         containment: "document",
@@ -17,16 +17,16 @@ function updateChart(chart, element, options, scope) {
         chart.orgDiagram(options);
     }
 
-    $.get('/my-coop/views/templates/manage-entity.html', function(data){
-        $('[name ="actions"]').popover({title:'Actions', placement: 'bottom', content:data, html:true, trigger: 'click'});
+    $.get('/views/templates/manage-entity.html', function (data) {
+        $('[name ="actions"]').popover({title: 'Actions', placement: 'bottom', content: data, html: true, trigger: 'click'});
     });
-    $('[name="link"]').tooltip({title:'Manage users'});
-    $('#orgdiagram').click(function(event){
-        if(!$(event.target).hasClass('item-popup'))
-        $('[name ="actions"]').popover('hide')
+    $('[name="link"]').tooltip({title: 'Manage users'});
+    $('#orgdiagram').click(function (event) {
+        if (!$(event.target).hasClass('item-popup'))
+            $('[name ="actions"]').popover('hide')
     });
     chart.droppable({
-                    greedy: true,
+        greedy: true,
         drop: function (event, ui) {
             /* Check drop event cancelation flag
              * This fixes following issues:
@@ -41,7 +41,7 @@ function updateChart(chart, element, options, scope) {
              * So we need to cancel drop  event in order to avoid double reparenting operation.
              */
             if (!event.cancelBubble) {
-                scope.$apply(function(){
+                scope.$apply(function () {
                     scope.callback({itemId: parseInt(jQuery(ui.draggable).attr("data-value"), 10), toParentId: null});
                 });
 
@@ -53,22 +53,16 @@ function updateChart(chart, element, options, scope) {
     chart.orgDiagram("update", primitives.orgdiagram.UpdateMode.Refresh);
     initPopups();
 }
-angular.module('myCoopOnlineApp').
-    controller('orgChartCtrl', function ($scope, $modal, $log) {
-$scope.selectedNode ={node:{name: 'asdda'}};
+angular.module('adminApp').
+    controller('orgChartCtrl', function ($scope, $modal, $log, OrgEntity) {
+        $scope.selectedNode = {node: {name: 'asdda'}};
 
-        $scope.licenses = [
-            {type: 'Administrators', total: '3', used: '2', remaining: '1'},
-            {type: 'Contributors (Planners / Content Managers)', total: '5', used: '2', remaining: '3'},
-            {type: 'Readers', total: '15', used: '12', remaining: '3'},
-            {type: 'Approvers', total: '6', used: '4', remaining: '2'},
-        ];
 
         $scope.selectedNodeId = 0;
 
-        $scope.showNewEntityModal = function(){
+        $scope.showNewEntityModal = function () {
             var modalInstance = $modal.open({
-                templateUrl: 'views/templates/new-entity.html',
+                templateUrl: '/views/templates/new-entity.html',
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
@@ -78,142 +72,41 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             });
 
             modalInstance.result.then(function (params) {
-
                 var parent = params.confirm ? $scope.selectedNodeId : null;
-                $scope.items.push({id: $scope.items.length*100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()})
+                OrgEntity.addEntity({id: $scope.items.length * 100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()});
+                refreshEntities();
             }, function () {
                 console.log('success');
             });
         };
 
-        $scope.items = [
-            {
-            id: 15,
-            parent: null,
-            title: "Basic organization",
-            url: '#/home/admin',
-            linkText: 'Staff',
-            createdDate: 1400414718000,
-            modifiedDate: 1400501118000
-//            description: "VP, Public Sector",
-        },
-            {
-                id: 103,
-                parent: null,
-                title: "Your organization",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-//            description: "VP, Public Sector",
-            },
-            {
-                id: 1,
-                parent: 103,
-                title: "Business unit 1",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
-            {
-                id: 2,
-                parent: 103,
-                title: "Business unit 2",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
+        function refreshEntities(){
+            OrgEntity.getEntities(function(data){
+                $scope.items = data;
+                updateOrphans();
+            });
+        }
 
-            {
-                id: 3,
-                parent: 103,
-                title: "Location 1",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
+        refreshEntities();
 
-            {
-                id: 4,
-                parent: 103,
-                title: "Location 2",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
 
-            {
-                id: 5,
-                parent: 1,
-                title: "Department 1",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
-
-            {
-                id: 6,
-                parent: 2,
-                title: "Department 2",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
-
-            {
-                id: 7,
-                parent: 3,
-                title: "Department 3",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
-
-            {
-                id: 8,
-                parent: 3,
-                title: "Accounting",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            },
-
-            {
-                id: 8,
-                parent: 4,
-                title: "Accounting",
-                url: '#/home/admin',
-                linkText: 'Staff',
-                createdDate: 1400414718000,
-                modifiedDate: 1400501118000
-            }
-        ];
-
-        $scope.reparent = function( itemId, toParentId) {
-            if(itemId != toParentId){
+        $scope.reparent = function (itemId, toParentId) {
+            if (itemId != toParentId) {
                 var item = _.findWhere($scope.items, {id: itemId});
                 if (itemId != null && toParentId != null) {
                     console.log("Reparent  value:" + itemId + ", toParent:" + toParentId);
-                    if(checkAncestors(itemId, toParentId)){
+                    if (checkAncestors(itemId, toParentId)) {
                         askAction(item, toParentId);
-                    } else{
+                    } else {
                         showError('You are attempting to set up a child node as a parent!')
                     }
-                } else if(!toParentId){
+                } else if (!toParentId) {
                     item.parent = null;
                 }
             }
         };
 
-        function checkAncestors(itemId, toParentId){
+        function checkAncestors(itemId, toParentId) {
             var ancestors = [];
             var newParentItem = _.findWhere($scope.items, {id: toParentId});
             getParents(newParentItem, ancestors);
@@ -222,16 +115,16 @@ $scope.selectedNode ={node:{name: 'asdda'}};
 
         }
 
-        function getParents(item, collection){
-            if(item.parent || item.parent){
+        function getParents(item, collection) {
+            if (item.parent || item.parent) {
                 collection.push(item.parent);
                 getParents(_.findWhere($scope.items, {id: item.parent}), collection);
             }
         }
 
-        function askAction(item, toParentId){
+        function askAction(item, toParentId) {
             var modalInstance = $modal.open({
-                templateUrl: 'views/templates/choose-action.html',
+                templateUrl: '/views/templates/choose-action.html',
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
@@ -247,9 +140,9 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             });
         }
 
-        $scope.showModal = function(name){
+        $scope.showModal = function (name) {
             var modalInstance = $modal.open({
-                templateUrl: 'views/templates/' + name + '-entity.html',
+                templateUrl: '/views/templates/' + name + '-entity.html',
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
@@ -283,9 +176,9 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             });
         }
 
-        function showError(message){
+        function showError(message) {
             var modalInstance = $modal.open({
-                templateUrl: 'views/templates/error.html',
+                templateUrl: '/views/templates/error.html',
                 controller: 'ErrorModalCtrl',
                 resolve: {
                     message: function () {
@@ -301,15 +194,14 @@ $scope.selectedNode ={node:{name: 'asdda'}};
             });
         }
 
-        function updateOrphans(){
-            $scope.orphans = _.where($scope.items, {parent: null});
+        function updateOrphans() {
+            $scope.orphans = _.where($scope.items, {parent: null})
         }
 
-        updateOrphans();
 
-        $scope.$watch('items',function(){
+        $scope.$watch('items', function () {
             updateOrphans();
-        },true);
+        }, true);
 
     }).directive('ngChart', function ($compile) {
         return {
@@ -346,7 +238,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 options.buttonsPanelSize = 48;
                 options.editMode = true;
 //                options.onMouseClick = onOrgChartClick;
-                options.onSelectionChanged= function(){
+                options.onSelectionChanged = function () {
 
                 };
                 options.pageFitMode = primitives.common.PageFitMode.FitToPage;
@@ -356,7 +248,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 options.defaultTemplateName = "basicTemplate";
                 options.visibility = primitives.common.Visibility.Normal;
                 options.onCursorChanged = function (e, data) {
-                    scope.$apply(function(){
+                    scope.$apply(function () {
                         scope.selectedNodeId = data.context.id;
                     });
                 };
@@ -411,7 +303,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                                         toValue = parseInt(jQuery(this).attr("data-value"), 10);
                                         toChart = "orgdiagram";
                                         fromValue = parseInt(jQuery(ui.draggable).attr("data-value"), 10)
-                                        scope.$apply(function(){
+                                        scope.$apply(function () {
                                             scope.callback({itemId: fromValue, toParentId: toValue});
                                         });
 
@@ -483,7 +375,7 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                     result.highlightPadding = new primitives.common.Thickness(1, 1, 1, 1);
 
                     var itemTemplate = jQuery(
-                        '<div class="bp-item bt-item-frame" style="overflow: visible">'
+                            '<div class="bp-item bt-item-frame" style="overflow: visible">'
                             + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
                             + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
                             + '</div>'
@@ -526,16 +418,16 @@ $scope.selectedNode ={node:{name: 'asdda'}};
                 }, true);
 
             },
-            controller: function($scope){
-                $scope.makeSomeMadness = function(id){
-                    var item =  _.find($scope.items, function(cur){
+            controller: function ($scope) {
+                $scope.makeSomeMadness = function (id) {
+                    var item = _.find($scope.items, function (cur) {
                         return cur.id == id;
                     });
 
                     return item.title;
                 };
-                $scope.funct = function(id, text){
-                    var item =  _.find($scope.items, function(cur){
+                $scope.funct = function (id, text) {
+                    var item = _.find($scope.items, function (cur) {
                         return cur.id == id;
                     });
                     item.title = text;
@@ -546,8 +438,8 @@ $scope.selectedNode ={node:{name: 'asdda'}};
         };
     });
 
-var toggleMenu = function(id){
-  $('#menu'+id).show();
+var toggleMenu = function (id) {
+    $('#menu' + id).show();
 };
 
 

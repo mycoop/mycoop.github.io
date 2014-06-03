@@ -1,4 +1,4 @@
-angular.module('myCoopOnlineApp').
+angular.module('adminApp').
     controller('DeliveryEditCtrl', function ($scope) {
         $scope.isCollapsed = true;
         $scope.methods = [

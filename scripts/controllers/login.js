@@ -4,7 +4,7 @@ angular.module('myCoopApp')
     .config(function ($routeProvider) {
         $routeProvider
             .when('/login', {
-                templateUrl: '/my-coop/views/login.html',
+                templateUrl: '/views/login.html',
                 controller: 'LoginCtrl',
                 access: 'free'
             });
@@ -17,7 +17,10 @@ angular.module('myCoopApp')
             if(($scope.email == 'tmiller@google.com' && $scope.password == 'password123') ||
                 ($scope.email == 'mr.gusev.k@gmail.com' && $scope.password == '123') ){
                 $rootScope.isLoggedIn = true;
-                $location.path('/main');
+                $location.path('/admin-welcome');
+            } else if($scope.email == 'jcoop@google.com' && $scope.password == 'password123'){
+                $rootScope.isLoggedIn = true;
+                $location.path('/user-welcome');
             } else{
                 $scope.isPasswordIncorrect = true;
             }

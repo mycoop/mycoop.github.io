@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
+angular.module('adminApp')
     .controller('SectionEditorCtrl', function ($scope, $rootScope) {
 
     });

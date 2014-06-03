@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
+angular.module('adminApp')
     .controller('UsersCtrl', function ($scope, $rootScope, User) {
         function updateUsers() {
             User.getUsers(function(data){

@@ -3,12 +3,16 @@
 angular.module('myCoopApp')
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/main', {
-                templateUrl: '/my-coop/views/main.html',
+            .when('/admin-welcome', {
+                templateUrl: '/views/main-admin.html',
+                controller: 'MainCtrl'
+            })
+            .when('/user-welcome', {
+                templateUrl: '/views/main-user.html',
                 controller: 'MainCtrl'
             })
             .when('/print', {
-                templateUrl: '/my-coop/views/view-plan.html',
+                templateUrl: '/views/view-plan.html',
                 controller: 'MainCtrl'
             });
     })

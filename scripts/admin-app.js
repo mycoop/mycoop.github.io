@@ -1,24 +1,65 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
-    .config(function ($stateProvider) {
+angular
+    .module('adminApp', [
+        'ngCookies',
+        'ngResource',
+        'ngRoute',
+        'ui.router',
+        'ngGrid',
+        'resources.process',
+        'resources.user',
+        'resources.org-entity',
+        'ui.bootstrap',
+        'controls'
+//        'ui.state'state
+    ]).run(function ($rootScope, $location, $state, $stateParams) {
+        $rootScope.showNav = '';
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+
+
+        $rootScope.toggleNav = function () {
+            $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
+        };
+
+        $rootScope.redirect = function (path) {
+            $location.path(path);
+        };
+    }).controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
+        $scope.message = message;
+        $scope.input = {confirm: false};
+        $scope.isMoveUsers = true;
+        $scope.ok = function () {
+            $modalInstance.close($scope.input);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }).controller('ErrorModalCtrl', function($scope, $modalInstance, message){
+        $scope.message = message;
+        $scope.ok = function () {
+            $modalInstance.close();
+        };
+    }).config(function ($stateProvider) {
         $stateProvider
             .state('home', { url: '/home'})
-            .state('home.profile', {  templateUrl:'/my-coop/views/organization.html', url: '/profile', controller:'OrganizationCtrl'})
-            .state('home.admin', {   templateUrl:'/my-coop/views/admin.html',  url: '/admin', controller:'UsersCtrl'})
-            .state('home.user', {   templateUrl:'/my-coop/views/user.html',  url: '/user/:id', controller:'UserCtrl'})
+            .state('home.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
+            .state('home.admin', {   templateUrl:'/views/admin/admin.html',  url: '/admin', controller:'UsersCtrl'})
+            .state('home.user', {   templateUrl:'/views/admin/user.html',  url: '/user/:id', controller:'UserCtrl'})
             .state('home.resource', {   template:'<h1>Resource Directories</h1><p><a href="http://www.fema.gov">FEMA</a><p><a href="http://www.iso.org">ISO</a>',  url: '/resource'})
-            .state('home.info', {  templateUrl:'/my-coop/views/information.html', url: '/info'})
-            .state('home.org', {  templateUrl:'/my-coop/views/org.html', url: '/org', controller: 'orgChartCtrl'})
-        .state('home.delivery', {  templateUrl:'/my-coop/views/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});
+            .state('home.info', {  templateUrl:'/views/admin/information.html', url: '/info'})
+            .state('home.org', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
+            .state('home.delivery', {  templateUrl:'/views/admin/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});
 
 
 
         $stateProvider
             .state('impact', {  url: '/impact'})
             .state('impact.profile', {  template:'<h1>Program Area Profile</h1>', url: '/profile'})
-            .state('impact.processes', { templateUrl:'/my-coop/views/business-processes.html', controller: 'BusinessProcessCtrl', url: '/processes'})
-            .state('impact.processes-add', { templateUrl:'/my-coop/views/business-process.add.html', controller: 'BusinessProcessAddCtrl', url: '/processes-add'})
+            .state('impact.processes', { templateUrl:'/views/admin/business-processes.html', controller: 'BusinessProcessCtrl', url: '/processes'})
+            .state('impact.processes-add', { templateUrl:'/views/admin/business-process.add.html', controller: 'BusinessProcessAddCtrl', url: '/processes-add'})
             .state('impact.staff', {  template:'<h1>Staffing Requirements</h1>', url: '/staff'})
             .state('impact.resource', {  template:'<h1>Resource Requirement</h1>', url: '/resource'})
             .state('impact.criticalApp', {  template:'<h1>Critical Application (Software) Requirements</h1>', url: '/critical-app'})
@@ -55,11 +96,11 @@ angular.module('myCoopOnlineApp')
             .state('tools', { url: '/tools'})
             .state('tools.reporting', {  template:'<h1>Reporting</h1>', url: '/reporting'})
             .state('tools.controls', {  template:'<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
-            .state('tools.print', {  templateUrl:'/my-coop/views/view-plan.html', url: '/print'})
+            .state('tools.print', {  templateUrl:'/views/admin/view-plan.html', url: '/print'})
             .state('tools.audit', {  template:'<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template:'<h1>Notification Interface</h1>', url: '/notification'})
-            .state('tools.templatesuite', {  templateUrl:'/my-coop/views/templatesuite.html', url: '/template-suite'})
-            .state('tools.templatecollection', {  templateUrl:'/my-coop/views/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
-            .state('tools.sectioneditor', {  templateUrl:'/my-coop/views/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
+            .state('tools.templatesuite', {  templateUrl:'/views/admin/templatesuite.html', url: '/template-suite'})
+            .state('tools.templatecollection', {  templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('tools.sectioneditor', {  templateUrl:'/views/admin/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
 
     });

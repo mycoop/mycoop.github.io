@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myCoopOnlineApp')
+angular.module('adminApp')
     .controller('BusinessProcessCtrl', function ($scope, $rootScope, Process) {
         $scope.gridData = []
         function updateProcesses() {
