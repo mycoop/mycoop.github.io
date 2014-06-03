@@ -94,4 +94,34 @@ angular
             .state('impact.review', {  template: '<h1>BIA Review</h1>', url: '/review'})
             .state('impact.compliance', {  template: '<h1>Compliance Check and Comparison</h1>', url: '/compliance'});
 
+
+        $stateProvider
+            .state('continuity', {  url: '/continuity?orgEntityId'})
+            .state('continuity.profile', {  template:'<h1>Program Area Profile</h1>', url: '/profile'})
+            .state('continuity.objective', {  template:'<h1>Plan Objective - Executive Summary</h1>', url: '/objective'});
+
+
+        $stateProvider
+            .state('risk', {   url: '/risk?orgEntityId'})
+            .state('risk.profile', {  template:'<h1>Program Area Profile</h1>', url: '/profile'})
+            .state('risk.objective', {  template:'<h1>Plan Objective - Executive Summary</h1>', url: '/objective'});
+
+
+        $stateProvider
+            .state('disaster', {  url: '/disaster?orgEntityId'})
+            .state('disaster.profile', {  template:'<h1>Program Area Profile</h1>', url: '/profile'})
+            .state('disaster.objective', {  template:'<h1>Plan Objective - Executive Summary</h1>', url: '/objective'});
+
+
+        $stateProvider
+            .state('tools', { url: '/tools?orgEntityId'})
+            .state('tools.reporting', {  template:'<h1>Reporting</h1>', url: '/reporting'})
+            .state('tools.controls', {  template:'<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
+            .state('tools.print', {  templateUrl:'/views/admin/view-plan.html', url: '/print'})
+            .state('tools.audit', {  template:'<h1>Audit Center</h1>', url: '/audit'})
+            .state('tools.notification', {  template:'<h1>Notification Interface</h1>', url: '/notification'})
+            .state('tools.templatesuite', {  templateUrl:'/views/admin/templatesuite.html', url: '/template-suite'})
+//            .state('tools.templatecollection', {  templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('tools.sectioneditor', {  templateUrl:'/views/admin/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
+
     });
