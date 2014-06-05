@@ -33,17 +33,17 @@ angular.module('adminApp')
             } else{
                 if($scope.isEdit){
                     User.updateUser($scope.user, function(){
-                        $state.transitionTo('home.admin');
+                        $state.transitionTo('setup.users');
                     })
                 } else{
                     User.addUser($scope.user, function(){
-                        $state.transitionTo('home.admin');
+                        $state.transitionTo('setup.users');
                     })
                 }
             }
 
         };
         $scope.cancel = function(){
-            $state.transitionTo('home.admin');
+            $state.transitionTo('setup.users');
         }
     });

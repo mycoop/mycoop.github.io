@@ -14,7 +14,14 @@ angular.module('adminApp').
         ];
 
         $scope.act = function (d) {
-            $state.transitionTo('home.resource.employee')
+            switch (d.name){
+                case 'Employee Contacts':
+                    $state.transitionTo('setup.resources.employee');
+                    break;
+                case 'Additional Resources':
+                    $state.transitionTo('setup.resources.additional');
+                    break;
+            }
         }
     })
     .controller('EmployeeContactsCtrl', function ($scope) {

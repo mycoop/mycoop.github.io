@@ -47,14 +47,30 @@ angular
             .state('home', { url: '/home'})
             .state('home.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
             .state('home.setup', {  templateUrl:'/views/admin/setup.html', url: '/setup', controller: 'SetupCtrl'})
-            .state('home.admin', {   templateUrl:'/views/admin/admin.html',  url: '/admin', controller:'UsersCtrl'})
-            .state('home.user', {   templateUrl:'/views/admin/user.html',  url: '/user/:id', controller:'UserCtrl'})
+            .state('home.admin', {   templateUrl:'/views/admin/users.html',  url: '/admin', controller:'UsersCtrl'})
+            .state('home.user', {   templateUrl:'/views/admin/edit-user.html',  url: '/user/:id', controller:'UserCtrl'})
             .state('home.resource', { templateUrl: '/views/admin/resource-directories.html',  url: '/resource', controller: 'ResourceDirectoriesCtrl'})
             .state('home.resource.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('home.resource.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('home.info', {  templateUrl:'/views/admin/information.html', url: '/info'})
             .state('home.org', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('home.delivery', {  templateUrl:'/views/admin/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});
+
+        $stateProvider
+            .state('setup', { url: '/setup'})
+            .state('setup.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
+            .state('setup.standards', { templateUrl:'/views/admin/setup/standards.html', url: '/standards'})
+            .state('setup.resources', { templateUrl: '/views/admin/resource-directories.html',  url: '/resources', controller: 'ResourceDirectoriesCtrl'})
+            .state('setup.resources.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
+            .state('setup.resources.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
+            .state('setup.templates', { templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('setup.ui', {  templateUrl:'/views/admin/setup/ui-config.html', url: '/ui'})
+            .state('setup.config', {  templateUrl:'/views/admin/setup/workflow-config.html', url: '/workflow-config'})
+            .state('setup.users', {   templateUrl:'/views/admin/users.html',  url: '/users', controller:'UsersCtrl'})
+            .state('setup.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'UserCtrl'})
+            .state('setup.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'UserCtrl'})
+            .state('setup.hierarchy', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
+            .state('setup.review', {  templateUrl:'/views/admin/setup/setup-review.html', url: '/review'});
 
 
 

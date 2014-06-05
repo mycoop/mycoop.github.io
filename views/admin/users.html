@@ -1,7 +1,7 @@
 <div class="">
     <h1>User Administration</h1>
 
-    <div id="scroll_wrapper">
+    <div ng-show="$state.is('setup.users')" id="scroll_wrapper">
         <div id="scroll_fade"></div>
         <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
              data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="S1040PERbfdi2899" class="">
@@ -64,7 +64,7 @@
                                             <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
                                                     src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                     alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcCol"><a ui-sref="home.user({ id: user.id })">{{user.firstName}} {{user.lastName}}</a></td>
+                                            <td align="left" class="mcCol"><a ui-sref="setup.users.edit({ id: user.id })">{{user.firstName}} {{user.lastName}}</a></td>
                                             <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
                                                     src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                     alt="" width="1" height="1" border="0"></td>
@@ -105,7 +105,7 @@
                                                     src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
                                                     alt="" width="1" height="10" border="0"></td>
                                             <td align="left" colspan="7" class="mcAnsCol1">
-                                                <a role="button" ui-sref="home.user"
+                                                <a role="button" ui-sref="setup.users.add"
                                                    class="btn ansRoyal" tabindex="3">Add User
                                                 </a>
                                             </td>
@@ -128,4 +128,5 @@
         </div>
         <div id="formLayer" style="max-height: 250px; width: 698px;"></div>
     </div>
+    <div ui-view=""></div>
 </div>
