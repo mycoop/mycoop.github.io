@@ -1,3 +1,26 @@
 <div>
     <h1>Standards and Compliance</h1>
+    <div class="row">
+        <div class="form-group col-lg-5 col-md-6 col-sm-6">
+            <label class="label-control" for="firstName">Industry</label><br/>
+            <select name="" id="" ng-model="selectedIndustry"
+                    ng-options="industry.name for industry in industries">
+                <option value="">-- choose industry --</option>
+            </select>
+
+            <div style="margin-top: 8px" >
+                <span class="grey">Based on your Organization type, please confirm these standards:</span><br/>
+                <input type="checkbox" checked/> <label class="label-control"
+                                                        for="firstName">FEMA</label><br/>
+                <input type="checkbox" checked/> <label class="label-control" for="firstName">ISO
+                22301</label><br/>
+            </div>
+        </div>
+    </div>
+
+    <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.profile" automationid="editNameSave"
+       title="Save">Back</a>
+
+    <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.resources" automationid="editNameSave"
+       title="Save">Save &amp; Continue</a>
 </div>

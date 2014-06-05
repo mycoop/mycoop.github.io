@@ -11,7 +11,8 @@ angular
         'resources.user',
         'resources.org-entity',
         'ui.bootstrap',
-        'controls'
+        'controls',
+        'ngAnimate'
 //        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.showNav = '';
@@ -22,7 +23,6 @@ angular
         $rootScope.toggleNav = function () {
             $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
         };
-
         $rootScope.redirect = function (path) {
             $location.path(path);
         };
@@ -42,7 +42,19 @@ angular
         $scope.ok = function () {
             $modalInstance.close();
         };
-    }).config(function ($stateProvider) {
+    }).config(function ($stateProvider, $provide) {
+        $provide.decorator('$uiViewScroll', function ($delegate) {
+            return function (uiViewElement) {
+//                var top = uiViewElement.getBoundingClientRect().top;
+
+                $('body').ScrollTo( { duration: 300 });
+//                alert(top)
+//                $( "body" ).scrollTop( 300 )
+                // var top = uiViewElement.getBoundingClientRect().top;
+                // window.scrollTo(0, (top - 30));
+                // Or some other custom behaviour...
+            };
+        });
         $stateProvider
             .state('home', { url: '/home'})
             .state('home.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
@@ -59,7 +71,7 @@ angular
         $stateProvider
             .state('setup', { url: '/setup'})
             .state('setup.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
-            .state('setup.standards', { templateUrl:'/views/admin/setup/standards.html', url: '/standards'})
+            .state('setup.standards', { templateUrl:'/views/admin/setup/standards.html', url: '/standards', controller:'OrganizationCtrl'})
             .state('setup.resources', { templateUrl: '/views/admin/resource-directories.html',  url: '/resources', controller: 'ResourceDirectoriesCtrl'})
             .state('setup.resources.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('setup.resources.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})

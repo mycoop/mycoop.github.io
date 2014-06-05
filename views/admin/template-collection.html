@@ -23,12 +23,16 @@
         <br/>
         <button class="btn btn-medium pull-right btn-blue" ng-click="moreDetails()">MORE DETAILS</button>
 
-        <button class="btn btn-medium pull-left btn-blue" ng-click="isDocViewerVisible = true" >View Your Plan Document</button>
+        <button class="btn btn-medium pull-left btn-blue" ng-click="isDocViewerVisible = true">View Your Plan Document
+        </button>
     </div>
     <div class="row" ng-show="isDocViewerVisible">
         <br/>
+
         <div class="iframe-container">
-            <iframe src="http://docs.google.com/gview?url=http://mycoop.github.io/docs/BankOfAmericaCOOP.docx&embedded=true" frameborder="0"></iframe>  </div>
+            <iframe src="http://docs.google.com/gview?url=http://mycoop.github.io/docs/BankOfAmericaCOOP.docx&embedded=true"
+                    frameborder="0"></iframe>
+        </div>
     </div>
     <div class="row">
         <br/>
@@ -103,6 +107,7 @@
     </div>
     <div class="row">
         <br/>
+
         <h1>Your Document Sections</h1>
         <carousel interval="myInterval">
             <slide ng-repeat="slide in yourTemplatesSlides" active="slide.active">
@@ -116,5 +121,15 @@
             </slide>
         </carousel>
 
+    </div>
+    <div class="row">
+        <br/>
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.ui"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.config"
+           automationid="editNameSave"
+           title="Save">Save &amp; Continue</a>
     </div>
 </div>

@@ -12,13 +12,16 @@
     <link rel="stylesheet" type="text/css" href="/styles/ng-grid.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/app/helpers.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/restyling.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/animations.css"/>
 
     <script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/jquery-scrollto.js"></script>
     <script type="text/javascript" src="/scripts/libraries/underscore.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="/scripts/libraries/angular.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/angular-animate.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-cookies.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-route.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-resource.js"></script>
@@ -278,9 +281,10 @@
     </div>
     <!-- end #main_navigation -->
 
-    <div id="main_right" style="display: block;" ui-view="">
+    <div id="main_right" style="display: block;" >
 
-        <div ui-view="">
+        <div ui-view="" autoscroll="true" class="view-animate-container">
+            <div ui-view="" autoscroll="true" class="view-animate"></div>
         </div>
 
         <footer id="footerLayer" align="center" role="contentinfo">

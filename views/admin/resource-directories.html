@@ -11,7 +11,7 @@
             <th class="col-md-2">Date Modified</th>
         </tr>
         </thead>
-        <tr  ng-repeat="directory in directories">
+        <tr ng-repeat="directory in directories">
             <td class="col-md-2" ng-click="act(directory)">{{directory.name}}</td>
             <td class="col-md-3">
                 <a href="">Import</a> |
@@ -26,5 +26,14 @@
     </table>
     <div ui-view="">
 
+    </div>
+    <div ng-show="$state.is('setup.resources')">
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.standards"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.ui"
+           automationid="editNameSave"
+           title="Save">Save &amp; Continue</a>
     </div>
 </div>
