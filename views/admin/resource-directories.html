@@ -1,0 +1,30 @@
+<div>
+    <h1>Resource directories</h1>
+    <table ng-show="$state.is('home.resource')" class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th class="col-md-2">Directory name</th>
+            <th class="col-md-3">Action</th>
+            <th class="col-md-1">Record Count</th>
+            <th class="col-md-2">Supporting Standard</th>
+            <th class="col-md-1">Modified</th>
+            <th class="col-md-2">Date Modified</th>
+        </tr>
+        </thead>
+        <tr  ng-repeat="directory in directories">
+            <td class="col-md-2" ng-dblclick="act(directory)">{{directory.name}}</td>
+            <td class="col-md-3">
+                <a href="">Import</a> |
+                <a href="">Export</a> |
+                <a href="">Report</a>
+            </td>
+            <td class="col-md-1">{{directory.recordCount}}</td>
+            <td class="col-md-2">{{directory.standard}}</td>
+            <td class="col-md-1">{{directory.modifiedBy}}</td>
+            <td class="col-md-2">{{directory.dateModified | date}}</td>
+        </tr>
+    </table>
+    <div ui-view="">
+
+    </div>
+</div>

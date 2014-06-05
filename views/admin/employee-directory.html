@@ -1,0 +1,15 @@
+<div>
+    <h3 ng-show="$state.is('home.resource.employee')">Employee Contacts Directory</h3>
+    <h3 ng-show="$state.is('home.resource.additional')">Additional Resources Directory</h3>
+    <br/>
+
+    <div class="defaultGridStyle" ng-style="getTableStyle()" ng-grid="gridOptions">
+    </div>
+    <br/>
+
+    <a class="editDetailsSubmit btn btn-medium  btn-gray  pull-left" ui-sref="home.resource" automationid="editNameSave"
+       title="Save">Back</a>
+
+    <a class="editDetailsSubmit btn btn-medium  btn-blue pull-right" ui-sref="home.resource" automationid="editNameSave"
+       title="Save">Save &amp; Continue</a>
+</div>

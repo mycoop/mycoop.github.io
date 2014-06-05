@@ -46,9 +46,12 @@ angular
         $stateProvider
             .state('home', { url: '/home'})
             .state('home.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
+            .state('home.setup', {  templateUrl:'/views/admin/setup.html', url: '/setup', controller: 'SetupCtrl'})
             .state('home.admin', {   templateUrl:'/views/admin/admin.html',  url: '/admin', controller:'UsersCtrl'})
             .state('home.user', {   templateUrl:'/views/admin/user.html',  url: '/user/:id', controller:'UserCtrl'})
-            .state('home.resource', {   template:'<h1>Resource Directories</h1><p><a href="http://www.fema.gov">FEMA</a><p><a href="http://www.iso.org">ISO</a>',  url: '/resource'})
+            .state('home.resource', { templateUrl: '/views/admin/resource-directories.html',  url: '/resource', controller: 'ResourceDirectoriesCtrl'})
+            .state('home.resource.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
+            .state('home.resource.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('home.info', {  templateUrl:'/views/admin/information.html', url: '/info'})
             .state('home.org', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('home.delivery', {  templateUrl:'/views/admin/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});

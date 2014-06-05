@@ -43,6 +43,8 @@
     <script type="text/javascript" src="/scripts/controllers/admin/delivery.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/template-collection.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/section-editor.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/setup.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/resource-directories.js"></script>
 
     <script type="text/javascript" src="/scripts/directives/popover.js"></script>
     <script type="text/javascript" src="/scripts/directives/org-chart.js"></script>
@@ -122,6 +124,8 @@
                 <ul ng-show=" $state.includes('home')">
                     <li ng-class="{ on: $state.includes('home.profile') }">
                         <a ui-sref="home.profile">Organization Profile</a></li>
+                    <li ng-class="{ on: $state.includes('home.setup') }">
+                        <a ui-sref="home.setup">Setup</a></li>
                     <li ng-class="{ on: $state.includes('home.org') }">
                         <a ui-sref="home.org">Hierarchy Management</a></li>
                     <li ng-class="{ on: $state.includes('home.admin') }">

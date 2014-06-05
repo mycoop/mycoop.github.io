@@ -13,11 +13,21 @@
     height: 300px;
 }
 
-.ngCanvas {
+.defaultGridStyle{
+    /*border: 1px solid rgb(212, 212, 212);*/
+    width: 100%;
+    /*min-height: 300px;*/
+
+}
+.defaultGridStyle .ngTopPanel{
+    background-color: #dddddd !important;
+}
+
+.doubleHeader .ngCanvas {
     margin-top: 30px !important;
 }
 
-.ngHeaderContainer, .ngHeaderScroller {
+.doubleHeader .ngHeaderContainer, .ngHeaderScroller {
     height: 60px !important;
 }
 
@@ -99,3 +109,28 @@ input.small {
     border: 0;
     height: 500px;
 }
+
+select.table-select{
+    width: 100%;
+    border-radius: 0px;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    padding-left: 5px;
+    height: 100%;
+    background: transparent;
+    border:none;
+    outline:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    position: relative;
+    cursor:pointer;
+}
+
+select.table-select::after{
+    content: '&#9660;';
+    position: absolute;
+    right: 10px;
+    top:10px;
+}
+
