@@ -1,0 +1,11 @@
+.status-icon{
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    background: url('/images/icons/status-false.png');
+    background-size: 100% 100%;
+}
+.status-icon.ok{
+    background-image: url('/images/icons/status-true.png');
+}

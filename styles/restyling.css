@@ -134,3 +134,12 @@ select.table-select::after{
     top:10px;
 }
 
+
+.color-item{
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+    border: 1px solid #d3d3d3;
+    margin-right: 5px;
+}
+

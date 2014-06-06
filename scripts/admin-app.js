@@ -12,7 +12,8 @@ angular
         'resources.org-entity',
         'ui.bootstrap',
         'controls',
-        'ngAnimate'
+        'ngAnimate',
+        'angularSpectrumColorpicker'
 //        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.showNav = '';
@@ -83,6 +84,29 @@ angular
             .state('setup.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'UserCtrl'})
             .state('setup.hierarchy', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('setup.review', {  templateUrl:'/views/admin/setup/setup-review.html', url: '/review'});
+
+
+        $stateProvider
+            .state('config', { url: '/configure'})
+            .state('config.general', { templateUrl:'/views/admin/config/general-configuration.html', url: '/general'})
+            .state('config.advanced', { templateUrl:'/views/admin/config/advanced-configuration.html', url: '/advanced'})
+            .state('config.ui', { templateUrl:'/views/admin/config/ui.html', url: '/look-and-feel', controller: 'InterfaceConfigCtrl'})
+            .state('config.hierarchy', {  templateUrl:'/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
+            .state('config.security', { url: '/security', templateUrl:'/views/admin/nested-view.html'})
+            .state('config.security.system', { url: '/system-permissions', templateUrl:'/views/admin/config/system-permissions.html', controller: 'SystemPermissionsCtrl' })
+            .state('config.security.users', {   templateUrl:'/views/admin/users.html',  url: '/users', controller:'UsersCtrl'})
+            .state('config.security.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'UserCtrl'})
+            .state('config.security.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'UserCtrl'})
+            .state('config.security.groups', { url: '/groups'})
+            .state('config.security.workspace', { url: '/workspace-permissions'})
+            .state('config.resources', { templateUrl: '/views/admin/resource-directories.html',  url: '/resources', controller: 'ResourceDirectoriesCtrl'})
+            .state('config.resources.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
+            .state('config.resources.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
+            .state('config.templates', { templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('config.backup', {  templateUrl:'/views/admin/config/backup-manager.html', url: '/backup-manager'})
+            .state('config.workflow', {  templateUrl:'/views/admin/setup/workflow-config.html', url: '/workflow-config'})
+           .state('config.billing', {  templateUrl:'/views/admin/config/billing.html', url: '/billing'});
+
 
 
 

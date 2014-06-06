@@ -1,0 +1,76 @@
+<div ng-init="isEditMode=false">
+    <h1>Security Configuration</h1>
+    <br/>
+
+    <h3 class="pull-left">System Permissions</h3>
+    <a href="" class="btn btn-blue small pull-right" ng-click="isEditMode=true" ng-hide="isEditMode">Edit
+        Permissions</a>
+
+    <div class="clearfix"></div>
+    <p class="text-muted small">
+        <small>You can edit the System Permission Levels here. Permissions can be granted
+            to specific users or groups. <br/>For information about the individual permissions that can be assigned,
+            please see the <a href="">permissions guide</a></small>
+    </p>
+    <br/>
+    <h4>Permission classes</h4>
+
+    <p class="text-muted">
+        <small>These are the global permissions currently assigned to groups</small>
+    </p>
+    <table class="table" ng-hide="isEditMode">
+        <thead>
+        <tr>
+            <td></td>
+            <td>Can Use</td>
+            <td>Attach files to User Profile <a href=""></a></td>
+            <td>Update User Status <a href=""></a></td>
+            <td>Personal Space <a href=""></a></td>
+            <td>Create Space <a href=""></a></td>
+            <td>Confluence Administrator <a href=""></a></td>
+            <td>System Administrator <a href=""></a></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="permission in permissions">
+            <td class="bold">{{permission.className}}</td>
+            <td><span class="status-icon" ng-class="{ok: permission.canUse}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.canAttach}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.canUpdateStatus}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.canUpdatePersonalSpace}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.canCreateSpace}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.confluenceAdmin}"></span></td>
+            <td><span class="status-icon" ng-class="{ok: permission.systemAdmin}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div ng-show="isEditMode">
+        <table class="table">
+            <thead>
+            <tr>
+                <td></td>
+                <td>Can Use</td>
+                <td>Attach files to User Profile <a href=""></a></td>
+                <td>Update User Status <a href=""></a></td>
+                <td>Personal Space <a href=""></a></td>
+                <td>Create Space <a href=""></a></td>
+                <td>Confluence Administrator <a href=""></a></td>
+                <td>System Administrator <a href=""></a></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="permission in permissions">
+                <td class="bold">{{permission.className}}</td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.canUse" /></td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.canAttach" /></td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.canUpdateStatus" /></td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.canUpdatePersonalSpace" /></td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.canCreateSpace" /></td>
+                <td><input type="checkbox" ng-disabled="permission.disabled" ng-model="permission.confluenceAdmin" /></td>
+                <td><input type="checkbox" disabled ng-model="permission.systemAdmin" /></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="" class="btn btn-blue" ng-click="isEditMode=false">Save</a>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="">
     <h1>User Administration</h1>
 
-    <div ng-show="$state.is('setup.users')" id="scroll_wrapper">
+    <div ng-hide="$state.contains('add') || $state.contains('edit')" id="scroll_wrapper">
         <div id="scroll_fade"></div>
         <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
              data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="S1040PERbfdi2899" class="">
