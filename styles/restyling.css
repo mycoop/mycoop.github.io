@@ -146,3 +146,26 @@ select.table-select::after{
 .top-space{
     margin-top: 6px;
 }
+
+.bg-warning{
+    background-color: #d9534f;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    margin: 1.6rem 0;
+    font-size: 1.6rem;
+}
+
+.bg-info{
+    background-color: #5bc0de;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    /*margin: 1.6rem 0;*/
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.bg-info a{
+    color: #000000;
+}

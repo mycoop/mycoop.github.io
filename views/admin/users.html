@@ -1,4 +1,4 @@
-<div class="">
+<div class=""  ng-init="$root.prevState='setup.workflow'; $root.nextState='setup.hierarchy'">
     <h1>User Administration</h1>
 
     <div ng-hide="$state.contains('add') || $state.contains('edit')" id="scroll_wrapper">
@@ -129,13 +129,4 @@
         <div id="formLayer" style="max-height: 250px; width: 698px;"></div>
     </div>
     <div ui-view=""></div>
-    <div ng-show="$state.is('setup.users')" >
-        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.config"
-           automationid="editNameSave"
-           title="Save">Back</a>
-
-        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.hierarchy"
-           automationid="editNameSave"
-           title="Save">Save &amp; Continue</a>
-    </div>
 </div>

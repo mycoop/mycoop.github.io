@@ -1,4 +1,4 @@
-<div>
+<div ng-init="$root.prevState='setup.profile'; $root.nextState='setup.resources'">
     <h1>Standards and Compliance</h1>
     <div class="row">
         <div class="form-group col-lg-5 col-md-6 col-sm-6">
@@ -18,9 +18,4 @@
         </div>
     </div>
 
-    <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.profile" automationid="editNameSave"
-       title="Save">Back</a>
-
-    <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.resources" automationid="editNameSave"
-       title="Save">Save &amp; Continue</a>
 </div>

@@ -1,0 +1,20 @@
+<div class="">
+    <div class="view-animate-container">
+        <div ui-view="" autoscroll="true" class="row ">
+        </div>
+        <div class="row" ng-hide="$state.includes('setup.review') ">
+            <hr/>
+
+            <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+               ng-click="previousPage()"
+               automationid="editNameSave"
+               ng-hide="$state.includes('setup.profile')"
+               title="Save">Back</a>
+
+            <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+               automationid="editNameSave"
+               ng-click="nextPage()"
+               title="Save">Save &amp; Continue</a>
+        </div>
+    </div>
+</div>

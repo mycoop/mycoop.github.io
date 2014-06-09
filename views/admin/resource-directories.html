@@ -1,4 +1,4 @@
-<div>
+<div  ng-init="$root.prevState='setup.standards'; $root.nextState='setup.ui'">
     <h1>Resource directories</h1>
     <table ng-show="$state.is('setup.resources')" class="table table-striped table-hover table-bordered">
         <thead>
@@ -26,14 +26,5 @@
     </table>
     <div ui-view="">
 
-    </div>
-    <div ng-show="$state.is('setup.resources')">
-        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left" ui-sref="setup.standards"
-           automationid="editNameSave"
-           title="Save">Back</a>
-
-        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right" ui-sref="setup.ui"
-           automationid="editNameSave"
-           title="Save">Save &amp; Continue</a>
     </div>
 </div>

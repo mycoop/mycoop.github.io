@@ -24,9 +24,21 @@ angular
         $rootScope.toggleNav = function () {
             $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
         };
+
         $rootScope.redirect = function (path) {
             $location.path(path);
         };
+
+        $rootScope.previousPage = function(){
+            if($rootScope.prevState)
+                $state.transitionTo($rootScope.prevState);
+        };
+
+        $rootScope.nextPage = function(){
+            if($rootScope.nextState)
+            $state.transitionTo($rootScope.nextState);
+        };
+
     }).controller('ModalInstanceCtrl', function ($scope, $modalInstance, message) {
         $scope.message = message;
         $scope.input = {confirm: false};
@@ -70,14 +82,14 @@ angular
             .state('home.delivery', {  templateUrl:'/views/admin/delivery-edit.html', url: '/delivery-edit', controller: 'DeliveryEditCtrl'});
 
         $stateProvider
-            .state('setup', { url: '/setup'})
+            .state('setup', { url: '/setup', templateUrl: '/views/admin/setup/setup.html'})
             .state('setup.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
             .state('setup.standards', { templateUrl:'/views/admin/setup/standards.html', url: '/standards', controller:'OrganizationCtrl'})
             .state('setup.resources', { templateUrl: '/views/admin/resource-directories.html',  url: '/resources', controller: 'ResourceDirectoriesCtrl'})
             .state('setup.resources.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('setup.resources.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('setup.templates', { templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
-            .state('setup.ui', {  templateUrl:'/views/admin/setup/ui-config.html', url: '/ui'})
+            .state('setup.ui', {  templateUrl:'/views/admin/config/ui.html', url: '/ui', controller: 'InterfaceConfigCtrl'})
             .state('setup.config', {  templateUrl:'/views/admin/setup/workflow-config.html', url: '/workflow-config'})
             .state('setup.users', {   templateUrl:'/views/admin/users.html',  url: '/users', controller:'UsersCtrl'})
             .state('setup.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'UserCtrl'})
