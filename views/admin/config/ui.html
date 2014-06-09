@@ -30,11 +30,16 @@
         <a href="" class="btn btn-blue">Save</a>
         <hr/>
     </div>
-    <div class="row">
+    <div class="row" ng-init="isStatementEdit = false; statement='Confidential Statement goes here.'">
         <h2>Global Report Footer</h2>
         <p class="text-muted"><small>You may customize all report and output documents here by adding a Confidential Statement.</small></p>
-        <p class="">Confidential Statement goes here.</p>
-        <a href="" class="btn btn-blue">Edit</a>
+        <p ng-hide="isStatementEdit" class="">{{statement}}</p>
+        <div class="row" ng-show="isStatementEdit">
+            <div class="form-group col-lg-5 col-md-6 col-sm-6">
+            <textarea class="form-control" ng-model="statement"></textarea>
+            </div>
+        </div>
+        <a href="" class="btn btn-blue" ng-click="isStatementEdit=!isStatementEdit"><span ng-hide="isStatementEdit">Edit</span> <span ng-show="isStatementEdit">Save</span></a>
         <hr/>
     </div>
     <div class="row" ng-init="isCollapsed = true">

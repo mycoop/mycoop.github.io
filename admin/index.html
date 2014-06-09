@@ -54,6 +54,8 @@
     <script type="text/javascript" src="/scripts/controllers/admin/resource-directories.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/system-permissions.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/ui.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/general-configuration.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/advanced-configuration.js"></script>
 
     <script type="text/javascript" src="/scripts/directives/popover.js"></script>
     <script type="text/javascript" src="/scripts/directives/org-chart.js"></script>
@@ -172,8 +174,8 @@
                         <a ui-sref="config.ui">Look and Feel</a></li>
                     <li ng-class="{ on: $state.includes('config.hierarchy') }">
                         <a ui-sref="config.hierarchy">Hierarchy Management</a></li>
-                    <li ng-class="{ on: $state.includes('config.security.system') }">
-                        <a ui-sref="config.security">Security Configuration</a>
+                    <li ng-class="{ on: $state.includes('config.security') }">
+                        <a ui-sref="config.security.system">Security Configuration</a>
                         <ul style="margin-top: 10px" ng-show="$state.includes('config.security')">
                             <li ng-class="{ on: $state.includes('config.security.system') }">
                                 <a ui-sref="config.security.system">System Permissions</a></li>

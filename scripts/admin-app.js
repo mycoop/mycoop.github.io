@@ -88,8 +88,8 @@ angular
 
         $stateProvider
             .state('config', { url: '/configure'})
-            .state('config.general', { templateUrl:'/views/admin/config/general-configuration.html', url: '/general'})
-            .state('config.advanced', { templateUrl:'/views/admin/config/advanced-configuration.html', url: '/advanced'})
+            .state('config.general', { templateUrl:'/views/admin/config/general-configuration.html', url: '/general', controller: 'GeneralConfigCtrl'})
+            .state('config.advanced', { templateUrl:'/views/admin/config/advanced-configuration.html', url: '/advanced', controller: 'AdvancedConfigCtrl'})
             .state('config.ui', { templateUrl:'/views/admin/config/ui.html', url: '/look-and-feel', controller: 'InterfaceConfigCtrl'})
             .state('config.hierarchy', {  templateUrl:'/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
             .state('config.security', { url: '/security', templateUrl:'/views/admin/nested-view.html'})

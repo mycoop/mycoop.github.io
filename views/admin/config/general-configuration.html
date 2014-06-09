@@ -1,0 +1,104 @@
+<div>
+    <div class="row">
+        <h1>General Configuration</h1><br/></div>
+    <div class="row" ng-init="isSiteEditMode = false">
+        <h2>Site Configuration</h2>
+        <p class="text-muted"><small>Configure the appearance and behaviour of the site as a whole.</small></p>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Site Title:</span></div>
+            <div class="col-md-5">myCOOP7 Development</div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Server Base URL:</span></div>
+            <div class="col-md-5">http://customerabc.mycoop7.com/</div>
+            <br/><br/>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Contact Administrators Message:</span></div>
+            <div class="col-md-8">
+                <span ng-hide="isSiteEditMode">{{contactMessage}}<br/></span>
+                <textarea style="height: 100px" class="form-control" ng-model="contactMessage" ng-show="isSiteEditMode" ng-model="statement"></textarea>
+                <br/>
+                <div><input type="checkbox" checked ng-disabled="!isSiteEditMode"/> Contact Administrators Form</div>
+            </div>
+        </div>
+        <a href="" class="btn btn-blue" ng-click="isSiteEditMode=!isSiteEditMode"><span ng-hide="isSiteEditMode">Edit</span> <span ng-show="isSiteEditMode">Save</span></a>
+        <br/><br/>
+    </div>
+
+    <div class="row" ng-init="isFormattingEditMode = false">
+        <h2>Formatting and International Settings</h2>
+        <p class="text-muted"><small>These options relate to the time and date formatting on the site.</small></p>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Encoding:</span></div>
+            <div class="col-md-8">
+                <span >{{format.encoding}}</span>
+                <!--<input type="text" ng-show="isFormattingEditMode" ng-model="format.encoding"/>-->
+
+            </div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Time Format:</span></div>
+            <div class="col-md-8">
+                <span ng-hide="isFormattingEditMode">{{format.time}}</span>
+                <input type="text" ng-show="isFormattingEditMode" ng-model="format.time"/>
+                <span  ng-show="isFormattingEditMode" >&nbsp;&nbsp;{{currentDate | date:format.time}}</span>
+            </div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Date Time Format:</span></div>
+            <div class="col-md-8">
+                <span ng-hide="isFormattingEditMode">{{format.dateTime}}</span>
+                <input type="text" ng-show="isFormattingEditMode" ng-model="format.dateTime"/>
+                <span  ng-show="isFormattingEditMode">&nbsp;&nbsp;{{currentDate | date:format.dateTime}}</span>
+            </div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Date Format:</span></div>
+            <div class="col-md-8">
+                <span ng-hide="isFormattingEditMode">{{format.date}}</span>
+                <input type="text" ng-show="isFormattingEditMode" ng-model="format.date"/>
+                <span  ng-show="isFormattingEditMode"> &nbsp;&nbsp;{{currentDate | date:format.date}}</span>
+            </div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Long Number Format:</span></div>
+            <div class="col-md-5">{{format.longNumber}}</div>
+            <br/><br/>
+        </div>
+        <a href="" class="btn btn-blue" ng-click="isFormattingEditMode=!isFormattingEditMode"><span ng-hide="isFormattingEditMode">Edit</span> <span ng-show="isFormattingEditMode">Save</span></a>
+        <br/><br/>
+    </div>
+
+    <div class="row" ng-init="isLanguageEditMode = false">
+        <h2>Global Default Language</h2>
+        <p class="text-muted"><small>Set the default language for this myCOOP instance.
+            The Current default language is <span class="bold">{{defaultLanguage.name}}</span></small></p>
+        <div class="row">
+            <div class="col-md-4 text-muted"> <span class="pull-right">Installed Languages:</span></div>
+            <div class="col-md-8">
+                <div ng-show="isLanguageEditMode">
+                    <div ng-repeat="language in languages">
+                        <input  type="radio" ng-model="$parent.defaultLanguage" ng-value="language"/> {{language.name}}
+                    </div>
+                </div>
+                <div ng-hide="isLanguageEditMode">
+                    <div ng-repeat="language in languages">
+                         <span ng-class="{bold: language==defaultLanguage}">{{language.name}}</span>
+                    </div>
+                </div>
+            </div>
+            <br/><br/>
+        </div>
+
+        <a href="" class="btn btn-blue" ng-click="isLanguageEditMode=!isLanguageEditMode"><span ng-hide="isLanguageEditMode">Edit</span> <span ng-show="isLanguageEditMode">Save</span></a>
+        <br/><br/>
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+<div>
+
+    <div class="row">
+        <h1>Advanced Configuration</h1><br/></div>
+    <div class="row" ng-init="isSiteEditMode = false">
+        <h2>Import Resource Data</h2>
+
+        <!--<p class="bg-warning">The zip file</p>-->
+        <p class="text-muted">
+            <small>myCOOP OnDemand Data Integrator (MODI) can support .CSV file format.
+                Please see the <a href="">MODI Guide</a> for more information. <br/>
+                For imports exceeding 100MB you must contact <a href="">COOP System Support</a>. <br/>
+                Please note that large imports may affect site performance. It is recommended to conduct imports outside
+                peak usage periods
+            </small>
+        </p>
+        <div class="row">
+            <div class="col-md-4 text-muted"><span class="pull-right top-space">File to Import:</span></div>
+            <div class="col-md-5">
+                    <input type="file" id="file" name="pic" accept="image/*">
+                <span class="text-muted" style="margin: 10px 0; display: block"><small>Only space exports can be imported.</small></span>
+            </div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-muted"><span class="pull-right top-space">Link to Resource Table: </span></div>
+            <div class="col-md-5">
+                <select name="" id="" class="lst form-control" ng-model="selectedDirectory"
+                        ng-options="directory.name for directory in directories">
+                    <option value="">-- choose directory --</option>
+                </select>
+                <span class="text-muted" style="margin: 10px 0; display: block">
+                    <small>Chose the Resource Directory for data import.</small></span>
+
+            </div>
+            <br/><br/>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-muted"><span class="pull-right top-space">Import Validation: </span></div>
+            <div class="col-md-8">
+                <a href="" class="btn btn-blue" style="margin-right: 10px" ng-click="isError = true">Validate</a>
+                <span ng-show="isError" class="text-danger">Error</span>
+                <span ng-show="isSuccess" class="text-success">Validated</span><br/>
+
+                <span class="text-muted" style="margin: 5px 0; display: block">
+                    <small>This action will verify field names and data types being.</small></span>
+            </div>
+        </div>
+        <a href="" class="btn btn-blue" ng-click="isSiteEditMode=!isSiteEditMode">Import</a>
+        <br/><br/>
+    </div>
+
+</div>

@@ -143,3 +143,6 @@ select.table-select::after{
     margin-right: 5px;
 }
 
+.top-space{
+    margin-top: 6px;
+}
