@@ -80,8 +80,8 @@ angular.module('adminApp').
             });
         };
 
-        function refreshEntities(){
-            OrgEntity.getEntities(function(data){
+        function refreshEntities() {
+            OrgEntity.getEntities(function (data) {
                 $scope.items = data;
                 updateOrphans();
             });
@@ -208,7 +208,9 @@ angular.module('adminApp').
             scope: {
                 items: '=',
                 callback: '&onReparent',
-                selectedNodeId: '='
+                selectedNodeId: '=',
+                withSelect: '=',
+                isEditable: '='
             },
             link: function (scope, element, attrs) {
                 var chart = null;
@@ -226,7 +228,8 @@ angular.module('adminApp').
 
 
                 options.cursorItem = 0;
-                options.hasSelectorCheckbox = primitives.common.Enabled.False;
+
+//                options.hasSelectorCheckbox = scope.withSelect ? primitives.common.Enabled.True :  primitives.common.Enabled.False;
                 options.templates = [getBasicTemplate()];
                 options.onItemRender = onTemplateRender;
                 options.normalLevelShift = 20;
@@ -247,6 +250,8 @@ angular.module('adminApp').
                 options.hasButtons = primitives.common.Enabled.True;
                 options.defaultTemplateName = "basicTemplate";
                 options.visibility = primitives.common.Visibility.Normal;
+                options.hasSelectorCheckbox = scope.withSelect ? primitives.common.Enabled.True : primitives.common.Enabled.False;
+
                 options.onCursorChanged = function (e, data) {
                     scope.$apply(function () {
                         scope.selectedNodeId = data.context.id;
@@ -276,66 +281,67 @@ angular.module('adminApp').
 
 
                 function onTemplateRender(event, data) {
-                    switch (data.renderingMode) {
-                        case primitives.common.RenderingMode.Create:
-                            data.element.draggable({
-                                revert: "invalid",
-                                containment: "document",
-                                appendTo: "body",
-                                helper: "clone",
-                                cursor: "move",
-                                "zIndex": 10000,
-                                delay: 300,
-                                distance: 10,
-                                start: function (event, ui) {
-                                    fromValue = parseInt(jQuery(this).attr("data-value"), 10);
-                                    fromChart = "orgdiagram";
-                                }
-                            });
-                            data.element.droppable({
-                                /* this option is supposed to suppress event propogation from nested droppable to its parent
-                                 *  but it does not work
-                                 */
-                                greedy: true,
-                                drop: function (event, ui) {
-                                    if (!event.cancelBubble) {
-                                        console.log("Drop accepted!");
-                                        toValue = parseInt(jQuery(this).attr("data-value"), 10);
-                                        toChart = "orgdiagram";
-                                        fromValue = parseInt(jQuery(ui.draggable).attr("data-value"), 10)
-                                        scope.$apply(function () {
-                                            scope.callback({itemId: fromValue, toParentId: toValue});
-                                        });
+                    if (scope.isEditable) {
+                        switch (data.renderingMode) {
+                            case primitives.common.RenderingMode.Create:
+                                data.element.draggable({
+                                    revert: "invalid",
+                                    containment: "document",
+                                    appendTo: "body",
+                                    helper: "clone",
+                                    cursor: "move",
+                                    "zIndex": 10000,
+                                    delay: 300,
+                                    distance: 10,
+                                    start: function (event, ui) {
+                                        fromValue = parseInt(jQuery(this).attr("data-value"), 10);
+                                        fromChart = "orgdiagram";
+                                    }
+                                });
+                                data.element.droppable({
+                                    /* this option is supposed to suppress event propogation from nested droppable to its parent
+                                     *  but it does not work
+                                     */
+                                    greedy: true,
+                                    drop: function (event, ui) {
+                                        if (!event.cancelBubble) {
+                                            console.log("Drop accepted!");
+                                            toValue = parseInt(jQuery(this).attr("data-value"), 10);
+                                            toChart = "orgdiagram";
+                                            fromValue = parseInt(jQuery(ui.draggable).attr("data-value"), 10)
+                                            scope.$apply(function () {
+                                                scope.callback({itemId: fromValue, toParentId: toValue});
+                                            });
 
 //                                        primitives.common.stopPropagation(event);
-                                    } else {
-                                        console.log("Drop ignored!");
+                                        } else {
+                                            console.log("Drop ignored!");
+                                        }
+                                    },
+                                    over: function (event, ui) {
+                                        toValue = parseInt(jQuery(this).attr("data-value"), 10);
+                                        toChart = "orgdiagram";
+
+                                        /* this is needed in order to update highlighted item in chart,
+                                         * so this creates consistent mouse over feed back
+                                         */
+                                        jQuery("#orgdiagram").orgDiagram({ "highlightItem": toValue });
+                                        jQuery("#orgdiagram").orgDiagram("update", primitives.common.UpdateMode.PositonHighlight);
+                                    },
+                                    accept: function (draggable) {
+                                        /* be carefull with this event it is called for every available droppable including invisible items on every drag start event.
+                                         * don't varify parent child relationship between draggable & droppable here it is too expensive.
+                                         */
+                                        return (jQuery(this).css("visibility") == "visible");
                                     }
-                                },
-                                over: function (event, ui) {
-                                    toValue = parseInt(jQuery(this).attr("data-value"), 10);
-                                    toChart = "orgdiagram";
-
-                                    /* this is needed in order to update highlighted item in chart,
-                                     * so this creates consistent mouse over feed back
-                                     */
-                                    jQuery("#orgdiagram").orgDiagram({ "highlightItem": toValue });
-                                    jQuery("#orgdiagram").orgDiagram("update", primitives.common.UpdateMode.PositonHighlight);
-                                },
-                                accept: function (draggable) {
-                                    /* be carefull with this event it is called for every available droppable including invisible items on every drag start event.
-                                     * don't varify parent child relationship between draggable & droppable here it is too expensive.
-                                     */
-                                    return (jQuery(this).css("visibility") == "visible");
-                                }
-                            });
-                            /* Initialize widgets here */
-                            break;
-                        case primitives.common.RenderingMode.Update:
-                            /* Update widgets here */
-                            break;
+                                });
+                                /* Initialize widgets here */
+                                break;
+                            case primitives.common.RenderingMode.Update:
+                                /* Update widgets here */
+                                break;
+                        }
                     }
-
                     var itemConfig = data.context;
 
 
@@ -344,7 +350,7 @@ angular.module('adminApp').
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
                         data.element.find("[name=link]").html('<a href="#/home/admin" style="height: 24px"><i style="font-size: 1.5em" class="glyphicon glyphicon-user link_in_node"></i> </a>');
-                        data.element.find("[name=actions]").html('<i  style="font-size: 1.5em"  class="glyphicon glyphicon-cog item-popup link_in_node" data-trigger="tooltip" data-title="hjlasdf"></i> ');
+                        data.element.find(".actions").html('<i  style="font-size: 1.5em"  class="glyphicon glyphicon-cog item-popup link_in_node" data-trigger="tooltip" data-title="hjlasdf"></i> ');
 //
                         var fields = ["title", "description", "phone", "email"];
 
@@ -374,20 +380,36 @@ angular.module('adminApp').
                     result.minimizedItemSize = new primitives.common.Size(3, 3);
                     result.highlightPadding = new primitives.common.Thickness(1, 1, 1, 1);
 
-                    var itemTemplate = jQuery(
-                            '<div class="bp-item bt-item-frame" style="overflow: visible">'
-                            + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
-                            + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
-                            + '</div>'
-                            + '</div>'
-                            + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
-                            + '<div name="actions" class="bp-item " style="top: 26px; left: 85px;"></div>'
-                            + '</div>'
-                    ).css({
-                            width: result.itemSize.width + "px",
-                            height: result.itemSize.height + "px"
-                        }).addClass("bp-item bt-item-frame item-popup");
-
+                    var itemTemplate;
+                    if (scope.isEditable) {
+                        itemTemplate = jQuery(
+                                '<div class="bp-item bt-item-frame" style="overflow: visible">'
+                                + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
+                                + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
+                                + '</div>'
+                                + '</div>'
+                                + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
+                                + '<div name="actions" class="bp-item " style="top: 26px; left: 85px;"></div>'
+                                + '</div>'
+                        ).css({
+                                width: result.itemSize.width + "px",
+                                height: result.itemSize.height + "px"
+                            }).addClass("bp-item bt-item-frame item-popup");
+                    } else {
+                        itemTemplate = jQuery(
+                                '<div class="bp-item bt-item-frame" style="overflow: visible">'
+                                + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
+                                + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;">'
+                                + '</div>'
+                                + '</div>'
+                                + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
+                                + '<div class="bp-item actions" style="top: 26px; left: 85px;"></div>'
+                                + '</div>'
+                        ).css({
+                                width: result.itemSize.width + "px",
+                                height: result.itemSize.height + "px"
+                            }).addClass("bp-item bt-item-frame");
+                    }
                     var bootStrapVerticalButtonsGroup = jQuery("<div></div>")
                         .css({
                             position: "absolute",

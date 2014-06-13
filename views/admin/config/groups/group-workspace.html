@@ -1,0 +1,56 @@
+<script type="text/javascript" src="/scripts/libraries/jquery-ui-1.10.2.custom.js"></script>
+<script type="text/javascript" src="/scripts/libraries/primitives.latest.js"></script>
+
+<script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
+<link href="/styles/vendor/primitives.latest.css" media="screen" rel="stylesheet" type="text/css"/>
+<style>
+    .link_in_node {
+        cursor: pointer;
+        color: orange;
+    }
+    .little_input.input.form-control{
+        height: 17px;
+        font-size: 12px;
+    }
+</style>
+
+<div>
+    <h2>Grant Workspace Address: {{group.name}}</h2>
+
+    <p class="text-muted">
+        <small>Use this page to grant access to the workspaces. The same permission level is granted when
+            selecting more than one workspace. Alternatively, you may grant district permissions to individual
+            workspaces one at time.
+        </small>
+    </p>
+
+    <div>
+        <h3>Permission level</h3>
+        <ul class="list-unstyled">
+            <li><label><input type="radio" name="permission"/> Workspace Administrator</label></li>
+            <li><label><input type="radio" name="permission"/> Contributor</label></li>
+            <li><label><input type="radio" name="permission"/> Approver</label></li>
+            <li><label><input type="radio" name="permission" checked/> Browser</label></li>
+        </ul>
+        <br/>
+    </div>
+    <div class="">
+        <h3>Select Workspace(s)</h3>
+        <div class="top-space" with-select="true" data-ng-chart="" selected-node-id="selectedNodeId" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
+             style="width: 100%; height: 380px; border-style: dotted; border-width: 1px;"></div>
+        <br/>
+    </div>
+    <div class="top-space-big">
+        <h3>Select Scope</h3>
+        <ul class="list-unstyled">
+            <li><label><input type="radio" name="scope" checked/> All in this entity collection</label></li>
+            <li><label><input type="radio" name="scope"/> Only selected entities</label></li>
+            <li><label><input type="radio" name="scope"/> Selected entities and all sub-entities</label></li>
+        </ul>
+        <br/>
+    </div>
+    <div>
+        <a href="" class="btn btn-blue" ui-sref="config.security.groups.settings({id: group.id})">Save changes</a>
+        <a href="" class="left-space" ui-sref="config.security.groups.settings({id: group.id})">Cancel</a>
+    </div>
+</div>

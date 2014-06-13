@@ -6,6 +6,7 @@ angular.module('adminApp').
                 $scope.groups = data;
             });
         }
+
         updateGroups();
 
         $scope.deleteSelectedGroups = function () {
@@ -21,31 +22,46 @@ angular.module('adminApp').
             })
         });
 
-        $scope.save = function(){
+        $scope.save = function () {
             if ($scope.form.$invalid) {
                 $scope.error = true;
             } else {
-                Group.addGroup($scope.group, function(){
+                Group.addGroup($scope.group, function () {
                     $state.transitionTo('config.security.groups')
                 });
             }
         };
 
     })
-    .controller('GroupMembershipCtrl', function($scope, $state, $stateParams, Group){
-        if($stateParams.id){
-            Group.getGroup($stateParams.id, function(data){
+    .controller('GroupMembershipCtrl', function ($scope, $state, $stateParams, Group) {
+        if ($stateParams.id) {
+            Group.getGroup($stateParams.id, function (data) {
                 $scope.group = data;
             })
         }
 
-        $scope.deleteGroup = function(){
-            Group.deleteGroup($scope.group, function(){
+        $scope.deleteGroup = function () {
+            Group.deleteGroup($scope.group, function () {
                 $state.transitionTo('config.security.groups')
             })
         };
 
-        Group.getPermissions(function(data){
+        Group.getPermissions(function (data) {
             $scope.permissions = data;
         });
-    });
+    })
+    .controller('GroupWorkspaceCtrl', function ($scope, $modal, $stateParams, Group, $log, OrgEntity) {
+        if ($stateParams.id) {
+            Group.getGroup($stateParams.id, function (data) {
+                $scope.group = data;
+            })
+        }
+        function refreshEntities() {
+            OrgEntity.getEntities(function (data) {
+                $scope.items = data;
+            });
+        }
+
+        refreshEntities();
+
+    })

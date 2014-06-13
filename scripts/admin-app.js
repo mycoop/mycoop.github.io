@@ -125,6 +125,7 @@ angular
             .state('config.security.groups.add', {templateUrl: '/views/admin/config/groups/add-group.html', url: '/add',  controller: 'GroupsCtrl'})
             .state('config.security.groups.details', {templateUrl: '/views/admin/config/groups/group-details.html', url: '/membership?id', controller:'GroupMembershipCtrl'})
             .state('config.security.groups.settings', {templateUrl: '/views/admin/config/groups/group-settings.html', url: '/settings?id',  controller:'GroupMembershipCtrl'})
+            .state('config.security.groups.workspace', {templateUrl: '/views/admin/config/groups/group-workspace.html', url: '/workspace?id', controller:'GroupWorkspaceCtrl'})
             .state('config.security.groups.delete', {templateUrl: '/views/admin/config/groups/delete-group.html', url: '/delete?id', controller:'GroupMembershipCtrl'})
             .state('config.security.workspace', { url: '/workspace-permissions'})
             .state('config.resources', { templateUrl: '/views/admin/resource-directories.html', url: '/resources', controller: 'ResourceDirectoriesCtrl'})
