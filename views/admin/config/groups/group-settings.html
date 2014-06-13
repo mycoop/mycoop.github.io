@@ -176,7 +176,7 @@
                     </td>
                     <td><select name="" id="" ng-model="wp.permission" ng-disabled="wp.restricted"
                                 ng-options="p.name for p in permissions"></select></td>
-                    <td>{{wp.dateAdded}}</td>
+                    <td>{{wp.dateAdded | date}}</td>
 
                     <td>
                     <span class="show-hover" ng-hide="wp.restricted">
