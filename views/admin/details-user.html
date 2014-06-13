@@ -1,0 +1,66 @@
+<div>
+    <div class="">
+        <div class="clearfix">
+            <h2>{{user.firstName}} {{user.lastName}}</h2>
+            <br/>
+            <a href="" class="btn ansSm pull-left" ui-sref="config.security.users.edit({id: user.id})">Edit</a>
+            <a href="" class="btn btn-blue small ansSm pull-left left-space">Change Password</a>
+            <a href="" class="btn btn-gray small ansSm pull-right">Delete</a>
+        </div>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-3 text-muted"><span class="pull-right">Username</span></div>
+            <div class="col-md-5">{{user.username}}</div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-muted"><span class="pull-right">Email Address</span></div>
+            <div class="col-md-5">{{user.email}}</div>
+            <br/><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-muted"><span class="pull-right">Application Access</span></div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-5"><input type="checkbox" checked/>JIRA</div>
+                    <div class="col-md-5 text-muted">(5 remaining)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"><input type="checkbox" checked/>Confluence</div>
+                    <div class="col-md-5 text-muted">(5 remaining)</div>
+                </div>
+            </div>
+            <br/><br/>
+        </div>
+        <br/>
+
+
+        <h3>Group Assignments</h3>
+        <span class="text-muted">
+            <small>User may be added to multiple groups</small></span><br/>
+        <a href="" ng-click="choseGroups()" class="btn top-space-big ansSm btn-small btn-blue">Add user to group</a>
+
+        <table class="table top-space-big">
+            <thead>
+            <tr>
+                <th>Group Name</th>
+                <th>Description</th>
+                <!--<th></th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in userGroups">
+                <td>{{group.name}}</td>
+                <td>{{group.descrtiption}}</td>
+                <!--<td><a href="" class="btn-sm btn btn-blue">Remove</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+
+        <a href="" class="btn btn-blue" ui-sref="config.security.users">Back to Users List</a>
+        <br/><br/>
+    </div>
+
+</div>

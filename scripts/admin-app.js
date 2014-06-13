@@ -10,6 +10,7 @@ angular
         'resources.process',
         'resources.user',
         'resources.org-entity',
+        'resources.group',
         'ui.bootstrap',
         'controls',
         'ngAnimate',
@@ -50,6 +51,15 @@ angular
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+    }).controller('ChooseGroupModalCtrl', function ($scope, $modalInstance, groups) {
+        $scope.items = groups;
+        $scope.ok = function () {
+            $modalInstance.close({selectedItems: _.where($scope.items, {selected: true})});
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
     }).controller('ErrorModalCtrl', function($scope, $modalInstance, message){
         $scope.message = message;
         $scope.ok = function () {
@@ -73,7 +83,7 @@ angular
             .state('home.profile', {  templateUrl:'/views/admin/organization.html', url: '/profile', controller:'OrganizationCtrl'})
             .state('home.setup', {  templateUrl:'/views/admin/setup.html', url: '/setup', controller: 'SetupCtrl'})
             .state('home.admin', {   templateUrl:'/views/admin/users.html',  url: '/admin', controller:'UsersCtrl'})
-            .state('home.user', {   templateUrl:'/views/admin/edit-user.html',  url: '/user/:id', controller:'UserCtrl'})
+            .state('home.user', {   templateUrl:'/views/admin/edit-user.html',  url: '/user/:id', controller:'EditUserCtrl'})
             .state('home.resource', { templateUrl: '/views/admin/resource-directories.html',  url: '/resource', controller: 'ResourceDirectoriesCtrl'})
             .state('home.resource.employee', { templateUrl: '/views/admin/employee-directory.html',  url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('home.resource.additional', { templateUrl: '/views/admin/employee-directory.html',  url: '/additional', controller: 'AdditionalResourcesCtrl'})
@@ -92,8 +102,8 @@ angular
             .state('setup.ui', {  templateUrl:'/views/admin/config/ui.html', url: '/ui', controller: 'InterfaceConfigCtrl'})
             .state('setup.config', {  templateUrl:'/views/admin/setup/workflow-config.html', url: '/workflow-config'})
             .state('setup.users', {   templateUrl:'/views/admin/users.html',  url: '/users', controller:'UsersCtrl'})
-            .state('setup.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'UserCtrl'})
-            .state('setup.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'UserCtrl'})
+            .state('setup.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'EditUserCtrl'})
+            .state('setup.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'EditUserCtrl'})
             .state('setup.hierarchy', {  templateUrl:'/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('setup.review', {  templateUrl:'/views/admin/setup/setup-review.html', url: '/review'});
 
@@ -107,8 +117,10 @@ angular
             .state('config.security', { url: '/security', templateUrl:'/views/admin/nested-view.html'})
             .state('config.security.system', { url: '/system-permissions', templateUrl:'/views/admin/config/system-permissions.html', controller: 'SystemPermissionsCtrl' })
             .state('config.security.users', {   templateUrl:'/views/admin/users.html',  url: '/users', controller:'UsersCtrl'})
-            .state('config.security.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'UserCtrl'})
-            .state('config.security.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'UserCtrl'})
+            .state('config.security.users.add', {   templateUrl:'/views/admin/edit-user.html',  url: '/add', controller:'EditUserCtrl'})
+            .state('config.security.users.edit', {   templateUrl:'/views/admin/edit-user.html',  url: '/edit?id', controller:'EditUserCtrl'})
+            .state('config.security.users.details', {   templateUrl:'/views/admin/details-user.html',  url: '/details?id', controller:'UserCtrl'})
+            .state('config.security.users.multiple', {   templateUrl:'/views/admin/multiple-users.html',  url: '/multiple', controller:'MultipleUserCtrl'})
             .state('config.security.groups', { url: '/groups'})
             .state('config.security.workspace', { url: '/workspace-permissions'})
             .state('config.resources', { templateUrl: '/views/admin/resource-directories.html',  url: '/resources', controller: 'ResourceDirectoriesCtrl'})

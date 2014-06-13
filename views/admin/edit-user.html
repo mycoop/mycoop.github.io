@@ -1,44 +1,117 @@
 <div class="account-info row">
     <article class="subscreen-content col-xs-12">
-        <h3>Add User</h3>
+        <br/>
+
+        <h2>Add User</h2>
+        <br/>
+
+        <h3>User Details</h3>
+        <span class="text-muted"><small>The email address entered will be used as the User ID</small></span>
+
         <form action="#" id="editNameFormView" novalidate="" name="form">
             <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
             <p class="success" role="alert" style="color:green;"></p>
-            <div class="row">
-                <div class="form-group col-xs-12">
-                    <label class="label-control" for="firstName">First Name</label><br/>
-                    <input type="text" id="firstName" ng-model="user.firstName" name="firstName" class="account-info-input editable" maxlength="35" original-title="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-xs-12">
-                    <label class="label-control" for="firstName">Last Name</label><br/>
-                    <input type="text" id="lastName" ng-model="user.lastName" name="lastName" class="account-info-input editable" maxlength="35" original-title="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-xs-12">
-                    <label class="label-control" for="firstName">* Username</label><br/>
-                    <input type="text" id="username" required="" ng-model="user.username" name="username" class="account-info-input editable" maxlength="35" original-title="">
-                </div>
-            </div>
+
             <div class="row">
                 <div class="form-group col-xs-12">
                     <label class="label-control" for="firstName">* Email</label><br/>
-                    <input type="email" id="email" required="" ng-model="user.email" name="email" class="account-info-input editable" maxlength="35" original-title="">
+                    <input type="email" id="email" required="" ng-model="user.email" name="email"
+                           class="account-info-input editable" maxlength="35" original-title="">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-xs-12">
-                    <label class="label-control" for="firstName">Phone</label><br/>
-                    <input type="tel" id="phone" ng-model="user.phone" name="phone" class="account-info-input editable" maxlength="35" original-title="">
+                    <label class="label-control" for="firstName">* First Name</label><br/>
+                    <input type="text" id="firstName" ng-model="user.firstName" name="firstName"
+                           class="account-info-input editable" maxlength="35" original-title="">
                 </div>
             </div>
-            <br>
-            <div class="editDetailsButtonRow">
-                <a href="#" class="editDetailsSubmit btn btn-medium  btn-blue submit" ng-click="save()" automationid="editNameSave" title="Save">Save</a>
-                <a href="#accountInfo" class="editDetailsCancel btn btn-medium btn-gray-light cancel" ng-click="cancel()" automationid="editNameCancel" title="Cancel">Cancel</a>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label class="label-control" for="firstName">* Last Name</label><br/>
+                    <input type="text" id="lastName" ng-model="user.lastName" name="lastName"
+                           class="account-info-input editable" maxlength="35" original-title="">
+                </div>
             </div>
         </form>
+
+        <h3>Password Options</h3>
+        <span class="text-muted">
+            <small>This option will send the user a email with a link to create their own password.</small></span><br/>
+
+        <div class="top-space-big" ng-init="isCustomPassword=true">
+            <input ng-model="isCustomPassword" type="checkbox" id="customPassCheckbox"/>
+            <label for="customPassCheckbox">Email a link to the user to set their password.</label>
+
+            <form collapse="isCustomPassword" action="#" id="passwordForm" novalidate="" class="top-space-big"
+                  name="form">
+
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <label class="label-control" for="firstName">* Password</label><br/>
+                        <input type="text" name="firstName"
+                               class="account-info-input editable" maxlength="35" original-title="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <label class="label-control" for="firstName">* Password (repeat)</label><br/>
+                        <input type="text" name="lastName"
+                               class="account-info-input editable" maxlength="35" original-title="">
+                    </div>
+                </div>
+            </form>
+
+            <div ng-show="isCustomPassword">
+                <br/>
+                <br/></div>
+        </div>
+        <h3>Direct Permission Assignments</h3>
+        <span class="text-muted">
+            <small>Select a permission level</small></span><br/>
+
+        <div class="row top-space-big">
+            <div class="col-md-4"><input type="radio"/> Workspace Administrator</div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input type="radio"/> Content Contributor</div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input type="radio"/> Approver</div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input type="radio"/> Browser</div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+        </div>
+        <br/><br/>
+
+        <h3>Group Assignments</h3>
+        <span class="text-muted">
+            <small>User may be added to multiple groups</small></span><br/>
+        <a href="" class="btn top-space-big btn-small btn-blue" ng-click="choseGroups()">Add user to group</a>
+
+        <table ng-show="userGroups.length > 0" class="table top-space-big">
+            <thead>
+            <tr>
+                <th>Group Name</th>
+                <th>Description</th>
+                <!--<th></th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in userGroups">
+                <td>{{group.name}}</td>
+                <td>{{group.descrtiption}}</td>
+                <!--<td><a href="" class="btn-sm btn btn-blue">Remove</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+        <br/><br/>
+
+
+        <div class="editDetailsButtonRow">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()"
+               automationid="editNameSave" title="Save">Save</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="cancel()"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
     </article>
 </div>

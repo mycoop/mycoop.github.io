@@ -10397,7 +10397,7 @@ IFRAME.Beacon {
     visibility: hidden
 }
 
-INPUT:not([type="radio"]):not([type="checkbox"]), TEXTAREA {
+INPUT:not([type="radio"]):not([type="checkbox"]):not('.token-input'), TEXTAREA {
     font-size: 1.05em;
     border: 1px solid #b9bcbe;
     padding: 2px 6px;
@@ -10406,11 +10406,11 @@ INPUT:not([type="radio"]):not([type="checkbox"]), TEXTAREA {
     resize: none
 }
 
-INPUT:not([type="radio"]):not([type="checkbox"]):not([disabled]):hover, TEXTAREA:not([disabled]):hover {
+INPUT:not([type="radio"]):not([type="checkbox"]):not([disabled]):not('.token-input'):hover, TEXTAREA:not([disabled]):hover {
     border: 1px solid #09d
 }
 
-INPUT:not([type="radio"]):not([type="checkbox"]):focus, TEXTAREA:focus {
+INPUT:not([type="radio"]):not([type="checkbox"]):not('.token-input'):focus, TEXTAREA:focus {
     -webkit-box-shadow: 0 0 6px #38C2FF;
     -moz-box-shadow: 0 0 6px #38C2FF;
     box-shadow: 0 0 6px #38C2FF;

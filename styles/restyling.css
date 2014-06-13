@@ -146,6 +146,13 @@ select.table-select::after{
 .top-space{
     margin-top: 6px;
 }
+.top-space-big{
+    margin-top: 10px;
+}
+
+.left-space{
+    margin-left: 10px;
+}
 
 .bg-warning{
     background-color: #d9534f;
@@ -168,4 +175,44 @@ select.table-select::after{
 
 .bg-info a{
     color: #000000;
+}
+
+/*
+ *  Actions Bar
+ */
+
+.actions-bar{
+    background: #f2f2f2;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
+    height: 43px;
+    padding: 5px 20px;
+}
+
+.actions-bar .button-bar{
+    line-height: 30px;
+}
+.actions-bar .action-button{
+    /*background-color: #0082C3;*/
+    width: 45px;
+    /*height: 30px;*/
+    height: 100%;
+    /*color: #ffffff;*/
+    display: inline-block;
+    border: 1px solid #d3d3d3;
+    margin-left: 10px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.actions-bar .action-button:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.actions-bar .action-button .glyphicon{
+    line-height: 28px;
+}
+
+.actions-bar .search-bar{
+
 }

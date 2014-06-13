@@ -1,0 +1,45 @@
+<div>
+    <h2>Bulk User Creation</h2>
+    <p class="text-muted"><small>An email will be sent to each user with instructions
+        to establish a myCOOP password</small></p>
+
+
+    <p class="bg-warning" collapse="!isError">
+        <span class="glyphicon glyphicon-info-sign"></span><span class="bold"> Error</span>
+        <br/>
+        {{errorMessage}}
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="col-md-3">User</th>
+            <th class="col-md-3">Email</th>
+            <th class="col-md-4">Groups</th>
+            <th class="col-md-2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td class="col-md-3">
+                <input required="" ng-show="user.isEdit" ng-model="user.name" type="text"/>
+                <span ng-hide="user.isEdit">{{user.name}}</span>
+            </td>
+            <td class="col-md-3">
+                <input required="" ng-show="user.isEdit" ng-model="user.email" type="email"/>
+                <span ng-hide="user.isEdit">{{user.email}}</span>
+            </td>
+            <td class="col-md-4">
+                <div autocomplete="" items="groups" selected-items="user.groups" ng-show="user.isEdit"></div>
+                <div ng-hide="user.isEdit">
+                    <span ng-repeat="group in user.groups">{{group.name}}<span ng-show="user.groups.indexOf(group) != user.groups.length-1">, </span></span>
+                </div>
+            </td>
+            <td class="col-md-2">
+                <a href="" class="btn ansSm" ng-click="user.isEdit=!user.isEdit; " ng-hide="user.isEdit">Edit</a>
+                <a href="" class="btn ansSm" ng-click="save(user)" ng-show="user.isEdit">Save</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="" class="btn ansSm btn-gray" ng-click="addMore()">Add More</a><br/><br/>
+    <a href="" class="btn btn-blue pull-right" ui-sref="config.security.users">Save All</a>
+</div>
