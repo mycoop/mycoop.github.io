@@ -1,0 +1,194 @@
+<div>
+    <div class="clearfix">
+        <h2 class="pull-left">Group Setting: {{group.name}}</h2>
+        <a href="" class="pull-right btn ansSm btn-gray" ui-sref="config.security.groups.delete({id: group.id})">Delete</a>
+
+    </div>
+
+    <div class="row top-space-big">
+        <div class="form-group col-lg-7 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-8">
+                    <label class="label-control" for="groupName">* Group Name</label><br/>
+                    <input type="text" id="groupName" required="" ng-model="group.name"
+                           class="account-info-input  form-control editable" original-title=""></div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <label class="label-control" for="desc">Group Description</label><br/>
+                    <textarea type="text" id="desc" size="6" required="" name="username" ng-model="group.description"
+                              class="account-info-input form-control  editable" original-title=""></textarea></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="top-space-big">
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Last Modified By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right">Modified Date:</span></div>
+            <div class="col-md-5">
+                {{group.modifiedDate | date}}
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Created By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.createdBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Created Date:</span></div>
+            <div class="col-md-5">
+                {{group.createdDate | date}}
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Membership count:</span></div>
+            <div class="col-md-5">
+                {{group.users.length}}
+            </div>
+            <br/>
+        </div>
+        <br/>
+    </div>
+    <div ng-init="displayMembership = true">
+
+        <h2 class="clickable" ng-click="displayMembership = !displayMembership"> Membership &nbsp;&#x25BE; </h2>
+
+        <div collapse="!displayMembership" class="top-space-big">
+
+            <a href="" class="btn ansSm">Add member</a>
+
+            <div class="actions-bar top-space-big">
+                <div class="button-bar pull-left"><span class="pull-left">Action</span>
+
+                    <div class="btn-group">
+                        <div class="action-button dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-cog"></span> <span class="">&nbsp;&#x25BE;</span>
+                        </div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="" ng-click="deleteSelectedGroups()">Delete Selected Users</a></li>
+                            <li><a href="">Email Selected Users</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-bar pull-right">
+                    <input placeholder="Name or Email contains" ng-model="search" type="text"/>
+                </div>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class=""><input type="checkbox" ng-model="allGroupsSelected"/></th>
+                    <th class="col-md-1">Restricted</th>
+                    <th class="col-md-4">Name</th>
+                    <th class="col-md-4">Email</th>
+                    <th class="col-md-2">Date Added</th>
+                    <th class=""></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in group.users | filter:search ">
+                    <td><input type="checkbox" ng-model="user.selected"/></td>
+                    <td class="text-center"><span ng-show="user.restricted"
+                                                  class="glyphicon glyphicon-lock text-center"></span></td>
+                    <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.firstName}}
+                        {{user.lastName}}</a>
+                    </td>
+                    <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.email}}</a></td>
+                    <td>Not available</td>
+
+                    <td>
+                    <span class="show-hover" ng-hide="user.restricted">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                           ui-sref=".delete({id: group.id})"></a>
+                    </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-init="displayWorkspace = true" class="top-space-big">
+
+        <h2 class="clickable" ng-click="displayWorkspace = !displayWorkspace"> Workspace assignmetns
+            &nbsp;&#x25BE; </h2>
+
+        <div collapse="!displayWorkspace" class="top-space-big">
+
+            <a href="" class="btn ansSm">Nes Assignment</a>
+
+            <div class="actions-bar top-space-big">
+                <div class="button-bar pull-left"><span class="pull-left">Action</span>
+
+                    <div class="btn-group">
+                        <div class="action-button dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-cog"></span> <span class="">&nbsp;&#x25BE;</span>
+                        </div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="" ng-click="deleteSelectedPermissions()">Delete Selected</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-bar pull-right">
+                    <input placeholder="Name contains" ng-model="searchPermissions" type="text"/>
+                </div>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class=""><input type="checkbox" ng-model="allPermissionsSelected"/></th>
+                    <th class="col-md-1">Restricted</th>
+                    <th class="col-md-4">Workspace</th>
+                    <th class="col-md-4">Permission</th>
+                    <th class="col-md-2">Date Added</th>
+                    <th class=""></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="wp in group.workspacePermissions | filter:searchPermissions ">
+                    <td><input type="checkbox" ng-model="wp.selected"/></td>
+                    <td class="text-center"><span ng-show="wp.restricted"
+                                                  class="glyphicon glyphicon-lock text-center"></span></td>
+                    <td>
+                        {{wp.name}}
+                    </td>
+                    <td><select name="" id="" ng-model="wp.permission" ng-disabled="wp.restricted"
+                                ng-options="p.name for p in permissions"></select></td>
+                    <td>{{wp.dateAdded}}</td>
+
+                    <td>
+                    <span class="show-hover" ng-hide="wp.restricted">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                                ></a>
+                    </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <a href="" class="btn btn-blue" ui-sref="config.security.groups">Save</a>
+</div>

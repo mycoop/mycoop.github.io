@@ -1,0 +1,26 @@
+<div>
+    <h2>Delete Group: {{group.name}}</h2>
+    <div class="panel panel-danger top-space-big">
+        <div class="panel-heading">
+            <h3 class="panel-title">Are you sure you want to delete {{group.name}}?</h3>
+        </div>
+        <div class="panel-body">
+            This cannot be undone. Users will be removed from the group but they will not be deleted.
+        </div>
+    </div>
+    <div class="panel panel-danger top-space-big">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{group.name}}: Workspace Assignments</h3>
+        </div>
+        <div class="panel-body">
+            This cannot be undone. The users contained in this group will no longer have access to the following workspaces:
+            <ul class="list-unstyled">
+                <li class="text-primary" ng-repeat="wp in group.workspacePermissions">{{wp.name}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="top-space-big">
+        <a href="" class="btn btn-danger" ng-click="deleteGroup()">Delete</a>
+        <a href="" class="left-space" ui-sref="config.security.groups">Cancel</a>
+    </div>
+</div>

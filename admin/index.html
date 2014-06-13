@@ -53,6 +53,7 @@
     <script type="text/javascript" src="/scripts/controllers/admin/organization.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/business-process.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/user.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/group.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/delivery.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/template-collection.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/section-editor.js"></script>
@@ -189,7 +190,7 @@
                                 <a ui-sref="config.security.system">System Permissions</a></li>
                             <li ng-class="{ on: $state.includes('config.security.users') }">
                                 <a ui-sref="config.security.users">Users</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.group') }">
+                            <li ng-class="{ on: $state.includes('config.security.groups') }">
                                 <a ui-sref="config.security.groups">Groups</a></li>
                             <li ng-class="{ on: $state.includes('config.security.workspace') }">
                                 <a ui-sref="config.security.workspace">Workspace Permissions</a></li>

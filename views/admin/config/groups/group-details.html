@@ -1,0 +1,106 @@
+<div>
+    <h2>Group Membership: {{group.name}}</h2><br/>
+
+    <div class="top-space-big">
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Last Modified By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right">Modified Date:</span></div>
+            <div class="col-md-5">
+                {{group.modifiedDate | date}}
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Created By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.createdBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Created Date:</span></div>
+            <div class="col-md-5">
+                {{group.createdDate | date}}
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Membership count:</span></div>
+            <div class="col-md-5">
+                {{group.users.length}}
+            </div>
+            <br/>
+        </div>
+        <br/>
+        <a href="" class="btn ansSm">Add member</a>
+        <a href="" class="btn ansSm left-space" ui-sref="config.security.groups.settings({id: group.id})">Group settings</a>
+    </div>
+
+    <div class="top-space-big">
+
+        <div class="actions-bar top-space-big">
+            <div class="button-bar pull-left"><span class="pull-left">Action</span>
+
+                <div class="btn-group">
+                    <div class="action-button dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-cog"></span> <span class="">&nbsp;&#x25BE;</span>
+                    </div>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="" ng-click="deleteSelectedGroups()">Delete Selected Users</a></li>
+                        <li><a href="">Email Selected Users</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-bar pull-right">
+                <input placeholder="Name or Email contains" ng-model="search" type="text"/>
+            </div>
+        </div>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th class=""><input type="checkbox" ng-model="allGroupsSelected"/></th>
+                <th class="col-md-1">Restricted</th>
+                <th class="col-md-4">Name</th>
+                <th class="col-md-4">Email</th>
+                <th class="col-md-2">Date Added</th>
+                <th class=""></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in group.users | filter:search ">
+                <td><input type="checkbox" ng-model="user.selected" /></td>
+                <td class="text-center"><span ng-show="user.restricted"
+                                              class="glyphicon glyphicon-lock text-center"></span></td>
+                <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.firstName}} {{user.lastName}}</a>
+                </td>
+                <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.email}}</a></td>
+                <td>Not available</td>
+
+                <td>
+                    <span class="show-hover" ng-hide="user.restricted">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                           ui-sref=".delete({id: group.id})"></a>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="" class="btn btn-blue" ui-sref="config.security.groups">Back to Groups List</a>
+
+    </div>
+</div>

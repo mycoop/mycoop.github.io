@@ -1,0 +1,58 @@
+<div>
+    <h1>Groups</h1>
+
+    <div ng-hide="$state.includes('**.add') || $state.includes('**.details') || $state.includes('**.settings') || $state.includes('**.delete')">
+        <a href="" class="btn btn-blue" ui-sref=".add">Create Group</a>
+
+        <div class="actions-bar top-space-big">
+            <div class="button-bar pull-left"><span class="pull-left">Action</span>
+
+                <div class="btn-group">
+                    <div class="action-button dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-cog"></span> <span class="">&nbsp;&#x25BE;</span>
+                    </div>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="" ng-click="deleteSelectedGroups()">Delete Selected Groups</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-bar pull-right">
+                <input placeholder="Group name contains" ng-model="search" type="text"/>
+            </div>
+        </div>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th><input type="checkbox" ng-model="allGroupsSelected"/></th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date created</th>
+                <th>Last modified</th>
+                <th>Created by</th>
+                <th>Modified by</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in groups | filter:{name: search} ">
+                <td><input type="checkbox" ng-model="group.selected"/></td>
+                <td><a ui-sref=".details({ id: group.id })">{{group.name}}</a></td>
+                <td>{{group.description}}</td>
+                <td>{{group.createdDate | date:'shortDate'}}</td>
+                <td>{{group.modifiedDate | date:'shortDate'}}</td>
+                <td><a href="" ui-sref="config.security.users.details({id: group.createdBy.id})">{{group.createdBy.email}}</a></td>
+                <td><a href="" ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.email}}</a></td>
+                <td>
+                    <span class="show-hover">
+                        <a class="glyphicon glyphicon-remove-circle delete-button" ui-sref=".delete({id: group.id})"></a>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>
