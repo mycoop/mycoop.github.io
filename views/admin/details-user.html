@@ -21,14 +21,26 @@
         </div>
         <div class="row">
             <div class="col-md-3 text-muted"><span class="pull-right">Application Access</span></div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-5"><input type="checkbox" checked/>JIRA</div>
+                    <div class="col-md-7"><input type="radio" checked name="permission"/>Contributor</div>
                     <div class="col-md-5 text-muted">(5 remaining)</div>
                 </div>
-                <div class="row">
-                    <div class="col-md-5"><input type="checkbox" checked/>Confluence</div>
+                <div class="row top-space-small">
+                    <div class="col-md-7"><input type="radio" name="permission"/>Approvers</div>
+                    <div class="col-md-5 text-muted">(16 remaining)</div>
+                </div>
+                <div class="row top-space-small">
+                    <div class="col-md-7"><input type="radio" name="permission" />Browse</div>
+                    <div class="col-md-5 text-muted">(Unlimited)</div>
+                </div>
+                <div class="row top-space-small" >
+                    <div class="col-md-7"><input type="radio" name="permission" />Workspace Administrator</div>
                     <div class="col-md-5 text-muted">(5 remaining)</div>
+                </div>
+                <div class="row top-space-small">
+                    <div class="col-md-7"><input type="radio" name="permission" />System Administrator</div>
+                    <div class="col-md-5 text-muted">(0 remaining)</div>
                 </div>
             </div>
             <br/><br/>

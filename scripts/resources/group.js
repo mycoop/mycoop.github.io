@@ -65,7 +65,7 @@ angular.module('resources.group',[])
                 group.users = groups[0].users;
                 group.createdBy = groups[0].createdBy;
                 group.modifiedBy = groups[0].createdBy;
-
+                group.id = _.max(groups, function(item){return item.id;}) + 1;
                 groups.unshift(group);
                 callback();
             },

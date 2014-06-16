@@ -27,7 +27,7 @@ angular.module('adminApp').
                 $scope.error = true;
             } else {
                 Group.addGroup($scope.group, function () {
-                    $state.transitionTo('config.security.groups')
+                    $state.transitionTo('config.security.groups.settings', {id: $scope.group.id})
                 });
             }
         };
