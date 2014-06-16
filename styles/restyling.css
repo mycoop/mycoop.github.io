@@ -1,3 +1,6 @@
+*{
+    outline: none;
+}
 .footer-logo {
     width: 200px;
     height: 69px !important;
@@ -238,4 +241,20 @@ tr:hover .show-hover{
 
 .clickable{
     cursor: pointer;
+}
+
+
+/*
+ *   Slider
+ */
+.image-slide{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.image-slide.doc{
+    background-image: url("/images/fileicon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }

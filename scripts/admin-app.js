@@ -14,6 +14,8 @@ angular
         'ui.bootstrap',
         'controls',
         'ngAnimate',
+        'filters',
+        'angular-carousel',
         'angularSpectrumColorpicker'
 //        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {
@@ -100,7 +102,7 @@ angular
             .state('setup.resources.additional', { templateUrl: '/views/admin/employee-directory.html', url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('setup.templates', { templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('setup.ui', {  templateUrl: '/views/admin/config/ui.html', url: '/ui', controller: 'InterfaceConfigCtrl'})
-            .state('setup.config', {  templateUrl: '/views/admin/setup/workflow-config.html', url: '/workflow-config'})
+            .state('setup.config', {  templateUrl: '/views/admin/config/workflow/workflow-config.html', url: '/workflow-config'})
             .state('setup.users', {   templateUrl: '/views/admin/users.html', url: '/users', controller: 'UsersCtrl'})
             .state('setup.users.add', {   templateUrl: '/views/admin/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
             .state('setup.users.edit', {   templateUrl: '/views/admin/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
@@ -133,7 +135,8 @@ angular
             .state('config.resources.additional', { templateUrl: '/views/admin/employee-directory.html', url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('config.templates', { templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('config.backup', {  templateUrl: '/views/admin/config/backup-manager.html', url: '/backup-manager'})
-            .state('config.workflow', {  templateUrl: '/views/admin/setup/workflow-config.html', url: '/workflow-config'})
+            .state('config.workflow', {  templateUrl: '/views/admin/config/workflow/workflow.html', url: '/workflow-config', controller:'AssignmentsCtrl'})
+            .state('config.workflow.add', {  templateUrl: '/views/admin/config/workflow/create-workflow.html', url: '/add', controller: 'WorkflowCtrl'})
             .state('config.billing', {  templateUrl: '/views/admin/config/billing.html', url: '/billing'});
 
 

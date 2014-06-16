@@ -1,0 +1,33 @@
+<div class="" ng-init="$root.prevState='setup.templates'; $root.nextState='setup.users'">
+    <h1>Workflow configuration</h1>
+
+    <div ng-hide="$state.includes('**.add')">
+        <a href="" ui-sref=".add" class="btn btn-blue">Create Workflow</a>
+        <table class="table top-space-big table-hover">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Details</th>
+                <th>Deadline</th>
+                <th>Assigned User</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <tr ng-repeat="task in tasks">
+                <td class="col-md-2">{{task.title}}</td>
+                <td class="col-md-5">
+                    <span ng-hide="task.isFullText">{{task.details | dotText}}<br/>
+                        <a ng-click="task.isFullText=true" href="">Show more</a></span>
+                    <span ng-show="task.isFullText">{{task.details}}<br/>
+                        <a ng-click="task.isFullText=false" href="">Show less</a></span>
+                </td>
+                <td class="col-md-2">{{task.deadline | date}}</td>
+                <td class="col-md-2"><a href="" ui-sref="config.security.users.details({id: task.user.id})">{{task.user.firstName}} {{task.user.lastName}}</a></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+
+</div>

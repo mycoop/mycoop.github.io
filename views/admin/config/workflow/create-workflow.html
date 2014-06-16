@@ -1,0 +1,64 @@
+<div>
+    <h2>Create Workflow</h2>
+
+    <div class="top-space-big">
+
+        <div class="row">
+            <div class="form-group col-lg-7 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-12"><label class="label-control" for="firstName">* Workflow Name</label><br/>
+                        <input type="email" id="email" required="" ng-model="user.email" name="email"
+                               class="account-info-input form-control editable">
+                    </div>
+
+                    <div class="col-lg-12"><label class="label-control" for="firstName">Details</label><br/>
+                        <textarea required=""
+                                  class="account-info-input form-control editable"></textarea>
+                    </div>
+                    <div class="col-lg-6"><label class="label-control" for="firstName">* Assigned User</label><br/>
+
+                        <input type="text" class="account-info-input form-control editable" ng-model="assignedUser"
+                               typeahead=" user.firstName + ' ' + user.lastName for user in users | filter:$viewValue | limitTo:8">
+                    </div>
+                    <div class="col-lg-6"><label class="label-control" for="firstName">* Assignment Date</label><br/>
+
+                        <input type="text" ng-click="open($event)" class="form-control" datepicker-popup="{{format}}"
+                               ng-model="dt"
+                               is-open="opened" min-date="minDate" max-date="'2015-06-22'"
+                               datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                               ng-required="true" close-text="Close"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6"><label class="label-control" for="firstName">* Approver</label><br/>
+                        <input type="text" class="account-info-input form-control editable" ng-model="approver"
+                               typeahead=" user.firstName + ' ' + user.lastName for user in users | filter:$viewValue | limitTo:8">
+                    </div>
+                    <div class="col-lg-6"><label class="label-control" for="firstName">* Approvement Date</label><br/>
+
+                        <input type="text" ng-click="open2($event)" class="form-control" datepicker-popup="{{format2}}"
+                               ng-model="dt2"
+                               is-open="opened2" min-date="minDate" max-date="'2015-06-22'"
+                               datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                               ng-required="true" close-text="Close"/></div>
+                </div>
+            </div>
+        </div>
+        <div class="row top-space-big">
+            <div class="col-lg-7 col-md-6 col-sm-6">
+                <h3>Chose document section</h3>
+                <div class="top-space-big"></div>
+                <ul  rn-carousel rn-carousel-indicator rn-carousel-control style="height: 250px">
+                    <li ng-repeat="doc in datasource">
+                        <div class="image-slide doc"></div>
+                        <div class="text-center">{{doc.documentReference}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="top-space-big">
+            <a href="" class="btn btn-blue" ui-sref="config.workflow">Save</a>
+            <a href="" class="btn btn-gray left-space" ui-sref="config.workflow">Cancel</a>
+        </div>
+    </div>
+</div>
