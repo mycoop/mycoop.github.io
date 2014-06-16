@@ -1,10 +1,12 @@
 <div>
-    <h1>Groups</h1>
+    <h1 class="pull-left">Groups</h1>
+    <a href="" style="margin-top: 20px" class="btn top-space-big btn-blue pull-right" ng-hide="$state.includes('**.add') || $state.includes('**.details')
+        || $state.includes('**.settings') || $state.includes('**.delete') || $state.includes('**.workspace')"
+       ui-sref=".add">New Group</a>
 
+    <div class="clearfix"></div>
     <div ng-hide="$state.includes('**.add') || $state.includes('**.details')
         || $state.includes('**.settings') || $state.includes('**.delete') || $state.includes('**.workspace')">
-        <a href="" class="btn btn-blue" ui-sref=".add">Create Group</a>
-
         <div class="actions-bar top-space-big">
             <div class="button-bar pull-left"><span class="pull-left">Action</span>
 
@@ -41,7 +43,8 @@
             <tr ng-repeat="group in groups | filter:{name: search} ">
                 <td><input type="checkbox" ng-model="group.selected"/></td>
                 <td><a ui-sref=".settings({ id: group.id })">{{group.name}}</a></td>
-                <td><a href="" ui-sref=".details({id: group.id})"><span class="glyphicon glyphicon-user"></span></a></td>
+                <td><a href="" ui-sref=".details({id: group.id})"><span class="glyphicon glyphicon-user"></span></a>
+                </td>
                 <td>{{group.description}}</td>
                 <td>{{group.createdDate | date:'shortDate'}}</td>
                 <td>{{group.modifiedDate | date:'shortDate'}}</td>
