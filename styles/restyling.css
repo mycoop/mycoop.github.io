@@ -146,6 +146,15 @@ select.table-select::after{
     margin-right: 5px;
 }
 
+.map-label{
+    width: 200px;
+    height: 60px;
+}
+.map-label h4{
+    margin: 0;
+    margin-top: 10px;
+}
+
 .top-space{
     margin-top: 6px;
 }
@@ -258,3 +267,5 @@ tr:hover .show-hover{
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+

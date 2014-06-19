@@ -1,0 +1,26 @@
+<style>
+    .angular-google-map-container { height: 400px; }
+</style>
+<br/>
+<h1>Map</h1>
+<br/>
+<google-map center="map.center" draggable="true" zoom="map.zoom">
+    <markers
+            models="markers"
+
+            coords="'self'"
+            >
+        <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+            <div ng-non-bindable="" class=" map-label">
+                <div class="row">
+                    <div class="col-xs-5"><h4>Location:</h4></div>
+                    <div class="col-xs-7 "><h4>{{title}}</h4></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5"><h4>People:</h4></div>
+                    <div class="col-xs-7"><h4>{{people}}</h4></div>
+                </div>
+            </div>
+        </windows>
+    </markers>
+</google-map>

@@ -15,9 +15,9 @@ angular
         'controls',
         'ngAnimate',
         'filters',
+        'google-maps',
         'angular-carousel',
         'angularSpectrumColorpicker'
-//        'ui.state'state
     ]).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.showNav = '';
         $rootScope.$state = $state;
@@ -106,6 +106,7 @@ angular
             .state('setup.users', {   templateUrl: '/views/admin/users.html', url: '/users', controller: 'UsersCtrl'})
             .state('setup.users.add', {   templateUrl: '/views/admin/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
             .state('setup.users.edit', {   templateUrl: '/views/admin/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
+            .state('setup.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'})
             .state('setup.hierarchy', {  templateUrl: '/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('setup.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
 
