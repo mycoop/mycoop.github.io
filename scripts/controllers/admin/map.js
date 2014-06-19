@@ -5,12 +5,32 @@ angular.module('adminApp').
                 latitude: 32.8206646,
                 longitude: -96.7313396
             },
+            control:{},
             zoom: 9
         };
-        //dallas 32.778142, -96.799317
-        //plano 33.019707, -96.698552
-        //fort worth 32.755474, -97.331351
-        $scope.markers = [
+
+        $scope.refreshMap = function(id){
+//            alert(123)
+            switch (id){
+                case 1:
+                    $scope.map.control.refresh($scope.map.center);
+                    break;
+                case 2:
+                    $scope.incidentsMap.control.refresh($scope.incidentsMap.center);
+                    break;
+            }
+        };
+
+        $scope.incidentsMap = {
+            center: {
+                latitude: 33.019962,
+                longitude: -96.697830
+            },
+            control:{},
+            zoom: 9
+        };
+
+        $scope.locations = [
             {
                 id: 1,
                 title: 'Dallas',
@@ -32,6 +52,18 @@ angular.module('adminApp').
                 latitude: 32.755474,
                 longitude: -97.331351
             }
+        ];
+
+        $scope.incidents = [
+            {
+                id: 2,
+                title: 'Plano',
+                people: 46,
+                latitude: 33.019707,
+                longitude: -96.698552,
+                icon: '/images/orange-pin.png'
+            }
         ]
+
     })
 ;

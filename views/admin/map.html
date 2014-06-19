@@ -1,26 +1,55 @@
 <style>
-    .angular-google-map-container { height: 400px; }
+    .angular-google-map-container {
+        height: 400px;
+    }
 </style>
 <br/>
 <h1>Map</h1>
 <br/>
-<google-map center="map.center" draggable="true" zoom="map.zoom">
-    <markers
-            models="markers"
 
-            coords="'self'"
-            >
-        <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
-            <div ng-non-bindable="" class=" map-label">
-                <div class="row">
-                    <div class="col-xs-5"><h4>Location:</h4></div>
-                    <div class="col-xs-7 "><h4>{{title}}</h4></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-5"><h4>People:</h4></div>
-                    <div class="col-xs-7"><h4>{{people}}</h4></div>
-                </div>
-            </div>
-        </windows>
-    </markers>
-</google-map>
+<tabset>
+    <tab select="refreshMap(1)" heading="All Locations">
+        <google-map center="map.center" control="map.control" draggable="true" zoom="map.zoom">
+            <markers models="locations" coords="'self'">
+                <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                    <div ng-non-bindable="" class=" map-label">
+                        <div class="row">
+                            <div class="col-xs-5"><h4>Location:</h4></div>
+                            <div class="col-xs-7 "><h4>{{title}}</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5"><h4>People:</h4></div>
+                            <div class="col-xs-7"><h4>{{people}}</h4></div>
+                        </div>
+                    </div>
+                </windows>
+            </markers>
+        </google-map>
+    </tab>
+    <tab select="refreshMap(2)" heading="Incidents" >
+
+        <google-map center="incidentsMap.center" control="incidentsMap.control" draggable="true" zoom="incidentsMap.zoom">
+            <markers models="incidents" coords="'self'" icon="'icon'">
+                <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                    <div ng-non-bindable="" class=" map-label">
+                        <div class="row">
+                            <div class="col-xs-5"><h4>Incident:</h4></div>
+                            <div class="col-xs-7 "><h4>Warehouse Fire</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5"><h4>Date:</h4></div>
+                            <div class="col-xs-7"><h4>6/3/3015</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <a class="pull-right"  href="/admin/#/setup/users">Staff</a>
+                            </div>
+                        </div>
+                    </div>
+                </windows>
+            </markers>
+        </google-map>
+    </tab>
+
+</tabset>

@@ -137,6 +137,13 @@ select.table-select::after{
     top:10px;
 }
 
+.nav-tabs li a:hover{
+    color: inherit;
+}
+
+.nav-tabs li a{
+    color: inherit;
+}
 
 .color-item{
     display: inline-block;
@@ -147,8 +154,8 @@ select.table-select::after{
 }
 
 .map-label{
-    width: 200px;
-    height: 60px;
+    width: 250px;
+    height: auto;
 }
 .map-label h4{
     margin: 0;
