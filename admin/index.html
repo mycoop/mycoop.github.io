@@ -43,7 +43,9 @@
     <script type="text/javascript" src="/scripts/libraries/angular-spectrum-colorpicker.js"></script>
     <script type="text/javascript" src="/scripts/libraries/typeahead.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap-tokenfield.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/richmarker.js"></script>
 
+    <script type="text/javascript" src="/scripts/libraries/ng-map.min.js"></script>
 
 
     <script type="text/javascript" src="/scripts/libraries/ui-bootstrap.js"></script>
@@ -176,7 +178,18 @@
                     <li ng-class="{ on: $state.includes('setup.users') }">
                         <a ui-sref="setup.users">User Administration </a></li>
                     <li ng-class="{ on: $state.includes('setup.map') }">
-                        <a ui-sref="setup.map">Map</a></li>
+                        <a ui-sref="setup.map">Situational Awareness Map</a>
+                        <ul style="margin-top: 10px" ng-show="$state.includes('setup.map')">
+                            <li ng-class="{ on: $state.includes('setup.map') }">
+                                <a ui-sref="setup.map">All Business Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.users') }">
+                                <a href="">My Work Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.groups') }">
+                                <a href="">My Recovery Facilities</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.workspace') }">
+                                <a href="">My Alternate Facilities</a></li>
+                        </ul>
+                    </li>
                     <li ng-class="{ on: $state.includes('setup.hierarchy') }">
                         <a ui-sref="setup.hierarchy">Hierarchy Management</a></li>
                     <li ng-class="{ on: $state.includes('setup.review') }">

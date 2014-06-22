@@ -15,7 +15,7 @@ angular
         'controls',
         'ngAnimate',
         'filters',
-        'google-maps',
+        'ngMap',
         'angular-carousel',
         'angularSpectrumColorpicker'
     ]).run(function ($rootScope, $location, $state, $stateParams) {
