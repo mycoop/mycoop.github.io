@@ -1,97 +1,92 @@
-<style>
-    .angular-google-map-container {
-        height: 400px;
-    }
-</style>
 <div>
-    <div class="row">
-        <h1>Situational Awareness Map</h1></div>
+    <div>
+        <div class="row">
+            <h1>Situational Awareness Map</h1></div>
+        <div class="row top-space">
+            <h2>All Business Locations</h2><br/>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-center">Incident Types </h3>
 
-    <div class="pin-complex" style="background-image: url('/images/icons/map/primary.svg')">
-        <div class="pin-secondary" style="background-image: url('/images/icons/map/biohazard.svg')"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h3 class="text-center">Incident Types </h3>
-
-            <div class="map-filter-set row">
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.fire.name}}"
-                     ng-click="incidentTypes.fire =! incidentTypes.fire.isActive"
-                     ng-class="{selected: incidentTypes.fire.isActive}">
-                    <input type="checkbox" ng-model="incidentTypes.fire.isActive"/>
+                <div class="map-filter-set row">
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.fire.name}}"
+                         ng-click="incidentTypes.fire.isActive =! incidentTypes.fire.isActive; filterMap();"
+                         ng-class="{selected: incidentTypes.fire.isActive}">
+                        <input type="checkbox" ng-model="incidentTypes.fire.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/fire.svg')"></span>
-                </div>
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.biohazard.name}}"
-                     ng-click="incidentTypes.biohazard.isActive =! incidentTypes.biohazard.isActive"
-                     ng-class="{selected: incidentTypes.biohazard.isActive}">
-                    <input type="checkbox" ng-model="incidentTypes.biohazard.isActive"/>
+                    </div>
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.biohazard.name}}"
+                         ng-click="incidentTypes.biohazard.isActive =! incidentTypes.biohazard.isActive; filterMap();"
+                         ng-class="{selected: incidentTypes.biohazard.isActive}">
+                        <input type="checkbox" ng-model="incidentTypes.biohazard.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/biohazard.svg')"></span>
-                </div>
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.weather.name}}"
-                     ng-click="incidentTypes.weather.isActive =! incidentTypes.weather.isActive"
-                     ng-class="{selected: incidentTypes.weather.isActive}">
-                    <input type="checkbox" ng-model="incidentTypes.weather.isActive"/>
+                    </div>
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentTypes.weather.name}}"
+                         ng-click="incidentTypes.weather.isActive =! incidentTypes.weather.isActive; filterMap();"
+                         ng-class="{selected: incidentTypes.weather.isActive}">
+                        <input type="checkbox" ng-model="incidentTypes.weather.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/weather.svg')"></span>
-                </div>
-                <div class="map-filter-button last" tooltip-placement="top" tooltip="{{incidentTypes.network.name}}"
-                     ng-click="incidentTypes.network.isActive =! incidentTypes.network.isActive"
-                     ng-class="{selected: incidentTypes.network.isActive}">
-                    <input type="checkbox" ng-model="incidentTypes.network.isActive"/>
+                    </div>
+                    <div class="map-filter-button last" tooltip-placement="top" tooltip="{{incidentTypes.network.name}}"
+                         ng-click="incidentTypes.network.isActive =! incidentTypes.network.isActive; filterMap();"
+                         ng-class="{selected: incidentTypes.network.isActive}">
+                        <input type="checkbox" ng-model="incidentTypes.network.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/network.svg')"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <h3 class="text-center">Incident Priority</h3>
+            <div class="col-md-4">
+                <h3 class="text-center">Incident Priority</h3>
 
-            <div class="map-filter-set row">
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.high.name}}"
-                     ng-click="incidentPriorities.high.isActive =! incidentPriorities.high.isActive"
-                     ng-class="{selected: incidentPriorities.high.isActive}">
-                    <input type="checkbox" ng-model="incidentPriorities.high.isActive"/>
+                <div class="map-filter-set row">
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.high.name}}"
+                         ng-click="incidentPriorities.high.isActive =! incidentPriorities.high.isActive; filterMap();"
+                         ng-class="{selected: incidentPriorities.high.isActive}">
+                        <input type="checkbox" ng-model="incidentPriorities.high.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/pin-high.svg')"></span>
-                </div>
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.medium.name}}"
-                     ng-click="incidentPriorities.medium.isActive =! incidentPriorities.medium.isActive"
-                     ng-class="{selected: incidentPriorities.medium.isActive}">
-                    <input type="checkbox" ng-model="incidentPriorities.medium.isActive"/>
+                    </div>
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.medium.name}}"
+                         ng-click="incidentPriorities.medium.isActive =! incidentPriorities.medium.isActive; filterMap();"
+                         ng-class="{selected: incidentPriorities.medium.isActive}">
+                        <input type="checkbox" ng-model="incidentPriorities.medium.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/pin-medium.svg')"></span>
-                </div>
-                <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.low.name}}"
-                     ng-click="incidentPriorities.low.isActive =! incidentPriorities.low.isActive"
-                     ng-class="{selected: incidentPriorities.low.isActive}">
-                    <input type="checkbox" ng-model="incidentPriorities.low.isActive"/>
+                    </div>
+                    <div class="map-filter-button" tooltip-placement="top" tooltip="{{incidentPriorities.low.name}}"
+                         ng-click="incidentPriorities.low.isActive =! incidentPriorities.low.isActive; filterMap();"
+                         ng-class="{selected: incidentPriorities.low.isActive}">
+                        <input type="checkbox" ng-model="incidentPriorities.low.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/pin-low.svg')"></span>
-                </div>
-                <div class="map-filter-button last"
-                     ng-click="incidentPriorities.urgent.isActive =! incidentPriorities.urgent.isActive"
-                     ng-class="{selected: incidentPriorities.urgent.isActive}">
-                    <input type="checkbox" ng-model="incidentPriorities.urgent.isActive"/>
+                    </div>
+                    <div class="map-filter-button last"
+                         ng-click="incidentPriorities.urgent.isActive =! incidentPriorities.urgent.isActive; filterMap();"
+                         ng-class="{selected: incidentPriorities.urgent.isActive}">
+                        <input type="checkbox" ng-model="incidentPriorities.urgent.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/pin-u.svg')"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <h3 class="text-center">Facility Type</h3>
+            <div class="col-md-4">
+                <h3 class="text-center">Facility Type</h3>
 
-            <div class="map-filter-set row" style="width: 185px">
+                <div class="map-filter-set row" style="width: 185px">
                     <div class="map-filter-button" tooltip-placement="top" tooltip="{{facilityTypes.primary.name}}"
-                         ng-click="facilityTypes.primary.isActive =! facilityTypes.primary.isActive"
+                         ng-click="facilityTypes.primary.isActive =! facilityTypes.primary.isActive; filterMap();"
                          ng-class="{selected: facilityTypes.primary.isActive}">
                         <input type="checkbox" ng-model="facilityTypes.primary.isActive"/>
                         <span class="icon"
                               style="background-image: url('/images/icons/map/primary.svg')"></span>
                     </div>
                     <div class="map-filter-button" tooltip-placement="top" tooltip="{{facilityTypes.recovery.name}}"
-                         ng-click="facilityTypes.recovery.isActive =! facilityTypes.recovery.isActive"
+                         ng-click="facilityTypes.recovery.isActive =! facilityTypes.recovery.isActive; filterMap();"
                          ng-class="{selected: facilityTypes.recovery.isActive}">
                         <input type="checkbox" ng-model="facilityTypes.recovery.isActive"/>
                         <span class="icon"
@@ -99,7 +94,7 @@
                     </div>
                     <div class="map-filter-button last" tooltip-placement="top"
                          tooltip="{{facilityTypes.manufacturing.name}}"
-                         ng-click="facilityTypes.manufacturing.isActive =! facilityTypes.manufacturing.isActive"
+                         ng-click="facilityTypes.manufacturing.isActive =! facilityTypes.manufacturing.isActive; filterMap();"
                          ng-class="{selected: facilityTypes.manufacturing.isActive}">
                         <input type="checkbox" ng-model="facilityTypes.manufacturing.isActive"/>
                         <span class="icon"
@@ -111,70 +106,43 @@
     </div>
     <div class="row top-space-big"><br/>
 
+        <div ng-class="{'col-md-8': selectedIncident}" style="height: 450px">
+            <map zoom="9" center="[{{map.center.latitude}}, {{map.center.longitude}}]">
 
-        <map zoom="9" center="[{{map.center.latitude}}, {{map.center.longitude}}]">
-            <marker position="[40.71, -74.21]" title="hello"></marker>
-            <marker position="[40.72, -74.20]" title="marker" animation="Animation.DROP"></marker>
-            <marker position="[40.73, -74.19]" title="drag me" draggable="true"></marker>
-            <marker position="[40.74, -74.18]" title="how" animation="Animation.BOUNCE"></marker>
-            <marker position="[40.75, -74.17]" title="are"></marker>
-            <marker position="[40.76, -74.16]" title="you" icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"></marker>
-            <marker position="[40.77, -74.15]" title="from"></marker>
-        </map>
-
-        <google-map center="map.center" control="map.control" draggable="true" zoom="map.zoom">
-            <markers models="incidents" coords="'self'" icon="'icon'">
-
-            </markers>
-        </google-map>
-        <!--<tabset class="col-md-9">-->
-        <!--<tab select="refreshMap(1)" heading="All Locations">-->
-        <!--<google-map center="map.center" control="map.control" draggable="true" zoom="map.zoom">-->
-        <!--<markers models="locations" coords="'self'">-->
-        <!--<windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>-->
-        <!--<div ng-non-bindable="" class=" map-label">-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-5"><h4>Location:</h4></div>-->
-        <!--<div class="col-xs-7 "><h4>{{title}}</h4></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-5"><h4>People:</h4></div>-->
-        <!--<div class="col-xs-7"><h4>{{people}}</h4></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</windows>-->
-        <!--</markers>-->
-        <!--</google-map>-->
-        <!--</tab>-->
-        <!--<tab select="refreshMap(2)" heading="Incidents">-->
-
-        <!--<google-map center="incidentsMap.center" control="incidentsMap.control" draggable="true"-->
-        <!--zoom="incidentsMap.zoom">-->
-        <!--<markers models="incidents" coords="'self'" icon="'icon'">-->
-        <!--<windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>-->
-        <!--<div ng-non-bindable="" class=" map-label">-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-5"><h4>Incident:</h4></div>-->
-        <!--<div class="col-xs-7 "><h4>Warehouse Fire</h4></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-5"><h4>Date:</h4></div>-->
-        <!--<div class="col-xs-7"><h4>6/3/3015</h4></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-12">-->
-
-        <!--<a class="pull-right" href="/admin/#/setup/users">Staff</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</windows>-->
-        <!--</markers>-->
-        <!--</google-map>-->
-        <!--</tab>-->
-
-        <!--</tabset>-->
-        <!--<div class="col-md-3"><h3>Incident Info</h3></div>-->
+            </map>
+        </div>
+        <div ng-show="selectedIncident" class="col-md-4">
+            <h3>Icident Info</h3>
+            <ul class="list-unstyled">
+                <li>
+                    <span class="bold">Name: </span>  {{selectedIncident.title}}
+                </li>
+                <li>
+                    <span class="bold">Location: </span>  {{selectedIncident.location}} ({{selectedIncident.place}})
+                </li>
+                <li>
+                    <span class="bold">Classification: </span>  {{selectedIncident.incidentType.name}}
+                </li>
+                <li>
+                    <span class="bold">Onset: </span>  {{selectedIncident.startTime | date:'short'}}
+                </li>
+                <li>
+                    <span class="bold">Duration: </span>  {{selectedIncident.duration}}
+                </li>
+                <li>
+                    <span class="bold">Status: </span>  {{selectedIncident.name}}
+                </li>
+                <li>
+                    <span class="bold">Description: </span>  An emergency situation occured...
+                </li>
+            </ul>
+            <br/>
+            <h3>Resource Dependencies</h3>
+            <ul class="list-unstyled">
+                <li><span class="bold">Org Units Impacted: </span><a ui-sref="setup.hierarchy">{{selectedIncident.orgUnitsImpacted}}</a></li>
+                <li><span class="bold">Staff Impacted: </span><a ui-sref="setup.users">{{selectedIncident.staffImpacted}}</a></li>
+            </ul>
+        </div>
     </div>
 
 </div>

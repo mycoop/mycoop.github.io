@@ -1,5 +1,6 @@
 angular.module('adminApp').
     controller('mapCtrl', function ($scope, $timeout) {
+        var markers = [];
         $scope.incidentTypes = {
             fire: {isActive: true, id: 1, name: 'Fire'},
             biohazard: {isActive: true, id: 2, name: 'Biohazard/Pandemic'},
@@ -73,6 +74,12 @@ angular.module('adminApp').
             }
         ];
 
+        //
+        //
+        //
+        //
+        //
+        //32.908854, -96.629744
         $scope.incidents = [
             {
                 id: 1,
@@ -107,7 +114,7 @@ angular.module('adminApp').
             },
 
             {
-                id: 1,
+                id: 3,
                 title: 'Basement Flooded',
                 incidentType: $scope.incidentTypes.weather,
                 incidentPriority: $scope.incidentPriorities.low,
@@ -121,7 +128,99 @@ angular.module('adminApp').
                 latitude: 33.019707,
                 longitude: -96.698552
             },
+
+            {
+                id: 3,
+                title: 'Basement Flooded',
+                incidentType: $scope.incidentTypes.weather,
+                incidentPriority: $scope.incidentPriorities.medium,
+                facilityType: $scope.facilityTypes.primary,
+                location: 'HQ',
+                place: 'Plano',
+                startTime: new Date(),
+                duration: '6h 17m',
+                staffImpacted: 3,
+                orgUnitsImpacted: 1,
+                latitude: 32.952863,
+                longitude: -96.963218
+            },
+
+            {
+                id: 3,
+                title: 'Basement Flooded',
+                incidentType: $scope.incidentTypes.weather,
+                incidentPriority: $scope.incidentPriorities.low,
+                facilityType: $scope.facilityTypes.recovery,
+                location: 'HQ',
+                place: 'Plano',
+                startTime: new Date(),
+                duration: '6h 17m',
+                staffImpacted: 3,
+                orgUnitsImpacted: 1,
+                latitude: 32.868701,
+                longitude:  -96.937126
+            },
+
+            {
+                id: 3,
+                title: 'Basement Flooded',
+                incidentType: $scope.incidentTypes.weather,
+                incidentPriority: $scope.incidentPriorities.low,
+                facilityType: $scope.facilityTypes.manufacturing,
+                location: 'HQ',
+                place: 'Plano',
+                startTime: new Date(),
+                duration: '6h 17m',
+                staffImpacted: 3,
+                orgUnitsImpacted: 1,
+                latitude: 32.670086,
+                longitude:  -96.864341
+            },
+
+            {
+                id: 3,
+                title: 'Basement Flooded',
+                incidentType: $scope.incidentTypes.weather,
+                incidentPriority: $scope.incidentPriorities.low,
+                facilityType: $scope.facilityTypes.primary,
+                location: 'HQ',
+                place: 'Plano',
+                startTime: new Date(),
+                duration: '6h 17m',
+                staffImpacted: 3,
+                orgUnitsImpacted: 1,
+                latitude: 32.902145,
+                longitude: -97.134880
+            },
+
+            {
+                id: 3,
+                title: 'Basement Flooded',
+                incidentType: $scope.incidentTypes.network,
+                incidentPriority: $scope.incidentPriorities.low,
+                facilityType: $scope.facilityTypes.recovery,
+                location: 'HQ',
+                place: 'Plano',
+                startTime: new Date(),
+                duration: '6h 17m',
+                staffImpacted: 3,
+                orgUnitsImpacted: 1,
+                latitude: 32.638868,
+                longitude: -96.724266
+            },
         ];
+        $scope.filteredIncidents = $scope.incidents;
+
+        $scope.filterMap = function(){
+           $scope.filteredIncidents =  _.filter($scope.incidents,function(item){
+               var type = _.findWhere($scope.incidentTypes, {id: item.incidentType.id});
+               var facility = _.findWhere($scope.facilityTypes, {id: item.facilityType.id});
+               var priority = _.findWhere($scope.incidentPriorities, {id: item.incidentPriority.id});
+               console.log(JSON.stringify(type));
+               return (type.isActive && facility.isActive && priority.isActive);
+           });
+            createMarkers();
+        };
 
         function getFacilityIconUrl(incident) {
             switch (incident.facilityType.id) {
@@ -158,8 +257,14 @@ angular.module('adminApp').
 
         function createMarkers() {
             $timeout(function () { // wait for map directive to load
-                _.each($scope.incidents, function (incident) {
-                    new RichMarker({
+                console.log('create markers')
+
+                _.each(markers, function(item){
+                    item.setMap(null);
+                });
+                markers = [];
+                _.each($scope.filteredIncidents, function (incident) {
+                    var marker = new RichMarker({
                         map: $scope.map,   // !! $scope.map
                         position: new google.maps.LatLng(incident.latitude, incident.longitude),
                         flat: true,
@@ -168,6 +273,12 @@ angular.module('adminApp').
                                 + '<div class="pin-secondary" style="background-image: url(\'' + getIncidentTypeIconUrl(incident) + '\')"></div>'
                                 +'</div>'
                     });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        $scope.$apply(function(){
+                            $scope.selectedIncident = incident;
+                        });
+                    });
+                    markers.push(marker);
                 });
             });
         }

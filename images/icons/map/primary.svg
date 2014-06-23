@@ -2,13 +2,29 @@
 <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 69.276 69.276" enable-background="new 0 0 69.276 69.276" xml:space="preserve">
+
+	 viewBox="0 0 70 69" enable-background="new 0 0 70 69" xml:space="preserve">
 <g>
-	<path fill="#0071BC" stroke="#000000" stroke-miterlimit="10" d="M64.508,64.508V26.103H34.638V0.5H4.767v64.008H0.5v4.267h68.276
-		v-4.267H64.508z M9.034,4.767h8.534v8.534H9.034V4.767z M9.034,17.569h8.534v8.534H9.034V17.569z M9.034,30.371h8.534v8.534H9.034
-		V30.371z M9.034,43.172h8.534v8.534H9.034V43.172z M26.103,64.508H13.302v-8.534h12.802V64.508z M30.371,51.707h-8.534v-8.534
-		h8.534V51.707z M30.371,38.905h-8.534v-8.534h8.534V38.905z M30.371,26.103h-8.534v-8.534h8.534V26.103z M30.371,13.302h-8.534
-		V4.767h8.534V13.302z M38.905,30.371h8.534v8.534h-8.534V30.371z M38.905,43.172h8.534v8.534h-8.534V43.172z M55.974,64.508H43.172
-		v-8.534h12.802V64.508z M60.241,51.707h-8.534v-8.534h8.534V51.707z M60.241,38.905h-8.534v-8.534h8.534V38.905z"/>
+	<g>
+		<rect x="9.5" y="42.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="9" height="9"/>
+		<rect x="22.5" y="42.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<rect x="9.5" y="29.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="9" height="9"/>
+		<rect x="9.5" y="17.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="9" height="8"/>
+		<rect x="9.5" y="4.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="9" height="8"/>
+		<rect x="22.5" y="29.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<polygon fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" points="13.5,64.5 27.103,64.5 26.5,63.508 26.5,55.5 13.5,55.5 
+					"/>
+		<rect x="52.5" y="42.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<rect x="43.5" y="55.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="13" height="9"/>
+		<rect x="39.5" y="42.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<rect x="52.5" y="29.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<rect x="22.5" y="4.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="8"/>
+		<rect x="39.5" y="29.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="9"/>
+		<rect x="22.5" y="17.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="8" height="8"/>
+	</g>
+	<path fill="#0071BC" stroke="#000000" stroke-miterlimit="10" d="M65.5,25.5h-30v-25h-30v64h-5v4h69v-4h-4V25.5z M9.5,4.5h9v8h-9
+		V4.5z M9.5,17.5h9v8h-9V17.5z M9.5,29.5h9v9h-9V29.5z M9.5,42.5h9v9h-9V42.5z M26.5,63.508l0.603,0.992H13.5v-9h13V63.508z
+		 M30.5,51.5h-8v-9h8V51.5z M30.5,38.5h-8v-9h8V38.5z M30.5,25.5h-8v-8h8V25.5z M30.5,12.5h-8v-8h8V12.5z M39.5,29.5h8v9h-8V29.5z
+		 M39.5,42.5h8v9h-8V42.5z M56.5,64.5h-13v-9h13V64.5z M60.5,51.5h-8v-9h8V51.5z M60.5,38.5h-8v-9h8V38.5z"/>
 </g>
 </svg>

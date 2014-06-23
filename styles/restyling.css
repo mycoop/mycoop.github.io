@@ -320,10 +320,11 @@ tr:hover .show-hover {
 
 
 .pin-complex{
+    cursor: pointer;
     width: 40px;
     height: 40px;
     position: relative;
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
     background-repeat: no-repeat;
 }
 .pin-complex .pin-secondary{
