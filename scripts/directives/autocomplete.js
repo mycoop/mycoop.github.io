@@ -37,10 +37,10 @@ angular.module('directives.autocomplete', []).
 
                 function setPreselectedItems(){
                     var preselectedString = '';
-//                    _.each(_.where(scope.items, {selected: true}), function(item){
-//                       preselectedString += item.label + ',';
-//                    });
-//                    $(element).find('input').attr('value', preselectedString);
+                    _.each(_.where(scope.items, {selected: true}), function(item){
+                       preselectedString += item.label + ',';
+                    });
+                    $(element).find('input').attr('value', preselectedString);
                 }
 
                 var init = true;
