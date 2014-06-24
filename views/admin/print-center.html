@@ -1,23 +1,56 @@
 <div>
-    <style>
-        .sortable{
-            position: relative;
-        }
-        .sortable div{
-            position: absolute;
-            width: 100%;
-            height: 70px;
-            margin-bottom: 10px;
-            /*background-color: #d3d3d3;*/
-        }
-    </style>
-    <div class="sortable">
-        <div style="background-color: #005bbb"></div>
-        <div style="background-color: #bba350"></div>
-        <div style="background-color: #12bb2b"></div>
-        <div style="background-color: #bb3244"></div>
+    <div class="row">
+        <h1>Print Center</h1>
     </div>
-    <script>
-        $('.sortable').shapeshift();;
-    </script>
+    <div class="row">
+        <h2>My Available Documents</h2>
+    </div>
+    <div class="row"><br/>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control" ng-change="onFilterChange()" ng-model="docFilter" placeholder="Document/Report Name"/>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <select name="" id="" class="lst form-control">
+                    <option>Show All Documents</option>
+                    <option>Show Approved Documents</option>
+                    <option>Show Draft Documents</option>
+                </select>
+            </div>
+        </div>
+        <table class="table col-xs-12 sortable">
+
+            <tbody ng-repeat="location in locations ">
+            <tr class="active row">
+                <td class="col-xs-12" colspan="5">{{location.name}}</td>
+            </tr>
+            <tr ng-repeat="doc in location.docs | filter:docFilter" class="row">
+                <td class="col-xs-1">
+                    <span class="glyphicon glyphicon-refresh clickable"></span>
+                </td>
+                <td class="col-xs-2">
+                    <input type="checkbox"/> {{doc.documentReference}}<br/>
+                    <small class="text-muted">{{doc.status.name}}</small>
+                </td>
+                <td class="col-xs-7">{{doc.Title}}</td>
+                <td class="col-xs-2">
+                    <span class="pull-right top-space-small">
+                        <span class="glyphicon glyphicon-file clickable"></span>&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-check clickable"></span>&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-share clickable"></span>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a href="" class=" btn btn-medium  btn-blue submit"
+           automationid="editNameSave" title="Save">Print</a>
+        <a href="" class=" btn btn-medium left-space btn-gray-light cancel"
+           automationid="editNameCancel" title="Cancel">Save as pdf</a>
+        <br/><br/>
+    </div>
+
 </div>
