@@ -77,8 +77,20 @@ angular
         $scope.ok = function () {
             $modalInstance.close();
         };
-    }).config(function ($stateProvider, $urlRouterProvider) {
+    }).config(function ($stateProvider, $urlRouterProvider, $provide) {
         $urlRouterProvider.otherwise("/home/main");
+        $provide.decorator('$uiViewScroll', function ($delegate) {
+            return function (uiViewElement) {
+//                var top = uiViewElement.getBoundingClientRect().top;
+
+                $('body').ScrollTo({ duration: 300 });
+//                alert(top)
+//                $( "body" ).scrollTop( 300 )
+                // var top = uiViewElement.getBoundingClientRect().top;
+                // window.scrollTo(0, (top - 30));
+                // Or some other custom behaviour...
+            };
+        });
         $stateProvider
             .state('home', { url: '/home?orgEntityId'})
             .state('home.main', {  templateUrl: '/views/user/home.html', url: '/main'})
