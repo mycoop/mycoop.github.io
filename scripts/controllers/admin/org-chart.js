@@ -73,8 +73,9 @@ angular.module('adminApp').
 
             modalInstance.result.then(function (params) {
                 var parent = params.confirm ? $scope.selectedNodeId : null;
-                OrgEntity.addEntity({id: $scope.items.length * 100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()});
-                refreshEntities();
+                OrgEntity.addEntity({id: $scope.items.length * 100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()},
+                refreshEntities);
+//                refreshEntities();
             }, function () {
                 console.log('success');
             });
@@ -389,7 +390,7 @@ angular.module('adminApp').
                                 + '</div>'
                                 + '</div>'
                                 + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
-                                + '<div name="actions" class="bp-item " style="top: 26px; left: 85px;"></div>'
+                                + '<div name="actions" class="bp-item actions" style="top: 26px; left: 85px;"></div>'
                                 + '</div>'
                         ).css({
                                 width: result.itemSize.width + "px",
@@ -403,7 +404,7 @@ angular.module('adminApp').
                                 + '</div>'
                                 + '</div>'
                                 + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'
-                                + '<div class="bp-item actions" style="top: 26px; left: 85px;"></div>'
+                                + '<div class="bp-item" style="top: 26px; left: 85px;"></div>'
                                 + '</div>'
                         ).css({
                                 width: result.itemSize.width + "px",
