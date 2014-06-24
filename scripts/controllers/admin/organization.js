@@ -1483,7 +1483,9 @@ angular.module('adminApp')
         function detectCountry() {
             if (myip) {
                 $http.get('http://freegeoip.net/json/' + myip).success(function (data) {
-                    $scope.selectedCountry = _.findWhere($scope.countries, {code: data.country_code});
+//                    $scope.selectedCountry = _.findWhere($scope.countries, {code: data.country_code});
+
+                    $scope.selectedCountry = _.findWhere($scope.countries, {code: 'US'});
                     $scope.selectedState = _.findWhere($scope.states, {name: data.region_name});
                     $scope.zip = data.zipcode;
                 });

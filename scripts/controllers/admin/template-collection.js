@@ -8,7 +8,7 @@ angular.module('adminApp')
                 controller: 'ModalInstanceCtrl',
                 resolve: {
                     message: function () {
-                        var item =  _.findWhere(slides, {active: true}).data;
+                        var item =  $scope.datasource[$scope.selectedSlide];
                         return {text: item.Purpose, title: item.Title};
                     }
                 }
@@ -21,8 +21,9 @@ angular.module('adminApp')
             });
         };
 
+
         function addToTemplates(){
-            var item = _.findWhere(slides, {active: true}).data;
+            var item =  $scope.datasource[$scope.selectedSlide];
             if(!_.contains($scope.templates, item)){
                 $scope.templates.push(item);
                 $scope.yourTemplatesSlides.push({
@@ -91,6 +92,7 @@ angular.module('adminApp')
                 Pages:"11",
                 Sections:"5.2 Management commitment 5.4 Organisational roles, responsibilities and authorities"
             }];
+        $scope.selectedSlide = 0;
 
         $scope.myInterval = -1;
         var slides = $scope.slides = [];

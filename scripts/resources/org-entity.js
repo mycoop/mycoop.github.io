@@ -13,7 +13,7 @@ angular.module('resources.org-entity',[])
             {
                 id: 103,
                 owner: 'Joe Smith', location: 'Lansing, MI, USA' ,  access: true, parent:  null,
-                title: "Your organization",
+                title: "Bank of America",
                 url: '#/home/admin',
                 linkText: 'Staff',
                 createdDate: 1400414718000,
