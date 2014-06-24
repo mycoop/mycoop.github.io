@@ -19,8 +19,8 @@ angular.module('directives.autocomplete', []).
                 function setSource(){
                     (element).find('input')
                         .on('tokenfield:createdtoken', function (e) {
-                            var name  = parseInt(e.attrs['value'], 10);
-//                            alert(name);
+                            var name  = e.attrs['value'];
+                            alert(name);
                             var item = _.findWhere(scope.items, {id: name});
                             item.selected = true;
                             scope.selectedItems.push(item);

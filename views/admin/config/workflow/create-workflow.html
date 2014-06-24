@@ -48,10 +48,15 @@
             <div class="col-lg-7 col-md-6 col-sm-6">
                 <h3>Chose document section</h3>
                 <div class="top-space-big"></div>
-                <ul  rn-carousel rn-carousel-indicator rn-carousel-control style="height: 250px">
+                <ul  rn-carousel rn-carousel-indicator rn-carousel-control style="height: 300px">
                     <li ng-repeat="doc in datasource">
                         <div class="image-slide doc"></div>
-                        <div class="text-center">{{doc.documentReference}}</div>
+                        <div class="carousel-caption" style="position: initial;">
+                            <h4 style="color: #000;">{{doc.documentReference}}</h4>
+
+                            <p style="color: #000;">{{doc.Title}}</p>
+                        </div>
+
                     </li>
                 </ul>
             </div>

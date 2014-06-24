@@ -108,14 +108,14 @@ angular.module('resources.org-entity',[])
                 modifiedDate: 1400501118000
             }
         ];
-        if($cookies.entities){
-            entities = JSON.parse($cookies.entities);
-        } else{
-            $cookies.entities = JSON.stringify(entities);
-        }
-        var saveToCookies = function(){
-            $cookies.entities = JSON.stringify(entities);
-        };
+//        if($cookies.entities){
+//            entities = JSON.parse($cookies.entities);
+//        } else{
+//            $cookies.entities = JSON.stringify(entities);
+//        }
+//        var saveToCookies = function(){
+//            $cookies.entities = JSON.stringify(entities);
+//        };
         var service = {
             getEntities: function(callback){
 //                setTimeout(function(){
@@ -128,12 +128,12 @@ angular.module('resources.org-entity',[])
             },
             addEntity: function(entity, callback){
                 entities.push(entity);
-                saveToCookies();
+//                saveToCookies();
                 callback();
             },
             deleteEntity: function(entity, callback){
                 entities.splice(entities.indexOf(entity),1);
-                saveToCookies();
+//                saveToCookies();
                 callback();
             }
         };
