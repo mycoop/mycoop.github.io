@@ -1,0 +1,48 @@
+<div ng-init="noErrors=false; isIncomplete=false; isError=true">
+    <div class="row top-space-big">
+        <h3>Review: {{orgEntity.title}} > {{currentDocument.title}} (2014)</h3>
+
+        <h1>Review Results</h1>
+
+    </div>
+    <br/>
+    <div ng-show="noErrors" class="row">
+        <div class="col-md-3"><img src="/images/doc-check.png" alt=""/></div>
+        <div class="col-md-9">
+            Congratulations! We reviewed your document <br/>and found no issues.
+            You can now proceed <br/>to submit the document for approval or print a draft.
+        </div>
+    </div>
+    <div ng-show="isIncomplete" class="row">
+        <h2>Incomplete sections</h2>
+        <p>All of the following sections of {{currentDocument.title}} have not been filled out:</p>
+
+        <ul class="list-unstyled">
+            <li class="clearfix"><span class="pull-left">- Business Activities</span> <a href="" class="ansSm btn btn-blue pull-right">GO</a></li>
+            <li class="clearfix"><span class="pull-left">- Impact of Distruptions</span> <a href="" class="ansSm btn btn-blue pull-right">GO</a></li>
+            <li class="clearfix"><span class="pull-left">- MTPD & RTO</span> <a href="" class="ansSm btn btn-blue pull-right">GO</a></li>
+
+        </ul>
+        <p>The review can not be completed until the listed required sections are completed.
+            Click 'GO' to access each section. Once you're finished, you may restart the review proccess.</p>
+    </div>
+
+    <div ng-show="isError" class="row">
+        <h2>Final Review Error Check</h2>
+        <p>We found errors in your document and recommend you to make <b>corrections</b> before continuing.</p>
+
+    </div>
+    <div class="row">
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ng-click="previousPage()"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="home.review.errors"
+           title="Save">Continue with Errors</a>
+    </div>
+</div>

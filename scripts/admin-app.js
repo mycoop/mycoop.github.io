@@ -113,6 +113,8 @@ angular
 
         $stateProvider
             .state('config', { url: '/configure'})
+            .state('config.profile', {  templateUrl: '/views/admin/organization.html', url: '/profile', controller: 'OrganizationCtrl'})
+            .state('config.standards', { templateUrl: '/views/admin/setup/standards.html', url: '/standards', controller: 'OrganizationCtrl'})
             .state('config.general', { templateUrl: '/views/admin/config/general-configuration.html', url: '/general', controller: 'GeneralConfigCtrl'})
             .state('config.advanced', { templateUrl: '/views/admin/config/advanced-configuration.html', url: '/advanced', controller: 'AdvancedConfigCtrl'})
             .state('config.ui', { templateUrl: '/views/admin/config/ui.html', url: '/look-and-feel', controller: 'InterfaceConfigCtrl'})
@@ -139,6 +141,11 @@ angular
             .state('config.workflow', {  templateUrl: '/views/admin/config/workflow/workflow.html', url: '/workflow-config', controller:'AssignmentsCtrl'})
             .state('config.workflow.add', {  templateUrl: '/views/admin/config/workflow/create-workflow.html', url: '/add', controller: 'WorkflowCtrl'})
             .state('config.billing', {  templateUrl: '/views/admin/config/billing.html', url: '/billing'});
+
+
+        $stateProvider
+            .state('dashboard', { url: '/dashboard'})
+            .state('dashboard.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'})
 
 
         $stateProvider
@@ -181,12 +188,13 @@ angular
         $stateProvider
             .state('tools', { url: '/tools'})
             .state('tools.reporting', {  template: '<h1>Reporting</h1>', url: '/reporting'})
-            .state('tools.controls', {  template: '<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
+            .state('tools.controls', {  template: '<h1>Application Controls</h1>', url: '/controls'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template: '<h1>Notification Interface</h1>', url: '/notification'})
             .state('tools.templatesuite', {  templateUrl: '/views/admin/templatesuite.html', url: '/template-suite'})
             .state('tools.templatecollection', {  templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+            .state('tools.billing', {  template: '<h1>Billing</h1>', url: '/billing'})
             .state('tools.sectioneditor', {  templateUrl: '/views/admin/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
 
     });

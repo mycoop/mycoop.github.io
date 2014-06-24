@@ -1,0 +1,47 @@
+<div >
+    <div class="row top-space-big">
+        <h3>Review: {{orgEntity.title}} > {{currentDocument.title}} (2014)</h3>
+
+        <h1>Post Review Options</h1>
+
+    </div>
+    <br/>
+    <div  class="row">
+        <div class="col-md-3"><img src="/images/post-review.png" alt=""/></div>
+        <div class="col-md-9">
+            Now that we've review your document, you can print or save copy for your records, <br/>
+            submit it for approval, or distribute it to your organization through email. <br/><br/>
+            Please, select one of the following options:
+
+            <div class="row top-space-big">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <ul class="list-unstyled">
+                        <li><a href=""><span class="glyphicon glyphicon-ok"></span> Request Approval</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-print"></span> Print Your Plan</a></li>
+
+                        <li><a href=""><span class="glyphicon glyphicon-share-alt"></span> Distribute via Email</a></li>
+
+                        <li><a href=""><span class="glyphicon glyphicon-file"></span> View Document</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ng-click="previousPage()"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           href="/#/user-welcome"
+           title="Save">Done</a>
+    </div>
+</div>

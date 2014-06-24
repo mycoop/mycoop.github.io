@@ -1,0 +1,40 @@
+<div>
+    <div class="row top-space-big">
+        <h3>Review: {{orgEntity.title}} > {{currentDocument.title}} (2014)</h3>
+
+        <h1 >We're Ready to Review Your Document</h1>
+
+        <div class="text-muted">
+            Before we review your document to make sure it is error-free, let us know <br/>if you have
+            any additional information to enter or attach.
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Have entered all plan data and related content?</h3>
+            <ul class="list-unstyled">
+                <li><input type="radio" name="option" checked/> Yes, I've entered everything and let's review</li>
+                <li><input type="radio" name="option"/> No, I have something to enter</li>
+                <li><input type="radio" name="option"/> No, I have something to attach</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <img src="/images/review.png" alt=""/>
+        </div>
+    </div>
+    <div class="row">
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ng-click="previousPage()"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="home.review.landing"
+           title="Save">Continue</a>
+    </div>
+</div>

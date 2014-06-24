@@ -52,6 +52,7 @@
                                                 <th>Deadline</th>
                                                 <th>Scheduled Date</th>
                                                 <th>Progress Status</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -67,6 +68,7 @@
                                                 <td class="col-md-2">{{task.deadline | date}}</td>
                                                 <td class="col-md-2">{{task.scheduledDate | date}}</td>
                                                 <td class="col-md-1"><span class="medal-icon {{task.status}}"></span></td>
+                                                <td><a  tooltip="Review" href="/user/#/home/review/ready"><span class="glyphicon glyphicon-eye-open"></span></a></td>
                                             </tr>
                                             </tbody>
                                         </table>

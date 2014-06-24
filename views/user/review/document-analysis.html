@@ -1,0 +1,39 @@
+<div>
+    <div class="row top-space-big">
+        <h3>Review: {{orgEntity.title}} >{{currentDocument.title}} (2014)</h3>
+
+        <h1>Give Us a Minute to Look Things Over</h1>
+
+        <div class="text-muted">
+            We're checking for more money-saving deductions and reviewing your <br/>return to make sure everything is accurate.
+        </div>
+    </div>
+    <br/>
+
+    <div class="row" >
+        <div class="panel panel-primary">
+            <div class="panel-heading">Analyzing Your Return</div>
+            <div class="panel-body">
+
+                <progressbar class="six-sec-ease-in-out progress-striped" value="dynamic" type="primary"></progressbar>
+            </div>
+        </div>
+        <div collapse="!isReady">
+            <h3>Analyzing complete</h3>
+            Select continue to see your results
+        </div>
+    </div>
+    <div class="row">
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ng-click="previousPage()"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="home.review.results"
+           title="Save">Continue</a>
+    </div>
+</div>

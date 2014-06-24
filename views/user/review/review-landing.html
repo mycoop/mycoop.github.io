@@ -1,0 +1,34 @@
+<div>
+    <div class="row top-space-big">
+        <h3>Review: {{orgEntity.title}} > {{currentDocument.title}} (2014)</h3>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <br/><br/>
+            <img src="/images/review2.png" alt=""/>
+        </div>
+        <div class="col-md-9">
+            <h1>Let's make sure your document is completed</h1>
+            <p>
+                We are ready to do a final review to make sure that all sections of your document are completed. <br/>
+                We'll also reconfirm all system recommendations that you have elected to override. Examples include: RTO values, MTPDs and etc.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ng-click="previousPage()"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="home.review.analysis"
+           title="Save">Continue</a>
+    </div>
+</div>

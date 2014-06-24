@@ -26,6 +26,8 @@
     <script type="text/javascript" src="/scripts/libraries/angular-route.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-resource.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/bootstrap-wysiwyg.js"></script>
     <script type="text/javascript" src="/scripts/libraries/ng-grid.js"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery-ui-1.10.4.custom.js"></script>
 
@@ -45,6 +47,7 @@
     <script type="text/javascript" src="/scripts/controllers/user/map.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/components.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/business-process.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/review.js"></script>
 
 
     <script type="text/javascript" src="/scripts/directives/directives.js"></script>
@@ -176,6 +179,8 @@
                         <a ui-sref="home.hierarchy">Organization Hierarchy</a></li>
                     <li ng-class="{ on: $state.includes('home.components') }">
                         <a ui-sref="home.components">Planning Components</a></li>
+                    <li ng-class="{ on: $state.includes('home.review') }">
+                        <a ui-sref="home.review">Review Documents</a></li>
                 </ul>
             </li>
             <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"
@@ -272,7 +277,7 @@
 
     <div id="main_right" style="display: block;" ui-view="">
         <div class="text-center"><span class="lead">{{orgEntity.title}}</span></div>
-        <div ui-view="">
+        <div ui-view="" autoscroll="true">
         </div>
 
         <footer id="footerLayer" align="center" role="contentinfo">

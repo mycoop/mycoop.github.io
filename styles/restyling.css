@@ -59,6 +59,13 @@
     top: 0;
     text-align: center;
 }
+.progress.six-sec-ease-in-out  .progress-bar{
+    -webkit-transition: width 6s ease-in-out !important;
+    -moz-transition: width 6s ease-in-out !important;;
+    -ms-transition: width 6s ease-in-out !important;;
+    -o-transition: width 6s ease-in-out !important;;
+    transition: width 6s ease-in-out !important;;
+}
 
 TR.mcRow:hover {
     cursor: pointer;
@@ -302,7 +309,7 @@ tr:hover .show-hover {
 }
 .map-filter-set .map-filter-button{
     float: left;
-    margin-right: 10px;
+    margin-right: 9px;
     padding: 5px;
     padding-top: 2px;
     width: 54px;

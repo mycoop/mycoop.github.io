@@ -1,0 +1,45 @@
+<div>
+    <div class="row top-space-big">
+        <div class="col-xs-12">
+            <h1>Check This Entry</h1>
+
+            <h3>{{orgEntity.title}} > {{currentDocument.title}} (2014): 'Recovery Time Objective'</h3>
+
+            <p><span class="text-muted">Federal Information Worksheet: Recovery Time Objective must be entered </span>
+            </p>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <label class="label-control" for="">Recovery Plan Objective</label><br/>
+            <input type="text" id="username" required=""
+                   class="account-info-input  form-control editable" original-title=""></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="btn btn-blue">Edit in the document</a>
+        </div>
+
+        <!--<div class="iframe-container">-->
+        <!--<iframe src="http://docs.google.com/gview?url=http://mycoop.github.io/docs/BankOfAmericaCOOP.docx&embedded=true&p=3"-->
+        <!--frameborder="0"></iframe>-->
+        <!--</div>-->
+    </div>
+    <div class="row">
+
+        <div class="col-xs-12">
+            <hr/>
+
+            <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+               ng-click="previousPage()"
+               automationid="editNameSave"
+               title="Save">Back</a>
+
+            <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+               automationid="editNameSave"
+               ui-sref="home.review.summary"
+               title="Save">Continue</a>
+        </div>
+    </div>
+</div>
