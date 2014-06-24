@@ -148,7 +148,7 @@ angular
             .state('tools', { url: '/tools?orgEntityId'})
             .state('tools.reporting', {  template: '<h1>Reporting</h1>', url: '/reporting'})
             .state('tools.controls', {  template: '<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
-            .state('tools.print', {  templateUrl: '/views/admin/view-plan.html', url: '/print'})
+            .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template: '<h1>Notification Interface</h1>', url: '/notification'})
             .state('tools.templatesuite', {  templateUrl: '/views/admin/templatesuite.html', url: '/template-suite'})
