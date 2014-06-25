@@ -10,6 +10,7 @@ angular
         'google-maps',
         'resources.process',
         'resources.user',
+        'ngMap',
         'resources.org-entity',
         'ui.bootstrap',
         'controls',
@@ -19,7 +20,7 @@ angular
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $rootScope.currentDocument = {
-            id:1,
+            id: 1,
             area: 'Department 1',
             title: 'Business Impact Analysis',
             details: 'This report identifies the key business continuity requirements for each critical business activity',
@@ -81,30 +82,61 @@ angular
         $urlRouterProvider.otherwise("/home/main");
         $provide.decorator('$uiViewScroll', function ($delegate) {
             return function (uiViewElement) {
-//                var top = uiViewElement.getBoundingClientRect().top;
-
                 $('body').ScrollTo({ duration: 300 });
-//                alert(top)
-//                $( "body" ).scrollTop( 300 )
-                // var top = uiViewElement.getBoundingClientRect().top;
-                // window.scrollTo(0, (top - 30));
-                // Or some other custom behaviour...
             };
         });
+
         $stateProvider
             .state('home', { url: '/home?orgEntityId'})
             .state('home.main', {  templateUrl: '/views/user/home.html', url: '/main'})
             .state('home.hierarchy', {   templateUrl: '/views/user/hierarchy.html', url: '/hierarchy', controller: 'HierarchyCtrl'})
             .state('home.map', {   templateUrl: '/views/user/map.html', url: '/map', controller: 'MapCtrl'})
-            .state('home.components', {   templateUrl: '/views/user/components.html', url: '/components', controller: 'ComponentsCtrl'})
-            .state('home.review', {   templateUrl: '/views/user//review/review.html', url: '/review'})
-            .state('home.review.ready', {   templateUrl: '/views/user/review/ready-to-review.html', url: '/ready'})
-            .state('home.review.landing', {   templateUrl: '/views/user/review/review-landing.html', url: '/landing'})
-            .state('home.review.analysis', {   templateUrl: '/views/user/review/document-analysis.html', url: '/analysis', controller:'ReviewCtrl'})
-            .state('home.review.results', {   templateUrl: '/views/user/review/review-results.html', url: '/results'})
-            .state('home.review.errors', {   templateUrl: '/views/user/review/review-errors.html', url: '/errors'})
-            .state('home.review.summary', {   templateUrl: '/views/user/review/post-review.html', url: '/summary'})
+            .state('home.components', {   templateUrl: '/views/user/components.html', url: '/components', controller: 'ComponentsCtrl'});
 
+
+        $stateProvider
+            .state('dashboard', { url: '/dashboard?orgEntityId'})
+            .state('dashboard.map', {   templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'});
+
+        $stateProvider
+            .state('plan', { url: '/plan?orgEntityId'})
+            .state('plan.organization', {   template: '<h1>Understanding the Organization</h1>', url: '/organization'})
+            .state('plan.leadership', {   template: '<h1>Leadership</h1>', url: '/leadership'})
+            .state('plan.planning', {   template: '<h1>Planning</h1>', url: '/planning'})
+            .state('plan.support', {   template: '<h1>Support</h1>', url: '/support'});
+
+        $stateProvider
+            .state('do', { url: '/do?orgEntityId'})
+            .state('do.risk', {   template: '<h1>Risk Assessment</h1>', url: '/risk-assessment'})
+            .state('do.impact', {  url: '/impact'})
+            .state('do.impact.profile', {  template: '<h1>Program Area Profile</h1>', url: '/profile'})
+            .state('do.impact.processes', { templateUrl: '/views/admin/business-processes.html', controller: 'BusinessProcessCtrl', url: '/processes'})
+            .state('do.impact.scope', { templateUrl: '/views/user/purpose-and-scope.html', url: '/purpose-and-scope'})
+            .state('do.impact.processes-add', { templateUrl: '/views/admin/business-process.add.html', controller: 'BusinessProcessAddCtrl', url: '/processes-add'})
+            .state('do.impact.staff', {  template: '<h1>Staffing Requirements</h1>', url: '/staff'})
+            .state('do.impact.resource', {  template: '<h1>Resource Requirement</h1>', url: '/resource'})
+            .state('do.impact.criticalApp', {  template: '<h1>Critical Application (Software) Requirements</h1>', url: '/critical-app'})
+            .state('do.impact.quantitativeImpacts', {  template: '<h1>Quantitative Impacts</h1>', url: '/quantitative-impacts'})
+            .state('do.impact.internalDependencies', {  template: '<h1>External Dependencies</h1>', url: '/internal-dependencies'})
+            .state('do.impact.externalDependencies', {  template: '<h1>Internal Dependencies</h1>', url: '/external-dependencies'})
+            .state('do.impact.vitalRecords', {  template: '<h1>Vital Records</h1>', url: '/vital-records'})
+            .state('do.impact.communications', {  template: '<h1>Interoperable Communications</h1>', url: '/communications'})
+            .state('do.impact.other', {  template: '<h1>Other Requirements</h1>', url: '/other'})
+            .state('do.impact.results', {  template: '<h1>BIA Results </h1>', url: '/results'})
+            .state('do.impact.review', {  template: '<h1>BIA Review</h1>', url: '/review'})
+            .state('do.impact.compliance', {  template: '<h1>Compliance Check and Comparison</h1>', url: '/compliance'})
+
+            .state('do.continuity', {   template: '<h1>Business Continuity Strategy</h1>', url: '/continuity'})
+            .state('do.procedures', {   template: '<h1>Establish and Implement BC Procedures</h1>', url: '/procedures'})
+            .state('do.testing', {   template: '<h1> Exercising and Testing</h1>', url: '/testing'});
+
+        $stateProvider
+            .state('check', { url: '/check?orgEntityId'})
+            .state('check.evaluation', {   template: '<h1>Performance Evaluation</h1>', url: '/evaluation'});
+
+        $stateProvider
+            .state('act', { url: '/act?orgEntityId'})
+            .state('act.improvement', {   template: '<h1>Improvement</h1>', url: '/improvement'});
 
         $stateProvider
             .state('impact', {  url: '/impact?orgEntityId'})
@@ -146,13 +178,14 @@ angular
 
         $stateProvider
             .state('tools', { url: '/tools?orgEntityId'})
-            .state('tools.reporting', {  template: '<h1>Reporting</h1>', url: '/reporting'})
-            .state('tools.controls', {  template: '<h1>Application Controls (Content Approval etc)</h1>', url: '/controls'})
-            .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
-            .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
-            .state('tools.notification', {  template: '<h1>Notification Interface</h1>', url: '/notification'})
-            .state('tools.templatesuite', {  templateUrl: '/views/admin/templatesuite.html', url: '/template-suite'})
-//            .state('tools.templatecollection', {  templateUrl:'/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
-            .state('tools.sectioneditor', {  templateUrl: '/views/admin/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
 
+            .state('tools.reporting', {  template: '<h1>Performance Indicators</h1>', url: '/reporting'})
+            .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
+            .state('tools.review', {   templateUrl: '/views/user//review/review.html', url: '/review'})
+            .state('tools.review.ready', {   templateUrl: '/views/user/review/ready-to-review.html', url: '/ready'})
+            .state('tools.review.landing', {   templateUrl: '/views/user/review/review-landing.html', url: '/landing'})
+            .state('tools.review.analysis', {   templateUrl: '/views/user/review/document-analysis.html', url: '/analysis ', controller: 'ReviewCtrl'})
+            .state('tools.review.results', {   templateUrl: '/views/user/review/review-results.html', url: '/results'})
+            .state('tools.review.errors', {   templateUrl: '/views/user/review/review-errors.html', url: '/errors'})
+            .state('tools.review.summary', {   templateUrl: '/views/user/review/post-review.html', url: '/summary'});
     });

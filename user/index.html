@@ -21,12 +21,15 @@
     <script type="text/javascript" src="/scripts/libraries/underscore.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
 
+    <script type="text/javascript" src="/scripts/libraries/richmarker.js"></script>
+
     <script type="text/javascript" src="/scripts/libraries/angular.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-google-maps.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-cookies.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-route.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-resource.js"></script>
     <script type="text/javascript" src="/scripts/libraries/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/scripts/libraries/ng-map.min.js"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery.hotkeys.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap-wysiwyg.js"></script>
     <script type="text/javascript" src="/scripts/libraries/ng-grid.js"></script>
@@ -182,94 +185,164 @@
                         <a ui-sref="home.hierarchy">Organization Hierarchy</a></li>
                     <li ng-class="{ on: $state.includes('home.components') }">
                         <a ui-sref="home.components">Planning Components</a></li>
-                    <li ng-class="{ on: $state.includes('home.review') }">
-                        <a ui-sref="home.review">Review Documents</a></li>
                 </ul>
             </li>
-            <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"
-                                                                id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
-                <ul ng-show="$state.includes('impact')">
-                    <li ng-class="{ on: $state.includes('impact.profile') }">
-                        <a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">
-                        <a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>
-                    <li ng-class="{ on: $state.includes('impact.staff') }">
-                        <a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>
-                    <li ng-class="{ on: $state.includes('impact.resource') }">
-                        <a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>
-                    <li ng-class="{ on: $state.includes('impact.criticalApp') }">
-                        <a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)
-                            Requirements</a></li>
-                    <li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">
-                        <a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>
-                    <li ng-class="{ on: $state.includes('impact.internalDependencies') }">
-                        <a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>
-                    <li ng-class="{ on: $state.includes('impact.externalDependencies') }">
-                        <a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>
-                    <li ng-class="{ on: $state.includes('impact.vitalRecords') }">
-                        <a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>
-                    <li ng-class="{ on: $state.includes('impact.communications') }">
-                        <a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony
-                            Requirements) </a></li>
-                    <li ng-class="{ on: $state.includes('impact.other') }">
-                        <a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>
-                    <li ng-class="{ on: $state.includes('impact.results') }">
-                        <a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>
-                    <li ng-class="{ on: $state.includes('impact.review') }">
-                        <a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>
-                    <li ng-class="{ on: $state.includes('impact.compliance') }">
-                        <a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>
-                </ul>
-            </li>
-            <!-- H&B only -->
-            <li ng-class="{ on: $state.includes('continuity') }">
-                <a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>
-                <ul ng-show="$state.includes('continuity')">
-                    <li ng-class="{ on: $state.includes('continuity.profile') }">
-                        <a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('continuity.objective') }">
-                        <a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>
-                </ul>
-            </li>
-            <!-- H&B only -->
-            <li ng-class="{ on: $state.includes('risk') }">
-                <a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>
-                <ul ng-show="$state.includes('risk')">
-                    <li ng-class="{ on: $state.includes('risk.profile') }">
-                        <a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('risk.objective') }">
-                        <a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive
-                            Summary</a></li>
-                </ul>
-            </li>
-            <!-- all but H&B -->
-            <li ng-class="{ on: $state.includes('disaster') }">
-                <a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
 
-                <ul ng-show="$state.includes('disaster')">
-                    <li ng-class="{ on: $state.includes('disaster.profile') }">
-                        <a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('disaster.objective') }">
-                        <a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive
-                            Summary</a></li>
+            <li ng-class="{ on: $state.includes('dashboard') }">
+                <a ui-sref="dashboard.map">DASHBOARD</a>
+                <ul ng-show=" $state.includes('dashboard')">
+                    <li ng-class="{ on: $state.includes('dashboard.map') }">
+                        <a ui-sref="dashboard.map">Situational Awareness Map</a>
+                        <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
+                            <li ng-class="{ on: $state.includes('dashboard.map') }">
+                                <a ui-sref="dashboard.map">All Business Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.users') }">
+                                <a href="">My Work Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.groups') }">
+                                <a href="">My Recovery Facilities</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.workspace') }">
+                                <a href="">My Alternate Facilities</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </li>
-            <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting" data-submit-val="13"
+
+            <li ng-class="{ on: $state.includes('plan') }">
+                <a ui-sref="plan.organization">PLAN</a>
+                <ul ng-show=" $state.includes('plan')">
+                    <li ng-class="{ on: $state.includes('plan.organization') }">
+                        <a ui-sref="plan.organization">Understanding the Organization</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('plan.leadership') }">
+                        <a ui-sref="plan.leadership">Leadership</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('plan.planning') }">
+                        <a ui-sref="plan.planning">Planning</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('plan.support') }">
+                        <a ui-sref="plan.support">Support</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li ng-class="{ on: ($state.includes('do') || $state.includes('**.impact.**')) }">
+                <a ui-sref="do.risk">DO</a>
+                <ul ng-show="($state.includes('do') || $state.includes('**.impact.**')) ">
+                    <li ng-class="{ on: $state.includes('do.risk') }">
+                        <a ui-sref="do.risk">Risk Assessment</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('**.impact.**') }">
+                        <a ui-sref="impact.processes">Business Impact Analysis</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('do.continuity') }">
+                        <a ui-sref="do.continuity">Business Continuity Strategy</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('do.procedures') }">
+                        <a ui-sref="do.procedures">Establish and Implement BC Procedures</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('do.testing') }">
+                        <a ui-sref="do.testing">Exercising and Testing</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li ng-class="{ on: $state.includes('check') }">
+                <a ui-sref="check.evaluation">CHECK</a>
+                <ul ng-show=" $state.includes('check')">
+                    <li ng-class="{ on: $state.includes('check.evaluation') }">
+                        <a ui-sref="check.evaluation">Performance Evaluation</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li ng-class="{ on: $state.includes('act') }">
+                <a ui-sref="act.improvement">ACT</a>
+                <ul ng-show=" $state.includes('act')">
+                    <li ng-class="{ on: $state.includes('act.improvement') }">
+                        <a ui-sref="act.improvement">Improvement</a>
+                    </li>
+                </ul>
+            </li>
+            <!--<li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"-->
+                                                                <!--id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>-->
+                <!--<ul ng-show="$state.includes('impact')">-->
+                    <!--<li ng-class="{ on: $state.includes('impact.profile') }">-->
+                        <!--<a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">-->
+                        <!--<a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.staff') }">-->
+                        <!--<a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.resource') }">-->
+                        <!--<a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.criticalApp') }">-->
+                        <!--<a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)-->
+                            <!--Requirements</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">-->
+                        <!--<a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.internalDependencies') }">-->
+                        <!--<a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.externalDependencies') }">-->
+                        <!--<a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.vitalRecords') }">-->
+                        <!--<a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.communications') }">-->
+                        <!--<a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony-->
+                            <!--Requirements) </a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.other') }">-->
+                        <!--<a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.results') }">-->
+                        <!--<a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.review') }">-->
+                        <!--<a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('impact.compliance') }">-->
+                        <!--<a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!-- H&B only -->
+            <!--<li ng-class="{ on: $state.includes('continuity') }">-->
+                <!--<a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>-->
+                <!--<ul ng-show="$state.includes('continuity')">-->
+                    <!--<li ng-class="{ on: $state.includes('continuity.profile') }">-->
+                        <!--<a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('continuity.objective') }">-->
+                        <!--<a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--&lt;!&ndash; H&B only &ndash;&gt;-->
+            <!--<li ng-class="{ on: $state.includes('risk') }">-->
+                <!--<a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>-->
+                <!--<ul ng-show="$state.includes('risk')">-->
+                    <!--<li ng-class="{ on: $state.includes('risk.profile') }">-->
+                        <!--<a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('risk.objective') }">-->
+                        <!--<a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive-->
+                            <!--Summary</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--&lt;!&ndash; all but H&B &ndash;&gt;-->
+            <!--<li ng-class="{ on: $state.includes('disaster') }">-->
+                <!--<a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>-->
+
+                <!--<ul ng-show="$state.includes('disaster')">-->
+                    <!--<li ng-class="{ on: $state.includes('disaster.profile') }">-->
+                        <!--<a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('disaster.objective') }">-->
+                        <!--<a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive-->
+                            <!--Summary</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.review.ready" data-submit-val="13"
                                                                id="auto_id_18">TOOLS</a>
                 <ul ng-show="$state.includes('tools')">
-                    <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"
-                                                                                 data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-file"></span> Reporting</a>
+                    <li ng-class="{ on: $state.includes('tools.review') }">
+                        <a ui-sref="tools.review.ready"> <span class="glyphicon glyphicon-wrench"></span> Progress Review</a></li>
+                    <li ng-class="{ on: $state.includes('tools.reporting') }">
+                        <a ui-sref="tools.reporting"><span class="glyphicon glyphicon-file"></span> Performance Indicators</a>
                     </li>
-                    <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"
-                                                                                data-submit-val="22"> <span class="glyphicon glyphicon-wrench"></span> Application
-                        Controls</a></li>
-                    <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print" data-submit-val="22"><span class="glyphicon glyphicon-print"></span> Print
+                    <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print"><span class="glyphicon glyphicon-print"></span> Print
                         Center</a></li>
-                    <li ng-class="{ on: $state.includes('tools.audit') }"><a ui-sref="tools.audit" data-submit-val="22"><span class="glyphicon glyphicon-eye-open"></span> Audit
-                        Center</a></li>
-                    <li ng-class="{ on: $state.includes('tools.notification') }"><a ui-sref="tools.notification"
-                                                                                    data-submit-val="16"><span class="glyphicon glyphicon-bell"></span> Notification
-                        Interface </a></li>
+
                 </ul>
             </li>
 
@@ -281,6 +354,7 @@
     <div id="main_right" style="display: block;" ui-view="">
         <div class="text-center"><span class="lead">{{orgEntity.title}}</span></div>
         <div ui-view="" autoscroll="true">
+            <div ui-view="" autoscroll="true"></div>
         </div>
 
         <footer id="footerLayer" align="center" role="contentinfo">
