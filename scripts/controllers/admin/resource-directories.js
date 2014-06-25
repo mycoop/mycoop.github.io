@@ -16,10 +16,10 @@ angular.module('adminApp').
         $scope.act = function (d) {
             switch (d.name){
                 case 'Employee Contacts':
-                    $state.transitionTo('setup.resources.employee');
+                    $state.transitionTo('config.resources.employee');
                     break;
                 case 'Additional Resources':
-                    $state.transitionTo('setup.resources.additional');
+                    $state.transitionTo('config.resources.additional');
                     break;
             }
         }

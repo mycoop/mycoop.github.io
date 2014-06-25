@@ -140,7 +140,9 @@ angular
             .state('config.backup', {  templateUrl: '/views/admin/config/backup-manager.html', url: '/backup-manager'})
             .state('config.workflow', {  templateUrl: '/views/admin/config/workflow/workflow.html', url: '/workflow-config', controller:'AssignmentsCtrl'})
             .state('config.workflow.add', {  templateUrl: '/views/admin/config/workflow/create-workflow.html', url: '/add', controller: 'WorkflowCtrl'})
-            .state('config.billing', {  templateUrl: '/views/admin/config/billing.html', url: '/billing'});
+            .state('config.billing', {  templateUrl: '/views/admin/config/billing.html', url: '/billing'})
+        .state('config.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
+
 
 
         $stateProvider

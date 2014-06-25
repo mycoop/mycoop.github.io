@@ -162,29 +162,29 @@
                         <a ui-sref="home.resource">Resource Directories</a></li>
                 </ul>
             </li>
-            <li ng-class="{ on: $state.includes('setup') }">
-                <a ui-sref="setup.profile" data-submit-val="0" id="auto_id_0">SETUP</a>
-                <ul ng-show=" $state.includes('setup')">
-                    <li ng-class="{ on: $state.includes('setup.profile') }">
-                        <a ui-sref="setup.profile">Organization Profile</a></li>
-                    <li ng-class="{ on: $state.includes('setup.standards') }">
-                        <a ui-sref="setup.standards">Standards and Compliance</a></li>
-                    <li ng-class="{ on: $state.includes('setup.resources') }">
-                        <a ui-sref="setup.resources">Resource Directories</a></li>
-                    <li ng-class="{ on: $state.includes('setup.ui') }">
-                        <a ui-sref="setup.ui"> User Interface</a></li>
-                    <li ng-class="{ on: $state.includes('setup.templates') }">
-                        <a ui-sref="setup.templates">Template Collection</a></li>
-                    <li ng-class="{ on: $state.includes('setup.config') }">
-                        <a ui-sref="setup.config">Workflow Configuration</a></li>
-                    <li ng-class="{ on: $state.includes('setup.users') }">
-                        <a ui-sref="setup.users">User Administration </a></li>
-                    <li ng-class="{ on: $state.includes('setup.hierarchy') }">
-                        <a ui-sref="setup.hierarchy">Hierarchy Management</a></li>
-                    <li ng-class="{ on: $state.includes('setup.review') }">
-                        <a ui-sref="setup.review">Setup Review</a></li>
-                </ul>
-            </li>
+            <!--<li ng-class="{ on: $state.includes('setup') }">-->
+                <!--<a ui-sref="setup.profile" data-submit-val="0" id="auto_id_0">SETUP</a>-->
+                <!--<ul ng-show=" $state.includes('setup')">-->
+                    <!--<li ng-class="{ on: $state.includes('setup.profile') }">-->
+                        <!--<a ui-sref="setup.profile">Organization Profile</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.standards') }">-->
+                        <!--<a ui-sref="setup.standards">Standards and Compliance</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.resources') }">-->
+                        <!--<a ui-sref="setup.resources">Resource Directories</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.ui') }">-->
+                        <!--<a ui-sref="setup.ui"> User Interface</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.templates') }">-->
+                        <!--<a ui-sref="setup.templates">Template Collection</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.config') }">-->
+                        <!--<a ui-sref="setup.config">Workflow Configuration</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.users') }">-->
+                        <!--<a ui-sref="setup.users">User Administration </a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.hierarchy') }">-->
+                        <!--<a ui-sref="setup.hierarchy">Hierarchy Management</a></li>-->
+                    <!--<li ng-class="{ on: $state.includes('setup.review') }">-->
+                        <!--<a ui-sref="setup.review">Setup Review</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
 
             <li ng-class="{ on: $state.includes('config') }">
                 <a ui-sref="config.profile">CONFIGURE</a>
@@ -193,16 +193,22 @@
                         <a ui-sref="config.profile">Organization Profile</a></li>
                     <li ng-class="{ on: $state.includes('config.standards') }">
                         <a ui-sref="config.standards">Standards and Compliance</a></li>
-                    <li ng-class="{ on: $state.includes('config.general') }">
-                        <a ui-sref="config.general">General Configuration</a></li>
-                    <li ng-class="{ on: $state.includes('config.ui') }">
-                        <a ui-sref="config.ui">Look and Feel</a></li>
+                    <li ng-class="{ on: $state.includes('config.general') || $state.includes('config.ui') }">
+                        <a ui-sref="config.general">General Configuration</a>
+                        <ul style="margin-top: 10px" ng-show="$state.includes('config.general') || $state.includes('config.ui') ">
+                            <li ng-class="{ on: $state.includes('config.ui') }"><a ui-sref="config.ui">Look and Feel</a></li>
+                        </ul>
+                    </li>
                     <li ng-class="{ on: $state.includes('config.advanced') }">
-                        <a ui-sref="config.advanced">Advanced Configuration</a></li>
-                    <li ng-class="{ on: $state.includes('config.resources') }">
-                        <a ui-sref="config.resources">Resource Directories</a></li>
-                    <li ng-class="{ on: $state.includes('config.templates') }">
-                        <a ui-sref="config.templates">Template Collection</a></li>
+                        <a ui-sref="config.advanced">Advanced Configuration</a>
+                        <ul  style="margin-top: 10px" ng-show="$state.includes('config.advanced') || $state.includes('config.resources') || $state.includes('config.templates') ">
+                            <li ng-class="{ on: $state.includes('config.resources') }">
+                                <a ui-sref="config.resources">Resource Directories</a></li>
+                            <li ng-class="{ on: $state.includes('config.templates') }">
+                                <a ui-sref="config.templates">Template Collection</a></li>
+                        </ul>
+                    </li>
+
                     <li ng-class="{ on: $state.includes('config.hierarchy') }">
                         <a ui-sref="config.hierarchy">Hierarchy Management</a></li>
                     <li ng-class="{ on: $state.includes('config.security') }">
@@ -220,6 +226,8 @@
                     </li>
                     <li ng-class="{ on: $state.includes('config.workflow') }">
                         <a ui-sref="config.workflow">Workflow Configuration</a></li>
+                    <li ng-class="{ on: $state.includes('config.review') }">
+                        <a ui-sref="config.review">Setup Review</a></li>
                 </ul>
             </li>
 
@@ -243,74 +251,6 @@
                 </ul>
             </li>
 
-            <li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"
-                                                                id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>
-                <ul ng-show="$state.includes('impact')">
-                    <li ng-class="{ on: $state.includes('impact.profile') }">
-                        <a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">
-                        <a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>
-                    <li ng-class="{ on: $state.includes('impact.staff') }">
-                        <a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>
-                    <li ng-class="{ on: $state.includes('impact.resource') }">
-                        <a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>
-                    <li ng-class="{ on: $state.includes('impact.criticalApp') }">
-                        <a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)
-                            Requirements</a></li>
-                    <li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">
-                        <a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>
-                    <li ng-class="{ on: $state.includes('impact.internalDependencies') }">
-                        <a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>
-                    <li ng-class="{ on: $state.includes('impact.externalDependencies') }">
-                        <a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>
-                    <li ng-class="{ on: $state.includes('impact.vitalRecords') }">
-                        <a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>
-                    <li ng-class="{ on: $state.includes('impact.communications') }">
-                        <a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony
-                            Requirements) </a></li>
-                    <li ng-class="{ on: $state.includes('impact.other') }">
-                        <a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>
-                    <li ng-class="{ on: $state.includes('impact.results') }">
-                        <a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>
-                    <li ng-class="{ on: $state.includes('impact.review') }">
-                        <a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>
-                    <li ng-class="{ on: $state.includes('impact.compliance') }">
-                        <a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>
-                </ul>
-            </li>
-            <!-- H&B only -->
-            <li ng-class="{ on: $state.includes('continuity') }">
-                <a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>
-                <ul ng-show="$state.includes('continuity')">
-                    <li ng-class="{ on: $state.includes('continuity.profile') }">
-                        <a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('continuity.objective') }">
-                        <a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>
-                </ul>
-            </li>
-            <!-- H&B only -->
-            <li ng-class="{ on: $state.includes('risk') }">
-                <a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>
-                <ul ng-show="$state.includes('risk')">
-                    <li ng-class="{ on: $state.includes('risk.profile') }">
-                        <a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('risk.objective') }">
-                        <a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive
-                            Summary</a></li>
-                </ul>
-            </li>
-            <!-- all but H&B -->
-            <li ng-class="{ on: $state.includes('disaster') }">
-                <a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>
-
-                <ul ng-show="$state.includes('disaster')">
-                    <li ng-class="{ on: $state.includes('disaster.profile') }">
-                        <a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>
-                    <li ng-class="{ on: $state.includes('disaster.objective') }">
-                        <a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive
-                            Summary</a></li>
-                </ul>
-            </li>
             <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting" data-submit-val="13"
                                                                id="auto_id_18">TOOLS</a>
                 <ul ng-show="$state.includes('tools')">
