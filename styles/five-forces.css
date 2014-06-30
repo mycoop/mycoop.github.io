@@ -1,0 +1,150 @@
+.force-sections-container {
+    margin: 0 auto;
+    width: 700px;
+    position: relative;
+    height: 390px;
+}
+
+.force-sections-container .force-section {
+    position: absolute;
+    overflow: hidden;
+    height: 180px;
+    width: 335px;
+}
+
+
+.force-sections-container .force-section .list {
+    position: absolute;
+    max-height: 180px;
+    overflow: scroll;
+    width: 180px;
+    z-index: 10;
+}
+
+.force-sections-container .force-section.top-left {
+    top: 0;
+    left: 0;
+}
+
+.force-sections-container .force-section.top-right {
+    top: 0;
+    right: 0;
+}
+
+.force-sections-container .force-section.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.force-sections-container .force-section.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+
+.force-sections-container .force-section.top-left .list {
+    top: 0;
+    left: 0;
+}
+
+.force-sections-container .force-section.top-right .list{
+    top: 0;
+    right: 0;
+}
+
+.force-sections-container .force-section.bottom-left .list {
+    top: 0px;
+    left: 0;
+}
+
+.force-sections-container .force-section.bottom-right .list{
+    top: 10px;
+    right: 0;
+}
+
+.force-sections-container .force-section.center {
+    z-index: 100;
+    border: 5px solid #ffffff;
+    background-color: salmon;
+    width: 200px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -35px;
+}
+
+.force-sections-container .force-section.center .text {
+    line-height: 60px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.force-sections-container .force-section .back {
+
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-color: salmon;
+    cursor: pointer;
+    z-index: 100;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.force-sections-container .force-section .back:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.force-sections-container .force-section .back {
+
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-color: salmon;
+    cursor: pointer;
+}
+
+.force-sections-container .force-section .back.high,  .force-sections-container .force-section.center.high{
+    background-color: salmon;
+}
+
+.force-sections-container .force-section .back.moderate, .force-sections-container .force-section.center.moderate {
+    background-color: #f0ad4e;
+}
+.force-sections-container .force-section .back.low, .force-sections-container .force-section.center.low {
+    background-color: #468847;
+}
+
+.force-sections-container .force-section .back .text {
+    width: 160px;
+    height: 160px;
+    color: #ffffff;
+}
+
+.force-sections-container .force-section.top-left .back {
+    bottom: -160px;
+    right: -160px;
+}
+
+.force-sections-container .force-section.top-right .back {
+    bottom: -160px;
+    left: -160px;
+}
+
+.force-sections-container .force-section.bottom-left .back {
+    top: -160px;
+    right: -160px;
+}
+
+.force-sections-container .force-section.bottom-right .back {
+    top: -160px;
+    left: -160px;
+}
+
+
+
+

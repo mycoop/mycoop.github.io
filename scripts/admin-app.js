@@ -17,7 +17,8 @@ angular
         'filters',
         'ngMap',
         'angular-carousel',
-        'angularSpectrumColorpicker'
+        'angularSpectrumColorpicker',
+        'controllers.common'
     ]).run(function ($rootScope, $location, $state, $stateParams) {
         $rootScope.showNav = '';
         $rootScope.$state = $state;
@@ -127,22 +128,21 @@ angular
             .state('config.security.users.details', {   templateUrl: '/views/admin/details-user.html', url: '/details?id', controller: 'UserCtrl'})
             .state('config.security.users.multiple', {   templateUrl: '/views/admin/multiple-users.html', url: '/multiple', controller: 'MultipleUserCtrl'})
             .state('config.security.groups', { templateUrl: '/views/admin/config/groups/groups.html', url: '/groups', controller: 'GroupsCtrl'})
-            .state('config.security.groups.add', {templateUrl: '/views/admin/config/groups/add-group.html', url: '/add',  controller: 'GroupsCtrl'})
-            .state('config.security.groups.details', {templateUrl: '/views/admin/config/groups/group-details.html', url: '/membership?id', controller:'GroupMembershipCtrl'})
-            .state('config.security.groups.settings', {templateUrl: '/views/admin/config/groups/group-settings.html', url: '/settings?id',  controller:'GroupMembershipCtrl'})
-            .state('config.security.groups.workspace', {templateUrl: '/views/admin/config/groups/group-workspace.html', url: '/workspace?id', controller:'GroupWorkspaceCtrl'})
-            .state('config.security.groups.delete', {templateUrl: '/views/admin/config/groups/delete-group.html', url: '/delete?id', controller:'GroupMembershipCtrl'})
+            .state('config.security.groups.add', {templateUrl: '/views/admin/config/groups/add-group.html', url: '/add', controller: 'GroupsCtrl'})
+            .state('config.security.groups.details', {templateUrl: '/views/admin/config/groups/group-details.html', url: '/membership?id', controller: 'GroupMembershipCtrl'})
+            .state('config.security.groups.settings', {templateUrl: '/views/admin/config/groups/group-settings.html', url: '/settings?id', controller: 'GroupMembershipCtrl'})
+            .state('config.security.groups.workspace', {templateUrl: '/views/admin/config/groups/group-workspace.html', url: '/workspace?id', controller: 'GroupWorkspaceCtrl'})
+            .state('config.security.groups.delete', {templateUrl: '/views/admin/config/groups/delete-group.html', url: '/delete?id', controller: 'GroupMembershipCtrl'})
             .state('config.security.workspace', { url: '/workspace-permissions'})
             .state('config.resources', { templateUrl: '/views/admin/resource-directories.html', url: '/resources', controller: 'ResourceDirectoriesCtrl'})
             .state('config.resources.employee', { templateUrl: '/views/admin/employee-directory.html', url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('config.resources.additional', { templateUrl: '/views/admin/employee-directory.html', url: '/additional', controller: 'AdditionalResourcesCtrl'})
             .state('config.templates', { templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('config.backup', {  templateUrl: '/views/admin/config/backup-manager.html', url: '/backup-manager'})
-            .state('config.workflow', {  templateUrl: '/views/admin/config/workflow/workflow.html', url: '/workflow-config', controller:'AssignmentsCtrl'})
+            .state('config.workflow', {  templateUrl: '/views/admin/config/workflow/workflow.html', url: '/workflow-config', controller: 'AssignmentsCtrl'})
             .state('config.workflow.add', {  templateUrl: '/views/admin/config/workflow/create-workflow.html', url: '/add', controller: 'WorkflowCtrl'})
             .state('config.billing', {  templateUrl: '/views/admin/config/billing.html', url: '/billing'})
-        .state('config.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
-
+            .state('config.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
 
 
         $stateProvider

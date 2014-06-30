@@ -1,0 +1,30 @@
+<div>
+    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context</h3>
+    <p>
+        <span class="bold">Area of ISO 22301 Addressed:
+            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
+        </span>
+    </p>
+    <p>
+        It is necessary to obtain an overview of the organization to understand the complaince, challenges,
+        of the organization and the inherent risk in that market segment. General information about the
+        related organization should be collected to better appreciate its mission, strategies, purpose, etc.
+        This helps ensuring consistency and alignment between the strategic
+        objectives for risk management and the organization's mission.
+    </p>
+
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="home.components"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.select"
+           title="Save">Continue</a>
+    </div>
+</div>

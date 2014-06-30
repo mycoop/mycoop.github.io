@@ -14,20 +14,31 @@ angular
         'resources.org-entity',
         'ui.bootstrap',
         'controls',
+        'controllers.common',
         'filters'
     ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity) {
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-        $rootScope.currentDocument = {
-            id: 1,
-            area: 'Department 1',
-            title: 'Business Impact Analysis',
-            details: 'This report identifies the key business continuity requirements for each critical business activity',
-            deadline: new Date().setDate((new Date()).getDate() + 5),
-            scheduledDate: new Date().setDate((new Date()).getDate() + 6),
-            status: 'gold'
-        };
+        $rootScope.docs = [
+            {
+                id: 1,
+                area: 'Department 1',
+                title: 'Business Impact Analysis',
+                details: 'This report identifies the key business continuity requirements for each critical business activity',
+                deadline: new Date().setDate((new Date()).getDate() + 5),
+                scheduledDate: new Date().setDate((new Date()).getDate() + 6),
+                status: 'gold'
+            },
+            {
+                documentReference: "MC04001",
+                title: "Business Continuity Context, Requirements and Scope",
+                purpose: "To set out the organisational context of the BCMS. It describes what the organisation does, how it does it, what factors influence the way it operates and the reasons for the definition of the scope of the BCMS",
+                Pages: "18",
+                Sections: "4.Context of the Organisation 4.1 Understanding of the  organisation and its context 4.2 Understanding the needs and expectations of interested parties 4.2.1 General 4.2.2 Legal and regulatory requirements 4.3 Determining the scope of the BCMS 4.3.1 General 4.3.2 Scope of the BCMS 4.4 Business continuity management system"
+            }
+        ];
+        $rootScope.currentDocument = $rootScope.docs[1];
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 if ($stateParams.orgEntityId) {
@@ -82,7 +93,9 @@ angular
         $urlRouterProvider.otherwise("/home/main");
         $provide.decorator('$uiViewScroll', function ($delegate) {
             return function (uiViewElement) {
-                $('body').ScrollTo({ duration: 300 });
+                if ($('body').scrollTop() > 0) {
+                    $('body').ScrollTo({ duration: 0 });
+                }
             };
         });
 
@@ -100,7 +113,14 @@ angular
 
         $stateProvider
             .state('plan', { url: '/plan?orgEntityId'})
-            .state('plan.organization', {   template: '<h1>Understanding the Organization</h1>', url: '/organization'})
+            .state('plan.organization', {   url: '/organization'})
+            .state('plan.organization.external', {   templateUrl: '/views/user/context-activities/external.html', url: '/external'})
+            .state('plan.organization.select', {   templateUrl: '/views/user/context-activities/select-analysis.html', url: '/select-analysis', controller:'SelectAnalysisCtrl'})
+            .state('plan.organization.swot', {   templateUrl: '/views/user/context-activities/swot-analysis.html', url: '/swot', controller:'SwotAnalysisCtrl'})
+            .state('plan.organization.pest', {   templateUrl: '/views/user/context-activities/pest-analysis.html', url: '/pest', controller: 'PestAnalysisCtrl'})
+            .state('plan.organization.forces', { templateUrl: '/views/user/context-activities/five-forces-analysis.html', url: '/five-forces', controller: 'FiveForcesCtrl'})
+            .state('plan.organization.other', {   template: '<h1>Understanding the Organization</h1>', url: '/organization'})
+
             .state('plan.leadership', {   template: '<h1>Leadership</h1>', url: '/leadership'})
             .state('plan.planning', {   template: '<h1>Planning</h1>', url: '/planning'})
             .state('plan.support', {   template: '<h1>Support</h1>', url: '/support'});

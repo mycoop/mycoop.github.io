@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/styles/ng-grid.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/app/helpers.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/restyling.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/five-forces.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/swot.css"/>
 
     <script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery.js"></script>
@@ -41,6 +43,8 @@
     <script type="text/javascript" src="/scripts/libraries/ui-bootstrap-tpls.js"></script>
     <script src="/scripts/libraries/d3.js" charset="utf-8"></script>
 
+    <script type="text/javascript" src="/scripts/helpers/prototypes.js"></script>
+
     <script type="text/javascript" src="/scripts/resources/process.js"></script>
     <script type="text/javascript" src="/scripts/resources/org-entity.js"></script>
     <script type="text/javascript" src="/scripts/resources/user.js"></script>
@@ -49,11 +53,14 @@
 
     <script type="text/javascript" src="/scripts/user-app.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/hierarchy.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/user/map.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/components.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/business-process.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/review.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/user/print.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/external-activities.js"></script>
+
+    <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/common/print.js"></script>
 
 
     <script type="text/javascript" src="/scripts/directives/directives.js"></script>
@@ -209,10 +216,10 @@
             </li>
 
             <li ng-class="{ on: $state.includes('plan') }">
-                <a ui-sref="plan.organization">PLAN</a>
+                <a ui-sref="plan.organization.external">PLAN</a>
                 <ul ng-show=" $state.includes('plan')">
                     <li ng-class="{ on: $state.includes('plan.organization') }">
-                        <a ui-sref="plan.organization">Understanding the Organization</a>
+                        <a ui-sref="plan.organization.external">Understanding the Organization</a>
                     </li>
                     <li ng-class="{ on: $state.includes('plan.leadership') }">
                         <a ui-sref="plan.leadership">Leadership</a>

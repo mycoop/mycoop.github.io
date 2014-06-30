@@ -119,7 +119,7 @@ angular.module('resources.org-entity',[])
         var service = {
             getEntities: function(callback){
 //                setTimeout(function(){
-                    callback(angular.copy(entities));
+                    callback(entities);
 //                },10);
             },
             getEntity: function(id, callback){

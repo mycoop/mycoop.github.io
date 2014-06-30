@@ -1,0 +1,131 @@
+<div>
+    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
+
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context:
+        External Environment Analysis</h3>
+
+    <p>
+        <span class="bold">Area of ISO 22301 Addressed:
+            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
+        </span>
+    </p>
+
+    <p>
+        Several methodologies exist to understand how an organization functions. The important outcome is to identify
+        the
+        characteristics of external environmental factors that will influence business continuity management: mission,
+        main activities,
+        internal organization, stakeholders, etc.
+    </p>
+
+    <p>
+        <span class="text-muted">Analysis Methodology Selected: </span> <span class="bold">Five Forces Analysis</span>
+    </p>
+
+    <div class="force-sections-container">
+        <div class="force-section top-left">
+            <div class="back {{powers.suppliers.status.name}}" ng-click="showForceStatusModal(powers.suppliers)">
+                <div style="margin-top: 80px; padding: 8px;" class="text text-right">{{powers.suppliers.name}}</div>
+            </div>
+            <div class="list panel panel-default">
+                <div class="panel-body">
+                    <span ng-click="isSuppliersEdit=!isSuppliersEdit" ng-hide="isSuppliersEdit"
+                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
+
+                    <div ng-class="{'top-space': $index != 0}" ng-repeat="item in powers.suppliers.items">
+                        <small ng-hide="isSuppliersEdit">{{item.content}}</small>
+                        <input ng-show="isSuppliersEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isSuppliersEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isSuppliersEdit"
+                           ng-click="isSuppliersEdit=false">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="force-section top-right">
+            <div class="back {{powers.barriers.status.name}}"  ng-click="showForceStatusModal(powers.barriers)">
+                <div style="margin-top: 80px; padding: 8px;" class="text text-left pull-right">
+                    {{powers.barriers.name}}
+                </div>
+            </div>
+            <div class="list panel panel-default">
+                <div class="panel-body">
+                    <span ng-click="isBarrierssEdit=!isBarrierssEdit" ng-hide="isBarrierssEdit"
+                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
+
+                    <div ng-class="{'top-space': $index != 0}" ng-repeat="item in powers.barriers.items">
+                        <small ng-hide="isBarrierssEdit">{{item.content}}</small>
+                        <input ng-show="isBarrierssEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isBarrierssEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isBarrierssEdit"
+                           ng-click="isBarrierssEdit=false">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="force-section bottom-left">
+            <div class="back {{powers.threat.status.name}}"  ng-click="showForceStatusModal(powers.threat)">
+                <div style="margin-top: 190px; padding: 8px;" class="text text-right">Threat of <br/> substitutes</div>
+            </div>
+            <div class="list panel panel-default">
+                <div class="panel-body">
+                    <span ng-click="isThreatEdit=!isThreatEdit" ng-hide="isThreatEdit"
+                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
+
+                    <div ng-class="{'top-space': $index != 0}" ng-repeat="item in powers.threat.items">
+                        <small ng-hide="isThreatEdit">{{item.content}}</small>
+                        <input ng-show="isThreatEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isThreatEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isThreatEdit"
+                           ng-click="isThreatEdit=false">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="force-section bottom-right">
+            <div class="back {{powers.byers.status.name}}" ng-click="showForceStatusModal(powers.byers)" >
+                <div style="margin-top: 190px; padding: 8px;" class="text text-left pull-right">{{powers.byers.name}}
+                </div>
+            </div>
+
+            <div class="list panel panel-default">
+                <div class="panel-body">
+                    <span ng-click="isBuyersEdit=!isBuyersEdit" ng-hide="isBuyersEdit"
+                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
+
+                    <div ng-class="{'top-space': $index != 0}" ng-repeat="item in powers.byers.items">
+                        <small ng-hide="isBuyersEdit">{{item.content}}</small>
+                        <input ng-show="isBuyersEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isBuyersEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isBuyersEdit" ng-click="isBuyersEdit=false">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="force-section center {{powers.rivalry.status.name}}">
+            <div class="text">
+                {{powers.rivalry.name}}
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr/>
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="home.components"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.select"
+           title="Save">Save & Continue</a>
+    </div>
+</div>

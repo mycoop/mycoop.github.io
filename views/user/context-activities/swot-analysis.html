@@ -1,0 +1,90 @@
+<div>
+    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
+
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context:
+        External Environment Analysis</h3>
+
+    <p>
+        <span class="bold">Area of ISO 22301 Addressed:
+            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
+        </span>
+    </p>
+
+    <p>
+        Several methodologies exist to understand how an organization functions. The important outcome is to identify
+        the
+        characteristics of external environmental factors that will influence business continuity management: mission,
+        main activities,
+        internal organization, stakeholders, etc.
+    </p>
+
+    <p>
+        <span class="text-muted">Analysis Methodology Selected: </span> <span class="bold">SWOT Analysis</span>
+    </p>
+
+    <div class="row">
+
+        <div class="swot-container col-xs-11">
+            <div class="swot-section s">
+                <h2>Strengths</h2>
+                <div class="lead-letter">S</div>
+                <div>
+                    <span ng-click="isBuyersEdit=!isBuyersEdit" ng-hide="isBuyersEdit"
+                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
+
+                        <div  ng-repeat="item in strengths">
+                            <small>{{item.content}}</small>
+                            <input ng-show="isBuyersEdit" type="text" class="form-control" ng-model="item.content"/>
+                        </div>
+                        <div>
+                            <a href="" class="pull-left" ng-show="isBuyersEdit" ng-click="addRow(1)">Add more</a>
+                            <a href="" class="pull-right" ng-show="isBuyersEdit" ng-click="isBuyersEdit=false">Save</a>
+                        </div>
+                </div>
+            </div>
+            <div class="swot-section w">
+                <h2>Weaknesses</h2>
+
+                <div class="lead-letter">W</div>
+            </div>
+        </div>
+        <div class="col-xs-1"> <div style="margin-top: 90px" class="bold">Internal</div></div>
+    </div>
+    <div class="row">
+        <div class="swot-container col-xs-11">
+
+            <div class="swot-section o">
+                <h2>Opportunities</h2>
+
+                <div class="lead-letter">O</div>
+            </div>
+            <div class="swot-section t">
+                <h2>Threats</h2>
+
+                <div class="lead-letter">T</div>
+            </div>
+        </div>
+        <div class="col-xs-1 "><div style="margin-top: 90px" class="bold">External</div></div>
+    </div>
+    <br/>
+    <div class="row">
+
+        <div class="col-xs-11 row">
+            <div class="col-xs-6 bold text-center">Positive</div>
+            <div class="col-xs-6 bold text-center">Negative</div>
+        </div>
+    </div>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="home.components"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.select"
+           title="Save">Continue</a>
+    </div>
+</div>

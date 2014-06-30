@@ -1,0 +1,87 @@
+<div>
+    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
+
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context:
+        External Environment Analysis</h3>
+
+    <p>
+        <span class="bold">Area of ISO 22301 Addressed:
+            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
+        </span>
+    </p>
+
+    <p>
+        Several methodologies exist to understand how an organization functions. The important outcome is to identify
+        the
+        characteristics of external environmental factors that will influence business continuity management: mission,
+        main activities,
+        internal organization, stakeholders, etc.
+    </p>
+
+    <p>
+        <span class="text-muted">Analysis Methodology Selected: </span> <span class="bold">PEST Analysis</span>
+    </p>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <span class="panel-title"><small>POLITICAL</small></span>
+                <span class="pull-right clickable" ng-click="isPoliticalEdit=!isPoliticalEdit"><span class="glyphicon glyphicon-pencil"></span></span>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in political">
+                    <small ng-hide="isPoliticalEdit">{{item.content}}</small>
+                    <textarea style="height: 120px" class="form-control" ng-show="isPoliticalEdit" ng-model="item.content"></textarea>
+                    <small ng-show="isPoliticalEdit" ng-click="deleteRow(item, 1)" class="clickable">Remove</small>
+                </li>
+                <li class="list-group-item" ng-if="isPoliticalEdit"><small><a href="" ng-click="addRow(1)">+ Add</a></small></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <span class="panel-title"><small>ECONOMICAL</small></span>
+                <span class="pull-right"> <span class="glyphicon glyphicon-pencil"></span></span>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <span class="panel-title"><small>SOCIAL</small></span>
+                <span class="pull-right"> <span class="glyphicon glyphicon-pencil"></span></span>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div></div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <span class="panel-title"><small>TECHNOLOGICAL</small></span>
+                <span class="pull-right"><span class="glyphicon glyphicon-pencil"></span></span>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div>
+</div>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="home.components"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.select"
+           title="Save">Save & Continue</a>
+    </div>
+</div>

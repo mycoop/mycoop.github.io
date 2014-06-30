@@ -1,4 +1,4 @@
-<div>
+<div ng-init="path='tools.review.landing'">
     <div class="row top-space-big">
         <h3>Review: {{orgEntity.title}} > {{currentDocument.title}} (2014)</h3>
 
@@ -12,12 +12,12 @@
     <br/>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" >
             <h3>Have entered all plan data and related content?</h3>
             <ul class="list-unstyled">
-                <li><input type="radio" name="option" checked/> Yes, I've entered everything and let's review</li>
-                <li><input type="radio" name="option"/> No, I have something to enter</li>
-                <li><input type="radio" name="option"/> No, I have something to attach</li>
+                <li><input type="radio" ng-model="path" value="tools.review.landing" name="option" checked/> Yes, I've entered everything and let's review</li>
+                <li><input type="radio" ng-model="path" value="home.components" name="option"/> No, I have something to enter</li>
+                <li><input type="radio" ng-model="path" value="home" name="option"/> No, I have something to attach</li>
             </ul>
         </div>
         <div class="col-md-4">
@@ -28,13 +28,13 @@
         <hr/>
 
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ng-click="previousPage()"
+           ui-sref="home.components"
            automationid="editNameSave"
            title="Save">Back</a>
 
         <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
            automationid="editNameSave"
-           ui-sref="tools.review.landing"
+           ui-sref="{{path}}"
            title="Save">Continue</a>
     </div>
 </div>

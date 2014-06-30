@@ -1,3 +1,18 @@
+.animation-container{
+
+}
+
+.animation-container .animation-item{
+
+}
+
+
+
+/*
+    NG-animate
+*/
+
+
 .view-animate-container {
     position:relative;
     min-height:100%;
@@ -36,3 +51,4 @@
     top: 50px;
     opacity: 0;
 }
+

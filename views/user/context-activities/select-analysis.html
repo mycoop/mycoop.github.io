@@ -1,0 +1,76 @@
+<div>
+    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
+
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context: <br/>
+        Analysis of the Organization's External Context</h3>
+
+    <p>
+        <span class="bold">Area of ISO 22301 Addressed:
+            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
+        </span>
+    </p>
+
+    <p>
+        Several methodologies exist to understand how an organization functions. The important outcome is to identify
+        the
+        characteristics of external environmental factors that will influence business continuity management: mission,
+        main activities,
+        internal organization, stakeholders, etc.
+    </p>
+
+    <p>
+        Below are some frequently used model s to analyze and understand the strategic context of an organization.
+    </p>
+
+    <div class="panel panel-default">
+        <div class="panel-body ">
+            <div class="col-md-1">
+                <img src="/images/caution.svg" alt=""/>
+            </div>
+            <div class="col-md-11">
+                <div class="left-space">
+                    This step should not become a project in itself. It is sufficient to analyze the
+                    organization's strategic positioning and conduct interviews with some key
+                    organization personnel.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-muted">
+        Choose the analysis methodology that you wish to use:
+    </p>
+
+    <div class="row">
+        <div class="col-md-7">
+            <ul class="list-unstyled">
+                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="swot"/> SWOT Analysis</li>
+                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="pest"/> PEST Analysis</li>
+                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="forces"/> Five Forces Analysis</li>
+                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" /> Other</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <img src="/images/cube.png" alt=""/>
+        </div>
+    </div>
+
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="home.components"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium left-space btn-blue submit pull-right"
+           automationid="editNameSave"
+           ng-click="goToAnalysis()"
+
+           title="Save">Continue</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           title="Save">Skip</a>
+    </div>
+</div>

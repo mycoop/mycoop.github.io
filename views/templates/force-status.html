@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h2 class="modal-title">{{force.name}}</h2>
+</div>
+<div class="modal-body">
+    <h3>Chose status</h3>
+    <div class="top-space">   </div>
+    <input type="radio" name="act" ng-model="force.status" ng-value="statuses.low" id="low"/> <label for="low">Low</label><br/>
+    <input type="radio" name="act" ng-model="force.status" ng-value="statuses.moderate" id="moderate"/> <label for="moderate">Moderate</label><br/>
+    <input type="radio" name="act" ng-model="force.status" ng-value="statuses.high" id="high"/> <label for="high">High</label><br/>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Save</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
