@@ -1,9 +1,6 @@
 <div>
     <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
-
-    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context: <br/>
-        Analysis of the Organization's External Context</h3>
-
+    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context</h3>
     <p>
         <span class="bold">Area of ISO 22301 Addressed:
             <a href="">clause 4.1 Understanding of the Organization and its Context</a>
@@ -37,40 +34,17 @@
         </div>
     </div>
 
-    <p class="text-muted">
-        Choose the analysis methodology that you wish to use:
-    </p>
-
-    <div class="row">
-        <div class="col-md-7">
-            <ul class="list-unstyled">
-                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="swot"/> SWOT Analysis</li>
-                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="pest"/> PEST Analysis</li>
-                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="forces"/> Five Forces Analysis</li>
-                <li class="bold"><input type="radio" name="methodology" ng-model="analysisType" value="other"/> Other</li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <img src="/images/cube.png" alt=""/>
-        </div>
-    </div>
-
     <div>
         <hr/>
 
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ui-sref="home.components"
+           ui-sref="home.organization.select"
            automationid="editNameSave"
            title="Save">Back</a>
 
-        <a class="editDetailsSubmit btn btn-medium left-space btn-blue submit pull-right"
-           automationid="editNameSave"
-           ng-click="goToAnalysis()"
-
-           title="Save">Continue</a>
-
         <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
            automationid="editNameSave"
-           title="Save">Skip</a>
+           ui-sref="plan.organization.select"
+           title="Save">Continue</a>
     </div>
 </div>

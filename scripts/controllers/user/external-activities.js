@@ -12,13 +12,13 @@ angular.module('userApp')
 
         ];
         $scope.economic = [
-            'Domestic and international economic growth'
+            {content: 'Domestic and international economic growth'}
         ];
         $scope.social = [
-            'Population growth rates'
+            {content: 'Population growth rates'}
         ];
         $scope.technological = [
-            'R&D activity'
+            {content: 'R&D activity'}
         ];
 
         $scope.addRow = function (section) {
@@ -174,22 +174,30 @@ angular.module('userApp')
 
         $scope.strengths = [
             {content: 'Fast return on investment'},
-            {content: 'Will shorten something'},
-            {content: ''},
+            {content: 'Will shorten something'}
+        ];
+        $scope.weaknesses = [
+            {content: 'some content'}
+        ];
+        $scope.opportunities = [
+            {content: 'some content'}
+        ];
+        $scope.threats = [
+            {content: 'some content'}
         ];
         $scope.addRow = function (section) {
             switch (section) {
                 case 1:
-                    $scope.powers.suppliers.items.push({content: ''});
+                    $scope.strengths.push({content: ''});
                     break;
                 case 2:
-                    $scope.powers.byers.items.push({content: ''});
+                    $scope.weaknesses.push({content: ''});
                     break;
                 case 3:
-                    $scope.powers.barriers.items.push({content: ''});
+                    $scope.opportunities.push({content: ''});
                     break;
                 case 4:
-                    $scope.powers.threat.items.push({content: ''});
+                    $scope.threats.push({content: ''});
                     break;
             }
         };
@@ -197,16 +205,16 @@ angular.module('userApp')
         $scope.deleteRow = function (row, section) {
             switch (section) {
                 case 1:
-                    $scope.powers.suppliers.items.remove(row);
+                    $scope.suppliers.items.remove(row);
                     break;
                 case 2:
-                    $scope.powers.byers.items.remove(row);
+                    $scope.byers.items.remove(row);
                     break;
                 case 3:
-                    $scope.powers.barriers.items.remove(row);
+                    $scope.barriers.items.remove(row);
                     break;
                 case 4:
-                    $scope.powers.threat.items.remove(row);
+                    $scope.threat.items.remove(row);
                     break;
             }
         }

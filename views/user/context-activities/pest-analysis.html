@@ -21,61 +21,95 @@
     <p>
         <span class="text-muted">Analysis Methodology Selected: </span> <span class="bold">PEST Analysis</span>
     </p>
-<div class="row">
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <span class="panel-title"><small>POLITICAL</small></span>
-                <span class="pull-right clickable" ng-click="isPoliticalEdit=!isPoliticalEdit"><span class="glyphicon glyphicon-pencil"></span></span>
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="item in political">
-                    <small ng-hide="isPoliticalEdit">{{item.content}}</small>
-                    <textarea style="height: 120px" class="form-control" ng-show="isPoliticalEdit" ng-model="item.content"></textarea>
-                    <small ng-show="isPoliticalEdit" ng-click="deleteRow(item, 1)" class="clickable">Remove</small>
-                </li>
-                <li class="list-group-item" ng-if="isPoliticalEdit"><small><a href="" ng-click="addRow(1)">+ Add</a></small></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <span class="panel-title"><small>ECONOMICAL</small></span>
-                <span class="pull-right"> <span class="glyphicon glyphicon-pencil"></span></span>
-            </div>
-            <div class="panel-body">
-                Panel content
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <span class="panel-title"><small>POLITICAL</small></span>
+                    <span class="pull-right clickable" ng-click="isPoliticalEdit=!isPoliticalEdit"><span
+                            class="glyphicon glyphicon-pencil"></span></span>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in political">
+                        <small ng-hide="isPoliticalEdit">{{item.content}}</small>
+                        <textarea style="height: 120px" class="form-control" ng-show="isPoliticalEdit"
+                                  ng-model="item.content"></textarea>
+                        <small ng-show="isPoliticalEdit" ng-click="deleteRow(item, 1)" class="clickable">Remove</small>
+                    </li>
+                    <li class="list-group-item" ng-if="isPoliticalEdit">
+                        <small><a href="" ng-click="addRow(1)">+ Add</a></small>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <span class="panel-title"><small>SOCIAL</small></span>
-                <span class="pull-right"> <span class="glyphicon glyphicon-pencil"></span></span>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <span class="panel-title"><small>ECONOMIC</small></span>
+                    <span class="pull-right clickable" ng-click="isEconomicEdit=!isEconomicEdit">
+                        <span class="glyphicon glyphicon-pencil"></span></span>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in economic">
+                        <small ng-hide="isEconomicEdit">{{item.content}}</small>
+                        <textarea style="height: 120px" class="form-control" ng-show="isEconomicEdit"
+                                  ng-model="item.content"></textarea>
+                        <small ng-show="isEconomicEdit" ng-click="deleteRow(item, 2)" class="clickable">Remove</small>
+                    </li>
+                    <li class="list-group-item" ng-if="isEconomicEdit">
+                        <small><a href="" ng-click="addRow(2)">+ Add</a></small>
+                    </li>
+                </ul>
             </div>
-            <div class="panel-body">
-                Panel content
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <span class="panel-title"><small>SOCIAL</small></span>
+                    <span class="pull-right clickable" ng-click="isSocialEdit=!isSocialEdit"><span
+                            class="glyphicon glyphicon-pencil"></span></span>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in social">
+                        <small ng-hide="isSocialEdit">{{item.content}}</small>
+                        <textarea style="height: 120px" class="form-control" ng-show="isSocialEdit"
+                                  ng-model="item.content"></textarea>
+                        <small ng-show="isSocialEdit" ng-click="deleteRow(item, 3)" class="clickable">Remove</small>
+                    </li>
+                    <li class="list-group-item" ng-if="isSocialEdit">
+                        <small><a href="" ng-click="addRow(3)">+ Add</a></small>
+                    </li>
+                </ul>
             </div>
-        </div></div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <span class="panel-title"><small>TECHNOLOGICAL</small></span>
-                <span class="pull-right"><span class="glyphicon glyphicon-pencil"></span></span>
-            </div>
-            <div class="panel-body">
-                Panel content
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <span class="panel-title"><small>TECHNOLOGICAL</small></span>
+                    <span class="pull-right clickable" ng-click="isTechnologicalEdit=!isTechnologicalEdit"><span
+                            class="glyphicon glyphicon-pencil"></span></span>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in technological">
+                        <small ng-hide="isTechnologicalEdit">{{item.content}}</small>
+                        <textarea style="height: 120px" class="form-control" ng-show="isTechnologicalEdit"
+                                  ng-model="item.content"></textarea>
+                        <small ng-show="isTechnologicalEdit" ng-click="deleteRow(item, 4)" class="clickable">Remove
+                        </small>
+                    </li>
+                    <li class="list-group-item" ng-if="isTechnologicalEdit">
+                        <small><a href="" ng-click="addRow(4)">+ Add</a></small>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</div>
     <div>
         <hr/>
 
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ui-sref="home.components"
+           ui-sref="plan.organization.select"
            automationid="editNameSave"
            title="Save">Back</a>
 

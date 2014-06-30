@@ -60,7 +60,7 @@
                         <input ng-show="isBarrierssEdit" type="text" class="form-control" ng-model="item.content"/>
                     </div>
                     <div>
-                        <a href="" class="pull-left" ng-show="isBarrierssEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-left" ng-show="isBarrierssEdit" ng-click="addRow(3)">Add more</a>
                         <a href="" class="pull-right" ng-show="isBarrierssEdit"
                            ng-click="isBarrierssEdit=false">Save</a>
                     </div>
@@ -81,7 +81,7 @@
                         <input ng-show="isThreatEdit" type="text" class="form-control" ng-model="item.content"/>
                     </div>
                     <div>
-                        <a href="" class="pull-left" ng-show="isThreatEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-left" ng-show="isThreatEdit" ng-click="addRow(4)">Add more</a>
                         <a href="" class="pull-right" ng-show="isThreatEdit"
                            ng-click="isThreatEdit=false">Save</a>
                     </div>
@@ -104,7 +104,7 @@
                         <input ng-show="isBuyersEdit" type="text" class="form-control" ng-model="item.content"/>
                     </div>
                     <div>
-                        <a href="" class="pull-left" ng-show="isBuyersEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-left" ng-show="isBuyersEdit" ng-click="addRow(2)">Add more</a>
                         <a href="" class="pull-right" ng-show="isBuyersEdit" ng-click="isBuyersEdit=false">Save</a>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
     <div>
         <hr/>
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ui-sref="home.components"
+           ui-sref="plan.organization.select"
            automationid="editNameSave"
            title="Save">Back</a>
 

@@ -27,46 +27,100 @@
         <div class="swot-container col-xs-11">
             <div class="swot-section s">
                 <h2>Strengths</h2>
-                <div class="lead-letter">S</div>
-                <div>
-                    <span ng-click="isBuyersEdit=!isBuyersEdit" ng-hide="isBuyersEdit"
-                          class="glyphicon glyphicon-pencil clickable pull-right"></span>
 
-                        <div  ng-repeat="item in strengths">
-                            <small>{{item.content}}</small>
-                            <input ng-show="isBuyersEdit" type="text" class="form-control" ng-model="item.content"/>
-                        </div>
-                        <div>
-                            <a href="" class="pull-left" ng-show="isBuyersEdit" ng-click="addRow(1)">Add more</a>
-                            <a href="" class="pull-right" ng-show="isBuyersEdit" ng-click="isBuyersEdit=false">Save</a>
-                        </div>
+                <div class="lead-letter">S</div>
+                <div class="edit-button">
+                    <span ng-click="isStrengthsEdit=!isStrengthsEdit"
+                          class="glyphicon glyphicon-pencil clickable"></span>
+                </div>
+                <div class="list">
+
+                    <div ng-repeat="item in strengths">
+                        <small ng-hide="isStrengthsEdit">{{item.content}}</small>
+                        <input ng-show="isStrengthsEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isStrengthsEdit" ng-click="addRow(1)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isStrengthsEdit"
+                           ng-click="isStrengthsEdit=false">Save</a>
+                    </div>
                 </div>
             </div>
             <div class="swot-section w">
                 <h2>Weaknesses</h2>
-
                 <div class="lead-letter">W</div>
+                <div class="edit-button">
+                    <span ng-click="isWeaknessessEdit=!isWeaknessessEdit"
+                          class="glyphicon glyphicon-pencil clickable"></span>
+                </div>
+                <div class="list">
+
+                    <div ng-repeat="item in weaknesses">
+                        <small ng-hide="isWeaknessessEdit">{{item.content}}</small>
+                        <input ng-show="isWeaknessessEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isWeaknessessEdit" ng-click="addRow(2)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isWeaknessessEdit"
+                           ng-click="isWeaknessessEdit=false">Save</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-xs-1"> <div style="margin-top: 90px" class="bold">Internal</div></div>
+        <div class="col-xs-1">
+            <div style="margin-top: 90px" class="bold">Internal</div>
+        </div>
     </div>
     <div class="row">
         <div class="swot-container col-xs-11">
 
             <div class="swot-section o">
                 <h2>Opportunities</h2>
-
                 <div class="lead-letter">O</div>
+                <div class="edit-button">
+                    <span ng-click="isOpportunitiesEdit=!isOpportunitiesEdit"
+                          class="glyphicon glyphicon-pencil clickable"></span>
+                </div>
+                <div class="list">
+
+                    <div ng-repeat="item in opportunities">
+                        <small ng-hide="isOpportunitiesEdit">{{item.content}}</small>
+                        <input ng-show="isOpportunitiesEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isOpportunitiesEdit" ng-click="addRow(3)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isOpportunitiesEdit"
+                           ng-click="isOpportunitiesEdit=false">Save</a>
+                    </div>
+                </div>
             </div>
             <div class="swot-section t">
                 <h2>Threats</h2>
-
                 <div class="lead-letter">T</div>
+                <div class="edit-button">
+                    <span ng-click="isThreatsEdit=!isThreatsEdit"
+                          class="glyphicon glyphicon-pencil clickable"></span>
+                </div>
+                <div class="list">
+
+                    <div ng-repeat="item in threats">
+                        <small ng-hide="isThreatsEdit">{{item.content}}</small>
+                        <input ng-show="isThreatsEdit" type="text" class="form-control" ng-model="item.content"/>
+                    </div>
+                    <div>
+                        <a href="" class="pull-left" ng-show="isThreatsEdit" ng-click="addRow(4)">Add more</a>
+                        <a href="" class="pull-right" ng-show="isThreatsEdit"
+                           ng-click="isThreatsEdit=false">Save</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-xs-1 "><div style="margin-top: 90px" class="bold">External</div></div>
+        <div class="col-xs-1 ">
+            <div style="margin-top: 90px" class="bold">External</div>
+        </div>
     </div>
     <br/>
+
     <div class="row">
 
         <div class="col-xs-11 row">
@@ -78,7 +132,7 @@
         <hr/>
 
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ui-sref="home.components"
+           ui-sref="plan.organization.select"
            automationid="editNameSave"
            title="Save">Back</a>
 
