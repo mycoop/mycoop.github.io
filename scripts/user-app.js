@@ -120,7 +120,7 @@ angular
             .state('plan.organization.pest', {   templateUrl: '/views/user/context-activities/pest-analysis.html', url: '/pest', controller: 'PestAnalysisCtrl'})
             .state('plan.organization.forces', { templateUrl: '/views/user/context-activities/five-forces-analysis.html', url: '/five-forces', controller: 'FiveForcesCtrl'})
             .state('plan.organization.other', {   templateUrl: '/views/user/context-activities/other-analysis.html', url: '/other'})
-
+            .state('plan.organization.clause', {templateUrl: '/views/user/context-activities/clause-template.html', url: '/clause', controller: 'ClauseCtrl'} )
             .state('plan.leadership', {   template: '<h1>Leadership</h1>', url: '/leadership'})
             .state('plan.planning', {   template: '<h1>Planning</h1>', url: '/planning'})
             .state('plan.support', {   template: '<h1>Support</h1>', url: '/support'});

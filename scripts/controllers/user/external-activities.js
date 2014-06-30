@@ -219,6 +219,41 @@ angular.module('userApp')
             }
         }
     })
+    .controller('ClauseCtrl', function($scope){
+
+        $scope.groups = [
+            {
+                isOpen: true,
+                title: 'Mission',
+                desc: 'Mission is the \'reason of being\' of organization.',
+                example: 'The {Organization} aims to the best value to customers in {Product}.',
+                implications: 'The Business Continuity aims to support {Organization} in fulfilling its mission during a disruptive incident.' +
+                    'Therefore the business continuity must be aligned with the corporate mission.'
+            },
+            {
+                title: 'Objectives',
+                desc: 'Mission is the \'reason of being\' of organization.',
+                example: 'The {Organization} aims to the best value to customers in {Product}.',
+                implications: 'The Business Continuity aims to support {Organization} in fulfilling its mission during a disruptive incident.' +
+                    'Therefore the business continuity must be aligned with the corporate mission.'
+            },
+            {
+                title: 'Strategies',
+                desc: 'Mission is the \'reason of being\' of organization.',
+                example: 'The {Organization} aims to the best value to customers in {Product}.',
+                implications: 'The Business Continuity aims to support {Organization} in fulfilling its mission during a disruptive incident.' +
+                    'Therefore the business continuity must be aligned with the corporate mission.'
+            },
+            {
+                title: 'Values',
+                desc: 'Mission is the \'reason of being\' of organization.',
+                example: 'The {Organization} aims to the best value to customers in {Product}.',
+                implications: 'The Business Continuity aims to support {Organization} in fulfilling its mission during a disruptive incident.' +
+                    'Therefore the business continuity must be aligned with the corporate mission.'
+            }
+        ];
+
+    })
     .controller('ForceStatusCtrl', function ($scope, $modalInstance, force, statuses) {
         $scope.force = angular.copy(force);
         $scope.statuses = statuses;
