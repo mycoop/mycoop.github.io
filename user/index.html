@@ -47,6 +47,7 @@
 
     <script type="text/javascript" src="/scripts/resources/process.js"></script>
     <script type="text/javascript" src="/scripts/resources/org-entity.js"></script>
+    <script type="text/javascript" src="/scripts/resources/org-asset.js"></script>
     <script type="text/javascript" src="/scripts/resources/user.js"></script>
 
     <script type="text/javascript" src="/scripts/filters/dot-text.js"></script>
@@ -57,6 +58,7 @@
     <script type="text/javascript" src="/scripts/controllers/user/business-process.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/review.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/external-activities.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/plan.js"></script>
 
     <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
@@ -216,10 +218,10 @@
             </li>
 
             <li ng-class="{ on: $state.includes('plan') }">
-                <a ui-sref="plan.organization.external">PLAN</a>
+                <a ui-sref="plan">PLAN</a>
                 <ul ng-show=" $state.includes('plan')">
                     <li ng-class="{ on: $state.includes('plan.organization') }">
-                        <a ui-sref="plan.organization.external">Understanding the Organization</a>
+                        <a ui-sref="plan.organization">Understanding the Organization</a>
                     </li>
                     <li ng-class="{ on: $state.includes('plan.leadership') }">
                         <a ui-sref="plan.leadership">Leadership</a>

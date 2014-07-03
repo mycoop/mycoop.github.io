@@ -36,12 +36,12 @@
     height: 60px !important;
 }
 
-
-.sortable{
+.sortable {
     position: relative;
     width: 100%;
 }
-.sortable > *{
+
+.sortable > * {
     position: absolute;
     width: 100%;
     /*height: 70px;*/
@@ -59,7 +59,8 @@
     top: 0;
     text-align: center;
 }
-.progress.six-sec-ease-in-out  .progress-bar{
+
+.progress.six-sec-ease-in-out .progress-bar {
     -webkit-transition: width 6s ease-in-out !important;
     -moz-transition: width 6s ease-in-out !important;;
     -ms-transition: width 6s ease-in-out !important;;
@@ -294,6 +295,18 @@ tr:hover .show-hover {
     margin: 0 auto;
 }
 
+.panels-list .panel {
+    margin-bottom: 7px;
+}
+
+.panels-list .panel a.list-group-item {
+    line-height: inherit;
+}
+
+.panels-list .panel.panel-default .panel-heading .panel-title {
+color: #a9a9a9;
+}
+
 .image-slide.doc {
     background-image: url("/images/fileicon.png");
     background-size: contain;
@@ -307,7 +320,8 @@ tr:hover .show-hover {
 .map-filter-set {
     margin: 10px auto 0;
 }
-.map-filter-set .map-filter-button{
+
+.map-filter-set .map-filter-button {
     float: left;
     margin-right: 9px;
     padding: 5px;
@@ -316,7 +330,8 @@ tr:hover .show-hover {
     height: 50px;
     border: 2px solid #ffffff;
 }
-.map-filter-set .map-filter-button.last{
+
+.map-filter-set .map-filter-button.last {
     margin-right: 0;
 }
 
@@ -338,8 +353,7 @@ tr:hover .show-hover {
     border-color: #d3d3d3;
 }
 
-
-.pin-complex{
+.pin-complex {
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -347,7 +361,8 @@ tr:hover .show-hover {
     /*background-color: #ffffff;*/
     background-repeat: no-repeat;
 }
-.pin-complex .pin-secondary{
+
+.pin-complex .pin-secondary {
     position: absolute;
     bottom: -10;
     right: -10;

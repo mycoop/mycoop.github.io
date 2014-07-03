@@ -1,22 +1,4 @@
 <div>
-    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
-
-    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context:
-        External Environment Analysis</h3>
-
-    <p>
-        <span class="bold">Area of ISO 22301 Addressed:
-            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
-        </span>
-    </p>
-
-    <p>
-        Several methodologies exist to understand how an organization functions. The important outcome is to identify
-        the
-        characteristics of external environmental factors that will influence business continuity management: mission,
-        main activities,
-        internal organization, stakeholders, etc.
-    </p>
 
     <p>
         <span class="text-muted">Analysis Methodology Selected: </span> <span class="bold">SWOT Analysis</span>
@@ -132,13 +114,13 @@
         <hr/>
 
         <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
-           ui-sref="plan.organization.select"
+           ui-sref="plan.organization.analysis"
            automationid="editNameSave"
            title="Save">Back</a>
 
         <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
            automationid="editNameSave"
-           ui-sref="plan.organization.select"
+           ui-sref="plan.organization.activities"
            title="Save">Continue</a>
     </div>
 </div>

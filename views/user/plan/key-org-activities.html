@@ -1,0 +1,63 @@
+<div>
+    <h2 class="text-primary">Key OrganizationalActivities</h2><br/>
+    Evaluating the organization's internal context should include, where relevant, following factors:
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <a href="">Products</a> <br/>
+            <a href="">Services</a> <br/>
+            <a href="">Activities or Business Processes</a> <br/>
+            Other e.g. <a href="">Supply Chain</a>, <a href="">Resources</a>, ect.
+        </div>
+    </div>
+    <p>
+        <small class="text-muted">
+        It is essential for the BCMS project manager to understand and know the range of products and services of the organization.
+        The types of goods and services produced by the organization will have a major impact on its business model and how the
+        organization conducts its business. Products and services may expose the organization to specific risks such as
+        environmental hazards.
+        </small>
+    </p>
+
+    <div class="panel panel-default">
+        <div class="panel-body ">
+            <div class="col-md-1">
+                <img src="/images/idea.png" width="40" alt=""/>
+            </div>
+            <div class="col-md-11">
+                <div class="left-space">
+                    At this stage do not complete a comprehensive process mapping exercise or detailed inventory of assets.
+                    These details will be captured later. A general list is sufficient here.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Select all that apply:</h3>
+        <ul class="list-unstyled">
+            <li ng-repeat="factor in factors">
+                <div class="form-inline"><input type="checkbox" ng-model="factor.selected"/>
+                    <span ng-hide="factor.isEdit">{{factor.name}}</span>
+                    <input type="text" class="form-control" style="width: 360px" ng-show="factor.isEdit" ng-model="factor.name" placeholder="Enter name of new asset category. e.g. Supply Chain "/>
+                </div>
+                </li>
+        </ul>
+        <a href="" ng-click="addFactor()">Add another</a>
+    </div>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.analysis">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ng-click="proceedAssets()"
+           title="Save">Continue</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.parties"
+           title="Save">Skip</a>
+    </div>
+</div>

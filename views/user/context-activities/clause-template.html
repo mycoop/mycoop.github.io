@@ -1,15 +1,5 @@
 <div>
-    <h1>Editing: {{currentDocument.documentReference}} {{currentDocument.title}}</h1>
-
-    <h3>{{orgEntity.title}} > {{currentDocument.documentReference}} > Organizational Context:
-        External Environment Analysis</h3>
-
-    <p>
-        <span class="bold">Area of ISO 22301 Addressed:
-            <a href="">clause 4.1 Understanding of the Organization and its Context</a>
-        </span>
-    </p>
-
+    <h2 class="text-primary">Understanding of Mission, Objectives, Values and Strategies</h2>
     <p>
         It is necessary to obtain an overview of the organization to understand the compliance, challenges,
         of the organization and the inherent risk in that market segment. General information about the
@@ -34,17 +24,19 @@
 
         </accordion>
     </div>
-    <!--<div>-->
-        <!--<hr/>-->
 
-        <!--<a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"-->
-           <!--ui-sref="plan.organization.select"-->
-           <!--automationid="editNameSave"-->
-           <!--title="Save">Back</a>-->
 
-        <!--<a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"-->
-           <!--automationid="editNameSave"-->
-           <!--ui-sref="plan.organization.select"-->
-           <!--title="Save">Save & Continue</a>-->
-    <!--</div>-->
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium btn-gray submit pull-left"
+           ui-sref="plan.organization"
+           automationid="editNameSave"
+           title="Save">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.analysis"
+           title="Save">Continue</a>
+    </div>
 </div>

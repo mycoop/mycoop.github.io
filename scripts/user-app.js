@@ -10,8 +10,9 @@ angular
         'google-maps',
         'resources.process',
         'resources.user',
-        'ngMap',
         'resources.org-entity',
+        'resources.org-asset',
+        'ngMap',
         'ui.bootstrap',
         'controls',
         'controllers.common',
@@ -53,7 +54,6 @@ angular
                         reload: true
                     });
                 }
-
             });
 
 
@@ -112,8 +112,18 @@ angular
             .state('dashboard.map', {   templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'});
 
         $stateProvider
-            .state('plan', { url: '/plan?orgEntityId'})
-            .state('plan.organization', {   url: '/organization'})
+            .state('plan', {templateUrl: '/views/user/plan/plan-master.html', url: '/plan?orgEntityId', controller: 'PlanCtrl'})
+            .state('plan.organization', {  templateUrl: '/views/user/plan/plan-organization.html', url: '/organization', controller: 'PlanCtrl'})
+            .state('plan.organization.mission', {  templateUrl: '/views/user/context-activities/clause-template.html', url: '/mission', controller: 'ClauseCtrl'})
+
+            .state('plan.organization.analysis', {   templateUrl: '/views/user/context-activities/analysis.html', url: '/analysis', controller:'SelectAnalysisCtrl'})
+            .state('plan.organization.analysis.swot', {   templateUrl: '/views/user/context-activities/swot-analysis.html', url: '/swot', controller:'SwotAnalysisCtrl'})
+            .state('plan.organization.analysis.pest', {   templateUrl: '/views/user/context-activities/pest-analysis.html', url: '/pest', controller: 'PestAnalysisCtrl'})
+            .state('plan.organization.analysis.forces', { templateUrl: '/views/user/context-activities/five-forces-analysis.html', url: '/five-forces', controller: 'FiveForcesCtrl'})
+            .state('plan.organization.analysis.other', {   templateUrl: '/views/user/context-activities/other-analysis.html', url: '/other'})
+
+            .state('plan.organization.activities', {  templateUrl: '/views/user/plan/key-org-activities.html', url: '/key-activities', controller: 'KeyOrgActivitiesCtrl'})
+            .state('plan.organization.editAsset', {  templateUrl: '/views/user/plan/edit-org-asset.html', url: '/edit-asset?assetId', controller: 'ActivityFactorEditCtrl'})
             .state('plan.organization.external', {   templateUrl: '/views/user/context-activities/external.html', url: '/external'})
             .state('plan.organization.select', {   templateUrl: '/views/user/context-activities/select-analysis.html', url: '/select-analysis', controller:'SelectAnalysisCtrl'})
             .state('plan.organization.swot', {   templateUrl: '/views/user/context-activities/swot-analysis.html', url: '/swot', controller:'SwotAnalysisCtrl'})
@@ -121,12 +131,13 @@ angular
             .state('plan.organization.forces', { templateUrl: '/views/user/context-activities/five-forces-analysis.html', url: '/five-forces', controller: 'FiveForcesCtrl'})
             .state('plan.organization.other', {   templateUrl: '/views/user/context-activities/other-analysis.html', url: '/other'})
             .state('plan.organization.clause', {templateUrl: '/views/user/context-activities/clause-template.html', url: '/clause', controller: 'ClauseCtrl'} )
+
             .state('plan.leadership', {   template: '<h1>Leadership</h1>', url: '/leadership'})
             .state('plan.planning', {   template: '<h1>Planning</h1>', url: '/planning'})
             .state('plan.support', {   template: '<h1>Support</h1>', url: '/support'});
 
-        $stateProvider
-            .state('do', { url: '/do?orgEntityId'})
+
+        $stateProvider.state('do', { url: '/do?orgEntityId'})
             .state('do.risk', {   template: '<h1>Risk Assessment</h1>', url: '/risk-assessment'})
             .state('do.impact', {  url: '/impact'})
             .state('do.impact.profile', {  template: '<h1>Program Area Profile</h1>', url: '/profile'})
@@ -198,7 +209,6 @@ angular
 
         $stateProvider
             .state('tools', { url: '/tools?orgEntityId'})
-
             .state('tools.reporting', {  template: '<h1>Performance Indicators</h1>', url: '/reporting'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.review', {   templateUrl: '/views/user//review/review.html', url: '/review'})

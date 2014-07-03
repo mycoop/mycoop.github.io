@@ -1,8 +1,8 @@
 angular.module('userApp')
-    .controller('SelectAnalysisCtrl', function($scope, $state){
+    .controller('SelectAnalysisCtrl', function($scope, $rootScope, $state){
         $scope.analysisType = 'swot';
         $scope.goToAnalysis= function(){
-            $state.transitionTo('plan.organization.' + $scope.analysisType);
+            $state.transitionTo('plan.organization.analysis.' + $scope.analysisType, {orgEntityId: $rootScope.orgEntityId});
         }
     })
     .controller('PestAnalysisCtrl', function ($scope) {
