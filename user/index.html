@@ -235,13 +235,13 @@
                 </ul>
             </li>
 
-            <li ng-class="{ on: ($state.includes('do') || $state.includes('**.impact.**')) }">
+            <li ng-class="{ on: ($state.includes('do') || $state.includes('do.impact.**')) }">
                 <a ui-sref="do.risk">DO</a>
-                <ul ng-show="($state.includes('do') || $state.includes('**.impact.**')) ">
+                <ul ng-show="($state.includes('do') || $state.includes('do.impact.**')) ">
                     <li ng-class="{ on: $state.includes('do.risk') }">
                         <a ui-sref="do.risk">Risk Assessment</a>
                     </li>
-                    <li ng-class="{ on: $state.includes('**.impact.**') }">
+                    <li ng-class="{ on: $state.includes('do.impact.**') }">
                         <a ui-sref="impact.processes">Business Impact Analysis</a>
                     </li>
                     <li ng-class="{ on: $state.includes('do.continuity') }">

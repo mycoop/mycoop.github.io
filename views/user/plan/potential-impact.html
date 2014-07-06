@@ -1,0 +1,64 @@
+<div>
+    <h2 class="text-primary">Potential Impact of a Disruptive Incident</h2>
+
+    <p>
+        This section captures known organizational areas that could be impacted by a disruptive incident.
+        An in-depth analysis will be conducted vi the Risk Assessment to establish a more concise list. The degree of
+        impact
+        should be assigned based on the following considerations:
+
+    </p>
+    <ul>
+        <li>Extent of damage</li>
+        <li>Cost</li>
+    </ul>
+
+    <h3>Select all that apply:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <td class="col-xs-5 bold">Business Impact Areas</td>
+            <td class="col-xs-3 bold">Degree of Impact</td>
+            <td class="col-xs-4 bold">Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in impacts">
+            <td>
+                <form style="margin-bottom: 0" class="form-inline">
+                    <input type="checkbox" class="" checked/>
+                    <span ng-hide="item.isEdit">{{item.area}}</span>
+                    <input style="width: 90%;" type="text" class="form-control" ng-show="item.isEdit" ng-model="item.area" placeholder="Enter a new area of impact"/>
+                </form>
+            <td><select name="" id="" ng-model="item.degree" class="form-control">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select></td>
+            <td><input type="text" class="form-control" placeholder="Enter Description if available"/></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="" ng-click="impacts.push({degree: 'High', isEdit: true})">+ Add more</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.parties">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.polices"
+           title="Save">Continue</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.polices"
+           title="Save">Skip</a>
+    </div>
+</div>

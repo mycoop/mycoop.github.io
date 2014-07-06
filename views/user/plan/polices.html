@@ -1,0 +1,51 @@
+<div>
+    <h2 class="text-primary">Business Polices and Objectives</h2>
+
+    <p>
+        BCMS Implications: One of the objectives of the BCMS is to ensure that the Organization is able to comply
+        with its policies in the face a potentially disruptive incident.
+    </p>
+
+    <p>
+        Internal policies include all requirements deﬁned inside the organization. Here are some internal policies to
+        consider:
+    </p>
+    <ul>
+        <li>Corporate Risk Management Strategy</li>
+        <li>Human Resources Policy</li>
+        <li>Home Working Policy</li>
+        <li>Flexible Working Policy</li>
+        <li>Equality and Diversity Policy</li>
+        <li>Internet Acceptable Use Policy</li>
+        <li>Information Security Policy</li>
+        <li>IT Access Control Policy</li>
+        <li>Legal Responsibilities Policy</li>
+        <li>Other relevant policies</li>
+    </ul>
+    <p>
+        To include your organization's internal policy documents, please select from the following options:
+    </p>
+    <ul class="list-unstyled">
+        <li>
+            <input name="opt" type="radio"/> Create a new policy document <span class="text-muted">(Use this option to cut and paste from existing document)</span>
+        </li>
+        <li>
+            <input name="opt" type="radio"/> Upload an existing policy document <span class="text-muted">(Supported formats: .pdf, .doc, .docx, .ppt, .rtf)</span>
+        </li>
+    </ul>
+    <div>
+        <hr/>
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.impact">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ng-click="showNewDocumentModal()"
+           title="Save">Continue</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.parties"
+           title="Save">Skip</a>
+    </div>
+</div>

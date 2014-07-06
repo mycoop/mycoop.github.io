@@ -369,3 +369,12 @@ color: #a9a9a9;
     width: 30px;
     height: 28px;
 }
+
+
+.hover-show .hover-child{
+    visibility: hidden;
+}
+
+.hover-show:hover .hover-child{
+    visibility: inherit;
+}

@@ -21,6 +21,7 @@ angular
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
+        $rootScope.orgEntityId = 103;
         $rootScope.docs = [
             {
                 id: 1,
@@ -50,9 +51,13 @@ angular
                         })
                     }
                 } else {
-                    $state.transitionTo($state.current, {orgEntityId: $rootScope.orgEntityId || 103}, {
-                        reload: true
+                    OrgEntity.getEntity($rootScope.orgEntityId, function (data) {
+                        $rootScope.orgEntity = data;
+                        $rootScope.orgEntityId = data.id;
                     });
+//                    $state.transitionTo($state.current, {orgEntityId: $rootScope.orgEntityId || 103}, {
+//                        reload: true
+//                    });
                 }
             });
 
@@ -107,9 +112,11 @@ angular
             .state('home.components', {   templateUrl: '/views/user/components.html', url: '/components', controller: 'ComponentsCtrl'});
 
 
+
         $stateProvider
             .state('dashboard', { url: '/dashboard?orgEntityId'})
             .state('dashboard.map', {   templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'});
+
 
         $stateProvider
             .state('plan', {templateUrl: '/views/user/plan/plan-master.html', url: '/plan?orgEntityId', controller: 'PlanCtrl'})
@@ -124,17 +131,19 @@ angular
 
             .state('plan.organization.activities', {  templateUrl: '/views/user/plan/key-org-activities.html', url: '/key-activities', controller: 'KeyOrgActivitiesCtrl'})
             .state('plan.organization.editAsset', {  templateUrl: '/views/user/plan/edit-org-asset.html', url: '/edit-asset?assetId', controller: 'ActivityFactorEditCtrl'})
-            .state('plan.organization.external', {   templateUrl: '/views/user/context-activities/external.html', url: '/external'})
-            .state('plan.organization.select', {   templateUrl: '/views/user/context-activities/select-analysis.html', url: '/select-analysis', controller:'SelectAnalysisCtrl'})
-            .state('plan.organization.swot', {   templateUrl: '/views/user/context-activities/swot-analysis.html', url: '/swot', controller:'SwotAnalysisCtrl'})
-            .state('plan.organization.pest', {   templateUrl: '/views/user/context-activities/pest-analysis.html', url: '/pest', controller: 'PestAnalysisCtrl'})
-            .state('plan.organization.forces', { templateUrl: '/views/user/context-activities/five-forces-analysis.html', url: '/five-forces', controller: 'FiveForcesCtrl'})
-            .state('plan.organization.other', {   templateUrl: '/views/user/context-activities/other-analysis.html', url: '/other'})
-            .state('plan.organization.clause', {templateUrl: '/views/user/context-activities/clause-template.html', url: '/clause', controller: 'ClauseCtrl'} )
+
+            .state('plan.organization.parties', {  templateUrl: '/views/user/plan/interested-parties.html', url: '/parties'})
+            .state('plan.organization.parties.edit', {  templateUrl: '/views/user/plan/interested-parties-edit.html', url: '/edit', controller:'InterestedPartiesCtrl'})
+
+            .state('plan.organization.impact', {  templateUrl: '/views/user/plan/potential-impact.html', url: '/impact', controller:'PotentialImpactCtrl'})
+            .state('plan.organization.polices', {  templateUrl: '/views/user/plan/polices.html', url: '/polices', controller: 'PolicyDocumentCtrl'})
+
+
 
             .state('plan.leadership', {   template: '<h1>Leadership</h1>', url: '/leadership'})
             .state('plan.planning', {   template: '<h1>Planning</h1>', url: '/planning'})
             .state('plan.support', {   template: '<h1>Support</h1>', url: '/support'});
+
 
 
         $stateProvider.state('do', { url: '/do?orgEntityId'})

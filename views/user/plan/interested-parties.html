@@ -1,0 +1,53 @@
+<div>
+    <h2 class="text-primary">Interested Parties</h2>
+
+    <div ng-show="$state.is('plan.organization.parties')">
+        <p>
+            All interested parties should be identified for consideration during the planning of a BCMS.
+        </p>
+        <p>
+            <span class="bold">BCMS Implications:</span><br/>
+
+            It is imperative to identify the interested parties so that they can get involved in the process of risk assessment and
+            implementation of the BCMS. Later in clause 4.2.1: Understanding the needs and expectations of interested parties; the
+            BCMS team should analyze the security needs of the interested parties and confirm that the organization responds to
+            their concerns. This activity may be conducted via questionnaires, interviews or by facilitating focus groups. Lastly the
+            BCSM project team should define what is expected from all identified interested parties (stakeholders) within the
+            project roles, responsibilities and level of participation required.
+        </p>
+
+        <div class="panel panel-default">
+            <div class="panel-body ">
+                <div class="col-md-1">
+                    <img src="/images/idea.png" width="55" alt=""/>
+                </div>
+                <div class="col-md-11">
+                    <div class="left-space">
+                        The organization must be aware of all those who have an interest in the organization, such as the media,
+                        the public, competitors etc...
+                        The organization has the obligation to inform all stakeholders of actions and improvements related to
+                        Business Continuity that could have an impact on them with such a level a detail that is appropriate to
+                        the circumstances. This will be addressed in the section on training, education and communication.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <hr/>
+
+            <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+               ui-sref="plan.organization.activities">Back</a>
+
+            <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+               ui-sref="plan.organization.parties.edit"
+               title="Save">Continue</a>
+
+            <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+               ui-sref="plan.organization.impacts"
+               title="Save">Skip</a>
+        </div>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>

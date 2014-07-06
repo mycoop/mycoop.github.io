@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-primary">Key OrganizationalActivities</h2><br/>
+    <h2 class="text-primary">Key Organizational Activities</h2><br/>
     Evaluating the organization's internal context should include, where relevant, following factors:
     <div class="row">
         <div class="col-md-1"></div>
@@ -36,7 +36,8 @@
         <h3>Select all that apply:</h3>
         <ul class="list-unstyled">
             <li ng-repeat="factor in factors">
-                <div class="form-inline"><input type="checkbox" ng-model="factor.selected"/>
+                <div class="form-inline">
+                    <input type="checkbox" ng-model="factor.selected"/>
                     <span ng-hide="factor.isEdit">{{factor.name}}</span>
                     <input type="text" class="form-control" style="width: 360px" ng-show="factor.isEdit" ng-model="factor.name" placeholder="Enter name of new asset category. e.g. Supply Chain "/>
                 </div>

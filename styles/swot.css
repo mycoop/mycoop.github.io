@@ -34,7 +34,7 @@
 .swot-section .list{
     width: 200px;
     height: 150px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .swot-section.s{

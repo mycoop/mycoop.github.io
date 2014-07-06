@@ -10,8 +10,8 @@ angular.module('userApp')
                 { name: 'Key Organization\'s Activities', state: $state.href('plan.organization.activities') },
                 { name: 'Interested Parties', state: $state.href('plan.organization.parties') },
                 { name: 'Legal and Regulatory Requirements', state: '' },
-                { name: 'Potential Impact of Disruptive Incident', state: '' },
-                { name: 'Business Polices and Objectives', state: '' },
+                { name: 'Potential Impact of Disruptive Incident', state: $state.href('plan.organization.impact') },
+                { name: 'Business Polices and Objectives', state: $state.href('plan.organization.polices') },
                 { name: 'Organizational Risk Appetite', state: '' },
                 { name: 'Business Continuity Requirements and Objectives', state: '' },
                 { name: 'BCMS Scope', state: '' }
@@ -61,7 +61,8 @@ angular.module('userApp')
         $scope.proceedAssets = function () {
             _.each($scope.factors, function (asset) {
                 if (!asset.id) {
-                    OrgAsset.addAsset({name: asset.name, selected: asset.selected}, function(){});
+                    OrgAsset.addAsset({name: asset.name, selected: asset.selected}, function () {
+                    });
                 }
             });
             $state.transitionTo('plan.organization.editAsset', {assetId: $scope.factors[0].id, orgEntityId: $rootScope.orgEntityId})
@@ -95,4 +96,110 @@ angular.module('userApp')
                 $state.transitionTo('plan.organization.activities', { orgEntityId: $rootScope.orgEntityId});
             }
         }
+    })
+    .controller('InterestedPartiesCtrl', function ($scope) {
+        $scope.isEdit = false;
+        $scope.parties = [
+            {
+                name: 'Stakeholder 1',
+                status: 'Internal',
+                interestNature: '',
+                degree: '',
+                considerations: '',
+                notes: '',
+                selected: true
+            },
+            {
+                name: 'Stakeholder 2',
+                status: 'Internal',
+                interestNature: '',
+                degree: '',
+                considerations: '',
+                notes: ''
+            },
+            {
+                name: 'Stakeholder 3',
+                status: 'Internal',
+                interestNature: '',
+                degree: '',
+                considerations: '',
+                notes: ''
+            },
+            {
+                name: 'Stakeholder 4',
+                status: 'Internal',
+                interestNature: '',
+                degree: '',
+                considerations: '',
+                notes: ''
+            }
+        ];
+        $scope.selectedItem = $scope.parties[0];
+
+        $scope.addParty = function () {
+            var newParty = {name: 'New stakeholder'};
+            $scope.parties.push(newParty);
+            $scope.selectedItem = newParty;
+            $scope.isEdit = true;
+        };
+
+        $scope.deleteInterestedParty = function (item) {
+            $scope.parties.remove(item);
+            $scope.seletedItem = $scope.parties[0];
+        };
+
+    })
+    .controller('PotentialImpactCtrl', function ($scope) {
+        $scope.impacts = [
+            {
+                area: 'Loss of sales revenue',
+                degree: 'Low',
+                desc: ''
+            },
+            {
+                area: 'Risk to life or health and safety grounds',
+                degree: 'High',
+                desc: ''
+            },
+            {
+                area: 'Loss of reputation/customer confidence',
+                degree: 'Low',
+                desc: ''
+            },
+            {
+                area: 'Inability to meet our legal obligations',
+                degree: 'High',
+                desc: ''
+            },
+            {
+                area: 'Breach of contractual obligations',
+                degree: 'Low',
+                desc: ''
+            },
+            {
+                area: 'Loss of business opportunity',
+                degree: 'High',
+                desc: ''
+            }
+        ]
+    })
+    .controller('PolicyDocumentCtrl', function ($scope, $modal) {
+        $scope.showNewDocumentModal = function () {
+            var modalInstance = $modal.open({
+                templateUrl: '/views/templates/new-policy-document.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    message: function () {
+                        return '';
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (params) {
+
+            }, function () {
+                console.log('success');
+            });
+        };
+
     });
