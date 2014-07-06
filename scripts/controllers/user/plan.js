@@ -3,7 +3,7 @@ angular.module('userApp')
         $rootScope.currentDocument = $rootScope.docs[1];
         $scope.organization = {
             name: 'Organization and its Context',
-
+            state: $state.href('plan.organization'),
             items: [
                 { name: 'Understanding Mission, Objectives, Values and Strategies', state: $state.href('plan.organization.mission') },
                 { name: 'Analyse Organization Internal/External Environment', state: $state.href('plan.organization.analysis') },
@@ -20,26 +20,29 @@ angular.module('userApp')
 
         $scope.leadership = {
             name: 'Leadership',
+            state: $state.href('plan.leadership'),
             items: [
                 { name: 'BCMS Business Case', state: '' },
                 { name: 'Project Team', state: '' },
                 { name: 'BCMS Objectives', state: '' },
                 { name: 'Project Plan', state: '' },
                 { name: 'Communications Plan for the BCMS Project', state: '' },
-                { name: 'Management Approval', state: '' },
+                { name: 'Management Approval', state: '' }
             ]
         };
 
         $scope.planning = {
             name: 'Planning',
+            state: $state.href('plan.planning'),
             items: [
                 { name: 'Actions to address risk and opportunities', state: ''},
-                { name: 'Business Continuity Objectives and plans to achieve them', state: ''},
+                { name: 'Business Continuity Objectives and plans to achieve them', state: ''}
             ]
         };
 
         $scope.support = {
             name: 'Support',
+            state: $state.href('plan.support'),
             items: [
                 { name: 'Resources', state: ''},
                 { name: 'Competence', state: ''},
@@ -184,6 +187,7 @@ angular.module('userApp')
         ]
     })
     .controller('PolicyDocumentCtrl', function ($scope, $modal) {
+
         $scope.showNewDocumentModal = function () {
             var modalInstance = $modal.open({
                 templateUrl: '/views/templates/new-policy-document.html',

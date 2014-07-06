@@ -52,8 +52,9 @@
         <div class="row top-space-big">
             <div class="col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2 class=" text-center">Plan</h2></div>
+                    <div class="list-group">
+                        <a ui-sref="plan" class="list-group-item text-center active"> <h2 class=" text-center">Plan</h2></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,66 +62,46 @@
             <div class="col-md-3 panels-list">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 class="panel-title text-center">{{organization.name}}</h2></div>
+                        <h2 class="panel-title text-center"><a href="{{organization.state}}">{{organization.name}}</a></h2></div>
                     <div class="list-group">
-                        <a ng-repeat="item in organization.items" class="list-group-item ">
+                        <a href="{{item.state}}" ng-repeat="item in organization.items" class="list-group-item">
                             <small class="">{{item.name}}</small>
                         </a>
                     </div>
                 </div>
-                <!--<div class="panel panel-primary" ng-repeat="item in organization.items">-->
-                <!--<div class="panel-heading text-center">-->
-                <!--<small class="">{{item.name}}</small>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="col-md-3 panels-list">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 class="panel-title text-center">{{leadership.name}}</h2></div>
+                        <h2 class="panel-title text-center"><a href="{{leadership.state}}">{{leadership.name}}</a></h2></div>
                     <div class="list-group">
-                        <a ng-repeat="item in leadership.items" class="list-group-item">
+                        <a href="{{item.state}}" ng-repeat="item in leadership.items" class="list-group-item">
                             <small class="">{{item.name}}</small>
                         </a>
                     </div>
                 </div>
-                <!--<div class="panel panel-primary" ng-repeat="item in leadership.items">-->
-                <!--<div class="panel-heading text-center">-->
-                <!--<small class="">{{item.name}}</small>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="col-md-3 panels-list">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 class="panel-title text-center">{{planning.name}}</h2></div>
+                        <h2 class="panel-title text-center"><a href="{{planning.state}}">{{planning.name}}</a></h2></div>
                     <div class="list-group">
-                        <a ng-repeat="item in planning.items" class="list-group-item">
+                        <a href="{{item.state}}" ng-repeat="item in planning.items" class="list-group-item">
                             <small class="">{{item.name}}</small>
                         </a>
                     </div>
                 </div>
-                <!--<div class="panel panel-primary" ng-repeat="item in planning.items">-->
-                <!--<div class="panel-heading text-center">-->
-                <!--<small class="">{{item.name}}</small>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="col-md-3 panels-list">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 class="panel-title text-center">{{support.name}}</h2></div>
+                        <h2 class="panel-title text-center"><a href="{{support.state}}">{{support.name}}</a></h2></div>
                     <div class="list-group">
-                        <a ng-repeat="item in support.items" class="list-group-item">
+                        <a href="{{item.state}}" ng-repeat="item in support.items" class="list-group-item">
                             <small class="">{{item.name}}</small>
                         </a>
                     </div>
                 </div>
-                <!--<div class="panel panel-primary" ng-repeat="item in support.items">-->
-                <!--<div class="panel-heading text-center">-->
-                <!--<small class="">{{item.name}}</small>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
         </div>
         <div>
