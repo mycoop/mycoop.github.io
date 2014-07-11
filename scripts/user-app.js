@@ -140,6 +140,7 @@ angular
             .state('plan.organization.legal.procedure', {  templateUrl: '/views/user/plan/legal-procedure.html', url: '/procedure', controller:'LegalCtrl'})
             .state('plan.organization.legal.access', {  templateUrl: '/views/user/plan/legal-access.html', url: '/access', controller:'LegalCtrl'})
             .state('plan.organization.legal.implications', {  templateUrl: '/views/user/plan/legal-implications.html', url: '/implications', controller:'LegalCtrl'})
+            .state('plan.organization.legal.editParty', {  templateUrl: '/views/user/plan/legal-edit-implication.html', url: '/edit-implication?partyId', controller:'LegalCtrl'})
 
             .state('plan.organization.impact', {  templateUrl: '/views/user/plan/potential-impact.html', url: '/impact', controller:'PotentialImpactCtrl'})
             .state('plan.organization.polices', {  templateUrl: '/views/user/plan/polices.html', url: '/polices', controller: 'PolicyDocumentCtrl'})

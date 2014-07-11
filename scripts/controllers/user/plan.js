@@ -208,17 +208,29 @@ angular.module('userApp')
         };
 
     })
-    .controller('LegalCtrl', function ($scope, $rootScope) {
+    .controller('LegalCtrl', function ($scope, $state, $stateParams, $rootScope, Party) {
         $rootScope.currentISOArea = 'clause 4.2.2 Legal and Regulatory Requirements';
-        $scope.parties = [
-        ];
+
+        if($stateParams.partyId){
+            Party.getParty($stateParams.partyId, function(data){
+                $scope.party = data;
+            });
+        }
+        Party.getParties(function(data){
+            $scope.parties = angular.copy(data);
+        });
         $scope.addParty = function () {
             var newParty = {name: 'New item'};
             $scope.parties.push(newParty);
             $scope.selectedItem = newParty;
             $scope.isEdit = true;
+            Party.addParty($scope.selectedItem);
         };
-
+        $scope.editParty = function(party){
+            $state.transitionTo('plan.organization.legal.editParty', {partyId: party.id});
+        };
+        $scope.save = function(){
+        };
         $scope.deleteInterestedParty = function (item) {
             $scope.parties.remove(item);
             $scope.seletedItem = $scope.parties[0];

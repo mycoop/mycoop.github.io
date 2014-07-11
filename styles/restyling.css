@@ -382,3 +382,9 @@ color: #a9a9a9;
 .left-col-header{
     width: 30px;
 }
+.col-header{
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+}

@@ -1,0 +1,78 @@
+<div>
+
+    <h2>
+        <span class="text-primary">Legal and Regulatory Compliance:</span>
+        <span class="text-muted">Access Implications</span>
+    </h2>
+
+    <div class="top-space-big">The BC Manager is responsible for ensuring that a full assessment of the implications of
+        specified
+        regulatory and/or compliance requirements is conducted. This will be based upon consulting the
+        responsible parties identified in the Legal and Regulatory Compliance Access section. The assessment
+        should result in the following information:
+    </div>
+    <ul>
+        <li>Impact to consider for BCMS Policy (Degree of change to the BCMS and its associated policies
+            strategies and plans needed to meet the requirement)
+        </li>
+        <li>Urgency of meeting the requirement</li>
+        <li>Consequences of not meeting the requirement</li>
+        <li>Options for meeting the requirement</li>
+    </ul>
+    <br/><br/>
+
+    <div class="clearfix">
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Responsible Party</label> <br/>
+            <span class="bold">{{party.name}}</span>
+            <br/>
+        </div>
+
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Applicable Law, Regulation or Standard</label> <br/>
+            <span class="bold">{{party.regulation}}</span>
+            <br/>
+        </div>
+
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Impact to consider for BCMS policy</label> <a href="">Learn
+            more</a><br/>
+            <textarea type="text" ng-model="party.impact"
+                      class="account-info-input  form-control editable" original-title=""></textarea>
+            <br/></div>
+
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Urgency of meeting requirement</label> <a href="">Learn
+            more</a><br/>
+            <textarea type="text" ng-model="party.urgency"
+                      class="account-info-input  form-control editable" original-title=""></textarea>
+            <br/></div>
+
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Consequences of meeting requirement</label> <a href="">Learn
+            more</a><br/>
+            <textarea type="text" ng-model="party.consequences"
+                      class="account-info-input  form-control editable" original-title=""></textarea>
+            <br/>
+        </div>
+        <div class="col-md-7">
+            <label class="label-control" for="firstName">Options of meeting requirement</label> <a href="">Learn
+            more</a><br/>
+            <textarea type="text" ng-model="party.options"
+                      class="account-info-input  form-control editable" original-title=""></textarea>
+            <br/><br/>
+        </div>
+    </div>
+
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.legal.implications">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.legal.implications"
+           title="Save">Save</a>
+    </div>
+</div>
