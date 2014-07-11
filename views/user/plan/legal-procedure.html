@@ -1,0 +1,46 @@
+<div>
+    <h2>
+        <span class="text-primary">Legal and Regulatory Compliance:</span>
+        <span class="text-muted">Procedure</span>
+    </h2>
+
+    <p>The best practice for the procedure to identify and manage legal and regulatory requirements
+        is summarized in diagram below. Each step is expanded in the following sections.</p>
+
+    <p>Alternatively, you may provide your organisation's procedure for identifying and managing
+        Legal and Regulatory requirements</p>
+
+    <div ng-init="isImageCollapsed=false">
+        <h4 class="text-primary clickable" ng-click="isImageCollapsed=!isImageCollapsed">
+            <span ng-hide="isImageCollapsed">Hide diagram</span> <span ng-show="isImageCollapsed">Show diagram</span> <span
+                class="caret"></span></h4>
+
+        <div collapse="isImageCollapsed">
+            <img src="/images/procedure-diagram.png" alt="" style="margin: 0 auto; display: block"/>
+        </div>
+    </div>
+    <div class="top-space-big">
+        <h3>Please, use one of the following options:</h3>
+        <ul class="list-unstyled">
+            <li><input type="radio" name="opt" checked/> Use system legal and regulatory procedure template
+                <span class="text-danger">(Recommended)</span></li>
+            <li><input type="radio" name="opt"/> Upload your organization's procedure for managing legal and regulatory
+                requirements
+            </li>
+            <li><input type="radio" name="opt"/> Create your organization's procedure for managing legal and regulatory
+                requirements
+            </li>
+        </ul>
+    </div>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.legal">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.legal.access"
+           title="Save">Continue</a>
+    </div>
+</div>

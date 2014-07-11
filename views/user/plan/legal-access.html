@@ -1,0 +1,99 @@
+<div>
+    <h2>
+        <span class="text-primary">Legal and Regulatory Compliance:</span>
+        <span class="text-muted">Access</span>
+    </h2>
+
+    <p>This section identifies the internal teams and external parties that the organization relies upon
+    for fulfilling legal and regulatory requirements relevant to its business operations. Also identified are the supported
+    areas and the law, regulations and standards.</p>
+
+
+    <div class="top-space-big clearfix">
+        <div class="list-group col-md-3">
+            <a ng-repeat="item in parties" ng-click="$parent.isEdit = false; $parent.selectedItem = item;" class="list-group-item hover-show"
+               ng-class="{active: item == selectedItem}">
+                {{item.name}}
+                <button type="button" class="close hover-child" ng-click="deleteInterestedParty(item)"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+            </a>
+
+            <div class="top-space">
+                <a href="" class="top-space" ng-click="addParty()">+ Add more</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-5 text-right control-label">Responsible Party</label>
+
+                            <div class="col-sm-7">
+                                <input ng-show="isEdit" type="text" class="form-control" ng-model="selectedItem.name"
+                                       id="name">
+
+                                <div ng-hide="isEdit" class="form-control-static">{{selectedItem.name}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputPassword3" class="col-sm-5 control-label">Area Covered <br/>
+                                <small class="text-muted">Examples: <br/>Health and Safety, Product Safety, Data Protection, etc.</small></label>
+
+                            <div class="col-sm-7">
+                                <textarea ng-show="isEdit" style="height: 110px" ng-model="selectedItem.regulation" class="form-control"></textarea>
+
+                                <div ng-hide="isEdit" class="form-control-static">{{selectedItem.regulation}}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-5 control-label">Applicable Law, Regulation or Standard</label>
+
+                            <div class="col-sm-7">
+                                <textarea ng-show="isEdit" ng-model="selectedItem.interestNature"
+                                       class="form-control"></textarea>
+
+                                <div ng-hide="isEdit" class="form-control-static">{{selectedItem.interestNature}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-5 control-label">Method of Communication<br/>
+                                <small class="text-muted">
+                                    Describe the frequency and method of communications attended bt the identified responsible parties.
+                                    For example, meetings, conferences, official briefs.
+
+                                </small>
+                            </label>
+
+                            <div class="col-sm-7">
+                                <textarea ng-show="isEdit" style="height: 150px"  ng-model="selectedItem.degree" class="form-control"></textarea>
+
+                                <div ng-hide="isEdit" class="form-control-static">{{selectedItem.degree}}</div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <a href="" class="btn btn-blue pull-right" ng-click="isEdit=!isEdit"><span
+                            ng-hide="isEdit">Edit</span><span ng-show="isEdit">Save</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.legal.procedure">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.legal.implications"
+           title="Save">Save & Continue</a>
+    </div>
+</div>

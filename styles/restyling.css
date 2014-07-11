@@ -378,3 +378,7 @@ color: #a9a9a9;
 .hover-show:hover .hover-child{
     visibility: inherit;
 }
+
+.left-col-header{
+    width: 30px;
+}

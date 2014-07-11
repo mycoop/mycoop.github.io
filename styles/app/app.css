@@ -8228,7 +8228,7 @@ em, .italic {
 }
 
 ul {
-    list-style-type: disc;
+    /*list-style-type: disc;*/
     padding-left: 20px
 }
 

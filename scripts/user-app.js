@@ -12,6 +12,7 @@ angular
         'resources.user',
         'resources.org-entity',
         'resources.org-asset',
+        'resources.party',
         'ngMap',
         'ui.bootstrap',
         'controls',
@@ -134,6 +135,11 @@ angular
 
             .state('plan.organization.parties', {  templateUrl: '/views/user/plan/interested-parties.html', url: '/parties'})
             .state('plan.organization.parties.edit', {  templateUrl: '/views/user/plan/interested-parties-edit.html', url: '/edit', controller:'InterestedPartiesCtrl'})
+
+            .state('plan.organization.legal', {  templateUrl: '/views/user/plan/legal-master.html', url: '/legal', controller:'LegalCtrl'})
+            .state('plan.organization.legal.procedure', {  templateUrl: '/views/user/plan/legal-procedure.html', url: '/procedure', controller:'LegalCtrl'})
+            .state('plan.organization.legal.access', {  templateUrl: '/views/user/plan/legal-access.html', url: '/access', controller:'LegalCtrl'})
+            .state('plan.organization.legal.implications', {  templateUrl: '/views/user/plan/legal-implications.html', url: '/implications', controller:'LegalCtrl'})
 
             .state('plan.organization.impact', {  templateUrl: '/views/user/plan/potential-impact.html', url: '/impact', controller:'PotentialImpactCtrl'})
             .state('plan.organization.polices', {  templateUrl: '/views/user/plan/polices.html', url: '/polices', controller: 'PolicyDocumentCtrl'})

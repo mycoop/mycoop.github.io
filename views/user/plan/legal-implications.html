@@ -1,0 +1,50 @@
+<div>
+    <h2>
+        <span class="text-primary">Legal and Regulatory Compliance:</span>
+        <span class="text-muted">Access Implications</span>
+    </h2>
+
+    <div class="top-space-big">The BC Manager is responsible for ensuring that a full assessment of the implications of specified
+        regulatory and/or compliance requirements is conducted. This will be based upon consulting the
+        responsible parties identified in the Legal and Regulatory Compliance Access section. The assessment
+        should result in the following information:
+    </div>
+    <ul>
+        <li>Impact to consider for BCMS Policy (Degree of change to the BCMS and its associated policies
+            strategies and plans needed to meet the requirement)</li>
+        <li>Urgency of meeting the requirement</li>
+        <li>Consequences of not meeting the requirement</li>
+        <li>Options for meeting the requirement</li>
+    </ul>
+
+    <table class="table">
+        <thead>
+        <tr class="bold">
+            <td>Responsible Party</td>
+            <td>Applicable Law, Regulation or Standard</td>
+            <td>Impact</td>
+            <td>Urgency</td>
+            <td>Consequences</td>
+            <td>Options</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="party in parties">
+            <td>{{party.name}}</td>
+            <td>{{party.regulation}}</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <hr/>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-gray submit pull-left"
+           ui-sref="plan.organization.legal.access">Back</a>
+
+        <a class="editDetailsSubmit btn btn-medium  btn-blue submit  left-space  pull-right"
+           automationid="editNameSave"
+           ui-sref="plan.organization.impact"
+           title="Save">Save & Continue</a>
+    </div>
+</div>

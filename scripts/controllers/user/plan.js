@@ -1,6 +1,7 @@
 angular.module('userApp')
     .controller('PlanCtrl', function ($scope, $rootScope, $state) {
         $rootScope.currentDocument = $rootScope.docs[1];
+        $rootScope.currentISOArea = 'clause 4.1 Understanding of the Organization and its Context';
         $scope.organization = {
             name: 'Organization and its Context',
             state: $state.href('plan.organization'),
@@ -9,7 +10,7 @@ angular.module('userApp')
                 { name: 'Analyse Organization Internal/External Environment', state: $state.href('plan.organization.analysis') },
                 { name: 'Key Organization\'s Activities', state: $state.href('plan.organization.activities') },
                 { name: 'Interested Parties', state: $state.href('plan.organization.parties') },
-                { name: 'Legal and Regulatory Requirements', state: '' },
+                { name: 'Legal and Regulatory Requirements', state: $state.href('plan.organization.legal') },
                 { name: 'Potential Impact of Disruptive Incident', state: $state.href('plan.organization.impact') },
                 { name: 'Business Polices and Objectives', state: $state.href('plan.organization.polices') },
                 { name: 'Organizational Risk Appetite', state: '' },
@@ -204,6 +205,23 @@ angular.module('userApp')
             }, function () {
                 console.log('success');
             });
+        };
+
+    })
+    .controller('LegalCtrl', function ($scope, $rootScope) {
+        $rootScope.currentISOArea = 'clause 4.2.2 Legal and Regulatory Requirements';
+        $scope.parties = [
+        ];
+        $scope.addParty = function () {
+            var newParty = {name: 'New item'};
+            $scope.parties.push(newParty);
+            $scope.selectedItem = newParty;
+            $scope.isEdit = true;
+        };
+
+        $scope.deleteInterestedParty = function (item) {
+            $scope.parties.remove(item);
+            $scope.seletedItem = $scope.parties[0];
         };
 
     });
