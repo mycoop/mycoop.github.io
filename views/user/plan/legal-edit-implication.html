@@ -30,8 +30,8 @@
 
         <div class="col-md-7">
             <label class="label-control" for="firstName">Applicable Law, Regulation or Standard</label> <br/>
-            <span class="bold">{{party.regulation}}</span>
-            <br/><br/>
+            <span class="bold" ng-repeat="reg in party.regulation">{{reg.shortName}}<br/></span>
+            <br/>
         </div>
 
         <div class="col-md-7">

@@ -204,6 +204,10 @@ select.table-select::after {
     margin-left: 10px;
 }
 
+.left-space-big {
+    margin-left: 20px;
+}
+
 .bg-warning {
     background-color: #d9534f;
     padding: 10px 15px;

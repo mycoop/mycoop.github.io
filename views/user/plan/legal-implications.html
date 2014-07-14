@@ -32,7 +32,7 @@
         <tbody>
         <tr ng-repeat="party in parties">
             <td>{{party.name}}</td>
-            <td>{{party.regulation}}</td>
+            <td><div ng-repeat="reg in party.regulation">{{reg.shortName}}</div></td>
             <td class="text-center"><span class="status-icon ok " ng-show="party.impact"></span><span ng-hide="party.impact"> - </span></td>
             <td class="text-center"><span class="status-icon ok" ng-show="party.urgency"></span><span ng-hide="party.urgency"> - </span></td>
             <td class="text-center"><span class="status-icon ok" ng-show="party.consequences"></span><span ng-hide="party.consequences"> - </span></td>

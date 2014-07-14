@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h3 class="modal-title">Select Law, Regulatory Body, or Standard</h3>
+</div>
+<div class="modal-body" ng-init="filterSection = 'all'">
+    <div class="well well-sm">
+        <label class="left-space"> <input ng-model="filterSection" ng-value="'all'" type="radio" name="filter"/>
+            All</label>
+        <label class="left-space-big"><input ng-model="filterSection" ng-value="0" type="radio" name="filter"/>
+            Healhcare </label>
+        <label class="left-space-big"><input ng-model="filterSection" ng-value="1" type="radio" name="filter"/>
+            Financial</label>
+        <label class="left-space-big"><input ng-model="filterSection" ng-value="2" type="radio" name="filter"/>
+            Government</label>
+        <label class="left-space-big"><input ng-model="filterSection" ng-value="3" type="radio" name="filter"/>
+            Utilities</label>
+    </div>
+    <div class="row">
+    <div class="col-md-6" ng-show="search.isPlainText">
+        Applicable Law, Regulation or Standard Entry
+        <textarea style="height: 100px;" class="form-control top-space-big" ng-model="search.content"></textarea>
+    </div>
+    </div>
+    <div class="row" ng-hide="search.isPlainText">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="search.content" ng-change="filterRegulators()">
+
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+        </div>
+        <div class="col-lg-6"> <span ng-click="search.isPlainText=true"><a href=""  tooltip="If there is no law, regulation or standard you need in this list, you may enter it as a plain text."><span>or enter as a plain text</span></a></span>
+        </div>
+        <br/>
+    </div>
+    <br/>
+
+    <div class="row " ng-hide="search.isPlainText">
+        <div class="col-xs-12">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr class="text-center bold">
+                    <td class="col-xs-3">Industry</td>
+                    <td class="col-xs-8">Law, Regulatory body, Standard</td>
+                    <td class="col-xs-1">Select</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat-start="industry in industries" ng-show="industry.filteredItems.length > 0">
+                    <td rowspan="{{industry.filteredItems.length}}"
+                        style="vertical-align: middle; background-color: {{industry.color}}; color: #ffffff;"
+                        class="text-center bold">{{industry.name}}
+                    </td>
+                    <td ng-click="industry.filteredItems[0].selected=!industry.filteredItems[0].selected">
+                        {{industry.filteredItems[0].name}}
+                    </td>
+                    <td><input ng-model="industry.filteredItems[0].selected" type="checkbox"/></td>
+                </tr>
+                <tr ng-click="item.selected=!item.selected" ng-repeat-end
+                    ng-repeat="item in industry.filteredItems.slice(1, industry.length)">
+                    <td>{{item.name}}</td>
+                    <td><input type="checkbox" ng-model="item.selected"/></td>
+                </tr>
+                </tbody>
+            </table>
+            <div ng-show="filteredItems.length == 0" class="text-muted text-center">No entries found</div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Save</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

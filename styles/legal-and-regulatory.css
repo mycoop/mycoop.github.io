@@ -1,0 +1,19 @@
+/*.regulatory-section{*/
+    /*float: left;*/
+    /*width: 50%;*/
+/*}*/
+
+/*.regulatory-section .regulatory-header{*/
+    /*width: 50px;*/
+    /*height: 100%;*/
+    /*float: left;*/
+    /*background-color: forestgreen;*/
+/*}*/
+/*.regulatory-section .regulatory-content{*/
+/*}*/
+
+.row-header{
+    background-color: #a9a9a9;
+    vertical-align: middle !important;
+    color: #ffffff;
+}

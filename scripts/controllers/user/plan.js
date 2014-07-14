@@ -208,15 +208,15 @@ angular.module('userApp')
         };
 
     })
-    .controller('LegalCtrl', function ($scope, $state, $stateParams, $rootScope, Party) {
+    .controller('LegalCtrl', function ($scope, $state, $stateParams, $rootScope, $modal, Party) {
         $rootScope.currentISOArea = 'clause 4.2.2 Legal and Regulatory Requirements';
 
-        if($stateParams.partyId){
-            Party.getParty($stateParams.partyId, function(data){
+        if ($stateParams.partyId) {
+            Party.getParty($stateParams.partyId, function (data) {
                 $scope.party = data;
             });
         }
-        Party.getParties(function(data){
+        Party.getParties(function (data) {
             $scope.parties = angular.copy(data);
         });
         $scope.addParty = function () {
@@ -226,14 +226,134 @@ angular.module('userApp')
             $scope.isEdit = true;
             Party.addParty($scope.selectedItem);
         };
-        $scope.editParty = function(party){
+        $scope.editParty = function (party) {
             $state.transitionTo('plan.organization.legal.editParty', {partyId: party.id});
         };
-        $scope.save = function(){
+        $scope.save = function () {
         };
         $scope.deleteInterestedParty = function (item) {
             $scope.parties.remove(item);
             $scope.seletedItem = $scope.parties[0];
         };
 
+
+        $scope.openSearchModal = function () {
+            var modalInstance = $modal.open({
+                templateUrl: '/views/templates/applicable-law-search.html',
+                controller: 'LawSearchModalCtrl',
+                size: 'lg',
+                resolve: {
+//                    items: function () {
+//                        return $scope.items;
+//                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItems) {
+//                $scope.selectedItems = selectedItems;
+                if (selectedItems.length > 0) {
+                    $scope.selectedItem.regulation = selectedItems;
+                    var text = '- ';
+                    _.each(selectedItems, function (item) {
+                        text += item.shortName;
+                        if (selectedItems.indexOf(item) != selectedItems.length - 1) {
+                            text += '\n- ';
+                        }
+                    });
+                }
+                $scope.selectedItem.regulationText = text;
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+
+
+    })
+    .controller('LawSearchModalCtrl', function ($scope, $modalInstance) {
+        $scope.search = {content: '', isPlainText: false};
+        $scope.industries = [
+            {name: 'Healthcare',
+                color: '#e54242',
+                items: [
+                    {name: 'HPAA (Health Insurance Portability and Accountability Act)', shortName: 'HPAA'},
+                    {name: 'FDA (Food and Drug Administration) Code of Federal Regulation (CFR), Title XXI, 1999', shortName: 'FDA'}
+                ]},
+
+            {name: 'Financial',
+                color: '#8cbf26',
+                items: [
+                    {name: 'FFIEC (Federal Finance Institutions Examinations Council Handbook)', shortName: 'FFIEC'},
+                    {name: 'BASEI ll Accord, June 2004', shortName: 'BASEI II'},
+                    {name: 'Interagency Paper on Found Practices to strengthen the' +
+                        'resilience of the US Financial System, 2003', shortName: 'Interagency Paper on Found Practices'},
+                    {name: 'EFAA (Expedited Funds Availability Act), 1939', shortName: 'EFAA'}
+                ]},
+            {name: 'Government',
+                color: '#f09809',
+                items: [
+                    {name: 'FISMA (Federal Information System Act 2002)', shortName: 'FISMA'},
+                    {name: 'COG (COOP and Community of Government July 1999)', shortName: 'COG'},
+                    {name: 'NIST (National Institute of Standards and Technology) Special publications (SP) 834, ' +
+                        'Contingency Planning Guide for Information Technology Systems, July 2002', shortName: 'NIST'},
+                    {name: 'Executive Order on Critical Infrastructure Protection in the Information Age, 2001', shortName: 'Executive Order on Critical Infrastructure Protection in the Information Age'}
+                ]},
+            {name: 'Utilities',
+                color: '#1ba0e2' +
+                    '',
+                items: [
+                    {name: 'GASB (Governmental standards Board) No. 34', shortName: 'GASB'},
+                    {name: 'NERC (North American Electric Reliability Council 1200)', shortName: 'NERC'},
+                    {name: 'FERC (Federal Energy Regulatory commission)', shortName: 'FERC'},
+                    {name: 'RUS 7 CSR Part 1730', shortName: 'RUS 7 CSR Part 1730'},
+                    {name: 'Telecommunication Act of 1996', shortName: 'Telecommunication Act of 1996'},
+                    {name: 'NERC Security Guidelines for Electricity Sector', shortName: 'NERC Security Guidelines for Electricity Sector'}
+                ]}
+        ];
+
+
+        $scope.filteredItems = [1];
+        _.each($scope.industries, function (industry) {
+            industry.filteredItems = industry.items;
+        });
+        $scope.filterRegulators = function () {
+            $scope.filteredItems = [];
+            _.each($scope.industries, function (industry) {
+                industry.filteredItems = _.filter(industry.items, function (item) {
+                    if (item.name.toLowerCase().indexOf($scope.search.content.toLowerCase()) > -1) {
+                        $scope.filteredItems.push(item);
+                        return true;
+                    }
+                    return false;
+                });
+
+            });
+        };
+        $scope.ok = function () {
+            $scope.selectedItems = [];
+            if ($scope.search.isPlainText) {
+                alert($scope.search);
+                $scope.selectedItems.push({
+                    name: $scope.search.content,
+                    shortName: $scope.search.content
+                });
+            } else {
+                _.each($scope.industries, function (industry) {
+                    _.each(industry.items, function (item) {
+                        if (item.selected) {
+                            $scope.selectedItems.push(item);
+                        }
+                    })
+                });
+            }
+            $modalInstance.close($scope.selectedItems);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+        $scope.$watch('filterSection', function () {
+            if ($scope.filterSection == 'all') {
+//               $scope.filteredIndustries =
+            }
+        });
     });

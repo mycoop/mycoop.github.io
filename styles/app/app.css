@@ -1866,8 +1866,8 @@ textarea.input-lg {
 .btn:active, .btn.active {
     background-image: none;
     outline: 0;
-    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+    /*-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);*/
+    /*box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)*/
 }
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
@@ -5278,6 +5278,12 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
     .modal-content {
         -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5)
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .modal-lg {
+        width: 900px;
     }
 }
 
@@ -9062,9 +9068,9 @@ a, .btn-link {
 }
 
 .btn:not(.btn-link):not(.active) {
-    -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75)
+    /*-webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75)*/
 }
 
 .btn:not(.btn-link):not(.active):focus {
@@ -10102,9 +10108,9 @@ button {
     font-size: 1.4rem;
     color: #fff;
     background: #34b8f4;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+    /*-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
     min-width: 95px;
     margin-bottom: 5px;
     text-transform: none;
@@ -10140,9 +10146,9 @@ button {
     font-size: 1.4rem;
     color: #fff;
     background: #a1a1a1;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+    /*-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
     min-width: 95px;
     margin-bottom: 5px;
     text-transform: none;
@@ -10178,9 +10184,9 @@ button {
     font-size: 1.4rem;
     color: #fff;
     background: #ff8000;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+    /*-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
     min-width: 95px;
     margin-bottom: 5px;
     text-transform: none;
@@ -10216,9 +10222,9 @@ button {
     font-size: 1.4rem;
     color: #fff;
     background: #48de5d;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);
+    /*-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.75);*/
     min-width: 95px;
     margin-bottom: 5px;
     text-transform: none;
@@ -10411,9 +10417,9 @@ INPUT:not([type="radio"]):not([type="checkbox"]):not([disabled]):not('.token-inp
 }
 
 INPUT:not([type="radio"]):not([type="checkbox"]):not('.token-input'):focus, TEXTAREA:focus {
-    -webkit-box-shadow: 0 0 6px #38C2FF;
-    -moz-box-shadow: 0 0 6px #38C2FF;
-    box-shadow: 0 0 6px #38C2FF;
+    /*-webkit-box-shadow: 0 0 6px #38C2FF;*/
+    /*-moz-box-shadow: 0 0 6px #38C2FF;*/
+    /*box-shadow: 0 0 6px #38C2FF;*/
     outline: none;
     border: 1px solid #09d !important
 }
@@ -10453,9 +10459,9 @@ INPUT.editErr, INPUT .inaccessible {
 }
 
 INPUT.editErr:focus, INPUT .inaccessible:focus {
-    -webkit-box-shadow: inset 0 0 2px #fce0e2;
-    -moz-box-shadow: inset 0 0 2px #fce0e2;
-    box-shadow: inset 0 0 2px #fce0e2;
+    /*-webkit-box-shadow: inset 0 0 2px #fce0e2;*/
+    /*-moz-box-shadow: inset 0 0 2px #fce0e2;*/
+    /*box-shadow: inset 0 0 2px #fce0e2;*/
     background: none;
     border: 1px solid #d12b37
 }

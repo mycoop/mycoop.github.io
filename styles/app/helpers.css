@@ -8,8 +8,13 @@
     float: none;
 }
 
+
+.small {
+    font-size: .8em
+}
+
 .rotate-text {
-    width: 100%;
+    width: 30px;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);

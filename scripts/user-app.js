@@ -22,7 +22,10 @@ angular
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-        $rootScope.orgEntityId = 103;
+        OrgEntity.getEntity(103, function (data) {
+            $rootScope.orgEntity = data;
+            $rootScope.orgEntityId = data.id;
+        });
         $rootScope.docs = [
             {
                 id: 1,
