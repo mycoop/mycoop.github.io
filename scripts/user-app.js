@@ -13,6 +13,7 @@ angular
         'resources.org-entity',
         'resources.org-asset',
         'resources.party',
+        'resources.textEditor',
         'ngMap',
         'ui.bootstrap',
         'controls',

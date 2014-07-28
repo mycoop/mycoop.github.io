@@ -1,5 +1,6 @@
 
 angular.module('controls', [
     'directives.popover',
-    'directives.autocomplete'
+    'directives.autocomplete',
+    'directives.textEditor'
 ]);
