@@ -11,6 +11,7 @@ angular
         'resources.user',
         'resources.org-entity',
         'resources.group',
+        'resources.textEditor',
         'ui.bootstrap',
         'controls',
         'ngAnimate',
