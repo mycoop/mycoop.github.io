@@ -231,6 +231,7 @@ angular
             .state('tools', { url: '/tools?orgEntityId'})
             .state('tools.reporting', {  template: '<h1>Performance Indicators</h1>', url: '/reporting'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
+            .state('tools.searchAndReplace', { templateUrl: '/views/user/tools/search-and-replace.html', url: '/search-and-replace', controller: 'DocumentEditorCtrl'})
             .state('tools.review', {   templateUrl: '/views/user//review/review.html', url: '/review'})
             .state('tools.review.ready', {   templateUrl: '/views/user/review/ready-to-review.html', url: '/ready'})
             .state('tools.review.landing', {   templateUrl: '/views/user/review/review-landing.html', url: '/landing'})
@@ -238,4 +239,5 @@ angular
             .state('tools.review.results', {   templateUrl: '/views/user/review/review-results.html', url: '/results'})
             .state('tools.review.errors', {   templateUrl: '/views/user/review/review-errors.html', url: '/errors'})
             .state('tools.review.summary', {   templateUrl: '/views/user/review/post-review.html', url: '/summary'});
+
     });

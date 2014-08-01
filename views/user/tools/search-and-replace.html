@@ -1,0 +1,61 @@
+<div>
+    <h1>Search and Replace Text in Plan Docs</h1>
+
+    <p class="text-muted">
+        Enter the search and replace text below
+    </p>
+
+    <div class="row">
+        <form class="form-horizontal col-md-10" role="form">
+
+            <div class="form-group">
+                <label for="searchInput" class="col-sm-4 control-label">Chose the document</label>
+
+                <div class="col-sm-6">
+                    <select class="form-control">
+                        <option value="">BankOfAmericaCOOP.docx</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="searchInput" class="col-sm-4 control-label">Search statement</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" ng-model="search" id="searchInput" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="replaceInput" class="col-sm-4 control-label">Replace statement</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" ng-model="replace" id="replaceInput" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-10">
+                    <button type="submit" class="btn btn-default" ng-click="performSearchAndReplace()">Search &
+                        Replace
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="row">
+        <div ng-show="showResult" class="col-xs-12 text-muted">
+            <h3 class="text-center">Performing actions..</h3>
+            <h3 class="text-center">Please, wait.</h3>
+            <progressbar class="six-sec-ease-in-out top-space-big progress-striped" value="dynamic" type="primary"></progressbar>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="iframe-container col-xs-12" ng-if="showEditor">
+            <iframe style="height: 600px"
+                    src="http://docs.google.com/gview?url=http://mycoopdev.cloudapp.net/api/documents/BankOfAmericaCOOP.docx&embedded=true"
+                    frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
