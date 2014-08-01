@@ -15,7 +15,7 @@ angular.module('userApp').
                  $timeout(function(){
                      $scope.showEditor = true;
                      $scope.showResult = false;
-                 },200);
+                 },1200);
                });
            }
        }
