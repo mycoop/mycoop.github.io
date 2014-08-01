@@ -12,8 +12,10 @@ angular.module('userApp').
                $timeout(function(){
                },6100);
                TextEditor.searchAndReplace('BankOfAmericaCOOP.docx', $scope.search, $scope.replace, function(data){
-                   $scope.showEditor = true;
-                   $scope.showResult = false;
+                 $timeout(function(){
+                     $scope.showEditor = true;
+                     $scope.showResult = false;
+                 },200);
                });
            }
        }
