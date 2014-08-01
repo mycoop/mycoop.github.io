@@ -48,17 +48,22 @@
                     <span class="glyphicon glyphicon-ok" ng-show="doc.isUpdated"></span>
                     {{doc.Reference}}
                 </td>
-                <td class="col-xs-8">{{doc.Name}}</td>
-                <td class="col-xs-1">
+                <td class="col-xs-6">{{doc.Name}}</td>
+                <td class="col-xs-3">
+
                     <span class="pull-right top-space-small">
                         <a class="glyphicon glyphicon-file clickable" tooltip="View"
                            target="_blank"
                            href="https://docs.google.com/gview?url=http://mycoopdev.cloudapp.net{{doc.Link}}&chrome=true">
                         </a>&nbsp;&nbsp;
+                        <a ng-hide="doc.isConverting" class="glyphicon glyphicon-floppy-save clickable"
+                           target="_blank"
+                           href="http://mycoopdev.cloudapp.net{{doc.Link.replace('.docx', '.pdf').replace('.doc', '.pdf')}}" tooltip="Save as PDF"
+                           >
+                        </a>&nbsp;&nbsp;
                         <a class="glyphicon glyphicon-download-alt clickable" tooltip="Download"
                            target="_self"
-                           href="http://mycoopdev.cloudapp.net{{doc.Link}}">
-                    </a>
+                           href="http://mycoopdev.cloudapp.net{{doc.Link}}"></a>
                     </span>
                 </td>
             </tr>

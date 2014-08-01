@@ -1,14 +1,17 @@
-angular.module('resources.document',[])
-    .factory('Document', ['$http',function($http){
+angular.module('resources.document', [])
+    .factory('Document', ['$http', function ($http) {
         var service = {
-            getDocuments: function(callback){
+            getDocuments: function (callback) {
                 $http.get('/api/document').success(callback);
             },
-            addDocument: function(document, callback){
+            addDocument: function (document, callback) {
                 $http.post('/api/document', document).success(callback);
             },
-            searchAndReplace: function(fileId, search, replace, callback){
-                $http.post('/api/searchandreplace/?fileId='+fileId, {SearchStatement: search, ReplaceStatement: replace}).success(callback);
+            searchAndReplace: function (fileId, search, replace, callback) {
+                $http.post('/api/searchandreplace/?fileId=' + fileId, {SearchStatement: search, ReplaceStatement: replace}).success(callback);
+            },
+            getDownloadLink: function (fileId, ext, callback) {
+                $http.get('/api/convert?fileId=' + fileId + '&ext=' + ext).success(callback);
             }
         };
         return service;
