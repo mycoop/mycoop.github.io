@@ -1,0 +1,138 @@
+<div class="account-info">
+    <article class="">
+        <br/>
+
+        <h2>Add User</h2>
+        <br/>
+
+        <h3>User Details</h3>
+        <span class="text-muted"><small>The email address entered will be used as the User ID</small></span>
+
+        <form action="#" id="editNameFormView" novalidate="" name="form">
+            <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+            <p class="success" role="alert" style="color:green;"></p>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="firstName">* Email</label><br/>
+                    <input type="email" id="email" required="required" ng-disabled="isEdit" ng-model="user.email" name="email"
+                           class="form-control" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="firstName">* First Name</label><br/>
+                    <input type="text" id="firstName" ng-model="user.firstName" required="required" name="firstName"
+                           class="form-control" maxlength="35" original-title="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="firstName">* Last Name</label><br/>
+                    <input type="text" id="lastName" ng-model="user.lastName" required="required" name="lastName"
+                           class="form-control" maxlength="35" original-title="">
+                </div>
+            </div>
+        </form>
+
+        <div ng-hide="isEdit">
+            <h3>Password Options</h3>
+            <span class="text-muted">
+                <small>This option will send the user a email with a link to create their own password.</small></span><br/>
+
+            <div class="top-space-big" ng-init="isCustomPassword=false">
+                <input ng-model="isCustomPassword" type="checkbox" disabled id="customPassCheckbox"/>
+                <label for="customPassCheckbox">Email a link to the user to set their password.</label>
+
+                <form collapse="isCustomPassword" action="#" id="passwordForm" novalidate="" class="top-space-big"
+                      name="passwordForm">
+
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label class="label-control" for="firstName" required="">* Password</label><br/>
+                            <input type="password" name="firstName" ng-model="user.password"
+                                   class="form-control" maxlength="35" original-title="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label class="label-control" for="firstName" required="">* Password (repeat)</label><br/>
+                            <input type="password" name="lastName" ng-model="passwordRepeat"
+                                   class="form-control" maxlength="35" original-title="">
+                        </div>
+                    </div>
+                </form>
+
+                <div ng-show="isCustomPassword">
+                    <br/>
+                    <br/></div>
+            </div>
+        </div>
+        <h3>Direct Permission Assignments</h3>
+        <span class="text-muted">
+            <small>Select a permission level</small></span><br/>
+
+        <div class="row top-space-big">
+            <div class="col-md-4"><input type="radio" name="permsission" ng-model="user.permissionLevelId" value="1"/>
+                System Administrator
+            </div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input type="radio" name="permsission" ng-model="user.permissionLevelId" value="2"/>
+                Workspace Administrator
+            </div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input type="radio" ng-model="user.permissionLevelId" value="3" name="permsission"/>
+                Content Contributor
+            </div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input name="permsission" ng-model="user.permissionLevelId" value="4" type="radio"/>
+                Approver
+            </div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+            <div class="col-md-4"><input name="permsission" ng-model="user.permissionLevelId" value="5" type="radio"/>
+                Browser
+            </div>
+            <div class="text-muted col-md-8">(4 remaining)</div>
+        </div>
+        <br/><br/>
+
+        <h3>Group Assignments</h3>
+        <span class="text-muted">
+            <small>User may be added to multiple groups</small></span><br/>
+
+        <div class="row top-space-big">
+            <div class="col-md-5">
+                <input type="text" class="account-info-input form-control editable"
+                       placeholder="Type to add user to a group"
+                       typeahead-on-select="onNewGroupAdded($item, $model, $label)" ng-model="newGroup"
+                       typeahead="group.name for group in groups | filter:{name: $viewValue} | limitTo:8">
+            </div>
+        </div>
+        <table ng-show="userGroups.length > 0" class="table top-space-big">
+            <thead>
+            <tr>
+                <th>Group Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in userGroups">
+                <td>{{group.name}}</td>
+                <td>{{group.description}}</td>
+                <td><a href="" class="btn-sm anssm btn btn-blue" ng-click="removeUserFromGroup(group)">Remove</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <br/><br/>
+
+
+        <div class="editDetailsButtonRow">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()"
+               automationid="editNameSave" title="Save">Save</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="cancel()"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
+    </article>
+</div>

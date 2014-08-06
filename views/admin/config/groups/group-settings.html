@@ -37,7 +37,7 @@
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right">Modified Date:</span></div>
             <div class="col-md-5">
-                {{group.modifiedDate | date}}
+                {{group.modificationTime | date}}
             </div>
             <br/>
         </div>
@@ -54,7 +54,7 @@
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right ">Created Date:</span></div>
             <div class="col-md-5">
-                {{group.createdDate | date}}
+                {{group.creationTime | date}}
             </div>
             <br/>
         </div>
@@ -74,7 +74,14 @@
 
         <div collapse="!displayMembership" class="top-space-big">
 
-            <a href="" class="btn ansSm">Add member</a>
+            <a href="" class="btn ansSm" ng-click="showAddMemberInput=true">Add member</a>
+            <div class="row" collapse="!showAddMemberInput">
+                <div class="col-md-5">
+                    <input type="text" class="account-info-input form-control editable" placeholder="Type to add user to a group"
+                           typeahead-on-select="onNewUserAdded($item, $model, $label)" ng-model="newUser"
+                           typeahead="user.firstName + ' ' + user.lastName for user in users | filter:$viewValue | limitTo:8">
+                </div>
+            </div>
 
             <div class="actions-bar top-space-big">
                 <div class="button-bar pull-left"><span class="pull-left">Action</span>
@@ -119,8 +126,7 @@
 
                     <td>
                     <span class="show-hover" ng-hide="user.restricted">
-                        <a class="glyphicon glyphicon-remove-circle delete-button"
-                           ui-sref=".delete({id: group.id})"></a>
+                        <a class="glyphicon glyphicon-remove-circle delete-button" ng-click="removeUserFromGroup(user)"></a>
                     </span>
                     </td>
                 </tr>
@@ -190,5 +196,8 @@
         </div>
     </div>
     <br/>
-    <a href="" class="btn btn-blue" ui-sref="config.security.groups">Save</a>
+    <a href="" class="btn btn-blue" ng-click="save()">Save</a>
+
+    <a href="" class=" btn btn-medium btn-gray-light cancel" ui-sref="config.security.groups"
+       automationid="editNameCancel" title="Cancel">Cancel</a>
 </div>

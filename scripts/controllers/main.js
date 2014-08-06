@@ -16,8 +16,9 @@ angular.module('myCoopApp')
                 controller: 'MainCtrl'
             });
     })
-    .controller('MainCtrl', function ($scope, $rootScope, $route, $location) {
-        $rootScope.isLoggedIn = true;
+    .controller('MainCtrl', function ($scope, $rootScope, $route, $location, SecurityService) {
+        SecurityService.testLogin();
+
         $scope.tasks = [
             {
                 area:'Department 1',

@@ -46,8 +46,8 @@
                 <td><a href="" ui-sref=".details({id: group.id})"><span class="glyphicon glyphicon-user"></span></a>
                 </td>
                 <td>{{group.description}}</td>
-                <td>{{group.createdDate | date:'shortDate'}}</td>
-                <td>{{group.modifiedDate | date:'shortDate'}}</td>
+                <td>{{group.creationTime | date:'shortDate'}}</td>
+                <td>{{group.modificationTime | date:'shortDate'}}</td>
                 <td><a href="" ui-sref="config.security.users.details({id: group.createdBy.id})">{{group.createdBy.email}}</a>
                 </td>
                 <td><a href="" ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.email}}</a>

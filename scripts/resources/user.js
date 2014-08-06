@@ -1,31 +1,29 @@
-angular.module('resources.user',[])
-    .factory('User', ['$http',function($http){
-//        James Cahit, Joe Smith, Anne Wilson, Jimmy Jones
-        var users = [
-            {id: '1', firstName: 'James', lastName: 'Cahit', username: 'jcahit', email: 'jcahit@mail.com', phone: '', dateAdded: new Date('5.14.2014')},
-            {id: '2', firstName: 'Joe', restricted: true, lastName: 'Smith', username: 'jsmith', email: 'jsmith@mail.com', phone: '', dateAdded: new Date('5.2.2014')},
-            {id: '3', firstName: 'Anne', lastName: 'Wilson', username: 'awilson', email: 'awilson@mail.com', phone: '', dateAdded: new Date('4.24.2014')},
-            {id: '4', firstName: 'Jimmy', lastName: 'Jones', username: 'jjones', email: 'jjones@mail.com', phone: '', dateAdded: new Date('4.15.2014')},
-        ];
+angular.module('resources.user', [])
+    .factory('User', ['$http', function ($http) {
         var service = {
-            getUsers: function(callback){
-                callback(users);
+            login: function (user, callback, error) {
+                $http.post('/api/sign/in', user).success(callback).error(error);
             },
-            getUser: function(id, callback){
-              callback(_.where(users, {id: id})[0]);
+            logout: function(callback){
+                $http.post('/api/sign/out').success(callback);
             },
-            addUser: function(user, callback){
-                user.dateAdded = new Date();
-                users.push(user);
-                callback();
+            getUsers: function (callback) {
+                $http.get('/api/user/').success(callback);
             },
-            updateUser: function(user, callback){
-               users[users.indexOf(_.findWhere(users, {id: user.id}))] = user;
-                callback();
+            getUser: function (id, callback) {
+                $http.get('/api/user/' + id).success(callback);
             },
-            deleteUser: function(user, callback){
-                users.splice(users.indexOf(user),1);
-                callback();
+            addUser: function (user, callback) {
+                $http.post('/api/user/', user).success(callback);
+            },
+            getUserGroups: function (userId, callback) {
+                $http.get('/api/user/' + userId + '/group/').success(callback);
+            },
+            updateUser: function (user, callback) {
+                $http.post('/api/user/' + user.id, user).success(callback);
+            },
+            deleteUser: function (userId, callback) {
+                $http.delete('/api/user/' + userId).success(callback);
             }
         };
         return service;

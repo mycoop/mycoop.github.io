@@ -5,6 +5,8 @@ angular
         'ngCookies',
         'ngResource',
         'ngRoute',
+        'resources.user',
+        'services.security',
         'filters',
         'ui.bootstrap'
     ])

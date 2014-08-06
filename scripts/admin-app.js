@@ -12,6 +12,9 @@ angular
         'resources.org-entity',
         'resources.group',
         'resources.textEditor',
+        'services.modal',
+        'services.security',
+        'interceptor',
         'ui.bootstrap',
         'controls',
         'ngAnimate',
@@ -20,10 +23,16 @@ angular
         'angular-carousel',
         'angularSpectrumColorpicker',
         'controllers.common'
-    ]).run(function ($rootScope, $location, $state, $stateParams) {
+    ]).run(function ($rootScope, $location, $state, $stateParams, SecurityService, User) {
+        SecurityService.testLogin();
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
+        $rootScope.logout = function(){
+            User.logout(function(){
+                window.location.replace('/#/login');
+            });
+        };
 
 
         $rootScope.toggleNav = function () {
@@ -69,7 +78,8 @@ angular
         $scope.ok = function () {
             $modalInstance.close();
         };
-    }).config(function ($stateProvider, $provide) {
+    })
+    .config(function ($stateProvider, $provide) {
         $provide.decorator('$uiViewScroll', function ($delegate) {
             return function (uiViewElement) {
 //                var top = uiViewElement.getBoundingClientRect().top;
@@ -86,8 +96,8 @@ angular
             .state('home', { url: '/home'})
             .state('home.profile', {  templateUrl: '/views/admin/organization.html', url: '/profile', controller: 'OrganizationCtrl'})
             .state('home.setup', {  templateUrl: '/views/admin/setup.html', url: '/setup', controller: 'SetupCtrl'})
-            .state('home.admin', {   templateUrl: '/views/admin/users.html', url: '/admin', controller: 'UsersCtrl'})
-            .state('home.user', {   templateUrl: '/views/admin/edit-user.html', url: '/user/:id', controller: 'EditUserCtrl'})
+            .state('home.admin', {   templateUrl: '/views/admin/config/users/users.html', url: '/admin', controller: 'UsersCtrl'})
+            .state('home.user', {   templateUrl: '/views/admin/config/users/edit-user.html', url: '/user/:id', controller: 'EditUserCtrl'})
             .state('home.resource', { templateUrl: '/views/admin/resource-directories.html', url: '/resource', controller: 'ResourceDirectoriesCtrl'})
             .state('home.resource.employee', { templateUrl: '/views/admin/employee-directory.html', url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('home.resource.additional', { templateUrl: '/views/admin/employee-directory.html', url: '/additional', controller: 'AdditionalResourcesCtrl'})
@@ -105,9 +115,9 @@ angular
             .state('setup.templates', { templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('setup.ui', {  templateUrl: '/views/admin/config/ui.html', url: '/ui', controller: 'InterfaceConfigCtrl'})
             .state('setup.config', {  templateUrl: '/views/admin/config/workflow/workflow-config.html', url: '/workflow-config'})
-            .state('setup.users', {   templateUrl: '/views/admin/users.html', url: '/users', controller: 'UsersCtrl'})
-            .state('setup.users.add', {   templateUrl: '/views/admin/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
-            .state('setup.users.edit', {   templateUrl: '/views/admin/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
+            .state('setup.users', {   templateUrl: '/views/admin/config/users/users.html', url: '/users', controller: 'UsersCtrl'})
+            .state('setup.users.add', {   templateUrl: '/views/admin/config/users/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
+            .state('setup.users.edit', {   templateUrl: '/views/admin/config/users/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
             .state('setup.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'})
             .state('setup.hierarchy', {  templateUrl: '/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('setup.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
@@ -123,11 +133,11 @@ angular
             .state('config.hierarchy', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
             .state('config.security', { url: '/security', templateUrl: '/views/admin/nested-view.html'})
             .state('config.security.system', { url: '/system-permissions', templateUrl: '/views/admin/config/system-permissions.html', controller: 'SystemPermissionsCtrl' })
-            .state('config.security.users', {   templateUrl: '/views/admin/users.html', url: '/users', controller: 'UsersCtrl'})
-            .state('config.security.users.add', {   templateUrl: '/views/admin/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
-            .state('config.security.users.edit', {   templateUrl: '/views/admin/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
-            .state('config.security.users.details', {   templateUrl: '/views/admin/details-user.html', url: '/details?id', controller: 'UserCtrl'})
-            .state('config.security.users.multiple', {   templateUrl: '/views/admin/multiple-users.html', url: '/multiple', controller: 'MultipleUserCtrl'})
+            .state('config.security.users', {   templateUrl: '/views/admin/config/users/users.html', url: '/users', controller: 'UsersCtrl'})
+            .state('config.security.users.add', {   templateUrl: '/views/admin/config/users/edit-user.html', url: '/add', controller: 'EditUserCtrl'})
+            .state('config.security.users.edit', {   templateUrl: '/views/admin/config/users/edit-user.html', url: '/edit?id', controller: 'EditUserCtrl'})
+            .state('config.security.users.details', {   templateUrl: '/views/admin/config/users/details-user.html', url: '/details?id', controller: 'EditUserCtrl'})
+            .state('config.security.users.multiple', {   templateUrl: '/views/admin/config/users/multiple-users.html', url: '/multiple', controller: 'MultipleUserCtrl'})
             .state('config.security.groups', { templateUrl: '/views/admin/config/groups/groups.html', url: '/groups', controller: 'GroupsCtrl'})
             .state('config.security.groups.add', {templateUrl: '/views/admin/config/groups/add-group.html', url: '/add', controller: 'GroupsCtrl'})
             .state('config.security.groups.details', {templateUrl: '/views/admin/config/groups/group-details.html', url: '/membership?id', controller: 'GroupMembershipCtrl'})

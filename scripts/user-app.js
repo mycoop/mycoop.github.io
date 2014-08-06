@@ -15,12 +15,15 @@ angular
         'resources.party',
         'resources.document',
         'resources.textEditor',
+        'interceptor',
+        'services.security',
         'ngMap',
         'ui.bootstrap',
         'controls',
         'controllers.common',
         'filters'
-    ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity) {
+    ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity, SecurityService) {
+        SecurityService.testLogin();
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;

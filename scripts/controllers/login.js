@@ -9,21 +9,17 @@ angular.module('myCoopApp')
                 access: 'free'
             });
     })
-    .controller('LoginCtrl', function ($scope, $rootScope, $route, $location) {
+    .controller('LoginCtrl', function ($scope, $rootScope, $route, $location, User) {
         $scope.email = '';
         $scope.password = '';
         $rootScope.isLoggedIn = false;
         $scope.login = function(){
-            if(($scope.email == 'tmiller@google.com' && $scope.password == 'password123') ||
-                ($scope.email == 'mr.gusev.k@gmail.com' && $scope.password == '123') ){
+            User.login({email: $scope.email, password: $scope.password}, function(){
                 $rootScope.isLoggedIn = true;
                 $location.path('/admin-welcome');
-            } else if($scope.email == 'jcoop@google.com' && $scope.password == 'password123'){
-//                $rootScope.isLoggedIn = true;
-                window.location = '/user/';
-            } else{
+            }, function(){
                 $scope.isPasswordIncorrect = true;
-            }
+            });
         };
         $scope.$watch('email', function(){
             $scope.isPasswordIncorrect = false;
