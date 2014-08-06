@@ -27,18 +27,16 @@
             <thead>
             <tr>
                 <th><input type="checkbox" ng-model="allUsersSelected"/> Select</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username / Email</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Last Active</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="user in users | filter:userSearch ">
                 <td><input type="checkbox" ng-model="user.selected"/></td>
-                <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.firstName}}</a></td>
-                <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.lastName}}</a></td>
-                <td>{{user.email}}</td>
+                <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.firstName}} {{user.lastName}}</a></td>
+               <td>{{user.email}}</td>
                 <td>Not available</td>
             </tr>
             </tbody>

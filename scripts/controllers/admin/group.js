@@ -82,11 +82,11 @@ angular.module('adminApp').
         };
 
         $scope.deleteGroup = function () {
-            Modal.openYesNoModal('Warning!', 'Are you sure you want to delete this group?', function () {
-                Group.deleteGroup($scope.group, function () {
+//            Modal.openYesNoModal('Warning!', 'Are you sure you want to delete this group?', function () {
+                Group.deleteGroup($scope.group.id, function () {
                     $state.transitionTo('config.security.groups', {}, {reload: true});
                 });
-            });
+//            });
         };
 
     })

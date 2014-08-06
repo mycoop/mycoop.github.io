@@ -8,12 +8,6 @@
             <a href="" class="btn btn-gray small ansSm pull-right" ng-click="deleteUser()">Delete</a>
         </div>
         <br/>
-
-        <div class="row">
-            <div class="col-md-3 text-muted"><span class="pull-right">Username</span></div>
-            <div class="col-md-5">{{user.username}}</div>
-            <br/><br/>
-        </div>
         <div class="row">
             <div class="col-md-3 text-muted"><span class="pull-right">Email Address</span></div>
             <div class="col-md-5">{{user.email}}</div>
@@ -62,8 +56,8 @@
             </thead>
             <tbody>
             <tr ng-repeat="group in userGroups">
-                <td>{{group.name}}</td>
-                <td>{{group.descrtiption}}</td>
+                <td><a ui-sref="config.security.groups.details({id: group.id})">{{group.name}}</a></td>
+                <td>{{group.description}}</td>
                 <!--<td><a href="" class="btn-sm btn btn-blue">Remove</a></td>-->
             </tr>
             </tbody>

@@ -14,9 +14,15 @@ angular.module('myCoopApp')
         $scope.password = '';
         $rootScope.isLoggedIn = false;
         $scope.login = function(){
-            User.login({email: $scope.email, password: $scope.password}, function(){
+            User.login({email: $scope.email, password: $scope.password}, function(data){
                 $rootScope.isLoggedIn = true;
-                $location.path('/admin-welcome');
+                User.getUser(data, function(user){
+                    if(user.permissionLevelId == 1){
+                        $location.path('/admin-welcome');
+                    } else{
+                        $location.path('/user-welcome');
+                    }
+                });
             }, function(){
                 $scope.isPasswordIncorrect = true;
             });

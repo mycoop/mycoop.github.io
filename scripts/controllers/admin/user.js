@@ -31,7 +31,6 @@ angular.module('adminApp')
             }
         };
 
-
         $scope.$watch('allUsersSelected', function (val) {
             _.each($scope.users, function (user) {
                 user.selected = val;

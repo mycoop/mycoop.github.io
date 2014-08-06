@@ -119,7 +119,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="group in userGroups">
-                <td>{{group.name}}</td>
+                <td><a ui-sref="config.security.groups.details({id: group.id})">{{group.name}}</a></td>
                 <td>{{group.description}}</td>
                 <td><a href="" class="btn-sm anssm btn btn-blue" ng-click="removeUserFromGroup(group)">Remove</a></td>
             </tr>

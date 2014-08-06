@@ -22,11 +22,17 @@ angular
         'controls',
         'controllers.common',
         'filters'
-    ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity, SecurityService) {
+    ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity, SecurityService, User) {
         SecurityService.testLogin();
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
+        $rootScope.logout = function(){
+            User.logout(function(){
+                window.location.replace('/#/login');
+            });
+        };
+
         OrgEntity.getEntity(103, function (data) {
             $rootScope.orgEntity = data;
             $rootScope.orgEntityId = data.id;
