@@ -97,7 +97,7 @@
                 <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.firstName}} {{user.lastName}}</a>
                 </td>
                 <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.email}}</a></td>
-                <td></td>
+                <td>{{user.addTime | date}}</td>
 
                 <td>
                     <span class="show-hover" ng-hide="user.restricted">

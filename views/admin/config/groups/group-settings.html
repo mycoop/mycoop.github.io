@@ -91,7 +91,7 @@
                             <span class="glyphicon glyphicon-cog"></span> <span class="">&nbsp;&#x25BE;</span>
                         </div>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="" ng-click="deleteSelectedGroups()">Delete Selected Users</a></li>
+                            <li><a href="" ng-click="deleteSelectedUsers()">Delete Selected Users</a></li>
                             <li><a href="">Email Selected Users</a></li>
                         </ul>
                     </div>
@@ -122,7 +122,7 @@
                         {{user.lastName}}</a>
                     </td>
                     <td><a ui-sref="config.security.users.details({ id: user.id })">{{user.email}}</a></td>
-                    <td>Not available</td>
+                    <td>{{user.addTime | date}}</td>
 
                     <td>
                     <span class="show-hover" ng-hide="user.restricted">

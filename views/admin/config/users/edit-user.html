@@ -114,6 +114,7 @@
             <tr>
                 <th>Group Name</th>
                 <th>Description</th>
+                <th>Date added</th>
                 <th></th>
             </tr>
             </thead>
@@ -121,6 +122,7 @@
             <tr ng-repeat="group in userGroups">
                 <td><a ui-sref="config.security.groups.details({id: group.id})">{{group.name}}</a></td>
                 <td>{{group.description}}</td>
+                <td>{{group.addTime | date}}</td>
                 <td><a href="" class="btn-sm anssm btn btn-blue" ng-click="removeUserFromGroup(group)">Remove</a></td>
             </tr>
             </tbody>

@@ -48,9 +48,9 @@
                 <td>{{group.description}}</td>
                 <td>{{group.creationTime | date:'shortDate'}}</td>
                 <td>{{group.modificationTime | date:'shortDate'}}</td>
-                <td><a href="" ui-sref="config.security.users.details({id: group.createdBy.id})">{{group.createdBy.email}}</a>
+                <td><a href="" ui-sref="config.security.users.details({id: group.createdBy.id})">{{group.createdBy.firstName}} {{group.createdBy.lastName}}</a>
                 </td>
-                <td><a href="" ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.email}}</a>
+                <td><a href="" ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{group.modifiedBy.firstName}} {{group.modifiedBy.lastName}}</a>
                 </td>
                 <td>
                     <span class="show-hover">

@@ -40,10 +40,10 @@ angular.module('adminApp').
         if ($stateParams.id) {
             Group.getGroup($stateParams.id, function (data) {
                 $scope.group = data;
-                Group.getGroupUsers($stateParams.id, function(data){
+                Group.getGroupUsers($stateParams.id, function (data) {
                     $scope.group.users = data;
                     $scope.oldUsers = [];
-                    _.each(data,function(item){
+                    _.each(data, function (item) {
                         $scope.oldUsers.push(item);
                     })
                 });
@@ -52,9 +52,16 @@ angular.module('adminApp').
                 $scope.users = data;
             });
         }
-        $scope.removeUserFromGroup = function(user){
+        $scope.deleteSelectedUsers = function(){
+            _.each($scope.group.users, function(item){
+                if(item.selected){
+                    $scope.removeUserFromGroup(item);
+                }
+            })
+        };
+        $scope.removeUserFromGroup = function (user) {
             $scope.group.users.remove(user);
-            Group.removeUserFromGroup($scope.group.id, user.id, function(){
+            Group.removeUserFromGroup($scope.group.id, user.id, function () {
 
             });
         };
@@ -67,28 +74,27 @@ angular.module('adminApp').
             callback();
         }
 
-        $scope.save = function(){
+        $scope.save = function () {
             Group.updateGroup({id: $scope.group.id, name: $scope.group.name, description: $scope.group.description },
-                function(){
-                    setusers(function(){
-                        $state.transitionTo('config.security.groups',{},{reload: true});
+                function () {
+                    setusers(function () {
+                        $state.transitionTo('config.security.groups', {}, {reload: true});
                     });
                 });
         };
 
         $scope.onNewUserAdded = function ($item, $model, $label) {
-            $scope.group.users.unshift($item);
+            if(!_.contains(_.pluck($scope.group.users, 'id'), $item.id)){
+                $scope.group.users.unshift($item);
+            }
             $scope.newUser = null;
         };
 
         $scope.deleteGroup = function () {
-//            Modal.openYesNoModal('Warning!', 'Are you sure you want to delete this group?', function () {
-                Group.deleteGroup($scope.group.id, function () {
-                    $state.transitionTo('config.security.groups', {}, {reload: true});
-                });
-//            });
+            Group.deleteGroup($scope.group.id, function () {
+                $state.transitionTo('config.security.groups', {}, {reload: true});
+            });
         };
-
     })
     .controller('GroupWorkspaceCtrl', function ($scope, $modal, $stateParams, Group, $log, OrgEntity) {
         if ($stateParams.id) {

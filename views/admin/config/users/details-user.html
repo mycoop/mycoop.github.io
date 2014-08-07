@@ -51,13 +51,14 @@
             <tr>
                 <th>Group Name</th>
                 <th>Description</th>
-                <!--<th></th>-->
+                <th>Date added</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="group in userGroups">
                 <td><a ui-sref="config.security.groups.details({id: group.id})">{{group.name}}</a></td>
                 <td>{{group.description}}</td>
+                <td>{{group.addTime | date}}</td>
                 <!--<td><a href="" class="btn-sm btn btn-blue">Remove</a></td>-->
             </tr>
             </tbody>

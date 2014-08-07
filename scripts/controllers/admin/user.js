@@ -49,7 +49,7 @@ angular.module('adminApp')
                 User.getUserGroups(data.id, function (groups) {
                     $scope.userGroups = groups;
                     $scope.oldUserGroups = angular.copy(groups);
-                })
+                });
             })
         }
 
@@ -66,7 +66,9 @@ angular.module('adminApp')
         };
 
         $scope.onNewGroupAdded = function ($item, $model, $label) {
-            $scope.userGroups.unshift($item);
+            if(!_.contains(_.pluck($scope.userGroups, 'id'), $item.id)){
+                $scope.userGroups.unshift($item);
+            }
             $scope.newGroup = null;
         };
 
@@ -91,8 +93,14 @@ angular.module('adminApp')
             }
         };
 
+        $scope.removeSelectedGroups = function(){
+            _.each($scope.userGroups, function(item){
+                if(item.selected){
+                    $scope.removeUserFromGroup(item);
+                }
+            })
+        };
         $scope.removeUserFromGroup = function(group){
-
             $scope.userGroups.remove(group);
             Group.removeUserFromGroup(group.id, $scope.user.id, function(){
 
