@@ -54,35 +54,14 @@ function updateChart(chart, element, options, scope) {
     initPopups();
 }
 angular.module('adminApp').
-    controller('orgChartCtrl', function ($scope, $modal, $log, OrgEntity) {
+    controller('orgChartCtrl', function ($scope, $modal, $log, OrgUnit) {
         $scope.selectedNode = {node: {name: 'asdda'}};
 
 
         $scope.selectedNodeId = 0;
 
-        $scope.showNewEntityModal = function () {
-            var modalInstance = $modal.open({
-                templateUrl: '/views/templates/new-entity.html',
-                controller: 'ModalInstanceCtrl',
-                resolve: {
-                    message: function () {
-                        return '';
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (params) {
-                var parent = params.confirm ? $scope.selectedNodeId : null;
-                OrgEntity.addEntity({id: $scope.items.length * 100, parent: parent, title: params.name, createdDate: new Date(), modifiedDate: new Date()},
-                refreshEntities);
-//                refreshEntities();
-            }, function () {
-                console.log('success');
-            });
-        };
-
         function refreshEntities() {
-            OrgEntity.getEntities(function (data) {
+            OrgUnit.getOrgUnits(function (data) {
                 $scope.items = data;
                 updateOrphans();
             });
@@ -97,13 +76,16 @@ angular.module('adminApp').
                 if (itemId != null && toParentId != null) {
                     console.log("Reparent  value:" + itemId + ", toParent:" + toParentId);
                     if (checkAncestors(itemId, toParentId)) {
-                        askAction(item, toParentId);
+//                         askAction(item, toParentId);
+
+                        item.parentId = toParentId;
                     } else {
                         showError('You are attempting to set up a child node as a parent!')
                     }
                 } else if (!toParentId) {
                     item.parent = null;
                 }
+                OrgUnit.updateOrgUnit(item, function(){});
             }
         };
 
@@ -171,7 +153,7 @@ angular.module('adminApp').
             });
 
             modalInstance.result.then(function (isMoveUsers) {
-                item.parent = toParentId;
+                item.parentId = toParentId;
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
@@ -196,7 +178,7 @@ angular.module('adminApp').
         }
 
         function updateOrphans() {
-            $scope.orphans = _.where($scope.items, {parent: null})
+            $scope.orphans = _.where($scope.items, {parentId: null})
         }
 
 
@@ -268,8 +250,8 @@ angular.module('adminApp').
                         options.items.push(
                             new primitives.orgdiagram.ItemConfig({
                                 id: item.id,
-                                parent: item.parent,
-                                title: item.title,
+                                parent: item.parentId,
+                                title: item.name,
                                 templateName: "basicTemplate",
                                 url: item.url,
                                 linkText: item.linkText
@@ -350,7 +332,8 @@ angular.module('adminApp').
                     if (data.templateName == "basicTemplate") {
                         data.element.find("[name=photo]").attr({ "src": itemConfig.image, "alt": itemConfig.title });
 //                        data.element.find("[name=titleBackground]").css({ "background": itemConfig.itemTitleColor });
-                        data.element.find("[name=link]").html('<a href="#/home/admin" style="height: 24px"><i style="font-size: 1.5em" class="glyphicon glyphicon-user link_in_node"></i> </a>');
+                        data.element.find("[name=link]").html('<a href="#/configure/hierarchy/edit?id='+itemConfig.id+'" style="height: 24px"><i style="font-size: 1.5em" class="glyphicon glyphicon-user link_in_node"></i> </a>');
+                        data.element.find("[name=edit]").attr('href', '#/configure/hierarchy/edit?id='+itemConfig.id);
                         data.element.find(".actions").html('<i  style="font-size: 1.5em"  class="glyphicon glyphicon-cog item-popup link_in_node" data-trigger="tooltip" data-title="hjlasdf"></i> ');
 //
                         var fields = ["title", "description", "phone", "email"];
@@ -386,7 +369,7 @@ angular.module('adminApp').
                         itemTemplate = jQuery(
                                 '<div class="bp-item bt-item-frame" style="overflow: visible">'
                                 + '<div name="titleBackground" class="bp-item bp-corner-all" style="top: 2px; background: transparent;  left: 2px; width: 146px; height: 20px;">'
-                                + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></i>'
+                                + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 138px; height: 18px; color: #414141;"><span></span><input type="text" class="little_input form-control" style="height: 17px; font-size: 12px; display: none;"><a name="edit"><i style="position:absolute; top: 1px;  right: 3px;" class="glyphicon glyphicon-pencil link_in_node"></a></i>'
                                 + '</div>'
                                 + '</div>'
                                 + '<div name="link" class="bp-item" style="top: 26px; left: 38px; "></div>'

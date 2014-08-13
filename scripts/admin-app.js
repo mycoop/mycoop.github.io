@@ -28,8 +28,8 @@ angular
         $rootScope.showNav = '';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-        $rootScope.logout = function(){
-            User.logout(function(){
+        $rootScope.logout = function () {
+            User.logout(function () {
                 window.location.replace('/#/login');
             });
         };
@@ -130,7 +130,13 @@ angular
             .state('config.general', { templateUrl: '/views/admin/config/general-configuration.html', url: '/general', controller: 'GeneralConfigCtrl'})
             .state('config.advanced', { templateUrl: '/views/admin/config/advanced-configuration.html', url: '/advanced', controller: 'AdvancedConfigCtrl'})
             .state('config.ui', { templateUrl: '/views/admin/config/ui.html', url: '/look-and-feel', controller: 'InterfaceConfigCtrl'})
-            .state('config.hierarchy', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
+            .state('config.', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
+
+            .state('config.orgunits', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
+            .state('config.orgunits.details', {  templateUrl: '/views/admin/config/org-units/org-unit-details.html', url: '/details?id', controller: 'orgChartCtrl'})
+            .state('config.orgunits.add', {  templateUrl: '/views/admin/config/org-units/org-unit-edit.html', url: '/add', controller: 'OrgUnitEditCtrl'})
+            .state('config.orgunits.edit', {  templateUrl: '/views/admin/config/org-units/org-unit-edit.html', url: '/edit?id', controller: 'OrgUnitEditCtrl'})
+
             .state('config.security', { url: '/security', templateUrl: '/views/admin/nested-view.html'})
             .state('config.security.system', { url: '/system-permissions', templateUrl: '/views/admin/config/system-permissions.html', controller: 'SystemPermissionsCtrl' })
             .state('config.security.users', {   templateUrl: '/views/admin/config/users/users.html', url: '/users', controller: 'UsersCtrl'})
@@ -145,6 +151,7 @@ angular
             .state('config.security.groups.workspace', {templateUrl: '/views/admin/config/groups/group-workspace.html', url: '/workspace?id', controller: 'GroupWorkspaceCtrl'})
             .state('config.security.groups.delete', {templateUrl: '/views/admin/config/groups/delete-group.html', url: '/delete?id', controller: 'GroupMembershipCtrl'})
             .state('config.security.workspace', { url: '/workspace-permissions'})
+
             .state('config.resources', { templateUrl: '/views/admin/resource-directories.html', url: '/resources', controller: 'ResourceDirectoriesCtrl'})
             .state('config.resources.employee', { templateUrl: '/views/admin/employee-directory.html', url: '/employee', controller: 'EmployeeContactsCtrl'})
             .state('config.resources.additional', { templateUrl: '/views/admin/employee-directory.html', url: '/additional', controller: 'AdditionalResourcesCtrl'})

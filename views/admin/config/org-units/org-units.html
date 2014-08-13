@@ -1,0 +1,11 @@
+<div>
+    <h1>Hierarchy management</h1>
+    <div ng-show="$state.is('config.orgunits')">
+        <p class="text-muted"><small>Hierarchy management supports the data sharing system that grants access to organizational sub units based on the BCM program requirements. It enables your company to structure your BCM data and users. Particularly if your organization has a private sharing model you may need to grant users access to organizational sub units based on criteria such as Location or a custom criteria that is relevant to your business. Hierarchy management solves these business needs and provides a powerful solution for structuring your users accounts and their associated BCM tasks and activities.</small></p>
+        <button class="btn btn-medium  btn-blue" ng-click="showNewEntityModal()">Add New Entity</button>
+        <div data-ng-chart="" is-editable="true" selected-node-id="selectedNodeId" items="items" id="orgdiagram" on-reparent="reparent(itemId, toParentId)"
+             style="width: 100%; height: 380px; border-style: dotted; border-width: 1px;"></div>
+        <br/>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>

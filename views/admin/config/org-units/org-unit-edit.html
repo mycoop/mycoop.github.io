@@ -1,0 +1,50 @@
+<div class="account-info">
+    <article class="">
+        <br/>
+
+        <h2>Add Org Unit</h2>
+
+        <form action="#" id="editNameFormView" novalidate="" name="form">
+            <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+            <p class="success" role="alert" style="color:green;"></p>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="name">* Name</label><br/>
+                    <input type="text" id="name" autofocus="" required="required" ng-model="unit.name" name="name"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="name">* Owner</label><br/>
+                    <input type="text" required="" class="account-info-input form-control editable"
+                           typeahead-on-select="onOwnerSelected($item, $model, $label)"
+                           placeholder="Chose an owner" ng-model="owner"
+                           typeahead="user.firstName + ' ' + user.lastName for user in users | filter: $viewValue | limitTo:8">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="name">* Parent Org Unit</label><br/>
+                    <input type="text" class="account-info-input form-control editable"
+                           placeholder="Leave empty to create an orphan unit" ng-model="parent"
+                           typeahead-on-select="onParentSelected($item, $model, $label)"
+                           typeahead="parent.name for parent in units | filter: $viewValue | limitTo:8">
+                </div>
+            </div>
+           <div location address="unit.address" coords="unit.location"></div>
+        </form>
+
+
+
+        <div class="editDetailsButtonRow">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()"
+               automationid="editNameSave" title="Save">Save</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="$state.go('^', {},{reload: true})"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
+    </article>
+</div>

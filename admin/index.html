@@ -70,6 +70,7 @@
     <script type="text/javascript" src="/scripts/controllers/admin/section-editor.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/setup.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/resource-directories.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/org-unit.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/system-permissions.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/ui.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/general-configuration.js"></script>
@@ -82,6 +83,7 @@
 
     <script type="text/javascript" src="/scripts/directives/popover.js"></script>
     <script type="text/javascript" src="/scripts/directives/autocomplete.js"></script>
+    <script type="text/javascript" src="/scripts/directives/location.js"></script>
     <script type="text/javascript" src="/scripts/directives/text-editor.js"></script>
     <script type="text/javascript" src="/scripts/directives/directives.js"></script>
     <script type="text/javascript" src="/scripts/filters/dot-text.js"></script>
@@ -165,8 +167,6 @@
             <li ng-class="{ on: $state.includes('home') }">
                 <a ui-sref="home.profile" data-submit-val="0" id="auto_id_0">Home</a>
                 <ul ng-show=" $state.includes('home')">
-                    <li ng-class="{ on: $state.includes('home.org') }">
-                        <a ui-sref="home.org">Hierarchy Management</a></li>
                     <li ng-class="{ on: $state.includes('home.resource') }">
                         <a ui-sref="home.resource">Resource Directories</a></li>
                 </ul>
@@ -218,8 +218,8 @@
                         </ul>
                     </li>
 
-                    <li ng-class="{ on: $state.includes('config.hierarchy') }">
-                        <a ui-sref="config.hierarchy">Hierarchy Management</a></li>
+                    <li ng-class="{ on: $state.includes('config.orgunits') }">
+                        <a ui-sref="config.orgunits">Hierarchy Management</a></li>
                     <li ng-class="{ on: $state.includes('config.security') }">
                         <a ui-sref="config.security.system">Security Configuration</a>
                         <ul style="margin-top: 10px" ng-show="$state.includes('config.security')">
