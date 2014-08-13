@@ -26,9 +26,9 @@ angular.module('directives.location', []).
                     console.log('marker set')
                 };
                 scope.$watch('coords', function(){
-
+                    if (scope.coords.lat && scope.coords.lng) {
                         scope.setMarker(new google.maps.LatLng(scope.coords.lat, scope.coords.lng));
-
+                    }
                 });
                 scope.findLocation = function(){
                     var geocoder = new google.maps.Geocoder();
