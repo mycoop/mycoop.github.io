@@ -2,7 +2,7 @@
     <article class="">
         <br/>
 
-        <h2>Add Org Unit</h2>
+        <h2><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Org Unit</h2>
 
         <form action="#" id="editNameFormView" novalidate="" name="form">
             <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
@@ -21,6 +21,7 @@
                     <label class="label-control" for="name">* Owner</label><br/>
                     <input type="text" required="" class="account-info-input form-control editable"
                            typeahead-on-select="onOwnerSelected($item, $model, $label)"
+                           typeahead-editable="false"
                            placeholder="Chose an owner" ng-model="owner"
                            typeahead="user.firstName + ' ' + user.lastName for user in users | filter: $viewValue | limitTo:8">
                 </div>
@@ -32,6 +33,7 @@
                     <input type="text" class="account-info-input form-control editable"
                            placeholder="Leave empty to create an orphan unit" ng-model="parent"
                            typeahead-on-select="onParentSelected($item, $model, $label)"
+                           typeahead-editable="false"
                            typeahead="parent.name for parent in units | filter: $viewValue | limitTo:8">
                 </div>
             </div>

@@ -1,0 +1,74 @@
+<div class="account-info">
+    <article class="">
+        <br/>
+
+        <h2><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Document Template</h2>
+
+        <form action="#" id="editNameFormView" novalidate="" name="form">
+            <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+            <p class="success" role="alert" style="color:green;"></p>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="name">* Title</label><br/>
+                    <input type="text" id="name" autofocus="" required="required" ng-model="template.name" name="name"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="ref">* Reference</label><br/>
+                    <input type="text" id="ref" maxlength="7" required="required" ng-model="template.reference"
+                           name="ref"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="purpose">* Purpose</label><br/>
+                    <textarea type="text" id="purpose" required="required" ng-model="template.purpose" name="purpose"
+                              class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="component">* Component</label><br/>
+                    <input id="component" type="text" required="" class="account-info-input form-control editable"
+                           typeahead-on-select="onComponentSelect($item, $model, $label)"
+                           typeahead-editable="false"
+                           placeholder="Select dependent component" ng-model="owner"
+                           typeahead="component.name for component in components | filter: $viewValue | limitTo:8">
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="component">* Choose the document file</label><br/>
+                    <input type="file" class="form-control" ng-file-select="onFileSelect($files)" data-multiple="false">
+
+                    <div class="btn" ng-file-select="onFileSelect($files)" data-multiple="false"></div>
+                    <div ng-file-drop="onFileSelect($files)"
+                         ng-file-drag-over-class="optional-css-class-name-or-function"
+                         ng-show="dropSupported">drop files here
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div collapse="!isSaving">
+                        <progressbar class="half-sec-ease-in-out top-space-big progress-striped" value="progress" max="100" type="primary"></progressbar>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="editDetailsButtonRow">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()"
+               automationid="editNameSave" title="Save">Save</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="$state.go('^', {},{reload: true})"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
+    </article>
+</div>

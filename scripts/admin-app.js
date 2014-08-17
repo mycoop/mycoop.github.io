@@ -2,6 +2,7 @@
 
 angular
     .module('adminApp', [
+        'angularFileUpload',
         'ngCookies',
         'ngResource',
         'ngRoute',
@@ -10,7 +11,8 @@ angular
         'resources.process',
         'resources.user',
         'resources.org-entity',
-        'resources.group',
+        'resources.document-template',
+        'resources.component',
         'resources.textEditor',
         'services.modal',
         'services.security',
@@ -33,7 +35,6 @@ angular
                 window.location.replace('/#/login');
             });
         };
-
 
         $rootScope.toggleNav = function () {
             $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
@@ -212,8 +213,12 @@ angular
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template: '<h1>Notification Interface</h1>', url: '/notification'})
-            .state('tools.templatesuite', {  templateUrl: '/views/admin/templatesuite.html', url: '/template-suite'})
-            .state('tools.templatecollection', {  templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
+
+            .state('tools.document-templates', {  templateUrl: '/views/admin/document-template/document-templates.html', url: '/document-template', controller: 'DocumentTemplateCtrl'})
+            .state('tools.document-templates.add', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/add', controller: 'DocumentTemplateEditCtrl'})
+            .state('tools.document-templates.edit', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/edit?id', controller: 'DocumentTemplateEditCtrl'})
+
+//            .state('tools.templatecollection', {  templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('tools.billing', {  template: '<h1>Billing</h1>', url: '/billing'})
             .state('tools.sectioneditor', {  templateUrl: '/views/admin/section-editor.html', url: '/section-editor', controller: 'SectionEditorCtrl'});
 

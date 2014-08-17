@@ -1,0 +1,40 @@
+<div>
+    <h1>Document Templates</h1>
+
+    <div ng-show="$state.is('tools.document-templates')">
+        <a class="btn btn-medium  btn-blue" ui-sref="tools.document-templates.add">Create New Document Template</a>
+        <ul rn-carousel  rn-carousel-indicator rn-carousel-control rn-carousel-index="selectedSlide"
+            style="height: 350px">
+            <li slide ng-repeat="template in datasource" active="template.active">
+                <div class="image-slide doc"></div>
+                <div class="carousel-caption" style="position: initial;">
+                    <h4 style="color: #000;">{{template.reference}}</h4>
+
+                    <p style="color: #000;">{{template.name}}</p>
+                </div>
+            </li>
+        </ul>
+
+        <div>
+            <table class="table">
+                <thead>
+                <tr class="bold">
+                    <th>Title</th>
+                    <th>Reference</th>
+                    <th>Purpose</th>
+                    <th>Pages</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-class="{active: doc.active}" ng-repeat="doc in datasource">
+                    <td>{{doc.name}}</td>
+                    <td>{{doc.reference}}</td>
+                    <td>{{doc.purpose}}</td>
+                    <td>{{doc.pagesCount}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>
