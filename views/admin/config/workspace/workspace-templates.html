@@ -1,0 +1,33 @@
+<div>
+    <h1>Workspace Templates</h1>
+
+    <div ng-show="$state.is('tools.workspace-templates')">
+        <a class="btn btn-medium  btn-blue" ui-sref="tools.workspace-templates.add">Create New Workspace Template</a>
+
+        <div>
+            <table class="table table-hover" >
+                <thead>
+                <tr class="bold">
+                    <th>Name</th>
+                    <th>Documents</th>
+                    <th>Last Modified</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="template in templates" ng-click="$state.go('.edit', {id: template.id})">
+                    <td>{{template.name}}</td>
+                    <td>{{template.documentCount}}</td>
+                    <td>{{template.modificationTime | date}}</td>
+                    <td>
+                        <span class="show-hover">
+                            <a class="glyphicon glyphicon-pencil clickable"></a>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>

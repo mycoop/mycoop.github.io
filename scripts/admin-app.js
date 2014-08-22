@@ -10,8 +10,10 @@ angular
         'ngGrid',
         'resources.process',
         'resources.user',
+        'resources.group',
         'resources.org-entity',
         'resources.document-template',
+        'resources.workspace-template',
         'resources.component',
         'resources.textEditor',
         'services.modal',
@@ -217,6 +219,10 @@ angular
             .state('tools.document-templates', {  templateUrl: '/views/admin/document-template/document-templates.html', url: '/document-template', controller: 'DocumentTemplateCtrl'})
             .state('tools.document-templates.add', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/add', controller: 'DocumentTemplateEditCtrl'})
             .state('tools.document-templates.edit', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/edit?id', controller: 'DocumentTemplateEditCtrl'})
+
+            .state('tools.workspace-templates', {  templateUrl: '/views/admin/config/workspace/workspace-templates.html', url: '/workspace-template', controller: 'WorkspaceTemplateCtrl'})
+            .state('tools.workspace-templates.add', {  templateUrl: '/views/admin/config/workspace/workspace-template-edit.html', url: '/add', controller: 'WorkspaceTemplateEditCtrl'})
+            .state('tools.workspace-templates.edit', {  templateUrl: '/views/admin/config/workspace/workspace-template-edit.html', url: '/edit?id', controller: 'WorkspaceTemplateEditCtrl'})
 
 //            .state('tools.templatecollection', {  templateUrl: '/views/admin/template-collection.html', url: '/template-collection', controller: 'TemplateCollectionCtrl'})
             .state('tools.billing', {  template: '<h1>Billing</h1>', url: '/billing'})

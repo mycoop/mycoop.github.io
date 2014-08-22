@@ -1,0 +1,91 @@
+<div class="account-info">
+    <article class="">
+        <br/>
+
+        <h2><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Workspace Template</h2>
+
+        <form action="#" id="editNameFormView" novalidate="" name="form">
+            <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+            <p class="success" role="alert" style="color:green;"></p>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="label-control" for="name">* Name</label><br/>
+                    <input type="text" id="name" autofocus="" required="required" ng-model="template.name" name="name"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <h3>Select Workspace Documents</h3>
+
+                    <div class="actions-bar top-space-big">
+                        <div class="search-bar col-md-4 pull-right">
+                            <input placeholder="Search document templates" class="form-control"
+                                   ng-model="documentSearch" type="text"/>
+                        </div>
+                    </div>
+
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-3">Components</th>
+                            <th class="col-md-9">Documents</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="component in components | filter: {documentTemplates: documentSearch}">
+                            <td><input type="checkbox" ng-change="onComponentSelectionChanged(component)" ng-model="component.selected"/> {{component.name}}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="document in component.documentTemplates | filter: documentSearch">
+                                        <input type="checkbox" ng-change="onDocumentSelectionChanged(document)"  ng-model="document.selected"/> {{document.name}}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <!--<div class="row">-->
+                <!--<div class="form-group col-xs-12">-->
+                    <!--<h3>Dependent Org Units</h3>-->
+
+
+
+                    <!--<table class="table">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th class="col-md-3">Org Unit Name</th>-->
+                            <!--<th class="col-md-9">Last modified</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr ng-repeat="unit in dependentOrgUnits">-->
+                            <!--<td><a ui-sref="config.orgunits.edit({id: unit.id})">{{unit.name}}</a></td>-->
+                            <!--<td>-->
+                                <!--{{unit.modificationTime | date}}-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            <!--</div>-->
+
+        </form>
+
+
+        <div class="editDetailsButtonRow">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()"
+               automationid="editNameSave" title="Save">Save</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="$state.go('^', {},{reload: true})"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
+    </article>
+</div>

@@ -62,6 +62,7 @@
     <script type="text/javascript" src="/scripts/resources/text-editor.js"></script>
     <script type="text/javascript" src="/scripts/resources/component.js"></script>
     <script type="text/javascript" src="/scripts/resources/document-template.js"></script>
+    <script type="text/javascript" src="/scripts/resources/workspace-template.js"></script>
 
     <script type="text/javascript" src="/scripts/admin-app.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/org-chart.js"></script>
@@ -81,6 +82,7 @@
     <script type="text/javascript" src="/scripts/controllers/admin/advanced-configuration.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/workflow.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/document-template.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/workspace-template.js"></script>
 
     <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
@@ -285,7 +287,10 @@
                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-cog"></span> Standards
                          </a></li>
                     <li ng-class="{ on: $state.includes('tools.document-templates') }"><a ui-sref="tools.document-templates"
-                                                                                     data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Collection
+                                                                                          data-submit-val="16"><span class="glyphicon glyphicon-list-alt"></span> Template Collection
+                    </a></li>
+                    <li ng-class="{ on: $state.includes('tools.workspace-templates') }"><a ui-sref="tools.workspace-templates"
+                                                                                          data-submit-val="16"><span class="glyphicon glyphicon-briefcase"></span> Workspace Templates
                     </a></li>
                     <li ng-class="{ on: $state.includes('tools.billing') }"><a ui-sref="tools.billing"
                                                                                           data-submit-val="16"><span class="glyphicon glyphicon-usd"></span> Billing

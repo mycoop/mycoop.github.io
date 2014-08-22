@@ -45,7 +45,7 @@ angular.module('adminApp').
                     $scope.oldUsers = [];
                     _.each(data, function (item) {
                         $scope.oldUsers.push(item);
-                    })
+                    });
                 });
             });
             User.getUsers(function (data) {

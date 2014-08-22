@@ -1,12 +1,19 @@
 'use strict';
 
 angular.module('adminApp')
-    .controller('DocumentTemplateCtrl', function ($scope, $modal, DocumentTemplate, Component) {
+    .controller('DocumentTemplateCtrl', function ($scope, DocumentTemplate, Component, Modal) {
 
         Component.getComponents(function (data) {
             $scope.components = data;
         });
 
+        $scope.deleteTemplate = function(template){
+            Modal.openYesNoModal('Warning!', 'Are you sure want to delete template \"' + template.name + '\"?', function(){
+               DocumentTemplate.deleteTemplate(template.id, function(){
+                   $scope.refreshTemplates();
+               }) ;
+            });
+        };
 
         $scope.selectedSlide = 0;
 
@@ -21,34 +28,44 @@ angular.module('adminApp')
                 data: $scope.datasource[i]
             });
         };
-        DocumentTemplate.getTemplates(function (data) {
-            $scope.datasource = data;
-            for (var i = 0; i < $scope.datasource.length; i++) {
-                $scope.addSlide(i);
-            }
-        })
+        $scope.refreshTemplates = function (){
+            DocumentTemplate.getTemplates(function (data) {
+                $scope.datasource = data;
+                for (var i = 0; i < $scope.datasource.length; i++) {
+                    $scope.addSlide(i);
+                }
+            });
+        };
+        $scope.refreshTemplates();
 
     })
-    .controller('DocumentTemplateEditCtrl', function ($scope, $state, $stateParams, $upload, DocumentTemplate, Component) {
+    .controller('DocumentTemplateEditCtrl', function ($scope, $state, $stateParams, $upload, Modal, DocumentTemplate, Component) {
         $scope.progress = 0;
-        if ($stateParams.id) {
-            $scope.isEdit = true;
-            DocumentTemplate.getTemplate($stateParams.id, function (data) {
-                $scope.template = data;
-            });
-        }
 
-        Component.getComponents(function (data) {
-            $scope.components = data;
+        $scope.deleteTemplate = function(){
+            Modal.openYesNoModal('Warning!', 'Are you sure want to delete template \"' + $scope.template.name + '\"?', function(){
+                DocumentTemplate.deleteTemplate($scope.template.id, function(){
+                    $state.go('^', {}, {reload: true});
+                }) ;
+            });
+        };
+
+        Component.getComponents(function (components) {
+            $scope.components = components;
+            if ($stateParams.id) {
+                $scope.isEdit = true;
+                DocumentTemplate.getTemplate($stateParams.id, function (data) {
+                    $scope.template = data;
+                    $scope.component = _.findWhere($scope.components,{id: data.componentId});
+                });
+            }
         });
 
         $scope.onComponentSelect = function($item, $model, $label){
             $scope.template.componentId = $item.id;
         };
 
-        $scope.save = function(){
-
-            console.log(JSON.stringify($scope.template));
+        function doUpload(){
             $scope.isSaving = true;
             $scope.upload = $upload.upload({
                 url: '/api/document-template', //upload.php script, node.js route, or servlet url
@@ -71,10 +88,15 @@ angular.module('adminApp')
                 console.log(data);
                 $state.go('^');
             });
-            //.error(...)
-            //.then(success, error, progress);
-            // access or attach event listeners to the underlying XMLHttpRequest.
-            //.xhr(function(xhr){xhr.upload.addEventListener(...)})
+        }
+        $scope.save = function(){
+            if($scope.isEdit){
+                DocumentTemplate.updateTemplate($scope.template, function(){
+                    $state.go('^', {}, {reload: true});
+                })
+            } else{
+                doUpload();
+            }
         };
         $scope.onFileSelect = function ($files) {
             $scope.file = $files[0];

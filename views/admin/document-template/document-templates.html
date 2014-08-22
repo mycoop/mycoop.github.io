@@ -3,10 +3,10 @@
 
     <div ng-show="$state.is('tools.document-templates')">
         <a class="btn btn-medium  btn-blue" ui-sref="tools.document-templates.add">Create New Document Template</a>
-        <ul rn-carousel  rn-carousel-indicator rn-carousel-control rn-carousel-index="selectedSlide"
-            style="height: 350px">
+        <ul rn-carousel rn-carousel-indicator rn-carousel-control rn-carousel-index="selectedSlide"
+            style="height: 400px">
             <li slide ng-repeat="template in datasource" active="template.active">
-                <div class="image-slide doc"></div>
+                <div class="image-slide doc" style="background-image: url('/images/document-front.png')"></div>
                 <div class="carousel-caption" style="position: initial;">
                     <h4 style="color: #000;">{{template.reference}}</h4>
 
@@ -19,18 +19,25 @@
             <table class="table">
                 <thead>
                 <tr class="bold">
-                    <th>Title</th>
-                    <th>Reference</th>
-                    <th>Purpose</th>
-                    <th>Pages</th>
+                    <th class="col-md-3">Title</th>
+                    <th class="col-md-2">Reference</th>
+                    <th class="col-md-5">Purpose</th>
+                    <th class="col-md-1">Pages</th>
+                    <th class="col-md-1"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-class="{active: doc.active}" ng-repeat="doc in datasource">
-                    <td>{{doc.name}}</td>
-                    <td>{{doc.reference}}</td>
-                    <td>{{doc.purpose}}</td>
-                    <td>{{doc.pagesCount}}</td>
+                    <td class="col-md-1">{{doc.name}}</td>
+                    <td class="col-md-1">{{doc.reference}}</td>
+                    <td class="col-md-1">{{doc.purpose}}</td>
+                    <td class="col-md-1">{{doc.pagesCount}}</td>
+                    <td class="col-md-1">
+                    <span class="show-hover">
+                        <a class="glyphicon glyphicon-pencil clickable" ng-click="$state.go('.edit', {id: doc.id})"></a> &nbsp;&nbsp;
+                        <a class="glyphicon glyphicon-remove-circle clickable" ng-click="deleteTemplate(doc)"></a>
+                    </span>
+                    </td>
                 </tr>
                 </tbody>
             </table>

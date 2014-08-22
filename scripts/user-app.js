@@ -22,7 +22,7 @@ angular
         'controls',
         'controllers.common',
         'filters'
-    ]).run(function ($rootScope, $location, $state, $stateParams, OrgEntity, SecurityService, User) {
+    ]).run(function ($rootScope, $location, $state, $stateParams, OrgUnit, SecurityService, User) {
         SecurityService.testLogin();
         $rootScope.showNav = '';
         $rootScope.$state = $state;
@@ -33,7 +33,7 @@ angular
             });
         };
 
-        OrgEntity.getEntity(103, function (data) {
+        OrgUnit.getOrgUnit(15, function (data) {
             $rootScope.orgEntity = data;
             $rootScope.orgEntityId = data.id;
         });
@@ -61,12 +61,12 @@ angular
                 if ($stateParams.orgEntityId) {
                     if ($rootScope.orgEntityId != $stateParams.orgEntityId) {
                         $rootScope.orgEntityId = $stateParams.orgEntityId;
-                        OrgEntity.getEntity($rootScope.orgEntityId, function (data) {
+                        OrgUnit.getOrgUnit($rootScope.orgEntityId, function (data) {
                             $rootScope.orgEntity = data;
                         })
                     }
                 } else {
-                    OrgEntity.getEntity($rootScope.orgEntityId, function (data) {
+                    OrgUnit.getOrgUnit($rootScope.orgEntityId, function (data) {
                         $rootScope.orgEntity = data;
                         $rootScope.orgEntityId = data.id;
                     });

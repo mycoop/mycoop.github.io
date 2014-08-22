@@ -40,9 +40,9 @@ angular.module('resources.document-template', [])
 //                        sections:"5.2 Management commitment 5.4 Organisational roles, responsibilities and authorities"
 //                    }]);
             },
-//            addTemplate: function (template, callback) {
-//                $http.post('/api/document-template', template).success(callback);
-//            },
+            getTemplate: function(id, callback){
+                $http.get('/api/document-template/'+ id).success(callback);
+            },
             updateTemplate: function(template, callback){
                 $http.post('/api/document-template/' + template.id, template).success(callback);
             },

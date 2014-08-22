@@ -4,11 +4,14 @@
         <div class="input-group">
             <input type="text" id="firstName" ng-model="address" required="required" name="firstName"
                    class="form-control" original-title="">
+
             <span class="input-group-addon clickable" ng-click="findLocation()">Find <span class="glyphicon glyphicon-map-marker"></span></span>
+            <span class="input-group-addon clickable" ng-click="toggleMap()"><span class="caret"></span></span>
+
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row" collapse="!showMap">
     <div class="col-md-12" style="height: 400px">
         <map zoom="8" scrollwheel="false" on-click="onMapClick()" ></map>
     </div>

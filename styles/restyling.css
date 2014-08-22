@@ -302,9 +302,10 @@ tr:hover .show-hover {
  *   Slider
  */
 .image-slide {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 350px;
     margin: 0 auto;
+    background-position: center center;
 }
 
 .panels-list .panel {
@@ -323,8 +324,16 @@ color: #a9a9a9;
     background-image: url("/images/fileicon.png");
     background-size: contain;
     background-repeat: no-repeat;
+    border: 1px solid #d3d3d3;
 }
 
+.document-preview{
+    height: 400px;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid #d3d3d3;
+    background-repeat: no-repeat;
+}
 /*
 *   Map filter
 */

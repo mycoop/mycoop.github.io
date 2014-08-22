@@ -1,0 +1,70 @@
+<div>
+    <h2>{{unit.name}} Details</h2>
+    <div class="top-space-big">
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Owner:</span></div>
+            <div class="col-md-5"> <a href=""
+                   ui-sref="config.security.users.details({id: owner.id})">{{owner.firstName}} {{owner.lastName}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Parent:</span></div>
+            <div class="col-md-5">
+                {{parent.name}}
+            </div>
+            <br/>
+        </div>
+
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Location:</span></div>
+            <div class="col-md-5">
+                {{unit.address}}
+            </div>
+            <br/>
+        </div>
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Last Modified By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.modifiedBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right">Modified Date:</span></div>
+            <div class="col-md-5">
+                {{unit.modificationTime | date}}
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Created By:</span></div>
+            <div class="col-md-5">
+                <a href=""
+                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.createdBy.email}}</a>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Created Date:</span></div>
+            <div class="col-md-5">
+                {{unit.creationTime | date}}
+            </div>
+            <br/>
+        </div>
+
+        <br/>
+
+        <a href="" class="btn ansSm" ng-click="showAddMemberInput=true">Add member</a>
+
+        <a href="" class="btn ansSm left-space" ui-sref="config.security.groups.settings({id: group.id})">Group settings</a>
+    </div>
+
+</div>

@@ -1,8 +1,12 @@
-<div class="account-info">
+<div class="account-info" xmlns="http://www.w3.org/1999/html">
     <article class="">
-        <br/>
+        <div class="clearfix">
+            <h2 class="pull-left"><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Org Unit</h2>
+            <a href="" class="btn btn-gray small ansSm pull-right top-space-big" ng-click="deleteOrgUnit()" ng-show="isEdit">Delete</a>
+        </div>
+        <!--<br/>-->
 
-        <h2><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Org Unit</h2>
+        <h3 class="">Common Org Unit Properties</h3>
 
         <form action="#" id="editNameFormView" novalidate="" name="form">
             <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
@@ -35,11 +39,117 @@
                            typeahead-on-select="onParentSelected($item, $model, $label)"
                            typeahead-editable="false"
                            typeahead="parent.name for parent in units | filter: $viewValue | limitTo:8">
+
+                    <div class="checkbox" collapse="!parent">
+                        <label>
+                            <input type="checkbox" ng-model="confirmParent"> Confirm selected parent
+                        </label>
+                    </div>
                 </div>
             </div>
-           <div location address="unit.address" coords="unit.location"></div>
-        </form>
 
+            <div location address="unit.address" coords="unit.location"></div>
+            <div class="row top-space-big">
+                <div class="form-group col-xs-12" ng-init="useFromGallery=true">
+                    <h3>Workspace Template</h3>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-disabled="!parent.id" name="wp" ng-model="useFromGallery"
+                                   id="optionsRadios1" ng-value="false">
+                            Use Parent Template
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="wp" ng-model="useFromGallery" id="optionsRadios2" ng-value="true">
+                            Select Template from Gallery
+                        </label>
+                    </div>
+                    <span ng-show="selectedWorkspace">Selected workspace: <span
+                            class="bold">{{selectedWorkspace.name}}</span> <a href="" ng-click="selectedWorkspace=null">(Change)</a></span>
+                </div>
+            </div>
+            <div collapse="!useFromGallery || selectedWorkspace">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Workspace Template</th>
+                        <th>Document Count</th>
+                        <th>Last Modified</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="workspace in workspaceTemplates" ng-click="selectWorkspace(workspace)">
+                        <td>{{workspace.name}}</td>
+                        <td>{{workspace.documentCount}}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-init="useFromParent=false" class="top-space-big">
+                <h3>Permissons</h3>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-disabled="!parent.id" name="permission" ng-model="useFromParent"
+                               id="optionsRadios4" ng-value="true">
+                        Use Parent Permissions
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="permission" ng-model="useFromParent" id="optionsRadios3"
+                               ng-value="false">
+                        Create Unique Permissions
+                    </label>
+                </div>
+                <div class="row">
+                    <div class=" col-md-4">
+                        <input type="text" required="" class="account-info-input form-control editable"
+                               ng-model="newPermission.entity"
+                               typeahead-editable="false"
+                               typeahead-on-select="onPermissionSelected($item, $model, $label)"
+                               placeholder="Type to search groups or users" ng-model="permItem"
+                               typeahead="pe.name for pe in permissionEntities | filter: $viewValue | limitTo:8">
+                    </div>
+                    <div class=" col-md-4">
+                        <select ng-model="newPermission.permissionLevel" class="form-control"
+                                ng-options="p.name for p in permissionLevels"></select>
+                    </div>
+
+                    <div class=" col-md-2">
+                        <input type="button" ng-click="addPermission()" class="btn btn-default"
+                               value="Create Permission"></input>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-md-1">Entity</th>
+                        <th class="col-md-5">Name</th>
+                        <th class="col-md-5">Permission Level</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="permission in permissions">
+                        <td class="col-md-2">{{permission.entityType}}</td>
+                        <td class="col-md-4">{{permission.entity.name}}</td>
+                        <td class="col-md-3">{{permission.permissionLevel.name}}</td>
+                        <td>
+                    <span class="show-hover">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                           ng-click="removeUserFromGroup(user)"></a>
+                    </span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
 
 
         <div class="editDetailsButtonRow">

@@ -1,6 +1,6 @@
 
 angular.module('directives.location', []).
-    directive('location', function () {
+    directive('location', function ($timeout) {
         return {
             restrict: 'A',
             templateUrl: '/views/templates/location.html',
@@ -11,6 +11,12 @@ angular.module('directives.location', []).
             link: function (scope, element, attributes) {
                 scope.onMapClick = function(event){
                     scope.setMarker(event.latLng);
+                };
+                scope.toggleMap = function(){
+                    scope.showMap = !scope.showMap;
+                    $timeout(function(){
+                        google.maps.event.trigger(scope.map,"resize");
+                    }, 50);
                 };
                 var firstSet = 0;
                 scope.setMarker = function(coords){
@@ -26,10 +32,13 @@ angular.module('directives.location', []).
                     console.log('marker set')
                 };
                 scope.$watch('coords', function(){
+                    init();
+                });
+                function init (){
                     if (scope.coords.lat && scope.coords.lng) {
                         scope.setMarker(new google.maps.LatLng(scope.coords.lat, scope.coords.lng));
                     }
-                });
+                }
                 scope.findLocation = function(){
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
