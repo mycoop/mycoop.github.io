@@ -87,7 +87,7 @@ angular.module('adminApp')
             }).success(function (data, status, headers, config) {
                 // file is uploaded successfully
                 console.log(data);
-                $state.go('^');
+                $state.go('^', {}, {reload: true});
             });
         }
         $scope.save = function(){
