@@ -63,6 +63,7 @@
     <script type="text/javascript" src="/scripts/resources/component.js"></script>
     <script type="text/javascript" src="/scripts/resources/document-template.js"></script>
     <script type="text/javascript" src="/scripts/resources/workspace-template.js"></script>
+    <script type="text/javascript" src="/scripts/resources/incident.js"></script>
 
     <script type="text/javascript" src="/scripts/admin-app.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/org-chart.js"></script>
@@ -87,6 +88,7 @@
     <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/print.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/common/incident.js"></script>
 
     <script type="text/javascript" src="/scripts/directives/popover.js"></script>
     <script type="text/javascript" src="/scripts/directives/autocomplete.js"></script>
@@ -272,6 +274,9 @@
                 <ul ng-show="$state.includes('tools')">
                     <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"
                                                                                  data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-file"></span>  Performance Indicators</a>
+                    </li>
+                    <li ng-class="{ on: $state.includes('tools.incident') }"><a ui-sref="tools.incident"
+                                                                                 data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-exclamation-sign"></span>  Report an Incident</a>
                     </li>
                     <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"
                                                                                 data-submit-val="22"> <span class="glyphicon glyphicon-wrench"></span> Application

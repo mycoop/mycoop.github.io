@@ -4,7 +4,7 @@
             <h2 class="pull-left"><span ng-hide="isEdit">Add</span><span ng-show="isEdit">Edit</span> Org Unit</h2>
             <a href="" class="btn btn-gray small ansSm pull-right top-space-big" ng-click="deleteOrgUnit()" ng-show="isEdit">Delete</a>
         </div>
-        <!--<br/>-->
+        <br ng-hide="isEdit"/>
 
         <h3 class="">Common Org Unit Properties</h3>
 
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div location address="unit.address" coords="unit.location"></div>
+            <div location address="unit.address" show-map="showMap" coords="unit.location"></div>
             <div class="row top-space-big">
                 <div class="form-group col-xs-12" ng-init="useFromGallery=true">
                     <h3>Workspace Template</h3>
@@ -89,7 +89,7 @@
                 </table>
             </div>
 
-            <div ng-init="useFromParent=false" class="top-space-big">
+            <div ng-init="useFromParent=false" ng-hide="isEdit" class="top-space-big">
                 <h3>Permissons</h3>
 
                 <div class="radio">
@@ -108,7 +108,7 @@
                 </div>
                 <div class="row">
                     <div class=" col-md-4">
-                        <input type="text" required="" class="account-info-input form-control editable"
+                        <input type="text" class="account-info-input form-control editable"
                                ng-model="newPermission.entity"
                                typeahead-editable="false"
                                typeahead-on-select="onPermissionSelected($item, $model, $label)"
@@ -117,12 +117,14 @@
                     </div>
                     <div class=" col-md-4">
                         <select ng-model="newPermission.permissionLevel" class="form-control"
-                                ng-options="p.name for p in permissionLevels"></select>
+                                ng-options="p.name for p in permissionLevels">
+                            <option value="">-- Choose Permission Level --</option>
+                                </select>
                     </div>
 
                     <div class=" col-md-2">
                         <input type="button" ng-click="addPermission()" class="btn btn-default"
-                               value="Create Permission"></input>
+                               value="Create Permission" />
                     </div>
                 </div>
                 <table class="table">

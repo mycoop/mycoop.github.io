@@ -1,5 +1,5 @@
 angular.module('controllers.common').
-    controller('mapCtrl', function ($scope, $timeout) {
+    controller('mapCtrl', function ($scope, $timeout, Incident) {
         var markers = [];
         $scope.incidentTypes = {
             fire: {isActive: true, id: 1, name: 'Fire'},
@@ -28,7 +28,9 @@ angular.module('controllers.common').
             control: {},
             zoom: 9
         };
-
+        Incident.getIncidents(function(data){
+            $scope.incidents = data;
+        })
         $scope.refreshMap = function (id) {
 //            alert(123)
             switch (id) {
@@ -74,141 +76,6 @@ angular.module('controllers.common').
             }
         ];
 
-        //
-        //
-        //
-        //
-        //
-        //32.908854, -96.629744
-        $scope.incidents = [
-            {
-                id: 1,
-                title: 'Manufacturing Fire',
-                incidentType: $scope.incidentTypes.fire,
-                incidentPriority: $scope.incidentPriorities.high,
-                facilityType: $scope.facilityTypes.manufacturing,
-                location: 'HQ',
-                place: 'Dallas',
-                startTime: new Date(),
-                duration: '3h 43m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.778142,
-                longitude: -96.799317
-            },
-
-            {
-                id: 2,
-                title: 'Mail Server Outage',
-                incidentType: $scope.incidentTypes.network,
-                incidentPriority: $scope.incidentPriorities.medium,
-                facilityType: $scope.facilityTypes.primary,
-                location: 'Office',
-                place: 'Fort Worth',
-                startTime: new Date(),
-                duration: '10h 21m',
-                staffImpacted: 4,
-                orgUnitsImpacted: 2,
-                latitude: 32.755474,
-                longitude: -97.331351
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.weather,
-                incidentPriority: $scope.incidentPriorities.low,
-                facilityType: $scope.facilityTypes.recovery,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 33.019707,
-                longitude: -96.698552
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.weather,
-                incidentPriority: $scope.incidentPriorities.medium,
-                facilityType: $scope.facilityTypes.primary,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.952863,
-                longitude: -96.963218
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.weather,
-                incidentPriority: $scope.incidentPriorities.low,
-                facilityType: $scope.facilityTypes.recovery,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.868701,
-                longitude:  -96.937126
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.weather,
-                incidentPriority: $scope.incidentPriorities.low,
-                facilityType: $scope.facilityTypes.manufacturing,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.670086,
-                longitude:  -96.864341
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.weather,
-                incidentPriority: $scope.incidentPriorities.low,
-                facilityType: $scope.facilityTypes.primary,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.902145,
-                longitude: -97.134880
-            },
-
-            {
-                id: 3,
-                title: 'Basement Flooded',
-                incidentType: $scope.incidentTypes.network,
-                incidentPriority: $scope.incidentPriorities.low,
-                facilityType: $scope.facilityTypes.recovery,
-                location: 'HQ',
-                place: 'Plano',
-                startTime: new Date(),
-                duration: '6h 17m',
-                staffImpacted: 3,
-                orgUnitsImpacted: 1,
-                latitude: 32.638868,
-                longitude: -96.724266
-            },
-        ];
         $scope.filteredIncidents = $scope.incidents;
 
         $scope.filterMap = function(){

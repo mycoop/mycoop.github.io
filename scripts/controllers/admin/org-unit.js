@@ -9,7 +9,7 @@ angular.module('adminApp')
             address: ""
         };
         $scope.permissionLevels = [
-            {name: '--Choose Permission Level--', id: 0},
+//            {name: '', id: 0},
             {name: 'Administrator', id: 1},
             {name: 'Contributor', id: 2},
             {name: 'Approver', id: 3},
@@ -101,8 +101,8 @@ angular.module('adminApp')
                 $scope.error = true;
             } else {
 
-                var parent = _.findWhere($scope.units, {name: $scope.parent});
-                $scope.unit.parentId = parent && parent.id ? parent.id : null;
+//                var parent = _.findWhere($scope.units, {name: $scope.parent});
+//                $scope.unit.parentId = parent && parent.id ? parent.id : null;
                 if ($scope.isEdit) {
                     OrgUnit.updateOrgUnit($scope.unit, function () {
                         $state.transitionTo('config.orgunits', {}, {reload: true});

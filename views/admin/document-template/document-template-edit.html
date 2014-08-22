@@ -35,18 +35,17 @@
                     </div>
                     <div class="">
                         <div class="form-group ">
-                            <label class="label-control" for="component">* Component</label><br/>
-                            <input id="component" type="text" required="" class="account-info-input form-control editable"
-                                   typeahead-on-select="onComponentSelect($item, $model, $label)"
-                                   typeahead-editable="false"
-                                   placeholder="Select dependent component" ng-model="component"
-                                   typeahead="component.name for component in components | filter: $viewValue | limitTo:8">
+                            <label class="label-control" >* Component</label><br/>
+                            <select class="form-control" ng-change="onComponentSelect()" ng-model="component"
+                                    ng-options="c.name for c in components">
+                                <option value="">-- Chose the component --</option>
+                            </select>
                         </div>
                     </div>
                     <div ng-hide="isEdit">
 
                         <div class="form-group ">
-                            <label class="label-control" for="component">* Choose the document file</label><br/>
+                            <label class="label-control">* Choose the document file</label><br/>
                             <input type="file" class="form-control" ng-file-select="onFileSelect($files)" data-multiple="false">
 
                             <div class="btn" ng-file-select="onFileSelect($files)" data-multiple="false"></div>

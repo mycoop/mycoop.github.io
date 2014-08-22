@@ -97,6 +97,13 @@ td.colFirst {
     margin-bottom: 10px;
 }
 
+.timepicker{
+    margin-top: -15px;
+}
+.timepicker .form-control{
+    margin-bottom: 0;
+}
+
 input.small {
     width: auto;
 }

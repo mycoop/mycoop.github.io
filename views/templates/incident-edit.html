@@ -1,0 +1,135 @@
+<div>
+
+    <h2><span ng-hide="isEdit">Report</span><span ng-show="isEdit">Update</span> an Incident</h2>
+
+    <div class="">
+        <div class="">
+            <form action="#" id="editNameFormView" novalidate="" name="form">
+                <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+                <p class="success" role="alert" style="color:green;"></p>
+
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label class="label-control" for="name">* Title</label><br/>
+                        <input type="text" id="name" autofocus="" required="required" ng-model="incident.title"
+                               name="name"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control" for="desc">* Description</label><br/>
+                        <textarea type="text" id="desc" required="required" ng-model="incident.description"
+                                  name="ref"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row" ng-init="showMap = true">
+                    <div class="form-group col-xs-12 ">
+                        <div location address="incident.address" show-map="showMap" coords="incident.location"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control">* Classification</label><br/>
+                        <select class="form-control" ng-model="incident.incidentType"
+                                ng-options="it.name for it in incidentTypes">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control">* Facility type</label><br/>
+                        <select class=" form-control" ng-model="incident.facilityType"
+                                ng-options="ft.name for ft in facilityTypes">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control">* Priority</label><br/>
+                        <select class=" form-control" ng-model="incident.priorityType"
+                                ng-options="ft.name for ft in priorityTypes">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control" for="start">* Start time</label><br/>
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p class="input-group">
+
+                                    <input type="text" id="start" class="form-control" datepicker-popup=""
+                                           ng-model="incident.startTime"
+                                           is-open="startTimeOpened" max-date="dt"
+                                           datepicker-options="dateOptions"
+                                           show-button-bar="false"
+                                           ng-required="true" close-text="Close">
+                                 <span class="input-group-addon clickable" ng-click="openStart($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                                </p>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="permission" ng-model="isFinished"
+                                               id="optionsRadios3">
+                                        Set end time
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="row timepicker">
+                                <timepicker ng-model="incident.startTime" hour-step="hstep" minute-step="mstep"
+                                            show-meridian="false"></timepicker>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row" collapse="!isFinished">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control" for="end">* End time</label><br/>
+                        <div class="row">
+                            <p class="input-group col-md-7">
+                                <input type="text" id="end" class="form-control" datepicker-popup="" ng-model="incident.endTime"
+                                       is-open="endTimeOpened" min-date="incident.startTime"
+                                       datepicker-options="dateOptions"
+                                       show-button-bar="false"
+                                       ng-required="true" close-text="Close">
+                                 <span class="input-group-addon clickable" ng-click="openEnd($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </p>
+
+                            <p class="row timepicker">
+                                <timepicker ng-model="incident.endTime" hour-step="hstep" minute-step="mstep"
+                                            show-meridian="false"></timepicker>
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="editDetailsButtonRow top-space">
+        <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()">Save</a>
+        <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="$state.go('^', {},{reload: true})">Cancel</a>
+    </div>
+</div>

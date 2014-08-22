@@ -6,7 +6,8 @@ angular.module('directives.location', []).
             templateUrl: '/views/templates/location.html',
             scope: {
                 address: '=',
-                coords: '='
+                coords: '=',
+                showMap: '='
             },
             link: function (scope, element, attributes) {
                 scope.onMapClick = function(event){
@@ -28,7 +29,7 @@ angular.module('directives.location', []).
                     scope.coords.lat = coords.lat();
                     scope.coords.lng = coords.lng();
                     scope.map.setCenter(coords);
-                    scope.map.setZoom(15);
+//                    scope.map.setZoom(15);
                     console.log('marker set')
                 };
                 scope.$watch('coords', function(){

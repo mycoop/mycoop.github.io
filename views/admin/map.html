@@ -5,7 +5,10 @@
         <div class="row top-space">
             <h2>All Business Locations</h2><br/>
         </div>
-        <div class="row">
+        <div class="row ">
+            <a ui-sref="tools.incident" class="btn btn-blue">Report an Incident</a>
+        </div>
+        <div class="row top-space-big">
             <div class="col-md-4">
                 <h3 class="text-center">Incident Types </h3>
 
@@ -118,7 +121,7 @@
                     <span class="bold">Name: </span>  {{selectedIncident.title}}
                 </li>
                 <li>
-                    <span class="bold">Location: </span>  {{selectedIncident.location}} ({{selectedIncident.place}})
+                    <span class="bold">Location: </span>  {{selectedIncident.location}}
                 </li>
                 <li>
                     <span class="bold">Classification: </span>  {{selectedIncident.incidentType.name}}
@@ -129,9 +132,9 @@
                 <li>
                     <span class="bold">Duration: </span>  {{selectedIncident.duration}}
                 </li>
-                <li>
-                    <span class="bold">Status: </span>  {{selectedIncident.name}}
-                </li>
+                <!--<li>-->
+                    <!--<span class="bold">Status: </span>  {{selectedIncident.name}}-->
+                <!--</li>-->
                 <li>
                     <span class="bold">Description: </span>  An emergency situation occured...
                 </li>

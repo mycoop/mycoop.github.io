@@ -45,7 +45,7 @@ angular.module('adminApp')
         $scope.deleteTemplate = function(){
             Modal.openYesNoModal('Warning!', 'Are you sure want to delete template \"' + $scope.template.name + '\"?', function(){
                 DocumentTemplate.deleteTemplate($scope.template.id, function(){
-                    $state.go('^', {}, {reload: true});
+                    $state.go('^', {}, {reload: tr});
                 }) ;
             });
         };
@@ -61,8 +61,9 @@ angular.module('adminApp')
             }
         });
 
-        $scope.onComponentSelect = function($item, $model, $label){
-            $scope.template.componentId = $item.id;
+        $scope.onComponentSelect = function(){
+//            alert( $scope.component.id);
+            $scope.template.componentId = $scope.component.id;
         };
 
         function doUpload(){

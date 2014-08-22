@@ -16,6 +16,7 @@ angular
         'resources.workspace-template',
         'resources.component',
         'resources.textEditor',
+        'resources.incident',
         'services.modal',
         'services.security',
         'interceptor',
@@ -26,7 +27,8 @@ angular
         'ngMap',
         'angular-carousel',
         'angularSpectrumColorpicker',
-        'controllers.common'
+        'controllers.common',
+        'controllers.incident'
     ]).run(function ($rootScope, $location, $state, $stateParams, SecurityService, User) {
         SecurityService.testLogin();
         $rootScope.showNav = '';
@@ -211,6 +213,7 @@ angular
         $stateProvider
             .state('tools', { url: '/tools'})
             .state('tools.reporting', {  template: '<h1>Reporting</h1>', url: '/reporting'})
+            .state('tools.incident', {  templateUrl: '/views/templates/incident-edit.html', url: '/report-incident', controller: 'IncidentCtrl'})
             .state('tools.controls', {  template: '<h1>Application Controls</h1>', url: '/controls'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
