@@ -108,6 +108,9 @@ angular.module('adminApp')
                         $state.transitionTo('config.orgunits', {}, {reload: true});
                     });
                 } else {
+                    if(!$scope.selectedWorkspace){           //
+                        $scope.unit.workspaceTemplateId = 1; // kostyl
+                    }                                        //
                     OrgUnit.addOrgUnit($scope.unit, function (data) {
                         $scope.unit.id = data.id;
                         _.each($scope.permissions, function (item) {
