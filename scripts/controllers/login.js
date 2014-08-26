@@ -16,7 +16,7 @@ angular.module('myCoopApp')
         $scope.login = function(){
             User.login({email: $scope.email, password: $scope.password}, function(data){
                 $rootScope.isLoggedIn = true;
-                User.getUser(data, function(user){
+                User.getUser(data.id, function(user){
                     if(user.permissionLevelId == 1){
                         $location.path('/admin-welcome');
                     } else{
