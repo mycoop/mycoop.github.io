@@ -33,7 +33,7 @@ angular.module('controllers.incident', []).
                 data.incidentType = _.findWhere($scope.incidentTypes, {id: data.type});
                 data.priorityType = _.findWhere($scope.priorityTypes, {id: data.priority});
                 data.facilityType = _.findWhere($scope.facilityTypes, {id: data.facilityType});
-                data.endTime = new Date(new Date(data.startTime).getTime() + data.duration).getTime();
+                data.endTime = new Date(new Date(data.startTime).getTime() + data.duration);
                 $scope.isFinished = data.duration ? true : false;
                 $scope.incident = data;
             });
