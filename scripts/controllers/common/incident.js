@@ -1,7 +1,7 @@
 angular.module('controllers.incident', []).
-    controller('IncidentCtrl', function ($scope, $state, Incident) {
+    controller('IncidentCtrl', function ($scope, $state, $stateParams, Incident, $filter) {
 
-
+        $scope.isFinished = false;
         $scope.facilityTypes = [
             {id: 1, name: 'Primary Facilities'},
             {id: 2, name: 'Recovery Sites'},
@@ -27,6 +27,18 @@ angular.module('controllers.incident', []).
         location:{}
         };
 
+        if($stateParams.id){
+            $scope.isEdit = true;
+            Incident.getIncident($stateParams.id, function(data){
+                data.incidentType = _.findWhere($scope.incidentTypes, {id: data.type});
+                data.priorityType = _.findWhere($scope.priorityTypes, {id: data.priority});
+                data.facilityType = _.findWhere($scope.facilityTypes, {id: data.facilityType});
+                data.endTime = new Date(new Date(data.startTime).getTime() + data.duration).getTime();
+                $scope.isFinished = data.duration ? true : false;
+                $scope.incident = data;
+            });
+        }
+
         $scope.save = function(){
 //            $scope.incident.priorityTypeId =  $scope.incident.
 //            var startTime = (new Date($scope.startDate)).setHours((new Date($scope.startTime).getHours()))
@@ -35,17 +47,25 @@ angular.module('controllers.incident', []).
                 $scope.error = true;
             }
             else{
+                $scope.incident.type = $scope.incident.incidentType.id;
+                $scope.incident.priority = $scope.incident.priorityType.id;
+                $scope.incident.facilityType = $scope.incident.facilityType.id;
+                $scope.incident.startTime = $filter('date')($scope.incident.startTime, 'yyyy-MM-dd HH:mm:ss Z');
+//                $scope.incident.duration = (new Date($scope.endTime)) - (new Date($scope.startTime));
                 if($scope.isFinished){
-                    $scope.incident.duration = ((new Date($scope.incident.endTime)).getDate() - (new Date($scope.incident.startTime)).getDate());
+                    $scope.incident.duration = ((new Date($scope.incident.endTime)).getTime() - (new Date($scope.incident.startTime)).getTime());
                     console.log($scope.incident.duration);
                 }
-
-                $scope.incident.latitude = $scope.incident.location.lat;
-                $scope.incident.longitude = $scope.incident.location.lng;
-                $scope.incident.location = $scope.incident.address;
-                Incident.addIncident($scope.incident, function(){
-                    $state.go('dashboard.map');
-                })
+                if($scope.isEdit){
+                    $scope.incident.duration = $scope.isFinished ? $scope.incident.duration : 0;
+                    Incident.updateIncident($scope.incident, function(){
+                        $state.go('dashboard.map');
+                    });
+                } else{
+                    Incident.addIncident($scope.incident, function(){
+                        $state.go('dashboard.map');
+                    });
+                }
             }
         };
 

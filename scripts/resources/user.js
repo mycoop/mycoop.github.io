@@ -13,6 +13,9 @@ angular.module('resources.user', [])
             getUser: function (id, callback) {
                 $http.get('/api/user/' + id).success(callback);
             },
+            getCurrent: function(callback){
+                $http.get('/api/user/current').success(callback);
+            },
             addUser: function (user, callback) {
                 $http.post('/api/user/', user).success(callback);
             },

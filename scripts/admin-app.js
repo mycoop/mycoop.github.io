@@ -40,6 +40,10 @@ angular
             });
         };
 
+        User.getCurrent(function(data){
+            $rootScope.profile = data;
+        });
+
         $rootScope.toggleNav = function () {
             $rootScope.showNav = $rootScope.showNav ? '' : 'show_nav';
         };
@@ -169,8 +173,9 @@ angular
 
 
         $stateProvider
-            .state('dashboard', { url: '/dashboard'})
-            .state('dashboard.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'})
+            .state('dashboard', { url: '/dashboard', abstract:true, template: '<ui-view/>'})
+            .state('dashboard.main', { url: '/main', templateUrl: '/views/admin/dashboard/dashboard', controller: 'DashboardCtrl'})
+            .state('dashboard.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'});
 
 
         $stateProvider
@@ -213,7 +218,11 @@ angular
         $stateProvider
             .state('tools', { url: '/tools'})
             .state('tools.reporting', {  template: '<h1>Reporting</h1>', url: '/reporting'})
-            .state('tools.incident', {  templateUrl: '/views/templates/incident-edit.html', url: '/report-incident', controller: 'IncidentCtrl'})
+
+            .state('tools.incident', { url: '/incident', abstract:true, template: '<ui-view/>'})
+            .state('tools.incident.report', { templateUrl: '/views/templates/incident-edit.html', url: '/report', controller: 'IncidentCtrl'})
+            .state('tools.incident.edit', {  templateUrl: '/views/templates/incident-edit.html', url: '/edit?id', controller: 'IncidentCtrl'})
+
             .state('tools.controls', {  template: '<h1>Application Controls</h1>', url: '/controls'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})

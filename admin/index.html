@@ -84,6 +84,7 @@
     <script type="text/javascript" src="/scripts/controllers/admin/workflow.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/document-template.js"></script>
     <script type="text/javascript" src="/scripts/controllers/admin/workspace-template.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/admin/dashboard.js"></script>
 
     <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
@@ -250,10 +251,10 @@
             </li>
 
             <li ng-class="{ on: $state.includes('dashboard') }">
-                <a ui-sref="dashboard.map">DASHBOARD</a>
+                <a ui-sref="dashboard.main">DASHBOARD</a>
                 <ul ng-show=" $state.includes('dashboard')">
                     <li ng-class="{ on: $state.includes('dashboard.map') }">
-                        <a ui-sref="setup.map">Situational Awareness Map</a>
+                        <a ui-sref="dashboard.map">Situational Awareness Map</a>
                         <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
                             <li ng-class="{ on: $state.includes('dashboard.map') }">
                                 <a ui-sref="dashboard.map">All Business Locations</a></li>
@@ -275,7 +276,7 @@
                     <li ng-class="{ on: $state.includes('tools.reporting') }"><a ui-sref="tools.reporting"
                                                                                  data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-file"></span>  Performance Indicators</a>
                     </li>
-                    <li ng-class="{ on: $state.includes('tools.incident') }"><a ui-sref="tools.incident"
+                    <li ng-class="{ on: $state.includes('tools.incident') }"><a ui-sref="tools.incident.report"
                                                                                  data-submit-val="14" id="auto_id_19"><span class="glyphicon glyphicon-exclamation-sign"></span>  Report an Incident</a>
                     </li>
                     <li ng-class="{ on: $state.includes('tools.controls') }"><a ui-sref="tools.controls"

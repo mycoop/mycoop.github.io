@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="form-group col-md-5">
                         <label class="label-control" for="name">* Title</label><br/>
-                        <input type="text" id="name" autofocus="" required="required" ng-model="incident.title"
+                        <input type="text" id="name" autofocus="" required="required" ng-model="incident.name"
                                name="name"
                                class="form-control">
                     </div>
@@ -28,7 +28,7 @@
 
                 <div class="row" ng-init="showMap = true">
                     <div class="form-group col-xs-12 ">
-                        <div location address="incident.address" show-map="showMap" coords="incident.location"></div>
+                        <div location address="incident.location.address" show-map="showMap" coords="incident.location"></div>
                     </div>
                 </div>
 
@@ -105,7 +105,7 @@
                                        is-open="endTimeOpened" min-date="incident.startTime"
                                        datepicker-options="dateOptions"
                                        show-button-bar="false"
-                                       ng-required="true" close-text="Close">
+                                       ng-required="false" close-text="Close">
                                  <span class="input-group-addon clickable" ng-click="openEnd($event)">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>

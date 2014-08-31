@@ -6,7 +6,7 @@
             <h2>All Business Locations</h2><br/>
         </div>
         <div class="row ">
-            <a ui-sref="tools.incident" class="btn btn-blue">Report an Incident</a>
+            <a ui-sref="tools.incident.report" class="btn btn-blue">Report an Incident</a>
         </div>
         <div class="row top-space-big">
             <div class="col-md-4">
@@ -110,7 +110,7 @@
     <div class="row top-space-big"><br/>
 
         <div ng-class="{'col-md-8': selectedIncident}" style="height: 450px">
-            <map zoom="9" center="[{{map.center.latitude}}, {{map.center.longitude}}]">
+            <map zoom="4" center="[{{map.center.latitude}}, {{map.center.longitude}}]">
 
             </map>
         </div>
@@ -118,33 +118,39 @@
             <h3>Icident Info</h3>
             <ul class="list-unstyled">
                 <li>
-                    <span class="bold">Name: </span>  {{selectedIncident.title}}
+                    <span class="bold">Name: </span>  {{selectedIncident.name}}
                 </li>
                 <li>
-                    <span class="bold">Location: </span>  {{selectedIncident.location}}
+                    <span class="bold">Location: </span>  {{selectedIncident.location.address}}
                 </li>
                 <li>
                     <span class="bold">Classification: </span>  {{selectedIncident.incidentType.name}}
                 </li>
                 <li>
-                    <span class="bold">Onset: </span>  {{selectedIncident.startTime | date:'short'}}
+                    <span class="bold">Priority: </span>  {{selectedIncident.priorityType.name}}
                 </li>
                 <li>
-                    <span class="bold">Duration: </span>  {{selectedIncident.duration}}
+                    <span class="bold">Onset: </span>  {{selectedIncident.startTime | date:'medium'}}
+                </li>
+                <li>
+                    <span class="bold">Duration: </span>  {{selectedIncident.duration | date:"H 'h' m 'm'" }} <span ng-show="selectedIncident.isContinue">(is continue)</span>
                 </li>
                 <!--<li>-->
                     <!--<span class="bold">Status: </span>  {{selectedIncident.name}}-->
                 <!--</li>-->
                 <li>
-                    <span class="bold">Description: </span>  An emergency situation occured...
+                    <span class="bold">Description: </span>  {{selectedIncident.description}}
+                </li>
+                <li>
+                    <a class="btn btn-blue ansSm" ui-sref="tools.incident.edit({id: selectedIncident.id})">Edit </a>
                 </li>
             </ul>
             <br/>
-            <h3>Resource Dependencies</h3>
-            <ul class="list-unstyled">
-                <li><span class="bold">Org Units Impacted: </span><a ui-sref="setup.hierarchy">{{selectedIncident.orgUnitsImpacted}}</a></li>
-                <li><span class="bold">Staff Impacted: </span><a ui-sref="setup.users">{{selectedIncident.staffImpacted}}</a></li>
-            </ul>
+            <!--<h3>Resource Dependencies</h3>-->
+            <!--<ul class="list-unstyled">-->
+                <!--<li><span class="bold">Org Units Impacted: </span><a ui-sref="setup.hierarchy">{{selectedIncident.orgUnitsImpacted}}</a></li>-->
+                <!--<li><span class="bold">Staff Impacted: </span><a ui-sref="setup.users">{{selectedIncident.staffImpacted}}</a></li>-->
+            <!--</ul>-->
         </div>
     </div>
 

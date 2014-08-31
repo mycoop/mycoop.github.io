@@ -35,6 +35,18 @@ angular.module('resources.org-entity', [])
             addGroupPermission: function (orgunitId, groupId, permissionId, callback) {
                 $http.post('/api/orgunit/' + orgunitId + '/group/' + groupId + '/permission/' + permissionId).success(callback);
             },
+            getUserPermissions: function(orgunitId, callback){
+                $http.get('/api/orgunit/' + orgunitId + '/user-permission/').success(callback);
+            },
+            getGroupPermissions: function(orgunitId, callback){
+                $http.get('/api/orgunit/' + orgunitId + '/group-permission/').success(callback);
+            },
+            deleteUserPermission: function(orgunitId, userId, permissionId, callback){
+                $http.delete('/api/orgunit/' + orgunitId + '/user/' + userId + '/permission/' + permissionId).success(callback);
+            },
+            deleteGroupPermission: function (orgunitId, groupId, permissionId, callback) {
+                $http.delete('/api/orgunit/' + orgunitId + '/group/' + groupId + '/permission/' + permissionId).success(callback);
+            },
             deleteOrgUnit: function (id, callback) {
                 $http.delete('/api/orgunit/' + id).success(callback);
             }

@@ -3610,6 +3610,9 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     clear: both
 }
 
+.tab-content{
+    margin-top: 10px;
+}
 .tab-content > .tab-pane, .pill-content > .pill-pane {
     display: none
 }

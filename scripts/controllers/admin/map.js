@@ -29,26 +29,6 @@ angular.module('adminApp').
             zoom: 9
         };
 
-        $scope.refreshMap = function (id) {
-//            alert(123)
-            switch (id) {
-                case 1:
-                    $scope.map.control.refresh($scope.map.center);
-                    break;
-                case 2:
-                    $scope.incidentsMap.control.refresh($scope.incidentsMap.center);
-                    break;
-            }
-        };
-
-        $scope.incidentsMap = {
-            center: {
-                latitude: 33.019962,
-                longitude: -96.697830
-            },
-            control: {},
-            zoom: 9
-        };
 
         $scope.locations = [
             {

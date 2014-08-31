@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div location address="unit.address" show-map="showMap" coords="unit.location"></div>
+            <div location address="unit.location.address" show-map="showMap" coords="unit.location"></div>
             <div class="row top-space-big">
                 <div class="form-group col-xs-12" ng-init="useFromGallery=true">
                     <h3>Workspace Template</h3>
@@ -89,7 +89,7 @@
                 </table>
             </div>
 
-            <div ng-init="useFromParent=false" ng-hide="isEdit" class="top-space-big">
+            <div ng-init="useFromParent=false" class="top-space-big">
                 <h3>Permissons</h3>
 
                 <div class="radio">
@@ -144,7 +144,7 @@
                         <td>
                     <span class="show-hover">
                         <a class="glyphicon glyphicon-remove-circle delete-button"
-                           ng-click="removeUserFromGroup(user)"></a>
+                           ng-click="deletePermission(permission)"></a>
                     </span></td>
                     </tr>
                     </tbody>
