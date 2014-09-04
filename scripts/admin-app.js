@@ -131,6 +131,7 @@ angular
             .state('setup.hierarchy', {  templateUrl: '/views/admin/org.html', url: '/org', controller: 'orgChartCtrl'})
             .state('setup.review', {  templateUrl: '/views/admin/setup/setup-review.html', url: '/review'});
 
+        $stateProvider.state('demo', {url: '/demo-overview', templateUrl: '/views/templates/demo-overview'});
 
         $stateProvider
             .state('config', { url: '/configure'})
@@ -142,7 +143,7 @@ angular
             .state('config.', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
 
             .state('config.orgunits', {  templateUrl: '/views/admin/org.html', url: '/hierarchy', controller: 'orgChartCtrl'})
-            .state('config.orgunits.details', {  templateUrl: '/views/admin/config/org-units/org-unit-details.html', url: '/details?id', controller: 'orgChartCtrl'})
+            .state('config.orgunits.details', {  templateUrl: '/views/admin/config/org-units/org-unit-details.html', url: '/details?id', controller: 'OrgUnitEditCtrl'})
             .state('config.orgunits.add', {  templateUrl: '/views/admin/config/org-units/org-unit-edit.html', url: '/add', controller: 'OrgUnitEditCtrl'})
             .state('config.orgunits.edit', {  templateUrl: '/views/admin/config/org-units/org-unit-edit.html', url: '/edit?id', controller: 'OrgUnitEditCtrl'})
 
@@ -228,6 +229,7 @@ angular
             .state('tools.audit', {  template: '<h1>Audit Center</h1>', url: '/audit'})
             .state('tools.notification', {  template: '<h1>Notification Interface</h1>', url: '/notification'})
 
+            .state('tools.template-suite', {  templateUrl: '/views/admin/templatesuite.html', url: '/template-suite'})
             .state('tools.document-templates', {  templateUrl: '/views/admin/document-template/document-templates.html', url: '/document-template', controller: 'DocumentTemplateCtrl'})
             .state('tools.document-templates.add', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/add', controller: 'DocumentTemplateEditCtrl'})
             .state('tools.document-templates.edit', {  templateUrl: '/views/admin/document-template/document-template-edit.html', url: '/edit?id', controller: 'DocumentTemplateEditCtrl'})

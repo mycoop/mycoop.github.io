@@ -15,9 +15,13 @@ angular
             .otherwise({
                 redirectTo: '/login'
             });
-    }).run(function ($rootScope, $location) {
+    }).run(function ($rootScope, $location, User) {
 //        $rootScope.isLoggedIn = false;
         var isInitChecking = true;
+
+        User.getCurrent(function (data) {
+            $rootScope.profile = data;
+        })
 
         $rootScope.redirect = function (path) {
             $location.path(path);

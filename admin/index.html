@@ -174,36 +174,25 @@
         <div id="tabRegion"></div>
         <!-- visibility controlled through media queries in Navigation.less -->
         <ul id="navigation" role="navigation">
-            <li ng-class="{ on: $state.includes('home') }">
-                <a ui-sref="home.profile" data-submit-val="0" id="auto_id_0">Home</a>
-                <ul ng-show=" $state.includes('home')">
-                    <li ng-class="{ on: $state.includes('home.resource') }">
-                        <a ui-sref="home.resource">Resource Directories</a></li>
+            <li ng-class="{ on: $state.includes('dashboard') }">
+                <a ui-sref="dashboard.main">DASHBOARD</a>
+                <ul ng-show=" $state.includes('dashboard')">
+                    <li ng-class="{ on: $state.includes('dashboard.map') }">
+                        <a ui-sref="dashboard.map">Situational Awareness Map</a>
+                        <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
+                            <li ng-class="{ on: $state.includes('dashboard.map') }">
+                                <a ui-sref="dashboard.map">All Business Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.users') }">
+                                <a href="">My Work Locations</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.groups') }">
+                                <a href="">My Recovery Facilities</a></li>
+                            <li ng-class="{ on: $state.includes('config.security.workspace') }">
+                                <a href="">My Alternate Facilities</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </li>
-            <!--<li ng-class="{ on: $state.includes('setup') }">-->
-                <!--<a ui-sref="setup.profile" data-submit-val="0" id="auto_id_0">SETUP</a>-->
-                <!--<ul ng-show=" $state.includes('setup')">-->
-                    <!--<li ng-class="{ on: $state.includes('setup.profile') }">-->
-                        <!--<a ui-sref="setup.profile">Organization Profile</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.standards') }">-->
-                        <!--<a ui-sref="setup.standards">Standards and Compliance</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.resources') }">-->
-                        <!--<a ui-sref="setup.resources">Resource Directories</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.ui') }">-->
-                        <!--<a ui-sref="setup.ui"> User Interface</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.templates') }">-->
-                        <!--<a ui-sref="setup.templates">Template Collection</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.config') }">-->
-                        <!--<a ui-sref="setup.config">Workflow Configuration</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.users') }">-->
-                        <!--<a ui-sref="setup.users">User Administration </a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.hierarchy') }">-->
-                        <!--<a ui-sref="setup.hierarchy">Hierarchy Management</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('setup.review') }">-->
-                        <!--<a ui-sref="setup.review">Setup Review</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
 
             <li ng-class="{ on: $state.includes('config') }">
                 <a ui-sref="config.profile">CONFIGURE</a>
@@ -250,25 +239,7 @@
                 </ul>
             </li>
 
-            <li ng-class="{ on: $state.includes('dashboard') }">
-                <a ui-sref="dashboard.main">DASHBOARD</a>
-                <ul ng-show=" $state.includes('dashboard')">
-                    <li ng-class="{ on: $state.includes('dashboard.map') }">
-                        <a ui-sref="dashboard.map">Situational Awareness Map</a>
-                        <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
-                            <li ng-class="{ on: $state.includes('dashboard.map') }">
-                                <a ui-sref="dashboard.map">All Business Locations</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.users') }">
-                                <a href="">My Work Locations</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.groups') }">
-                                <a href="">My Recovery Facilities</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.workspace') }">
-                                <a href="">My Alternate Facilities</a></li>
-                        </ul>
-                    </li>
 
-                </ul>
-            </li>
 
             <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.reporting" data-submit-val="13"
                                                                id="auto_id_18">TOOLS</a>

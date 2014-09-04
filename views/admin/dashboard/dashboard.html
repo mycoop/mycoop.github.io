@@ -1,48 +1,225 @@
 <div>
-    <h1>Administrator Dashboard</h1> <br/>
-    <div class="row">
-        <div class="col-md-4">
-            <h3>Welcome, {{profile.firstName+' '+profile.lastName}}!</h3>
-            <!--<p>-->
-                <!--<small>myCOOP is where the BCMS team collaborates on BCDR plan development. They can create and maintain plan documents and polices, conduct tests & exercises, report disruptive incidents and generate BCM related reports</small>-->
-            <!--</p>-->
-            <div>
-                <div class="row">
-                    <!--<div class="col-xs-2"></div>-->
-                    <!--<div class="col-xs-10">-->
-                        <!--<a class="text-primary bold">Launch setup wizard</a><br/>-->
-                        <!--for a guided apprach of the configuration settings.-->
-                    <!--</div>-->
+<h1>Administrator Dashboard</h1> <br/>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Welcome, {{profile.firstName+' '+profile.lastName}}!</h3>
+
+        <p>
+            <small>myCOOP is where the BCMS team collaborates on BCDR plan development. They can create and maintain
+                plan documents and polices, conduct tests & exercises, report disruptive incidents and generate BCM
+                related reports
+            </small>
+        </p>
+        <div>
+            <div class="row">
+                <div class="col-xs-12"><h3>Get Started</h3></div>
+            </div>
+            <div class="row top-space-smal-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/wizard.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a class="text-primary bold" ng-click="launchWizard()">Launch setup wizard</a><br/>
+                    for a guided approach of the configuration settings
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/blocks.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a class="text-primary bold">Define Organization Settings</a><br/>
+                    adn establish goal content
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/palette.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a class="text-primary bold">Apply organizational branding</a><br/>
+                    by customizing Look and Feel settings
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/favorite.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a ui-sref="tools.workspace-templates" class="text-primary bold">Customize Workspace
+                        Template</a><br/>
+                    to define planning components for use
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/documents15.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a ui-sref="config.orgunits.add" class="text-primary bold">Create workspace</a><br/>
+                    to support planning content
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/multiple25.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a class="text-primary bold" ui-sref="config.security.users.add">Invite Content
+                        Contributors</a><br/>
+                    to collaborate in myCOOP
+                </div>
+            </div>
+            <div class="row top-space-big">
+                <div class="col-xs-2">
+                    <img style="margin: 6px  auto" width="100%" src="/images/icons/dashboard/user58.svg" alt=""/>
+                </div>
+                <div class="col-xs-10">
+                    <a class="text-primary bold">Customize Personal Settings</a><br/>
+                    and edit your profile
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <tabset>
-                <tab heading="User Activity">
+    </div>
+    <div class="col-md-6">
+        <tabset>
+            <tab heading="Workspaces">
+                <h4>Favorite Workspaces</h4>
+                <ul class="list-unstyled">
+                    <li class="clearfix border-top top-space"
+                        ng-repeat="workspace in workspaces | filter:{starred: true}">
+                        <a ui-sref="config.orgunitsx" class="text-primary pull-left">{{workspace.name}}</a>
+                            <span ng-class="{'glyphicon-star': workspace.starred, 'glyphicon-star-empty': !workspace.starred}"
+                                  class="glyphicon pull-right clickable"
+                                  ng-click="workspace.starred = !workspace.starred"></span></li>
+                </ul>
+                <div class="clearfix">
+                    <h4 class="pull-left">Workspaces</h4><a class="pull-right">Create Space</a>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="clearfix border-top top-space" ng-repeat="workspace in workspaces">
+                        <a ui-sref="config.orgunits" class="text-primary pull-left">{{workspace.name}}</a>
+                            <span ng-class="{'glyphicon-star': workspace.starred, 'glyphicon-star-empty': !workspace.starred}"
+                                  class="glyphicon pull-right clickable"
+                                  ng-click="workspace.starred = !workspace.starred"></span></li>
+                </ul>
+            </tab>
+            <tab heading="Templates">
+                <h4>Document Templates</h4>
+                <ul class="list-unstyled">
+                    <li class="clearfix border-top top-space"
+                        ng-repeat="template in templates">
+                        <a class="text-primary" ui-sref="tools.document-templates.edit({id: template.id})">{{template.reference}}: {{template.name}}</a></li>
+                </ul>
+            </tab>
+            <tab heading="Workflow">Under development</tab>
+        </tabset>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <tabset class="col-xs-12">
+        <tab heading="User Activity">
 
-                    <ul class="list-unstyled">
-                        <li class="user-activity" ng-repeat="action in userActivity.slice(0,5)">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/icons/user-{{action.userPermission}}.svg" style="" alt="123"/>
-                                </div>
-                                <div class="col-md-10">
-                                    <a class="activity-location">{{action.location}}: </a><span
-                                        class="activity-section bold">{{action.section}}</span><br/>
-                                    <span class="activity-description"><a ui-sref="config.security.users.details({id: action.user.id})">{{action.user.firstName}} {{action.user.lastName}}</a> Did some very important stuff</span><br/>
-                                    <!--<span class="activity-username"></span><br/>-->
-                                    <span class="activity-time text-muted">{{action.time}}</span>
-                                </div>
-                            </div>
-                                    <hr style="margin-top: 10px; margin-bottom: 10px"/>
-                        </li>
-                    </ul>
-                </tab>
-                <tab heading="Login History">Static content2</tab>
-                <tab heading="App Status">Static content3</tab>
-                <tab heading="Notifications">Static content5</tab>
+            <ul class="list-unstyled">
+                <li class="user-activity" ng-repeat="action in userActivity.slice(0,5)">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/images/icons/user-{{action.userPermission}}.svg" style="" alt="123"/>
+                        </div>
+                        <div class="col-md-10">
+                            <a class="activity-location">{{action.location}}: </a><span
+                                class="activity-section bold">{{action.section}}</span><br/>
+                            <span class="activity-description"><a
+                                    ui-sref="config.security.users.details({id: action.user.id})">{{action.user.firstName}}
+                                {{action.user.lastName}}</a> Did some very important stuff</span><br/>
+                            <!--<span class="activity-username"></span><br/>-->
+                            <span class="activity-time text-muted">{{action.time}}</span>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 10px; margin-bottom: 10px"/>
+                </li>
+            </ul>
+        </tab>
+        <tab heading="Login History">
+            <a href="/api/user/history-csv?startTime=08.09.2014" class="btn btn-blue">Download as .CSV</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-xs-2"></th>
+                    <th class="col-xs-2">User</th>
+                    <th class="col-xs-3">Time</th>
+                    <th class="col-xs-2">Status</th>
+                    <th class="col-xs-3">Browser</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="login in loginHistory">
+                    <td><a ui-sref="config.security.users.details({id: login.user.id})"><img
+                            src="/images/icons/user-{{login.userPermission}}.svg" style="" alt="123"/></a></td>
+                    <td><a ui-sref="config.security.users.details({id: login.user.id})">{{login.user.firstName}}
+                        {{login.user.lastName}}</a></td>
+                    <td>{{login.time | date:'medium'}}</td>
+                    <td>{{login.status}}</td>
+                    <td>{{login.browser}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </tab>
+        <tab heading="Workflow">Under construction</tab>
+        <tab heading="Situational Awareness">Under construction</tab>
+        <tab heading="Notifications">Under construction</tab>
 
-            </tabset>
+    </tabset>
+</div>
+
+
+<div id="userActions" class="row top-space-big">
+    <h3 class="col-md-12">Some things you can do:</h3>
+    <br/>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <span>PLANNING ACTIVITIES</span>
+                <ul class="list-unstyled">
+                    <li><a href=""><span
+                            class="glyphicon glyphicon-file"></span> Generate
+                        Reports</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok"></span>
+                        Request Approval</a></li>
+                    <li><a href=/mycoop-online#/tools/print><span
+                            class="glyphicon glyphicon-print"></span> Print your
+                        Plan </a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <span>TASK TRACKING</span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/mycoop-online#/tools/template-collection"><span
+                                class="glyphicon glyphicon-list-alt"></span>
+                            Template Collection</a></li>
+                    <li><a href=""><span
+                            class="glyphicon glyphicon-tasks"></span> View Tasks
+                        Assignments</a></li>
+                    <li><a href=""><span
+                            class="glyphicon glyphicon-question-sign"></span>
+                        Request Support</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <span>USER SETTINGS</span>
+                <ul class="list-unstyled">
+                    <li><a href=""><span class="glyphicon glyphicon-cog"></span>
+                        Modify Personal Settings</a></li>
+                    <li><a href=""><span
+                            class="glyphicon glyphicon-bell"></span> Modify
+                        Notifications & Alerts</a></li>
+                </ul>
+            </div>
         </div>
     </div>
+</div>
 </div>

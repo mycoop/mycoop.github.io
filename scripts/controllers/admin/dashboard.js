@@ -1,9 +1,10 @@
 angular.module('adminApp').
-    controller('DashboardCtrl', function ($scope, $state, User) {
+    controller('DashboardCtrl', function ($scope, $rootScope, $state, DocumentTemplate, User, OrgUnit) {
         $scope.userActivity = [];
-        User.getUsers(function(data){
+        $scope.loginHistory = [];
+        User.getUsers(function (data) {
             $scope.users = data;
-            _.each(data, function(user){
+            _.each(data, function (user) {
                 $scope.userActivity.push({
                     userPermission: getUserPermission(user),
                     user: user,
@@ -11,11 +12,34 @@ angular.module('adminApp').
                     activity: 'Did some very important stuff',
                     location: 'BOA > Department1',
                     section: 'Leadership'
-                })
+                });
             })
         });
-        var getUserPermission = function(user){
-            switch (user.permissionLevelId){
+
+        OrgUnit.getOrgUnits(function (data) {
+            $scope.workspaces = data;
+            data[0].starred = true;
+            data[2].starred = true;
+        });
+
+        DocumentTemplate.getTemplates(function (data) {
+            $scope.templates = data;
+        });
+
+        $scope.launchWizard = function () {
+            $rootScope.isWizard = true;
+            $state.go('demo');
+        };
+
+        var startTime = (new Date()).setMonth(7);
+        User.getLoginHistory(startTime, function (data) {
+            _.each(data, function (item) {
+                item.userPermission = getUserPermission(item.user);
+            });
+            $scope.loginHistory = data;
+        });
+        var getUserPermission = function (user) {
+            switch (user.permissionLevelId) {
                 case 1:
                     return 'contributor';
                 case 2:

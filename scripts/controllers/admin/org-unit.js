@@ -2,7 +2,7 @@ angular.module('adminApp')
     .controller('OrgUnitsCtrl', function ($scope, OrgUnit) {
 
     })
-    .controller('OrgUnitEditCtrl', function ($scope, $state, $stateParams, Modal, WorkspaceTemplate, OrgUnit, User, Group) {
+    .controller('OrgUnitEditCtrl', function ($scope, $state, $stateParams, $timeout, $rootScope, Modal, Component, WorkspaceTemplate, OrgUnit, User, Group) {
         $scope.unit = {
             location: {
                 name: ""
@@ -20,6 +20,12 @@ angular.module('adminApp')
         $scope.permissionLevel = $scope.permissionLevels[0];
         $scope.permissionEntities = [];
 
+        $scope.askToContinue = function () {
+            Modal.openYesNoModal('Overview', 'You will be logged in as End User to continue the demo. Are you ready?', function () {
+                window.location.replace('/user/#/home/main');
+            });
+        };
+
         $scope.addPermission = function () {
             if ($scope.newPermission.entity && $scope.newPermission.permissionLevel.id) {
                 var newPermission = {
@@ -35,9 +41,9 @@ angular.module('adminApp')
             }
         };
 
-        $scope.deletePermission = function(permission){
+        $scope.deletePermission = function (permission) {
             $scope.permissions.remove(permission);
-            if($scope.isEdit){
+            if ($scope.isEdit) {
                 if (permission.entityType == 'User') {
                     OrgUnit.deleteUserPermission($scope.unit.id, permission.entity.id, permission.permissionLevel.id);
                 } else {
@@ -75,11 +81,13 @@ angular.module('adminApp')
                     $scope.workspaceTemplates = data;
                     if ($stateParams.id) {
                         $scope.isEdit = true;
+
                         OrgUnit.getOrgUnit($stateParams.id, function (unit) {
                             $scope.unit = unit;
                             $scope.owner = _.findWhere(users, {id: unit.ownerId});
                             $scope.parent = _.findWhere(units, {id: unit.parentId});
                             $scope.selectedWorkspace = _.findWhere(data, {id: unit.workspaceTemplateId});
+                            getWorkspaceDocuments(unit.workspaceTemplateId);
                         });
                         OrgUnit.getUserPermissions($stateParams.id, function (data) {
                             _.each(data, function (permission) {
@@ -106,6 +114,23 @@ angular.module('adminApp')
                 });
             });
         });
+
+        function getWorkspaceDocuments(workspaceTemplateId) {
+            WorkspaceTemplate.getDocumentTemplates(workspaceTemplateId, function (documents) {
+                var groupedDocs = _.groupBy(documents, function (doc) {
+                    return doc.componentId;
+                });
+                $scope.components = [];
+                Component.getComponents(function (components) {
+                    _.each(components, function (item) {
+                        if (groupedDocs[item.id]) {
+                            item.documentTemplates = groupedDocs[item.id];
+                            $scope.components.push(item);
+                        }
+                    });
+                });
+            });
+        }
 
         Group.getGroups(function (groups) {
             $scope.groups = groups;
@@ -147,7 +172,13 @@ angular.module('adminApp')
                         _.each($scope.permissions, function (item) {
                             createPermission(item);
                         });
-                        $state.go('^', {}, {reload: true});
+                        if (true) {
+                            $timeout(function () {
+                                $state.go('^.details', {id: data.id});
+                            }, 100);
+                        } else {
+//                            $state.go('^', {}, {reload: true});
+                        }
                     });
                 }
             }

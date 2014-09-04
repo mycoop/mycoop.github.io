@@ -10,6 +10,9 @@ angular.module('adminApp')
             // call $anchorScroll()
             $anchorScroll();
         };
+        if($rootScope.isWizard){
+            $scope.isEditMode = true;
+        }
         $scope.industries = [
             {name: 'Healthcare and Public Health'},
             {name: 'Financial Services'},

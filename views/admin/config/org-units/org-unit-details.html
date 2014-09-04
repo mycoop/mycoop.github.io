@@ -1,11 +1,20 @@
 <div>
     <h2>{{unit.name}} Details</h2>
+
     <div class="top-space-big">
 
         <div class="row top-space-big">
+            <div class="col-md-3 text-muted"><span class="pull-right ">Standard in Use:</span></div>
+            <div class="col-md-5">
+                ISO 22031
+            </div>
+            <br/>
+        </div>
+        <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right ">Owner:</span></div>
-            <div class="col-md-5"> <a href=""
-                   ui-sref="config.security.users.details({id: owner.id})">{{owner.firstName}} {{owner.lastName}}</a>
+            <div class="col-md-5"><a href=""
+                                     ui-sref="config.security.users.details({id: owner.id})">{{owner.firstName}}
+                {{owner.lastName}}</a>
             </div>
             <br/>
         </div>
@@ -13,7 +22,7 @@
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right ">Parent:</span></div>
             <div class="col-md-5">
-                {{parent.name}}
+                {{parent ? parent.name : 'Orphan node'}}
             </div>
             <br/>
         </div>
@@ -22,18 +31,18 @@
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right ">Location:</span></div>
             <div class="col-md-5">
-                {{unit.address}}
+                {{unit.location.address}}
             </div>
             <br/>
         </div>
-        <div class="row top-space-big">
-            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Last Modified By:</span></div>
-            <div class="col-md-5">
-                <a href=""
-                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.modifiedBy.email}}</a>
-            </div>
-            <br/>
-        </div>
+        <!--<div class="row top-space-big">-->
+        <!--<div class="col-md-3 text-muted"><span class="pull-right top-space-small">Last Modified By:</span></div>-->
+        <!--<div class="col-md-5">-->
+        <!--<a href=""-->
+        <!--ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.modifiedBy.email}}</a>-->
+        <!--</div>-->
+        <!--<br/>-->
+        <!--</div>-->
 
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right">Modified Date:</span></div>
@@ -43,14 +52,14 @@
             <br/>
         </div>
 
-        <div class="row top-space-big">
-            <div class="col-md-3 text-muted"><span class="pull-right top-space-small">Created By:</span></div>
-            <div class="col-md-5">
-                <a href=""
-                   ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.createdBy.email}}</a>
-            </div>
-            <br/>
-        </div>
+        <!--<div class="row top-space-big">-->
+        <!--<div class="col-md-3 text-muted"><span class="pull-right top-space-small">Created By:</span></div>-->
+        <!--<div class="col-md-5">-->
+        <!--<a href=""-->
+        <!--ui-sref="config.security.users.details({id: group.modifiedBy.id})">{{unit.createdBy.email}}</a>-->
+        <!--</div>-->
+        <!--<br/>-->
+        <!--</div>-->
 
         <div class="row top-space-big">
             <div class="col-md-3 text-muted"><span class="pull-right ">Created Date:</span></div>
@@ -59,12 +68,74 @@
             </div>
             <br/>
         </div>
+        <br/>
+        <h3 class="top-space-big">{{selectedWorkspace.name}} - Required Components & Documents:</h3>
+        <table class="table top-space-big">
+            <thead>
+            <tr>
+                <th class="col-md-3">Components</th>
+                <th class="col-md-9">Documents</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="component in components">
+                <td class="bold">{{component.name}}</td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="document in component.documentTemplates">
+                            <a ui-sref="tools.document-templates.edit({id: document.id})">{{document.name}}</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
 
         <br/>
+        <h3 class="top-space-big">Permission Summary:</h3>
 
-        <a href="" class="btn ansSm" ng-click="showAddMemberInput=true">Add member</a>
 
-        <a href="" class="btn ansSm left-space" ui-sref="config.security.groups.settings({id: group.id})">Group settings</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="col-md-1">Entity</th>
+                <th class="col-md-5">Name</th>
+                <th class="col-md-5">Permission Level</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="permission in permissions">
+                <td class="col-md-2">{{permission.entityType}}</td>
+                <td class="col-md-4">
+                    <a ng-show="permission.entityType == 'User'" ui-sref="config.security.users.details({id: permission.entity.id})">{{permission.entity.name}}</a>
+                    <a ng-show="permission.entityType == 'Group'" ui-sref="config.security.groups.details({id: permission.entity.id})">{{permission.entity.name}}</a>
+                </td>
+                <td class="col-md-3">{{permission.permissionLevel.name}}</td>
+                <td>
+                    <span class="show-hover">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                           ng-click="deletePermission(permission)"></a>
+                    </span></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="editDetailsButtonRow" ng-hide="isWizard">
+            <a href="" class=" btn btn-medium  btn-blue submit" ui-sref="config.orgunits.edit({id: unit.id})"
+               automationid="editNameSave" title="Save">Edit</a>
+            <a href="" class=" btn btn-medium btn-gray-light cancel" ng-click="$state.go('^', {},{reload: true})"
+               automationid="editNameCancel" title="Cancel">Cancel</a>
+        </div>
+
+        <div class="editDetailsButtonRow" ng-show="isWizard">
+            <a href="" class=" btn btn-medium  btn-blue submit" ng-click="askToContinue()"
+               automationid="editNameSave" title="Save">Continue</a>
+            <a href="" class=" btn btn-medium btn-orange cancel" ui-sref="config.orgunits.edit({id: unit.id})"
+               automationid="editNameCancel" title="Cancel">Edit</a>
+        </div>
     </div>
 
 </div>

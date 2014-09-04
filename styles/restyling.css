@@ -108,6 +108,10 @@ input.small {
     width: auto;
 }
 
+.border-top{
+    border-top: 1px solid #d3d3d3;
+}
+
 .bp-item {
     overflow: visible !important;
 }
