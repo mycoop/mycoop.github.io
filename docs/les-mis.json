@@ -1,0 +1,64 @@
+[
+    {
+        "name": "Helicopter Launch Failure",
+        "type": "group0",
+        "depends": []
+    },
+    {
+        "name": "Warehouse Electrical Failure",
+        "type": "group0",
+        "depends": []
+    },
+    {
+        "name": "Warehouse Fire",
+        "type": "group0",
+        "depends": []
+    },
+    {
+        "name": "Warehouse Flood",
+        "type": "group0",
+        "depends": []
+    },
+    {
+        "name": "Main Server",
+        "type": "group1",
+        "depends": [
+            "Helicopter Launch Failure",
+            "Warehouse Electrical Failure",
+            "Warehouse Fire",
+            "Warehouse Flood"
+        ]
+    },
+    {
+        "name": "Supporting Server",
+        "type": "group1",
+        "depends": [
+            "Helicopter Launch Failure",
+            "Warehouse Electrical Failure"
+        ]
+    },
+    {
+        "name": "Terminal 1",
+        "type": "group1",
+        "depends": [
+            "Warehouse Flood"
+        ]
+    },
+    {
+        "name": "Terminal 2",
+        "type": "group1",
+        "depends": [
+            "Warehouse Fire",
+            "Warehouse Flood"
+        ]
+    },
+    {
+        "name": "Terminal 3",
+        "type": "group1",
+        "depends": [
+            "Warehouse Electrical Failure",
+            "Warehouse Flood"
+        ]
+    }
+
+]

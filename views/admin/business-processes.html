@@ -1,154 +1,169 @@
 <div class="">
     <h1>Business Processes</h1>
     <!--<button popover content="'<span>fkghasf</span>'" title="" class="btn btn-default">Dynamic Popover</button>-->
-    <div id="scroll_wrapper">
-        <div id="scroll_fade"></div>
-        <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
-             data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="S1040PERbfdi2899" class="">
-            <table cellpadding="0" cellspacing="0" border="0" class="grid">
-                <tbody>
-                <tr>
-                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
-                        <table cellpadding="0" cellspacing="0" border="0" class="grid">
-                            <tbody>
-                            <tr>
-                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"><span
-                                        id="txtblk_00"><span class="main" id="txtblk_00_0">Manage your Business Processes</span></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
-                                    <a  ng-hide="isBulkUpdating" class="btn ansRoyal" ng-click="bulkUpdate()">Bulk Update</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
-                </tr>
-                <tr>
-                    <td align="left" valign="top" colspan="1" class="colFirst">
-                        <table cellpadding="0"  ng-hide="isBulkUpdating" cellspacing="0" border="0" class="grid">
-                            <tbody>
-                            <tr>
-                                <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="mcTable" id="mc_00">
-                                        <tbody>
-                                        <tr>
-                                            <td class="mcHeading" style="width: 15px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcHeading">
-                                                <nobr><span>Process name</span></nobr>
-                                            </td>
-                                            <td class="mcHeading" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcHeading">
-                                                <nobr><span>Description</span></nobr>
-                                            </td>
-                                            <td class="mcHeading" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcHeading">
-                                                <nobr><span>Location</span></nobr>
-                                            </td>
-                                            <td align="right" class="mcHeading" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="15" height="10" border="0"></td>
-                                            <td align="center" class="mcHeading" width="110px">Action</td>
-                                        </tr>
-                                        <tr valign="top" class="mcRow" popover-process process="process" ng-repeat="process in processes">
-                                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcCol"><span>{{process.name}}</span></td>
-                                            <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcCol"><span>{{process.description}}</span></td>
-                                            <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="1" border="0"></td>
-                                            <td align="left" class="mcCol"><span> <span style="font-style: italic">{{process.locationType}}:</span><br/> {{process.location}}</span></td>
-                                            <td align="right" class="mcCol" style="width: 25px;"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="10" height="10" border="0"></td>
-                                            <td align="center" valign="top" class="mcDeleteCol">
-                                                <nobr>
-                                                    <button id="mc_00_edt0" aria-label="Edit" role="button"
-                                                            class="btn ansLP" tabindex="1" ng-click="clone(process)">Clone
-                                                    </button>
-                                                    <img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                         alt="" width="5" height="10" border="0">
-                                                    <button id="mc_00_del0" aria-label="Delete" role="button" ng-click="delete(process)"
-                                                            class="btn ansLP" tabindex="2">Delete
-                                                    </button>
-                                                    <div ng-show="process.isDeleting">Are you sure?<br/>
-                                                        <button aria-label="Delete" role="button" ng-click="delete(process)"
-                                                                class="btn ansRoyal" tabindex="2">Yes</button>
-                                                        <a href="" ng-click="process.isDeleting=false">No</a>
-                                                    </div>
-                                                    <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
-                                                    <!--alt="" width="5" height="10" border="0">-->
-                                                    <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
-                                                    <!--class="btn ansLP" tabindex="2">Bulk-->
-                                                    <!--</button>-->
+    <div ng-show="$state.is('do.impact.processes')">
+        <div id="scroll_wrapper">
+            <div id="scroll_fade"></div>
+            <div id="contentLayer" data-viewport="contentViewport" data-viewport-options="{dontScrollToTop : true}"
+                 data-visible="@{ ! ${refundExplanationViewModel.viewportVisible} }" data-sid="S1040PERbfdi2899"
+                 class="">
+                <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                    <tbody>
+                    <tr>
+                        <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                            <table cellpadding="0" cellspacing="0" border="0" class="grid">
+                                <tbody>
+                                <tr>
+                                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"><span
+                                            id="txtblk_00"><span class="main" id="txtblk_00_0">Manage your Business Processes</span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                        <a ng-hide="isBulkUpdating" class="btn ansRoyal" ng-click="bulkUpdate()">Bulk
+                                            Update</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" colspan="1" class="colFirst">
+                            <table cellpadding="0" ng-hide="isBulkUpdating" cellspacing="0" border="0" class="grid">
+                                <tbody>
+                                <tr>
+                                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad">
+                                        <table cellpadding="0" cellspacing="0" border="0" class="mcTable" id="mc_00">
+                                            <tbody>
+                                            <tr>
+                                                <td class="mcHeading" style="width: 15px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcHeading">
+                                                    <nobr><span>Process name</span></nobr>
+                                                </td>
+                                                <td class="mcHeading" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcHeading">
+                                                    <nobr><span>Description</span></nobr>
+                                                </td>
+                                                <td class="mcHeading" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcHeading">
+                                                    <nobr><span>Location</span></nobr>
+                                                </td>
+                                                <td align="right" class="mcHeading" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="15" height="10" border="0"></td>
+                                                <td align="center" class="mcHeading" width="110px">Action</td>
+                                            </tr>
+                                            <tr valign="top" class="mcRow" popover-process process="process"
+                                                ng-repeat="process in processes">
+                                                <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcCol"><span>{{process.name}}</span></td>
+                                                <td align="right" valign="top" class="mcCol" style="width: 15px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcCol"><span>{{process.description}}</span></td>
+                                                <td align="right" valign="top" class="mcCol" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="1" border="0"></td>
+                                                <td align="left" class="mcCol"><span> <span style="font-style: italic">{{process.locationType}}:</span><br/> {{process.location}}</span>
+                                                </td>
+                                                <td align="right" class="mcCol" style="width: 25px;"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="10" height="10" border="0"></td>
+                                                <td align="center" valign="top" class="mcDeleteCol">
+                                                    <nobr>
+                                                        <button id="mc_00_edt0" aria-label="Edit" role="button"
+                                                                class="btn ansLP" tabindex="1"
+                                                                ng-click="clone(process)">Clone
+                                                        </button>
+                                                        <img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                             alt="" width="5" height="10" border="0">
+                                                        <button id="mc_00_del0" aria-label="Delete" role="button"
+                                                                ng-click="delete(process)"
+                                                                class="btn ansLP" tabindex="2">Delete
+                                                        </button>
+                                                        <div ng-show="process.isDeleting">Are you sure?<br/>
+                                                            <button aria-label="Delete" role="button"
+                                                                    ng-click="delete(process)"
+                                                                    class="btn ansRoyal" tabindex="2">Yes
+                                                            </button>
+                                                            <a href="" ng-click="process.isDeleting=false">No</a>
+                                                        </div>
+                                                        <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
+                                                        <!--alt="" width="5" height="10" border="0">-->
+                                                        <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
+                                                        <!--class="btn ansLP" tabindex="2">Bulk-->
+                                                        <!--</button>-->
 
-                                                    <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
-                                                    <!--alt="" width="5" height="10" border="0">-->
-                                                    <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
-                                                    <!--class="btn ansLP" tabindex="2">Clone-->
-                                                    <!--</button>-->
-                                                </nobr>
-                                            </td>
-                                        </tr>
-                                        <tr valign="bottom">
-                                            <td align="right" class="mcAnsCol1"><img
-                                                    src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
-                                                    alt="" width="1" height="10" border="0"></td>
-                                            <td align="left" colspan="7" class="mcAnsCol1">
-                                                <a role="button" ui-sref="impact.processes-add"
-                                                   class="btn ansRoyal" tabindex="3">Add Another
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p></p></td>
-                            </tr>
-                            </tbody>
+                                                        <!--<img src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"-->
+                                                        <!--alt="" width="5" height="10" border="0">-->
+                                                        <!--<button id="mc_00_del0" aria-label="Delete" role="button"-->
+                                                        <!--class="btn ansLP" tabindex="2">Clone-->
+                                                        <!--</button>-->
+                                                    </nobr>
+                                                </td>
+                                            </tr>
+                                            <tr valign="bottom">
+                                                <td align="right" class="mcAnsCol1"><img
+                                                        src="https://qtwu2-qprd-secure.images.turbotaxonline.intuit.com/turbotax/img/clear.gif"
+                                                        alt="" width="1" height="10" border="0"></td>
+                                                <td align="left" colspan="7" class="mcAnsCol1">
+                                                    <a role="button" ui-sref="impact.processes-add"
+                                                       class="btn ansRoyal" tabindex="3">Add Another
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p></p></td>
+                                </tr>
+                                </tbody>
 
 
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="formLayer" style="max-height: 250px; width: 698px;"></div>
-    </div>
-
-    <div ng-if="isBulkUpdating" class="gridStyle doubleHeader" ng-grid="gridOptions">
-    </div>
-    <button ng-show="isBulkUpdating" class="btn btn-blue" style="margin-top: 15px"  ng-click="saveBulkUpdate()">Save</button>
-
-    <script type="text/ng-template" id="headerRow">
-        <div>
-            <div style="height: 30px; width: 100%; border-bottom: 1px solid #ccc" class="ngHeaderCell">
-                <div class="address">Attribute Staffing over time</div>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" colspan="1" class="colFirst colNoVerticalPad"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+            <div id="formLayer" style="max-height: 250px; width: 698px;"></div>
+        </div>
 
-            <div style="height: 30px; top: 30px; position: absolute">
-                <div ng-style="{ height: col.headerRowHeight }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngHeaderCell">
-                    <div class="ngVerticalBar" ng-style="{height: col.headerRowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div>
-                    <div ng-header-cell></div>
+        <div ng-if="isBulkUpdating" class="gridStyle doubleHeader" ng-grid="gridOptions">
+        </div>
+        <button ng-show="isBulkUpdating" class="btn btn-blue" style="margin-top: 15px" ng-click="saveBulkUpdate()">
+            Save
+        </button>
+
+        <script type="text/ng-template" id="headerRow">
+            <div>
+                <div style="height: 30px; width: 100%; border-bottom: 1px solid #ccc" class="ngHeaderCell">
+                    <div class="address">Attribute Staffing over time</div>
+                </div>
+
+                <div style="height: 30px; top: 30px; position: absolute">
+                    <div ng-style="{ height: col.headerRowHeight }" ng-repeat="col in renderedColumns"
+                         ng-class="col.colIndex()" class="ngHeaderCell">
+                        <div class="ngVerticalBar" ng-style="{height: col.headerRowHeight}"
+                             ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div>
+                        <div ng-header-cell></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </script>
+        </script>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
 </div>

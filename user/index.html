@@ -19,14 +19,16 @@
     <link rel="stylesheet" type="text/css" href="/styles/new-icons.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/swot.css"/>
     <link rel="stylesheet" type="text/css" href="/styles/legal-and-regulatory.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/vendor/force-layout-style.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/vendor/force-layout-svg.css"/>
 
     <script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery.js"></script>
     <script type="text/javascript" src="/scripts/libraries/jquery-scrollto.js"></script>
     <script type="text/javascript" src="/scripts/libraries/underscore.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
-	
- <script language="javascript" type="text/javascript" src="/office/OfficeWeb/apps/api/documents/api.js"></script>
+
+    <script language="javascript" type="text/javascript" src="/office/OfficeWeb/apps/api/documents/api.js"></script>
 
     <script type="text/javascript" src="/scripts/libraries/richmarker.js"></script>
 
@@ -49,6 +51,9 @@
     <script type="text/javascript" src="/scripts/libraries/ui-bootstrap-tpls.js"></script>
     <script src="/scripts/libraries/d3.js" charset="utf-8"></script>
 
+    <script type="text/javascript" src="/scripts/vendor/colorbrewer.js"></script>
+    <script type="text/javascript" src="/scripts/vendor/geometry.js"></script>
+
     <script type="text/javascript" src="/scripts/helpers/prototypes.js"></script>
 
     <script type="text/javascript" src="/scripts/resources/process.js"></script>
@@ -59,6 +64,9 @@
     <script type="text/javascript" src="/scripts/resources/party.js"></script>
     <script type="text/javascript" src="/scripts/resources/text-editor.js"></script>
     <script type="text/javascript" src="/scripts/resources/document.js"></script>
+    <script type="text/javascript" src="/scripts/resources/incident.js"></script>
+    <script type="text/javascript" src="/scripts/resources/business-process.js"></script>
+    <script type="text/javascript" src="/scripts/resources/business-process-attribute.js"></script>
 
     <script type="text/javascript" src="/scripts/filters/dot-text.js"></script>
 
@@ -70,10 +78,12 @@
     <script type="text/javascript" src="/scripts/controllers/user/external-activities.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/plan.js"></script>
     <script type="text/javascript" src="/scripts/controllers/user/tools.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/user/business-process-attribute.js"></script>
 
     <script type="text/javascript" src="/scripts/controllers/common/common.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/map.js"></script>
     <script type="text/javascript" src="/scripts/controllers/common/print.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/common/incident.js"></script>
 
 
     <script type="text/javascript" src="/scripts/directives/directives.js"></script>
@@ -83,6 +93,7 @@
     <script type="text/javascript" src="/scripts/directives/location.js"></script>
 
     <script type="text/javascript" src="/scripts/services/interceptor.js"></script>
+    <script type="text/javascript" src="/scripts/services/modal.js"></script>
     <script type="text/javascript" src="/scripts/services/security.js"></script>
 
     <script type="text/javascript" src="/scripts/libraries/contentflow.js"></script>
@@ -100,8 +111,8 @@
             cursor: pointer;
         }
 
-        .overlay{
-            background-color:#EEE;
+        .overlay {
+            background-color: #EEE;
         }
 
         .node circle {
@@ -109,10 +120,12 @@
             stroke: palevioletred;
             stroke-width: 1.5px;
         }
-        .node circle.my-circle{
+
+        .node circle.my-circle {
             fill: #fff;
             stroke: steelblue;
         }
+
         .node text {
             /*font-size: 12px;*/
             /*font-family:sans-serif;*/
@@ -130,11 +143,11 @@
             stroke-width: 3px;
         }
 
-        .ghostCircle.show{
-            display:block;
+        .ghostCircle.show {
+            display: block;
         }
 
-        .ghostCircle, .activeDrag .ghostCircle{
+        .ghostCircle, .activeDrag .ghostCircle {
             display: none;
         }
     </style>
@@ -156,11 +169,16 @@
 
         <a class="pull-right visible-lg visible-md" style="display: block" href="/#/main" title="myCOOP">
 
-            <h1 class="hidden-xs" style="color: #ffffff; font-size: 30px; margin-top: 7px; float: left">myCOOP&#8482;</h1>
+            <h1 class="hidden-xs" style="color: #ffffff; font-size: 30px; margin-top: 7px; float: left">
+                myCOOP&#8482;</h1>
+
             <h2 class="visible-xs" style="color: #ffffff;margin-top:10px; margin-left: 20px; float: left">
                 myCOOP&#8482;</h2>
         </a>
-        <a href="#" ng-click="isSearchVisible = true" ng-hide="isSearchVisible" class="pull-right"><span style="font-size: 25px; margin-top: 10px; color: #ffffff; margin-right: 15px" class="glyphicon glyphicon-search"></span></a>
+        <a href="#" ng-click="isSearchVisible = true" ng-hide="isSearchVisible" class="pull-right"><span
+                style="font-size: 25px; margin-top: 10px; color: #ffffff; margin-right: 15px"
+                class="glyphicon glyphicon-search"></span></a>
+
         <div id="help_search_wrapper" ng-show="isSearchVisible" style="margin-left: 0px">
             <!-- see components/HelpSearch/HelpSearch.js -->
             <form id="helpSearch" target="_blank">
@@ -193,217 +211,226 @@
 <!-- end topbar -->
 
 <div id="main" class="container {{showNav}}" style="min-height: 729px; height: auto;">
-    <div id="main_divider" class="visible-lg visible-md">
-        <div class="bottom_fade"></div>
+<div id="main_divider" class="visible-lg visible-md">
+    <div class="bottom_fade"></div>
+</div>
+<div id="main_navigation" class="{{showNav}}">
+    <div id="donutchart" style="width:100px; height: 100px; margin: 0 auto"></div>
+    <div id="tabRegion"></div>
+    <!-- visibility controlled through media queries in Navigation.less -->
+    <ul id="navigation" role="navigation">
+        <li ng-class="{ on: $state.includes('home') }">
+            <a ui-sref="home.main" data-submit-val="0" id="auto_id_0">Home</a>
+            <ul ng-show=" $state.includes('home')">
+                <li ng-class="{ on: $state.includes('home.timeline') }">
+                    <a href="/#/user-welcome" target="_top">My Activity Timeline</a></li>
+                <li ng-class="{ on: $state.includes('home.hierarchy') }">
+                    <a ui-sref="home.hierarchy">Organization Hierarchy</a></li>
+                <li ng-class="{ on: $state.includes('home.components') }">
+                    <a ui-sref="home.components">Planning Components</a></li>
+            </ul>
+        </li>
+
+        <li ng-class="{ on: $state.includes('dashboard') }">
+            <a ui-sref="dashboard.map">DASHBOARD</a>
+            <ul ng-show=" $state.includes('dashboard')">
+                <li ng-class="{ on: $state.includes('dashboard.map') }">
+                    <a ui-sref="dashboard.map">Situational Awareness Map</a>
+                    <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
+                        <li ng-class="{ on: $state.includes('dashboard.map') }">
+                            <a ui-sref="dashboard.map">All Business Locations</a></li>
+                        <li ng-class="{ on: $state.includes('config.security.users') }">
+                            <a href="">My Work Locations</a></li>
+                        <li ng-class="{ on: $state.includes('config.security.groups') }">
+                            <a href="">My Recovery Facilities</a></li>
+                        <li ng-class="{ on: $state.includes('config.security.workspace') }">
+                            <a href="">My Alternate Facilities</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <li ng-class="{ on: $state.includes('plan') }">
+            <a ui-sref="plan">PLAN</a>
+            <ul ng-show=" $state.includes('plan')">
+                <li ng-class="{ on: $state.includes('plan.organization') }">
+                    <a ui-sref="plan.organization">Understanding the Organization</a>
+                </li>
+                <li ng-class="{ on: $state.includes('plan.leadership') }">
+                    <a ui-sref="plan.leadership">Leadership</a>
+                </li>
+                <li ng-class="{ on: $state.includes('plan.planning') }">
+                    <a ui-sref="plan.planning">Planning</a>
+                </li>
+                <li ng-class="{ on: $state.includes('plan.support') }">
+                    <a ui-sref="plan.support">Support</a>
+                </li>
+            </ul>
+        </li>
+
+        <li ng-class="{ on: ($state.includes('do') || $state.includes('do.impact.**')) }">
+            <a ui-sref="do.risk">DO</a>
+            <ul ng-show="($state.includes('do') || $state.includes('do.impact.**')) ">
+                <li ng-class="{ on: $state.includes('do.risk') }">
+                    <a ui-sref="do.risk">Risk Assessment</a>
+                </li>
+                <li ng-class="{ on: $state.includes('do.impact') }">
+                    <a ui-sref="do.impact.processes">Business Impact Analysis</a>
+                </li>
+                <li ng-class="{ on: $state.includes('do.continuity') }">
+                    <a ui-sref="do.continuity">Business Continuity Strategy</a>
+                </li>
+                <li ng-class="{ on: $state.includes('do.procedures') }">
+                    <a ui-sref="do.procedures">Establish and Implement BC Procedures</a>
+                </li>
+                <li ng-class="{ on: $state.includes('do.testing') }">
+                    <a ui-sref="do.testing">Exercising and Testing</a>
+                </li>
+            </ul>
+        </li>
+
+        <li ng-class="{ on: $state.includes('check') }">
+            <a ui-sref="check.evaluation">CHECK</a>
+            <ul ng-show=" $state.includes('check')">
+                <li ng-class="{ on: $state.includes('check.evaluation') }">
+                    <a ui-sref="check.evaluation">Performance Evaluation</a>
+                </li>
+            </ul>
+        </li>
+
+        <li ng-class="{ on: $state.includes('act') }">
+            <a ui-sref="act.improvement">ACT</a>
+            <ul ng-show=" $state.includes('act')">
+                <li ng-class="{ on: $state.includes('act.improvement') }">
+                    <a ui-sref="act.improvement">Improvement</a>
+                </li>
+            </ul>
+        </li>
+        <!--<li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"-->
+        <!--id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>-->
+        <!--<ul ng-show="$state.includes('impact')">-->
+        <!--<li ng-class="{ on: $state.includes('impact.profile') }">-->
+        <!--<a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">-->
+        <!--<a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.staff') }">-->
+        <!--<a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.resource') }">-->
+        <!--<a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.criticalApp') }">-->
+        <!--<a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)-->
+        <!--Requirements</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">-->
+        <!--<a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.internalDependencies') }">-->
+        <!--<a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.externalDependencies') }">-->
+        <!--<a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.vitalRecords') }">-->
+        <!--<a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.communications') }">-->
+        <!--<a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony-->
+        <!--Requirements) </a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.other') }">-->
+        <!--<a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.results') }">-->
+        <!--<a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.review') }">-->
+        <!--<a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('impact.compliance') }">-->
+        <!--<a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!-- H&B only -->
+        <!--<li ng-class="{ on: $state.includes('continuity') }">-->
+        <!--<a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>-->
+        <!--<ul ng-show="$state.includes('continuity')">-->
+        <!--<li ng-class="{ on: $state.includes('continuity.profile') }">-->
+        <!--<a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('continuity.objective') }">-->
+        <!--<a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--&lt;!&ndash; H&B only &ndash;&gt;-->
+        <!--<li ng-class="{ on: $state.includes('risk') }">-->
+        <!--<a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>-->
+        <!--<ul ng-show="$state.includes('risk')">-->
+        <!--<li ng-class="{ on: $state.includes('risk.profile') }">-->
+        <!--<a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('risk.objective') }">-->
+        <!--<a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive-->
+        <!--Summary</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--&lt;!&ndash; all but H&B &ndash;&gt;-->
+        <!--<li ng-class="{ on: $state.includes('disaster') }">-->
+        <!--<a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>-->
+
+        <!--<ul ng-show="$state.includes('disaster')">-->
+        <!--<li ng-class="{ on: $state.includes('disaster.profile') }">-->
+        <!--<a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>-->
+        <!--<li ng-class="{ on: $state.includes('disaster.objective') }">-->
+        <!--<a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive-->
+        <!--Summary</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.review.ready" data-submit-val="13"
+                                                           id="auto_id_18">TOOLS</a>
+            <ul ng-show="$state.includes('tools')">
+                <li ng-class="{ on: $state.includes('tools.review') }">
+                    <a ui-sref="tools.review.ready"> <span class="glyphicon glyphicon-wrench"></span> Progress
+                        Review</a></li>
+                <li ng-class="{ on: $state.includes('tools.reporting') }">
+                    <a ui-sref="tools.reporting"><span class="glyphicon glyphicon-file"></span> Performance
+                        Indicators</a>
+                </li>
+                <li ng-class="{ on: $state.includes('tools.incident') }"><a ui-sref="tools.incident.report"
+                                                                            data-submit-val="14" id="auto_id_19"><span
+                        class="glyphicon glyphicon-exclamation-sign"></span> Report an Incident</a>
+                </li>
+                <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print"><span
+                        class="glyphicon glyphicon-print"></span> Print
+                    Center</a></li>
+                <li ng-class="{ on: $state.includes('tools.searchAndReplace') }"><a
+                        ui-sref="tools.searchAndReplace"><span class="glyphicon glyphicon-search"></span> Search and
+                    Replace
+                </a></li>
+
+            </ul>
+        </li>
+
+    </ul>
+
+</div>
+<!-- end #main_navigation -->
+
+<div id="main_right" style="display: block;" ui-view="">
+    <div class="text-center"><span class="lead">{{orgEntity.title}}</span></div>
+    <div ui-view="" autoscroll="true">
+        <div ui-view="" autoscroll="true"></div>
     </div>
-    <div id="main_navigation" class="{{showNav}}">
-        <div id="donutchart" style="width:100px; height: 100px; margin: 0 auto"></div>
-        <div id="tabRegion"></div>
-        <!-- visibility controlled through media queries in Navigation.less -->
-        <ul id="navigation" role="navigation">
-            <li ng-class="{ on: $state.includes('home') }">
-                <a ui-sref="home.main" data-submit-val="0" id="auto_id_0">Home</a>
-                <ul ng-show=" $state.includes('home')">
-                    <li ng-class="{ on: $state.includes('home.timeline') }">
-                        <a href="/#/user-welcome" target="_top">My Activity Timeline</a></li>
-                    <li ng-class="{ on: $state.includes('home.hierarchy') }">
-                        <a ui-sref="home.hierarchy">Organization Hierarchy</a></li>
-                    <li ng-class="{ on: $state.includes('home.components') }">
-                        <a ui-sref="home.components">Planning Components</a></li>
-                </ul>
-            </li>
 
-            <li ng-class="{ on: $state.includes('dashboard') }">
-                <a ui-sref="dashboard.map">DASHBOARD</a>
-                <ul ng-show=" $state.includes('dashboard')">
-                    <li ng-class="{ on: $state.includes('dashboard.map') }">
-                        <a ui-sref="dashboard.map">Situational Awareness Map</a>
-                        <ul style="margin-top: 10px" ng-show="$state.includes('dashboard.map')">
-                            <li ng-class="{ on: $state.includes('dashboard.map') }">
-                                <a ui-sref="dashboard.map">All Business Locations</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.users') }">
-                                <a href="">My Work Locations</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.groups') }">
-                                <a href="">My Recovery Facilities</a></li>
-                            <li ng-class="{ on: $state.includes('config.security.workspace') }">
-                                <a href="">My Alternate Facilities</a></li>
-                        </ul>
-                    </li>
+    <footer id="footerLayer" align="center" role="contentinfo">
+        <!-- actions setup in zStaticRegion._setPrivacy -->
+        <div class="links">
+            <div class="footer-logo"></div>
+            <a href="javascript:;" id="license_agreement">License Agreement</a>
+            | <a href="javascript:;" id="privacy">Privacy</a>
+            | <a href="javascript:;" id="security">Security</a>
+            | <a href="javascript:;" id="support">Support</a>
 
-                </ul>
-            </li>
-
-            <li ng-class="{ on: $state.includes('plan') }">
-                <a ui-sref="plan">PLAN</a>
-                <ul ng-show=" $state.includes('plan')">
-                    <li ng-class="{ on: $state.includes('plan.organization') }">
-                        <a ui-sref="plan.organization">Understanding the Organization</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('plan.leadership') }">
-                        <a ui-sref="plan.leadership">Leadership</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('plan.planning') }">
-                        <a ui-sref="plan.planning">Planning</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('plan.support') }">
-                        <a ui-sref="plan.support">Support</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li ng-class="{ on: ($state.includes('do') || $state.includes('do.impact.**')) }">
-                <a ui-sref="do.risk">DO</a>
-                <ul ng-show="($state.includes('do') || $state.includes('do.impact.**')) ">
-                    <li ng-class="{ on: $state.includes('do.risk') }">
-                        <a ui-sref="do.risk">Risk Assessment</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('do.impact.**') }">
-                        <a ui-sref="impact.processes">Business Impact Analysis</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('do.continuity') }">
-                        <a ui-sref="do.continuity">Business Continuity Strategy</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('do.procedures') }">
-                        <a ui-sref="do.procedures">Establish and Implement BC Procedures</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('do.testing') }">
-                        <a ui-sref="do.testing">Exercising and Testing</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li ng-class="{ on: $state.includes('check') }">
-                <a ui-sref="check.evaluation">CHECK</a>
-                <ul ng-show=" $state.includes('check')">
-                    <li ng-class="{ on: $state.includes('check.evaluation') }">
-                        <a ui-sref="check.evaluation">Performance Evaluation</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li ng-class="{ on: $state.includes('act') }">
-                <a ui-sref="act.improvement">ACT</a>
-                <ul ng-show=" $state.includes('act')">
-                    <li ng-class="{ on: $state.includes('act.improvement') }">
-                        <a ui-sref="act.improvement">Improvement</a>
-                    </li>
-                </ul>
-            </li>
-            <!--<li ng-class="{ on: $state.includes('impact') }"><a ui-sref="impact.profile" data-submit-val="2"-->
-                                                                <!--id="auto_id_2">BUSINESS IMPACT ANALYSIS</a>-->
-                <!--<ul ng-show="$state.includes('impact')">-->
-                    <!--<li ng-class="{ on: $state.includes('impact.profile') }">-->
-                        <!--<a ui-sref="impact.profile" data-submit-val="3">Program Area Profile</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.processes') || $state.includes('impact.processes-add')  }">-->
-                        <!--<a ui-sref="impact.processes" data-submit-val="3">Business Processes</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.staff') }">-->
-                        <!--<a ui-sref="impact.staff" data-submit-val="3">Staffing Requirements</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.resource') }">-->
-                        <!--<a ui-sref="impact.resource" data-submit-val="3">Resource Requirement</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.criticalApp') }">-->
-                        <!--<a ui-sref="impact.criticalApp" data-submit-val="3">Critical Application (Software)-->
-                            <!--Requirements</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.quantitativeImpacts') }">-->
-                        <!--<a ui-sref="impact.quantitativeImpacts" data-submit-val="3">Quantitative Impacts</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.internalDependencies') }">-->
-                        <!--<a ui-sref="impact.internalDependencies" data-submit-val="3">External Dependencies</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.externalDependencies') }">-->
-                        <!--<a ui-sref="impact.externalDependencies" data-submit-val="3">Internal Dependencies</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.vitalRecords') }">-->
-                        <!--<a ui-sref="impact.vitalRecords" data-submit-val="3">Vital Records</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.communications') }">-->
-                        <!--<a ui-sref="impact.communications" data-submit-val="3">Interoperable Communications (Telephony-->
-                            <!--Requirements) </a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.other') }">-->
-                        <!--<a ui-sref="impact.other" data-submit-val="3">Other Requirement</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.results') }">-->
-                        <!--<a ui-sref="impact.results" data-submit-val="3">BIA Results</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.review') }">-->
-                        <!--<a ui-sref="impact.review" data-submit-val="3">BIA Review (summary)</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('impact.compliance') }">-->
-                        <!--<a ui-sref="impact.compliance" data-submit-val="3">Compliance Check and Comparison</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <!-- H&B only -->
-            <!--<li ng-class="{ on: $state.includes('continuity') }">-->
-                <!--<a ui-sref="continuity.profile" data-submit-val="">BUSINESS CONTINUITY PLAN</a>-->
-                <!--<ul ng-show="$state.includes('continuity')">-->
-                    <!--<li ng-class="{ on: $state.includes('continuity.profile') }">-->
-                        <!--<a ui-sref="continuity.profile" data-submit-val="">Program Area Profile</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('continuity.objective') }">-->
-                        <!--<a ui-sref="continuity.objective" data-submit-val="">Plan Objective - Executive Summary</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <!--&lt;!&ndash; H&B only &ndash;&gt;-->
-            <!--<li ng-class="{ on: $state.includes('risk') }">-->
-                <!--<a ui-sref="risk.profile" data-submit-val="">RISK ASSESSMENT</a>-->
-                <!--<ul ng-show="$state.includes('risk')">-->
-                    <!--<li ng-class="{ on: $state.includes('risk.profile') }">-->
-                        <!--<a ui-sref="risk.profile" data-submit-val="">Program Area Profile</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('risk.objective') }">-->
-                        <!--<a ui-sref="risk.objective" data-submit-val="6" id="auto_id_8">Plan Objective - Executive-->
-                            <!--Summary</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <!--&lt;!&ndash; all but H&B &ndash;&gt;-->
-            <!--<li ng-class="{ on: $state.includes('disaster') }">-->
-                <!--<a ui-sref="disaster.profile" data-submit-val="4" id="auto_id_12">DISASTER RECOVERY PLAN</a>-->
-
-                <!--<ul ng-show="$state.includes('disaster')">-->
-                    <!--<li ng-class="{ on: $state.includes('disaster.profile') }">-->
-                        <!--<a ui-sref="disaster.profile" data-submit-val="5" id="auto_id_13">Program Area Profile</a></li>-->
-                    <!--<li ng-class="{ on: $state.includes('disaster.objective') }">-->
-                        <!--<a ui-sref="disaster.objective" data-submit-val="6" id="auto_id_14">Plan Objective - Executive-->
-                            <!--Summary</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
-            <li ng-class="{ on: $state.includes('tools') }"><a ui-sref="tools.review.ready" data-submit-val="13"
-                                                               id="auto_id_18">TOOLS</a>
-                <ul ng-show="$state.includes('tools')">
-                    <li ng-class="{ on: $state.includes('tools.review') }">
-                        <a ui-sref="tools.review.ready"> <span class="glyphicon glyphicon-wrench"></span> Progress Review</a></li>
-                    <li ng-class="{ on: $state.includes('tools.reporting') }">
-                        <a ui-sref="tools.reporting"><span class="glyphicon glyphicon-file"></span> Performance Indicators</a>
-                    </li>
-                    <li ng-class="{ on: $state.includes('tools.print') }"><a ui-sref="tools.print"><span class="glyphicon glyphicon-print"></span> Print
-                        Center</a></li>
-                    <li ng-class="{ on: $state.includes('tools.searchAndReplace') }"><a ui-sref="tools.searchAndReplace"><span class="glyphicon glyphicon-search"></span> Search and Replace
-                        </a></li>
-
-                </ul>
-            </li>
-
-        </ul>
-
-    </div>
-    <!-- end #main_navigation -->
-
-    <div id="main_right" style="display: block;" ui-view="">
-        <div class="text-center"><span class="lead">{{orgEntity.title}}</span></div>
-        <div ui-view="" autoscroll="true">
-            <div ui-view="" autoscroll="true"></div>
+            <br>© 2014 myCOOP&#8482; Inc. All rights reserved.
         </div>
-
-        <footer id="footerLayer" align="center" role="contentinfo">
-            <!-- actions setup in zStaticRegion._setPrivacy -->
-            <div class="links">
-                <div class="footer-logo"></div>
-                <a href="javascript:;" id="license_agreement">License Agreement</a>
-                | <a href="javascript:;" id="privacy">Privacy</a>
-                | <a href="javascript:;" id="security">Security</a>
-                | <a href="javascript:;" id="support">Support</a>
-
-                <br>© 2014 myCOOP&#8482; Inc. All rights reserved.
-            </div>
-            <div id="promoLayer" style="visibility: hidden;"></div>
-            <div></div>
-        </footer>
+        <div id="promoLayer" style="visibility: hidden;"></div>
+        <div></div>
+    </footer>
 
 
-    </div>
-    <!-- end #main_right -->
+</div>
+<!-- end #main_right -->
 
-    <div id="rex_main_right" data-viewport="rexViewport"></div>
+<div id="rex_main_right" data-viewport="rexViewport"></div>
 
 </div>
 <!-- end #main -->
@@ -415,7 +442,13 @@
     var cScale = d3.scale.linear().domain([0, 100]).range([0, 2 * Math.PI]);
     var width = 120,
             height = 120,
-            data = [[0,20,"#add100", 'Business Continuity Plan'], [20,40,"#5a9c00", 'Business Impact Analysis'], [40,60,"#d3d3d3"],[60,80,"#d3d3d3"],[80,100,"#d3d3d3"]]
+            data = [
+                [0, 20, "#add100", 'Business Continuity Plan'],
+                [20, 40, "#5a9c00", 'Business Impact Analysis'],
+                [40, 60, "#d3d3d3"],
+                [60, 80, "#d3d3d3"],
+                [80, 100, "#d3d3d3"]
+            ]
 
     var vis = d3.select("#donutchart").append("svg")
             .attr("width", width)
@@ -424,14 +457,18 @@
     var arc = d3.svg.arc()
             .innerRadius(27)
             .outerRadius(50)
-            .startAngle(function(d){return cScale(d[0]);})
-            .endAngle(function(d){return cScale(d[1]);});
+            .startAngle(function (d) {
+                return cScale(d[0]);
+            })
+            .endAngle(function (d) {
+                return cScale(d[1]);
+            });
 
     d3.select('svg').append('text')
             .attr('x', 33)
             .attr('y', 60)
             .attr('font-size', '2.1rem')
-            .attr('font-weight','bold')
+            .attr('font-weight', 'bold')
             .text('20%')
             .attr('fill', '#007ac9')
 
@@ -449,17 +486,26 @@
             .enter()
             .append("path")
             .attr("d", arc)
-            .style("fill", function(d){return d[2];})
-            .style('cursor', function(d){if (d[2] === '#add100' || d[2] === '#5a9c00') return 'pointer' })
+            .style("fill", function (d) {
+                return d[2];
+            })
+            .style('cursor', function (d) {
+                if (d[2] === '#add100' || d[2] === '#5a9c00') return 'pointer'
+            })
             .attr("transform", "translate(50,50)")
-            .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-            .on("mousemove", function(d){ return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px").text(d[3]);})
-            .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
-            .on('click', function(d){
+            .on("mouseover", function () {
+                return tooltip.style("visibility", "visible");
+            })
+            .on("mousemove", function (d) {
+                return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px").text(d[3]);
+            })
+            .on("mouseout", function () {
+                return tooltip.style("visibility", "hidden");
+            })
+            .on('click', function (d) {
                 if (d[2] === '#add100') window.location.href = '#/continuity/profile'
                 else if (d[2] === '#5a9c00') window.location.href = '#/impact/processes'
             })
-
 
 
 </script>

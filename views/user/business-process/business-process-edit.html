@@ -1,0 +1,77 @@
+<div>
+
+    <h2><span ng-hide="isEdit">Report</span><span ng-show="isEdit">Update</span> an Incident</h2>
+
+    <div class="">
+        <div class="">
+            <form action="#" id="editNameFormView" novalidate="" name="form">
+                <p class="error" role="alert" style="color:red" ng-show="error">Please, fill all required fields</p>
+
+                <p class="success" role="alert" style="color:green;"></p>
+
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label class="label-control" for="name">* Name</label><br/>
+                        <input type="text" id="name" autofocus="" required="required" ng-model="process.name"
+                               name="name"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5 ">
+                        <label class="label-control" for="desc">* Description</label><br/>
+                        <textarea type="text" id="desc" required="required" ng-model="process.description"
+                                  name="ref"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row" ng-init="showMap = false">
+                    <div class="form-group col-xs-12 ">
+                        <div location address="process.location.address" show-map="showMap"
+                             coords="process.location"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3 class="col-xs-12">Additional attributes</h3>
+
+                    <div class="form-group col-xs-12">
+                        <ul class="list-unstyled">
+                            <li ng-repeat="type in attributeTypes">
+                                <input type="checkbox" ng-model="type.selected"/> <a ng-click="type.selected = !type.selected" href="">{{type.name}}</a>
+
+                                <div collapse="!type.selected">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-xs-1"></th>
+                                            <th class="col-xs-5">Name</th>
+                                            <th class="col-xs-6">Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-click="attribute.selected = !attribute.selected"
+                                            ng-repeat="attribute in attributes | filter:{attributeTypeId: type.id}">
+                                            <td><span ng-show="attribute.selected"
+                                                      class="glyphicon glyphicon-ok"></span></td>
+                                            <td>{{attribute.name}}</td>
+                                            <td>{{attribute.description}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="editDetailsButtonRow top-space">
+        <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()">Save</a>
+        <a ui-sref="dashboard.map" class=" btn btn-medium btn-gray-light cancel">Cancel</a>
+    </div>
+</div>

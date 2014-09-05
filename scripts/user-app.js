@@ -15,12 +15,17 @@ angular
         'resources.party',
         'resources.document',
         'resources.textEditor',
+        'resources.incident',
+        'resources.business-process',
+        'resources.business-process-attribute',
         'interceptor',
         'services.security',
+        'services.modal',
         'ngMap',
         'ui.bootstrap',
         'controls',
         'controllers.common',
+        'controllers.incident',
         'filters'
     ]).run(function ($rootScope, $location, $state, $stateParams, OrgUnit, SecurityService, User) {
         SecurityService.testLogin();
@@ -32,6 +37,10 @@ angular
                 window.location.replace('/#/login');
             });
         };
+
+        User.getCurrent(function(data){
+            $rootScope.profile = data;
+        });
 
         OrgUnit.getOrgUnit(15, function (data) {
             $rootScope.orgEntity = data;
@@ -168,9 +177,15 @@ angular
             .state('do.risk', {   template: '<h1>Risk Assessment</h1>', url: '/risk-assessment'})
             .state('do.impact', {  url: '/impact'})
             .state('do.impact.profile', {  template: '<h1>Program Area Profile</h1>', url: '/profile'})
-            .state('do.impact.processes', { templateUrl: '/views/admin/business-processes.html', controller: 'BusinessProcessCtrl', url: '/processes'})
+
+            .state('do.impact.processes', { templateUrl: '/views/user/business-process/business-processes.html', controller: 'BusinessProcessCtrl', url: '/processes'})
+            .state('do.impact.processes.add', { templateUrl: '/views/user/business-process/business-process-edit.html', controller: 'BusinessProcessEditCtrl', url: '/add'})
+            .state('do.impact.processes.edit', { templateUrl: '/views/user/business-process/business-process-edit.html', controller: 'BusinessProcessEditCtrl', url: '/edit?id'})
+            .state('do.impact.processes.attributes', {templateUrl: '/views/user/business-process/attributes.html', url: '/attributes', controller: 'BusinessProcessAttributeCtrl'})
+            .state('do.impact.process-attributes.edit', {})
+            .state('do.impact.processes.relationships', {templateUrl:'/views/user/business-process/relationships.html', url:'/relationships', controller: 'BusinessProcessRelationshipCtrl'})
+
             .state('do.impact.scope', { templateUrl: '/views/user/purpose-and-scope.html', url: '/purpose-and-scope'})
-            .state('do.impact.processes-add', { templateUrl: '/views/admin/business-process.add.html', controller: 'BusinessProcessAddCtrl', url: '/processes-add'})
             .state('do.impact.staff', {  template: '<h1>Staffing Requirements</h1>', url: '/staff'})
             .state('do.impact.resource', {  template: '<h1>Resource Requirement</h1>', url: '/resource'})
             .state('do.impact.criticalApp', {  template: '<h1>Critical Application (Software) Requirements</h1>', url: '/critical-app'})
@@ -239,6 +254,11 @@ angular
             .state('tools.reporting', {  template: '<h1>Performance Indicators</h1>', url: '/reporting'})
             .state('tools.print', {  templateUrl: '/views/admin/print-center.html', url: '/print', controller: 'PrintCenterCtrl'})
             .state('tools.searchAndReplace', { templateUrl: '/views/user/tools/search-and-replace.html', url: '/search-and-replace', controller: 'DocumentEditorCtrl'})
+
+            .state('tools.incident', { url: '/incident', abstract:true, template: '<ui-view/>'})
+            .state('tools.incident.report', { templateUrl: '/views/templates/incident-edit.html', url: '/report', controller: 'IncidentCtrl'})
+            .state('tools.incident.edit', {  templateUrl: '/views/templates/incident-edit.html', url: '/edit?id', controller: 'IncidentCtrl'})
+
             .state('tools.review', {   templateUrl: '/views/user//review/review.html', url: '/review'})
             .state('tools.review.ready', {   templateUrl: '/views/user/review/ready-to-review.html', url: '/ready'})
             .state('tools.review.landing', {   templateUrl: '/views/user/review/review-landing.html', url: '/landing'})

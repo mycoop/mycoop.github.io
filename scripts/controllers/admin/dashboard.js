@@ -33,10 +33,13 @@ angular.module('adminApp').
 
         var startTime = (new Date()).setMonth(7);
         User.getLoginHistory(startTime, function (data) {
+            $scope.loginHistory = [];
             _.each(data, function (item) {
-                item.userPermission = getUserPermission(item.user);
+                if(item.user){
+                    item.userPermission = getUserPermission(item.user);
+                    $scope.loginHistory.push(item);
+                }
             });
-            $scope.loginHistory = data;
         });
         var getUserPermission = function (user) {
             switch (user.permissionLevelId) {

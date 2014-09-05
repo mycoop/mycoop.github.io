@@ -1,0 +1,31 @@
+<div>
+    <h1>Business Processes</h1>
+
+    <div ng-show="$state.is('do.impact.processes')">
+        <p>Manage your Business Processes</p>
+        <a href="" class="btn btn-blue ansSm">Bulk Update</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Process Name</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="process in processes">
+                <td><a ui-sref="do.impact.processes.edit({id: process.id})">{{process.name}}</a></td>
+                <td>{{process.description}}</td>
+                <td>{{process.location.address}}</td>
+                <td>
+                    <button class="ansSm btn btn-blue">Clone</button>
+                    <button class="ansSm btn btn-gray">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-blue" ui-sref="do.impact.processes.add">Add Process</a>
+    </div>
+    <div ui-view="" autoscroll="true"></div>
+</div>
