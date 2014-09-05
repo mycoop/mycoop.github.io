@@ -19,7 +19,7 @@ angular.module('myCoopApp')
                 User.getUser(data.id, function(user){
                     $rootScope.profile = user;
                     if(user.permissionLevelId == 1){
-                        $location.path('/admin-welcome');
+                        window.location.replace('/admin/#/dashboard/main');
                     } else{
                         $location.path('/user-welcome');
                     }
