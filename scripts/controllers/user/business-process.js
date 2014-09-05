@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('userApp')
-    .controller('BusinessProcessCtrl', function ($scope, $rootScope, BusinessProcess) {
+    .controller('BusinessProcessCtrl', function ($scope, Modal, $rootScope, BusinessProcess) {
         $scope.gridData = []
         function updateProcesses() {
             BusinessProcess.getBusinessProcesses(function (data) {
@@ -17,30 +17,27 @@ angular.module('userApp')
             enableCellSelection: true,
             enableRowSelection: false,
             enableCellEdit: true,
-            headerRowTemplate: 'headerRow',
+//            headerRowTemplate: 'headerRow',
             columnDefs: [
-                {field: 'name', displayName: 'Name', width: '20%'},
-                {field: 'description', displayName: 'Description', width: '20%'},
-                {field: 'address', displayName: 'Location', enableCellEdit: false, width: '20%'}
+                {field: 'name', displayName: 'Name', width: '30%'},
+                {field: 'description', displayName: 'Description', width: '40%'},
+                {field: 'address', displayName: 'Location', enableCellEdit: true, width: '30%'}
             ]};
 
 
-        $scope.clone = function (process) {
+        $scope.cloneProcess = function (process) {
             var newProcess = angular.copy(process);
-            delete newProcess.location;
-            delete newProcess.locationType;
-            Process.addProcess(newProcess, function () {
+            delete newProcess.id;
+            BusinessProcess.addBusinessProcess(newProcess,function(){
                 updateProcesses();
             })
         };
-        $scope.delete = function (process) {
-            if (process.isDeleting) {
-                Process.deleteProcess(process, function () {
+        $scope.deleteProcess = function (process) {
+            Modal.openYesNoModal('Warning!', 'Are you sure want to delete this business process?', function () {
+                BusinessProcess.deleteBusinessProcess(process.id, function () {
                     updateProcesses();
                 })
-            } else {
-                process.isDeleting = true;
-            }
+            })
         };
         $scope.bulkUpdate = function () {
             $scope.isBulkUpdating = true;
@@ -153,52 +150,57 @@ angular.module('userApp')
         $scope.addedAttributeIds = [];
         $scope.constraints = [
             {
-                "has"    : { "type" : "group1" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.2,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group2" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.2,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group3" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.5,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group4" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.5,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group5" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.8,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group8" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.8,
-                "weight" : 0.7
+                "has": { "type": "group1" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.2,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group2" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.2,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group3" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.5,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group4" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.5,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group5" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.8,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group8" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.8,
+                "weight": 0.7
             }
         ];
 
-        $scope.$watch('attributeProgress', function(){
+        $scope.$watch('attributeProgress', function () {
             console.log($scope.attributeProgress + ' - ' + $scope.attributeProgressGoal)
-            if($scope.attributeProgress == $scope.attributeProgressGoal){
+            if ($scope.attributeProgress == $scope.attributeProgressGoal) {
 //                alert(123)
-                _.each($scope.processes, function(process){
-                    _.each(process.attributes, function(attribute){
+                _.each($scope.processes, function (process) {
+                    _.each(process.attributes, function (attribute) {
                         var node;
-                        if(!_.contains($scope.addedAttributeIds, attribute.id)){
+                        if (!_.contains($scope.addedAttributeIds, attribute.id)) {
                             node = {
                                 id: attribute.id,
                                 name: attribute.name,
@@ -207,7 +209,7 @@ angular.module('userApp')
                             };
                             $scope.graphData.push(node);
                             $scope.addedAttributeIds.push(attribute.id);
-                        } else{
+                        } else {
                             node = _.findWhere($scope.graphData, {id: attribute.id});
                         }
                         node.depends.push(process.name);
@@ -218,10 +220,10 @@ angular.module('userApp')
             }
         });
 
-        $scope.initGraph = function(){
+        $scope.initGraph = function () {
             var index = 0;
-            _.each($scope.groups, function(group){
-                if($scope.constraints[index]){
+            _.each($scope.groups, function (group) {
+                if ($scope.constraints[index]) {
                     $scope.constraints[index].has.type = group.name;
                 }
                 index++;
@@ -236,7 +238,7 @@ angular.module('userApp')
 
         BusinessProcessAttribute.getAttributeTypes(function (types) {
             $scope.attributeTypes = types;
-            _.each(types, function(item) {
+            _.each(types, function (item) {
                 $scope.groups[item.name] = {name: item.name};
             });
             BusinessProcess.getBusinessProcesses(function (processes) {

@@ -18,6 +18,26 @@ angular.module('userApp').
                 attribute.isEdit = false;
             });
         };
+
+        $scope.addAttributeType = function(){
+            BusinessProcessAttribute.addAttributeType($scope.newType, function(){
+                $scope.isTypeAdding = false;
+                $scope.newType.name = "";
+                BusinessProcessAttribute.getAttributeTypes(function(types){
+                    $scope.attributeTypes = types;
+                    $scope.selectedType = types[0];
+                })
+            })
+        };
+        $scope.deleteAttributeType = function(type){
+            Modal.openYesNoModal('Warning!', 'Are you sure want to delete this attribute category?', function(){
+                $scope.attributeTypes.remove(type);
+                if(type == $scope.selectedType){
+                    $scope.selectedType = $scope.attributeTypes[0];
+                }
+                BusinessProcessAttribute.deleteAttributeType(type.id)
+            });
+        };
         $scope.addAttribute = function(){
             $scope.newAttribute.attributeTypeId = $scope.selectedType.id;
             BusinessProcessAttribute.addAttribute($scope.newAttribute, function(data){

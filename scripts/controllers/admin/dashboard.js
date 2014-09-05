@@ -28,7 +28,7 @@ angular.module('adminApp').
 
         $scope.launchWizard = function () {
             $rootScope.isWizard = true;
-            $state.go('demo');
+            $state.go('config.profile');
         };
 
         var startTime = (new Date()).setMonth(7);

@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="row">
-                    <h3 class="col-xs-12">Additional attributes</h3>
+                    <h3 class="col-xs-12">Additional attributes <a ui-sref="do.impact.processes.attributes">(Manage Attributes)</a></h3>
 
                     <div class="form-group col-xs-12">
                         <ul class="list-unstyled">
@@ -72,6 +72,6 @@
 
     <div class="editDetailsButtonRow top-space">
         <a href="" class=" btn btn-medium  btn-blue submit" ng-click="save()">Save</a>
-        <a ui-sref="dashboard.map" class=" btn btn-medium btn-gray-light cancel">Cancel</a>
+        <a ng-click="$state.go('^')" class=" btn btn-medium btn-gray-light cancel">Cancel</a>
     </div>
 </div>

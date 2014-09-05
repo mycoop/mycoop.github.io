@@ -15,7 +15,14 @@
                 </a>
 
                 <div class="top-space">
-                    <a href="" class="top-space" ng-click="addParty()">+ Add more</a>
+                    <form action="" collapse="!isTypeAdding" class="form-inline">
+                        <div class="form-group"><input autofocus="" placeholder="Category Name" class="form-control"
+                                                       type="text" ng-model="newType.name"/></div>
+                        <div class="form-group">
+                            <button class="btn btn-blue form-control" ng-click="addAttributeType()">Add</button>
+                        </div>
+                    </form>
+                    <a href="" class="top-space" collapse="isTypeAdding" ng-click="isTypeAdding=true">+ Add more</a>
                 </div>
             </div>
         </div>
@@ -68,4 +75,5 @@
             </div>
         </div>
     </div>
+    <a class="btn btn-blue" ui-sref="^">Back to Business Processes</a>
 </div>

@@ -3,29 +3,45 @@
 
     <div ng-show="$state.is('do.impact.processes')">
         <p>Manage your Business Processes</p>
-        <a href="" class="btn btn-blue ansSm">Bulk Update</a>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Process Name</th>
-                <th>Description</th>
-                <th>Location</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="process in processes">
-                <td><a ui-sref="do.impact.processes.edit({id: process.id})">{{process.name}}</a></td>
-                <td>{{process.description}}</td>
-                <td>{{process.location.address}}</td>
-                <td>
-                    <button class="ansSm btn btn-blue">Clone</button>
-                    <button class="ansSm btn btn-gray">Delete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <a class="btn btn-blue" ui-sref="do.impact.processes.add">Add Process</a>
+        <a class="btn btn-blue" ui-sref="do.impact.processes.attributes">Manage Attributes</a>
+        <a class="btn btn-blue" ui-sref="do.impact.processes.relationships">Process Modeling</a><br/>
+        <a href="" class="btn top-space-big btn-gray ansSm" ng-click="isBulkUpdating=!isBulkUpdating">
+            <span ng-hide="isBulkUpdating">Bulk Update</span> <span ng-show="isBulkUpdating">Done</span></a>
+
+
+        <div ng-if="isBulkUpdating">
+            <div  class="gridStyle" ng-grid="gridOptions">
+            </div>
+        </div>
+        <div ng-show="!isBulkUpdating">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Process Name</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="process in processes">
+                    <td><a ui-sref="do.impact.processes.edit({id: process.id})">{{process.name}}</a></td>
+                    <td>{{process.description}}</td>
+                    <td>{{process.location.address}}</td>
+                    <td>
+                        <a class="ansSm btn btn-blue pull-left" ng-click="cloneProcess(process)">Clone</a></td>
+                    <td>
+                    <span class="show-hover pull-right " ng-hide="attribute.isEdit">
+                        <a class="glyphicon glyphicon-remove-circle delete-button"
+                           ng-click="deleteProcess(process)"></a>
+                    </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-blue" ui-sref="do.impact.processes.add">Add Process</a>
+        </div>
     </div>
     <div ui-view="" autoscroll="true"></div>
 </div>

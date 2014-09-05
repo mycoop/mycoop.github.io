@@ -28,7 +28,7 @@
     <script type="text/javascript" src="/scripts/libraries/underscore.js"></script>
     <script type="text/javascript" src="/scripts/libraries/bootstrap.min.js"></script>
 
-    <script language="javascript" type="text/javascript" src="/office/OfficeWeb/apps/api/documents/api.js"></script>
+    <script language="javascript" type="text/javascript" src="http://mycoopdev.cloudapp.net/office/OfficeWeb/apps/api/documents/api.js"></script>
 
     <script type="text/javascript" src="/scripts/libraries/richmarker.js"></script>
 
@@ -163,8 +163,8 @@
 
         <a id="" style="display: block" href="/#/main" title="myCOOP">
 
-            <img src="http://edw2014.dataversity.net/uploads/ConfSiteAssets/79/image/bank-of-america-logo.png" alt=""
-                 style="float:left; height: 60px; margin-right: 10px; margin-top: 0px;"/>
+            <img src="/images/sample-logo.png" alt=""
+                 style="float:left; display: none; height: 60px; margin-right: 10px; margin-top: 0px;"/>
         </a>
 
         <a class="pull-right visible-lg visible-md" style="display: block" href="/#/main" title="myCOOP">
@@ -270,13 +270,14 @@
         </li>
 
         <li ng-class="{ on: ($state.includes('do') || $state.includes('do.impact.**')) }">
-            <a ui-sref="do.risk">DO</a>
+            <a ui-sref="do.impact.processes">DO</a>
             <ul ng-show="($state.includes('do') || $state.includes('do.impact.**')) ">
-                <li ng-class="{ on: $state.includes('do.risk') }">
-                    <a ui-sref="do.risk">Risk Assessment</a>
-                </li>
+
                 <li ng-class="{ on: $state.includes('do.impact') }">
                     <a ui-sref="do.impact.processes">Business Impact Analysis</a>
+                </li>
+                <li ng-class="{ on: $state.includes('do.risk') }">
+                    <a ui-sref="do.risk">Risk Assessment</a>
                 </li>
                 <li ng-class="{ on: $state.includes('do.continuity') }">
                     <a ui-sref="do.continuity">Business Continuity Strategy</a>
