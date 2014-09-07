@@ -1,133 +1,147 @@
-<div>
+<div id="page-container">
 <h1>Process Modeling</h1>
 <a href="/images/process-modeling.jpg" download="process-modeling.jpg" class="btn btn-blue">Export model</a>
+
 <div class="checkbox">
     <label>
         <input type="checkbox"> Add image to output Document
     </label>
 </div>
+
 <div id="split-container">
     <div id="graph-container">
         <div id="graph"></div>
     </div>
-    <div id="docs-container" ng-show="showPanel">
-        <h3>Process name</h3>
-        <p>Upstream/Inflow Dependencies</p>
-        <ol>
-            <li>Process1 </li>
-            <li>Process1 </li>
-            <li>Process1 </li>
-            <li>Process1 </li>
-            <li>Process1 </li>
-        </ol>
+    <div style="border-top: 2px solid #808080" ng-show="showPanel">
+        <h3 class="top-space-big">{{selectedItem.name}} ({{groups[selectedItem.type].name}})</h3>
+
+        <div class="">
+            <div class="" ng-show="selectedItem.depends.length > 0">
+                <p>Upstream/Inflow Dependencies</p>
+                <ol >
+                    <li ng-repeat="dep in selectedItem.depends">{{dep}}</li>
+                </ol>
+            </div>
+            <div class="" ng-show="selectedItem.attributes.length > 0">
+                <p>Downstream/Outflow Dependencies</p>
+                <ol >
+                    <li ng-repeat="attribute in selectedItem.attributes">{{attribute.name}}</li>
+                </ol>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    var config ={
-        "title" : "Les Miserables characters",
-        "graph" : {
-            "linkDistance" : 150,
-            "charge"       : -400,
-            "height"       : 800,
-            "numColors"    : 12,
-            "labelPadding" : {
-                "left"   : 3,
-                "right"  : 3,
-                "top"    : 2,
-                "bottom" : 2
+    var config = {
+        "title": "Les Miserables characters",
+        "graph": {
+            "linkDistance": 150,
+            "charge": -400,
+            "height": 800,
+            "numColors": 12,
+            "labelPadding": {
+                "left": 3,
+                "right": 3,
+                "top": 2,
+                "bottom": 2
             },
-            "labelMargin" : {
-                "left"   : 3,
-                "right"  : 3,
-                "top"    : 2,
-                "bottom" : 2
+            "labelMargin": {
+                "left": 3,
+                "right": 3,
+                "top": 2,
+                "bottom": 2
             },
-            "ticksWithoutCollisions" : 50
+            "ticksWithoutCollisions": 50
         },
-        "types" : {
-            "group0" : {
-                "short" : "Group 0",
-                "long"  : "Group 0 long name for docs"
+        "types": {
+            "group0": {
+                "short": "Group 0",
+                "long": "Group 0 long name for docs"
             },
-            "group1" : {
-                "short" : "Group 1",
-                "long"  : "Group 1 long name for docs"
+            "group1": {
+                "short": "Group 1",
+                "long": "Group 1 long name for docs"
             },
-            "group2" : {
-                "short" : "Group 2",
-                "long"  : "Group 2 long name for docs"
+            "group2": {
+                "short": "Group 2",
+                "long": "Group 2 long name for docs"
             },
-            "group3" : {
-                "short" : "Group 3",
-                "long"  : "Group 3 long name for docs"
+            "group3": {
+                "short": "Group 3",
+                "long": "Group 3 long name for docs"
             },
-            "group4" : {
-                "short" : "Group 4",
-                "long"  : "Group 4 long name for docs"
+            "group4": {
+                "short": "Group 4",
+                "long": "Group 4 long name for docs"
             },
-            "group5" : {
-                "short" : "Group 5",
-                "long"  : "Group 5 long name for docs"
+            "group5": {
+                "short": "Group 5",
+                "long": "Group 5 long name for docs"
             },
-            "group6" : {
-                "short" : "Group 6",
-                "long"  : "Group 6 long name for docs"
+            "group6": {
+                "short": "Group 6",
+                "long": "Group 6 long name for docs"
             },
-            "group7" : {
-                "short" : "Group 7",
-                "long"  : "Group 7 long name for docs"
+            "group7": {
+                "short": "Group 7",
+                "long": "Group 7 long name for docs"
             },
-            "group8" : {
-                "short" : "Group 8",
-                "long"  : "Group 8 long name for docs"
+            "group8": {
+                "short": "Group 8",
+                "long": "Group 8 long name for docs"
             },
-            "group9" : {
-                "short" : "Group 9",
-                "long"  : "Group 9 long name for docs"
+            "group9": {
+                "short": "Group 9",
+                "long": "Group 9 long name for docs"
             },
-            "group10" : {
-                "short" : "Group 10",
-                "long"  : "Group 10 long name for docs"
+            "group10": {
+                "short": "Group 10",
+                "long": "Group 10 long name for docs"
             }
         },
-        "constraints" : [
+        "constraints": [
             {
-                "has"    : { "type" : "group1" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.2,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group2" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.2,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group3" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.5,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group4" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.5,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group5" },
-                "type"   : "position",
-                "x"      : 0.2,
-                "y"      : 0.8,
-                "weight" : 0.7
-            }, {
-                "has"    : { "type" : "group8" },
-                "type"   : "position",
-                "x"      : 0.8,
-                "y"      : 0.8,
-                "weight" : 0.7
+                "has": { "type": "group1" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.2,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group2" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.2,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group3" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.5,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group4" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.5,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group5" },
+                "type": "position",
+                "x": 0.2,
+                "y": 0.8,
+                "weight": 0.7
+            },
+            {
+                "has": { "type": "group8" },
+                "type": "position",
+                "x": 0.8,
+                "y": 0.8,
+                "weight": 0.7
             }
         ]
     };
@@ -138,41 +152,41 @@ var graph = {},
         selected = {},
         highlighted = null;
 
-function initializeGraph () {
+function initializeGraph() {
     resize();
 
-        var result = {};
+    var result = {};
     var data = config.data;
 
-        _.each(data, function (item) {
+    _.each(data, function (item) {
 //            var obj = item;
-            var dependsOnBy = [];
-            _.each(data, function (depend) {
-                if (_.contains(depend.depends, item.name)) {
-                    dependsOnBy.push(depend.name);
-                }
-            });
-            item.dependedOnBy = dependsOnBy;
-            result[item.name] = item;
+        var dependsOnBy = [];
+        _.each(data, function (depend) {
+            if (_.contains(depend.depends, item.name)) {
+                dependsOnBy.push(depend.name);
+            }
         });
+        item.dependedOnBy = dependsOnBy;
+        result[item.name] = item;
+    });
 //        console.log(JSON.stringify(result))
-        graph.data = result;
-        setTimeout(function(){
-            drawGraph();
-        },100)
+    graph.data = result;
+    setTimeout(function () {
+        drawGraph();
+    }, 100)
 
 }
 
 
-    $(document).on('click', '.select-object', function () {
-        var obj = graph.data[$(this).data('name')];
-        if (obj) {
-            selectObject(obj);
-        }
-        return false;
-    });
+$(document).on('click', '.select-object', function () {
+    var obj = graph.data[$(this).data('name')];
+    if (obj) {
+        selectObject(obj);
+    }
+    return false;
+});
 
-    $(window).on('resize', resize);
+$(window).on('resize', resize);
 function drawGraph() {
     $('#graph').empty();
 
@@ -223,7 +237,7 @@ function drawGraph() {
     for (var name in graph.data) {
         var currentObj = graph.data[name];
 //        console.log(JSON.stringify(currentObj));
-        _.each(currentObj.depends, function(depIndex){
+        _.each(currentObj.depends, function (depIndex) {
             var link = {
                 source: graph.data[depIndex],
                 target: currentObj
@@ -695,7 +709,7 @@ function selectObject(obj, el) {
 
     highlightObject(obj);
 
-    angular.element($("#graph-container")).scope().selectNode(obj);
+    angular.element($("#page-container")).scope().selectNode(obj);
 
     node.classed('selected', true);
 //    $('#docs').html(obj.docs);
@@ -765,7 +779,7 @@ var showingDocs = false,
 function resize(showDocs) {
     var docsHeight = 0,
             graphHeight = 0,
-            $docs = $('#docs-container'),
+    //$docs = $('#docs-container'),
             $graph = $('#graph-container'),
             $close = $('#docs-close');
 
@@ -780,12 +794,12 @@ function resize(showDocs) {
     }
 
 
-//    graphHeight = 100 - docsHeight;
-//    $graph.css('height', graphHeight + 'px');
+    graphHeight = 100;// - docsHeight;
+    $graph.css('height', 700 + 'px');
 
     $close.css({
         top: graphHeight + docsClosePadding + 'px',
-        right: window.innerWidth - $docs[0].clientWidth + docsClosePadding + 'px'
+        right: window.innerWidth// - $docs[0].clientWidth + docsClosePadding + 'px'
     });
 }
 

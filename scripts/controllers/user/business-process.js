@@ -238,8 +238,10 @@ angular.module('userApp')
         };
 
         $scope.selectNode = function (node) {
-            $scope.showPanel = true;
-//            alert(node.name)
+            $scope.$apply(function(){
+                $scope.showPanel = true;
+                $scope.selectedItem = node;
+            });
             if(_.contains(node.id, 'p')){
 
             } else{
@@ -267,6 +269,7 @@ angular.module('userApp')
                     $scope.graphData.push(node);
                     BusinessProcess.getAttributes(process.id, function (processAttributes) {
                         process.attributes = processAttributes;
+                        node.attributes = processAttributes;
                         $scope.attributeProgress++;
                     });
                 });
