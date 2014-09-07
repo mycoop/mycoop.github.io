@@ -4,7 +4,7 @@ angular.module('resources.org-entity', [])
             {
                 id: 15,
                 owner: 'Joe Smith', location: 'Lansing, MI, USA', access: false, parent: null,
-                title: "Basic organization",
+                title: "Company 123",
                 url: '#/home/admin',
                 linkText: 'Staff',
                 createdDate: 1400414718000,
