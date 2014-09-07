@@ -239,7 +239,7 @@ angular.module('userApp')
 
         $scope.selectNode = function (node) {
             $scope.showPanel = true;
-            alert(node.name)
+//            alert(node.name)
             if(_.contains(node.id, 'p')){
 
             } else{
