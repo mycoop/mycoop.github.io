@@ -223,7 +223,7 @@ angular.module('userApp')
 
         $scope.groups = [
             {
-                isOpen: true,
+                isOpen: false,
                 title: 'Mission',
                 desc: 'Mission is the \'reason of being\' of organization.',
                 example: 'The {Organization} aims to the best value to customers in {Product}.',

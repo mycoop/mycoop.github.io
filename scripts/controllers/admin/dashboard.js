@@ -10,7 +10,7 @@ angular.module('adminApp').
                     user: user,
                     time: '5 hours ago',
                     activity: 'Did some very important stuff',
-                    location: 'BOA > Department1',
+                    location: 'Company 123 > Department1',
                     section: 'Leadership'
                 });
             })

@@ -1,12 +1,19 @@
 <div>
-    <h1>Business Processes</h1>
+    <h1 ng-hide="$state.is('do.impact.processes.relationships')">Business Processes</h1>
 
     <div ng-show="$state.is('do.impact.processes')">
         <p>Manage your Business Processes</p>
-        <a class="btn btn-blue" ui-sref="do.impact.processes.attributes">Manage Attributes</a>
-        <a class="btn btn-blue" ui-sref="do.impact.processes.relationships">Process Modeling</a><br/>
-        <a href="" class="btn top-space-big btn-gray ansSm" ng-click="isBulkUpdating=!isBulkUpdating">
-            <span ng-hide="isBulkUpdating">Bulk Update</span> <span ng-show="isBulkUpdating">Done</span></a>
+        <div class="row">
+            <div class="col-md-10">
+                <a class="btn btn-blue" ui-sref="do.impact.processes.attributes">Manage Attributes</a>
+                <a class="btn btn-blue" ui-sref="do.impact.processes.relationships">Process Modeling</a><br/>
+                <a href="" class="btn top-space-big btn-gray ansSm" ng-click="isBulkUpdating=!isBulkUpdating">
+                    <span ng-hide="isBulkUpdating">Bulk Update</span> <span ng-show="isBulkUpdating">Done</span></a>
+            </div>
+            <div class="col-md-2">
+                <a href="" class="btn btn-blue ansSm pull-right">Download .CSV</a>
+            </div>
+        </div>
 
 
         <div ng-if="isBulkUpdating">

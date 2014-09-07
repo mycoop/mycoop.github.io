@@ -183,7 +183,7 @@ angular
             .state('do.impact.processes.edit', { templateUrl: '/views/user/business-process/business-process-edit.html', controller: 'BusinessProcessEditCtrl', url: '/edit?id'})
             .state('do.impact.processes.attributes', {templateUrl: '/views/user/business-process/attributes.html', url: '/attributes', controller: 'BusinessProcessAttributeCtrl'})
             .state('do.impact.process-attributes.edit', {})
-            .state('do.impact.processes.relationships', {templateUrl:'/views/user/business-process/relationships.html', url:'/relationships', controller: 'BusinessProcessRelationshipCtrl'})
+            .state('do.impact.processes.relationships', {templateUrl:'/views/user/business-process/relationships.html', url:'/modeling', controller: 'BusinessProcessRelationshipCtrl'})
 
             .state('do.impact.scope', { templateUrl: '/views/user/purpose-and-scope.html', url: '/purpose-and-scope'})
             .state('do.impact.staff', {  template: '<h1>Staffing Requirements</h1>', url: '/staff'})

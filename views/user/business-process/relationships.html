@@ -1,8 +1,25 @@
 <div>
-
+<h1>Process Modeling</h1>
+<a href="/images/process-modeling.jpg" download="process-modeling.jpg" class="btn btn-blue">Export model</a>
+<div class="checkbox">
+    <label>
+        <input type="checkbox"> Add image to output Document
+    </label>
+</div>
 <div id="split-container">
     <div id="graph-container">
         <div id="graph"></div>
+    </div>
+    <div id="docs-container" ng-show="showPanel">
+        <h3>Process name</h3>
+        <p>Upstream/Inflow Dependencies</p>
+        <ol>
+            <li>Process1 </li>
+            <li>Process1 </li>
+            <li>Process1 </li>
+            <li>Process1 </li>
+            <li>Process1 </li>
+        </ol>
     </div>
 </div>
 
@@ -678,6 +695,8 @@ function selectObject(obj, el) {
 
     highlightObject(obj);
 
+    angular.element($("#graph-container")).scope().selectNode(obj);
+
     node.classed('selected', true);
 //    $('#docs').html(obj.docs);
 //    $('#docs-container').scrollTop(0);
@@ -746,26 +765,27 @@ var showingDocs = false,
 function resize(showDocs) {
     var docsHeight = 0,
             graphHeight = 0,
-//            $docs = $('#docs-container'),
+            $docs = $('#docs-container'),
             $graph = $('#graph-container'),
             $close = $('#docs-close');
 
-//    if (typeof showDocs == 'boolean') {
-//        showingDocs = showDocs;
-//        $docs[showDocs ? 'show' : 'hide']();
-//    }
-//
-//    if (showingDocs) {
-//        docsHeight = desiredDocsHeight;
-//        $docs.css('height', docsHeight + 'px');
-//    }
+    if (typeof showDocs == 'boolean') {
+        showingDocs = showDocs;
+        $docs[showDocs ? 'show' : 'hide']();
+    }
 
-    graphHeight = 100;// - docsHeight;
-    $graph.css('height', 600 + 'px');
+    if (showingDocs) {
+        docsHeight = desiredDocsHeight;
+        $docs.css('height', docsHeight + 'px');
+    }
+
+
+//    graphHeight = 100 - docsHeight;
+//    $graph.css('height', graphHeight + 'px');
 
     $close.css({
         top: graphHeight + docsClosePadding + 'px',
-        right: window.innerWidth// - $docs[0].clientWidth + docsClosePadding + 'px'
+        right: window.innerWidth - $docs[0].clientWidth + docsClosePadding + 'px'
     });
 }
 

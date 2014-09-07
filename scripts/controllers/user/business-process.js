@@ -28,7 +28,7 @@ angular.module('userApp')
         $scope.cloneProcess = function (process) {
             var newProcess = angular.copy(process);
             delete newProcess.id;
-            BusinessProcess.addBusinessProcess(newProcess,function(){
+            BusinessProcess.addBusinessProcess(newProcess, function () {
                 updateProcesses();
             })
         };
@@ -73,6 +73,7 @@ angular.module('userApp')
                         _.each($scope.attributes, function (item) {
                             item.selected = _.contains(ids, item.id);
                             var type = _.findWhere($scope.attributeTypes, {id: item.attributeTypeId});
+                            item.attributeType = type;
                             type.selected = type.selected || item.selected;
                         });
                     });
@@ -135,7 +136,7 @@ angular.module('userApp')
         function getSelectedAttributes() {
             var result = [];
             _.each($scope.attributes, function (doc) {
-                if (doc.selected) {
+                if (doc.selected && doc.attributeType.selected) {
                     result.push(doc);
                 }
             });
@@ -234,6 +235,16 @@ angular.module('userApp')
             config.data = $scope.graphData;
             initializeGraph();
 
+        };
+
+        $scope.selectNode = function (node) {
+            $scope.showPanel = true;
+            alert(node.name)
+            if(_.contains(node.id, 'p')){
+
+            } else{
+
+            }
         };
 
         BusinessProcessAttribute.getAttributeTypes(function (types) {
