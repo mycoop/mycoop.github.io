@@ -2,7 +2,6 @@
     <h1>Document Templates</h1>
 
     <div ng-show="$state.is('tools.document-templates')">
-        <a ui-sref="config.orgunits" class="btn btn-blue">Continue</a>
         <ul rn-carousel rn-carousel-indicator rn-carousel-control rn-carousel-index="selectedSlide"
             style="height: 400px">
             <li slide ng-repeat="template in datasource" active="template.active">
@@ -16,6 +15,7 @@
         </ul> <a class="btn btn-medium  btn-blue" ui-sref="tools.document-templates.add">Create New Document Template</a>
 
 
+        <a ui-sref="config.orgunits" class="btn btn-orange left-space">Continue</a>
         <div>
             <table class="table">
                 <thead>

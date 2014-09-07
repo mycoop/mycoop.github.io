@@ -174,7 +174,7 @@ angular
 
 
         $stateProvider
-            .state('dashboard', { url: '/dashboard', abstract:true, template: '<ui-view/>'})
+            .state('dashboard', { url: '/dashboard', abstract:true, template: '<ui-view autoscroll="true"/>'})
             .state('dashboard.main', { url: '/main', templateUrl: '/views/admin/dashboard/dashboard.html', controller: 'DashboardCtrl'})
             .state('dashboard.map', {  templateUrl: '/views/admin/map.html', url: '/map', controller: 'mapCtrl'});
 
