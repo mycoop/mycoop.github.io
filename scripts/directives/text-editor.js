@@ -8,122 +8,140 @@ angular.module('directives.textEditor', []).
             },
             link: function (scope, element, attributes) {
                 $('<div id="iframeEditor" />').appendTo(element);
-                TextEditor.getConfig(scope.fileId, function(data){
-                    var docEditor;
-                    var fileName = data.fileName;
-                    var fileType = data.documentType;
 
-                    var innerAlert = function (message) {
-                        if (console && console.log)
-                            console.log(message);
-                    };
+                var docEditor;
+                var fileName = scope.fileId;//"MC4001-BusienssContinuityContextRequirementsandScope.docx";
+                var fileType = fileName.split('.').pop();;
+                var fileUri = "";
+                var key = "";
+                var validateKey = "";
 
-                    var onReady = function () {
-                        innerAlert("Document editor ready");
-                    };
+                var innerAlert = function (message) {
+                    if (console && console.log)
+                        console.log(message);
+                };
 
-                    var onBack = function () {
-                        location.href = "default.aspx";
-                    };
+                var onReady = function () {
+                    innerAlert("Document editor ready");
+                };
 
-                    var onDocumentStateChange = function (event) {
-                        var title = document.title.replace(/\*$/g, "");
-                        document.title = title + (event.data ? "*" : "");
-                    };
+                var onBack = function () {
+                    location.href = "/user/#/home/main";
+                };
 
-                    var onDocumentSave = function (event) {
-                        SaveFileRequest(fileName, fileType, event.data);
-                    };
+                var onDocumentStateChange = function (event) {
+                    var title = document.title.replace(/\*$/g, "");
+                    document.title = title + (event.data ? "*" : "");
+                };
 
-                    var onError = function (event) {
-                        if (console && console.log && event)
-                            console.log(event.data);
-                    };
+                var onDocumentSave = function (event) {
+                    SaveFileRequest(fileName, fileType, event.data);
+                };
 
-                    setTimeout(function(){
-                        docEditor = new DocsAPI.DocEditor("iframeEditor",
-                            {
-                                width: "100%",
-                                height: "100%",
+                var onError = function (event) {
+                    if (console && console.log && event)
+                        console.log(event.data);
+                };
 
-                                type: 'desktop',
-                                documentType: "text",
-                                document: {
-                                    title: fileName,
-                                    url: data.fileUri,
-                                    fileType: fileType,
-                                    key: data.key,
-                                    vkey: data.validateKey,
-                                    info: {
-                                        author: "Me",
-                                        created: "7/20/2014"
-                                    },
+                var сonnectEditor = function () {
 
-                                    permissions: {
-                                        edit: "True" == "True",
-                                        download: true
-                                    }
+                    docEditor = new DocsAPI.DocEditor("iframeEditor",
+                        {
+                            width: "100%",
+                            height: "800px",
+
+                            type: 'desktop',
+                            documentType: "text",
+                            document: {
+                                title: fileName,
+                                url: fileUri,
+                                fileType: fileType,
+                                key: key,
+                                vkey: validateKey,
+
+                                info: {
+                                    author: "Me",
+                                    created: "10.10.2012"
                                 },
-                                editorConfig: {
-                                    mode: 'edit',
-                                    canBackToFolder: "True" == "True",
 
-                                    lang: "en",
-
-                                    canCoAuthoring: false,
-                                },
-                                events: {
-                                    'onReady': onReady,
-                                    'onBack': onBack,
-                                    'onDocumentStateChange': onDocumentStateChange,
-                                    'onSave': onDocumentSave,
-                                    'onError': onError
+                                permissions: {
+                                    edit: true,
+                                    download: true
                                 }
-                            });
+                            },
+                            editorConfig: {
+                                mode: 'edit',
+                                canBackToFolder: true,
 
-                    },100);
+                                lang: "en",
 
-                    function getXmlHttp() {
-                        var xmlhttp;
-                        try {
-                            xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-                        } catch (e) {
-                            try {
-                                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                            } catch (ex) {
-                                xmlhttp = false;
+                                canCoAuthoring: false,
+
+                                embedded: {
+                                    saveUrl: fileUri,
+                                    embedUrl: fileUri,
+                                    shareUrl: fileUri,
+                                    toolbarDocked: "top"
+                                }
+                            },
+                            events: {
+                                'onReady': onReady,
+                                'onBack': onBack,
+                                'onDocumentStateChange': onDocumentStateChange,
+                                'onSave': onDocumentSave,
+                                'onError': onError
                             }
-                        }
-                        if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-                            xmlhttp = new XMLHttpRequest();
-                        }
-                        return xmlhttp;
-                    }
+                        });
+                };
 
-                    function SaveFileRequest(fileName, fileType, fileUri) {
-                        var req = getXmlHttp();
-                        if (console && console.log) {
-                            req.onreadystatechange = function () {
-                                if (req.readyState == 4) {
-                                    console.log(req.statusText);
-                                    if (req.status == 200) {
-                                        console.log(req.responseText);
-                                    }
+                function getXmlHttp() {
+                    var xmlhttp;
+                    try {
+                        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                    } catch (e) {
+                        try {
+                            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        } catch (ex) {
+                            xmlhttp = false;
+                        }
+                    }
+                    if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+                        xmlhttp = new XMLHttpRequest();
+                    }
+                    return xmlhttp;
+                }
+
+                function SaveFileRequest(fileName, fileType, fileUri) {
+                    var req = getXmlHttp();
+                    if (console && console.log) {
+                        req.onreadystatechange = function () {
+                            if (req.readyState == 4) {
+                                console.log(req.statusText);
+                                if (req.status == 200) {
+                                    console.log(req.responseText);
                                 }
-                            };
-                        }
-
-                        var requestAddress = "webeditor.ashx"
-                            + "?type=save"
-                            + "&filename=" + encodeURIComponent(fileName)
-                            + "&filetype=" + encodeURIComponent(fileType)
-                            + "&fileuri=" + encodeURIComponent(fileUri);
-                        req.open('get', requestAddress, true);
-
-                        req.send(fileUri);
+                            }
+                        };
                     }
-                });
 
+                    var requestAddress = "/office/webeditor.ashx"
+                        + "?type=save"
+                        + "&filename=" + encodeURIComponent(fileName)
+                        + "&filetype=" + encodeURIComponent(fileType)
+                        + "&fileuri=" + encodeURIComponent(fileUri);
+                    req.open('get', requestAddress, true);
+
+                    req.send(fileUri);
+                }
+//console.log(123)
+                TextEditor.getConfig(fileName, function(model){
+                    console.log(model);
+//                    model = JSON.parse(model);
+                    fileUri = model.fileUri;
+                    key = model.key;
+                    validateKey = model.validateKey;
+                    сonnectEditor();
+                });
             }
         }
     });

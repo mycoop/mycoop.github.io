@@ -30,11 +30,10 @@ angular.module('adminApp').
             $rootScope.isWizard = true;
             $state.go('config.profile');
         };
-
         var startTime = (new Date()).setMonth(7);
         User.getLoginHistory(startTime, function (data) {
             $scope.loginHistory = [];
-            _.each(data, function (item) {
+            _.each(data.slice(0,10), function (item) {
                 if(item.user){
                     item.userPermission = getUserPermission(item.user);
                     $scope.loginHistory.push(item);
