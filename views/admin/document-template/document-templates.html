@@ -5,7 +5,7 @@
         <ul rn-carousel rn-carousel-indicator rn-carousel-control rn-carousel-index="selectedSlide"
             style="height: 400px">
             <li slide ng-repeat="template in datasource" active="template.active">
-                <div class="image-slide doc" style="background-image: url('/docs/placeholder_image.png')"></div>
+                <div class="image-slide doc" style="background-image: url('/api{{template.image}}')"></div>
                 <div class="carousel-caption" style="position: initial;">
                     <h4 style="color: #000;">{{template.reference}}</h4>
 
