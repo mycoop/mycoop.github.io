@@ -220,7 +220,7 @@ angular.module('userApp')
         }
     })
     .controller('ClauseCtrl', function($scope){
-
+//        console.log('go t o clause ctrl')
         $scope.groups = [
             {
                 isOpen: false,
