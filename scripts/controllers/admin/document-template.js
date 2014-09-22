@@ -45,7 +45,7 @@ angular.module('adminApp')
         $scope.deleteTemplate = function(){
             Modal.openYesNoModal('Warning!', 'Are you sure want to delete template \"' + $scope.template.name + '\"?', function(){
                 DocumentTemplate.deleteTemplate($scope.template.id, function(){
-                    $state.go('^', {}, {reload: tr});
+                    $state.go('^', {}, {reload: true});
                 }) ;
             });
         };
